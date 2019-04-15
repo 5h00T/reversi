@@ -335,7 +335,9 @@ class AlphaBetaAI(Player):
 
 
 class AlphaBetaSecondAI(Player):
-
+    """
+    終盤では評価関数を自分の石の数を返す評価関数に変更する
+    """
     def __init__(self, depth):
         super().__init__()
         self.depth = depth
@@ -358,7 +360,7 @@ class AlphaBetaSecondAI(Player):
         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(
             _board, turn)
         if black_stones + white_stones > 52:
-            val, y, x = self.alpha_beta_finale(_board, turn, 8)
+            val, y, x = self.final_stage_alpha_beta(_board, turn, 8)
         else:
             val, y, x = self.alpha_beta(_board, turn, self.depth)
 
@@ -426,11 +428,11 @@ class AlphaBetaSecondAI(Player):
 
             return best, best_y, best_x
 
-    def alpha_beta_finale(self, board, player, depth, alpha=-math.inf, beta=math.inf):
+    def final_stage_alpha_beta(self, board, player, depth, alpha=-math.inf, beta=math.inf):
 
         # 葉の場合、評価値を返す
         if depth == 0:
-            val = self.evaluation_function_finale(board, self.player)
+            val = self.final_stage_evaluation_function(board, self.player)
             return val
 
         # 相手の色
@@ -442,7 +444,7 @@ class AlphaBetaSecondAI(Player):
         random.shuffle(legal_move_count_list)
 
         if len(legal_move_count_list) == 0:
-            val = self.evaluation_function_finale(board, self.player)
+            val = self.final_stage_evaluation_function(board, self.player)
             return val
 
         if player == self.player:
@@ -451,7 +453,7 @@ class AlphaBetaSecondAI(Player):
             for y, x, count in legal_move_count_list:
                 _board = copy.deepcopy(board)
                 self.put_stone(_board, y, x, player)
-                min_max_result = self.alpha_beta_finale(_board, opponent, depth - 1, alpha, beta)
+                min_max_result = self.final_stage_alpha_beta(_board, opponent, depth - 1, alpha, beta)
                 if isinstance(min_max_result, int):
                     val = min_max_result
                 else:
@@ -472,7 +474,7 @@ class AlphaBetaSecondAI(Player):
             for y, x, count in legal_move_count_list:
                 _board = copy.deepcopy(board)
                 self.put_stone(_board, y, x, player)
-                min_max_result = self.alpha_beta_finale(_board, opponent, depth - 1, alpha, beta)
+                min_max_result = self.final_stage_alpha_beta(_board, opponent, depth - 1, alpha, beta)
                 if isinstance(min_max_result, int):
                     val = min_max_result
                 else:
@@ -497,7 +499,7 @@ class AlphaBetaSecondAI(Player):
 
         return evaluation
 
-    def evaluation_function_finale(self, board, player):
+    def final_stage_evaluation_function(self, board, player):
         evaluation = 0
         for y in range(1, 9):
             for x in range(1, 9):
@@ -508,7 +510,6 @@ class AlphaBetaSecondAI(Player):
 
 
 class AlphaBetaThirdAI(Player):
-
     def __init__(self, depth):
         super().__init__()
         self.depth = depth
@@ -527,7 +528,7 @@ class AlphaBetaThirdAI(Player):
 
         # 葉の場合、評価値を返す
         if depth == 0:
-            val = self.evaluation_function(board, self.player)
+            val = self.stone_count_evaluation_function(board, self.player)
             return val
 
         # 相手の色
@@ -539,7 +540,7 @@ class AlphaBetaThirdAI(Player):
         random.shuffle(legal_move_count_list)
 
         if len(legal_move_count_list) == 0:
-            val = self.evaluation_function(board, self.player)
+            val = self.stone_count_evaluation_function(board, self.player)
             return val
 
         if player == self.player:
@@ -585,7 +586,7 @@ class AlphaBetaThirdAI(Player):
 
             return best, best_y, best_x
 
-    def evaluation_function(self, board, player):
+    def stone_count_evaluation_function(self, board, player):
         """
         自分の打てる手の数 - 相手の打てる手の数
         :param board:

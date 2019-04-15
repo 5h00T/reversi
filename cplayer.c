@@ -826,7 +826,7 @@ struct __pyx_obj_7cplayer_PrimitiveMonteCarloPlayer;
 struct __pyx_obj_7cplayer_MCTSPlayer;
 struct __pyx_opt_args_7cplayer_11AlphaBetaAI_alpha_beta;
 struct __pyx_opt_args_7cplayer_17AlphaBetaSecondAI_alpha_beta;
-struct __pyx_opt_args_7cplayer_17AlphaBetaSecondAI_alpha_beta_finale;
+struct __pyx_opt_args_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta;
 struct __pyx_opt_args_7cplayer_16AlphaBetaThirdAI_alpha_beta;
 
 /* "cplayer.pyx":266
@@ -858,11 +858,11 @@ struct __pyx_opt_args_7cplayer_17AlphaBetaSecondAI_alpha_beta {
 /* "cplayer.pyx":452
  * 
  *     @cython.nonecheck(False)
- *     cdef alpha_beta_finale(self, list board, int player, int depth, alpha=-math.inf, beta=math.inf):             # <<<<<<<<<<<<<<
+ *     cdef final_stage_alpha_beta(self, list board, int player, int depth, alpha=-math.inf, beta=math.inf):             # <<<<<<<<<<<<<<
  *         cdef list legal_move_count_list
  *         cdef int black_stones
  */
-struct __pyx_opt_args_7cplayer_17AlphaBetaSecondAI_alpha_beta_finale {
+struct __pyx_opt_args_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta {
   int __pyx_n;
   PyObject *alpha;
   PyObject *beta;
@@ -1106,9 +1106,9 @@ static struct __pyx_vtabstruct_7cplayer_AlphaBetaAI *__pyx_vtabptr_7cplayer_Alph
 struct __pyx_vtabstruct_7cplayer_AlphaBetaSecondAI {
   struct __pyx_vtabstruct_7cplayer_Player __pyx_base;
   PyObject *(*alpha_beta)(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *, PyObject *, int, int, struct __pyx_opt_args_7cplayer_17AlphaBetaSecondAI_alpha_beta *__pyx_optional_args);
-  PyObject *(*alpha_beta_finale)(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *, PyObject *, int, int, struct __pyx_opt_args_7cplayer_17AlphaBetaSecondAI_alpha_beta_finale *__pyx_optional_args);
+  PyObject *(*final_stage_alpha_beta)(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *, PyObject *, int, int, struct __pyx_opt_args_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta *__pyx_optional_args);
   int (*evaluation_function)(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *, PyObject *, int);
-  int (*evaluation_function_finale)(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *, PyObject *, int);
+  int (*final_stage_evaluation_function)(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *, PyObject *, int);
 };
 static struct __pyx_vtabstruct_7cplayer_AlphaBetaSecondAI *__pyx_vtabptr_7cplayer_AlphaBetaSecondAI;
 
@@ -1661,9 +1661,9 @@ static int __pyx_f_7cplayer_8MinMaxAI_evaluation_function(struct __pyx_obj_7cpla
 static PyObject *__pyx_f_7cplayer_11AlphaBetaAI_alpha_beta(struct __pyx_obj_7cplayer_AlphaBetaAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player, int __pyx_v_depth, struct __pyx_opt_args_7cplayer_11AlphaBetaAI_alpha_beta *__pyx_optional_args); /* proto*/
 static int __pyx_f_7cplayer_11AlphaBetaAI_evaluation_function(struct __pyx_obj_7cplayer_AlphaBetaAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player); /* proto*/
 static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player, int __pyx_v_depth, struct __pyx_opt_args_7cplayer_17AlphaBetaSecondAI_alpha_beta *__pyx_optional_args); /* proto*/
-static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta_finale(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player, int __pyx_v_depth, struct __pyx_opt_args_7cplayer_17AlphaBetaSecondAI_alpha_beta_finale *__pyx_optional_args); /* proto*/
+static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player, int __pyx_v_depth, struct __pyx_opt_args_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta *__pyx_optional_args); /* proto*/
 static int __pyx_f_7cplayer_17AlphaBetaSecondAI_evaluation_function(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player); /* proto*/
-static int __pyx_f_7cplayer_17AlphaBetaSecondAI_evaluation_function_finale(CYTHON_UNUSED struct __pyx_obj_7cplayer_AlphaBetaSecondAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player); /* proto*/
+static int __pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_evaluation_function(CYTHON_UNUSED struct __pyx_obj_7cplayer_AlphaBetaSecondAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player); /* proto*/
 static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj_7cplayer_AlphaBetaThirdAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player, int __pyx_v_depth, struct __pyx_opt_args_7cplayer_16AlphaBetaThirdAI_alpha_beta *__pyx_optional_args); /* proto*/
 static int __pyx_f_7cplayer_16AlphaBetaThirdAI_evaluation_function(struct __pyx_obj_7cplayer_AlphaBetaThirdAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player); /* proto*/
 static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecarlo(struct __pyx_obj_7cplayer_PrimitiveMonteCarloPlayer *__pyx_v_self, int __pyx_v_turn, struct __pyx_obj_7cplayer_node *__pyx_v_tree); /* proto*/
@@ -9458,7 +9458,7 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_2thinking(struct __pyx_ob
  *         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(
  *             _board, turn)             # <<<<<<<<<<<<<<
  *         if black_stones + white_stones > 52:
- *             val, y, x = self.alpha_beta_finale(_board, turn, 8)
+ *             val, y, x = self.final_stage_alpha_beta(_board, turn, 8)
  */
   __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_v_turn); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 375, __pyx_L1_error)
 
@@ -9512,7 +9512,7 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_2thinking(struct __pyx_ob
  *         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(
  *             _board, turn)
  *         if black_stones + white_stones > 52:             # <<<<<<<<<<<<<<
- *             val, y, x = self.alpha_beta_finale(_board, turn, 8)
+ *             val, y, x = self.final_stage_alpha_beta(_board, turn, 8)
  *         else:
  */
   __pyx_t_11 = (((__pyx_v_black_stones + __pyx_v_white_stones) > 52) != 0);
@@ -9521,12 +9521,12 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_2thinking(struct __pyx_ob
     /* "cplayer.pyx":377
  *             _board, turn)
  *         if black_stones + white_stones > 52:
- *             val, y, x = self.alpha_beta_finale(_board, turn, 8)             # <<<<<<<<<<<<<<
+ *             val, y, x = self.final_stage_alpha_beta(_board, turn, 8)             # <<<<<<<<<<<<<<
  *         else:
  *             val, y, x = self.alpha_beta(_board, turn, self.depth)
  */
     __pyx_t_10 = __Pyx_PyInt_As_int(__pyx_v_turn); if (unlikely((__pyx_t_10 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 377, __pyx_L1_error)
-    __pyx_t_2 = ((struct __pyx_vtabstruct_7cplayer_AlphaBetaSecondAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->alpha_beta_finale(__pyx_v_self, __pyx_v__board, __pyx_t_10, 8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 377, __pyx_L1_error)
+    __pyx_t_2 = ((struct __pyx_vtabstruct_7cplayer_AlphaBetaSecondAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->final_stage_alpha_beta(__pyx_v_self, __pyx_v__board, __pyx_t_10, 8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 377, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     if ((likely(PyTuple_CheckExact(__pyx_t_2))) || (PyList_CheckExact(__pyx_t_2))) {
       PyObject* sequence = __pyx_t_2;
@@ -9595,14 +9595,14 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_2thinking(struct __pyx_ob
  *         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(
  *             _board, turn)
  *         if black_stones + white_stones > 52:             # <<<<<<<<<<<<<<
- *             val, y, x = self.alpha_beta_finale(_board, turn, 8)
+ *             val, y, x = self.final_stage_alpha_beta(_board, turn, 8)
  *         else:
  */
     goto __pyx_L9;
   }
 
   /* "cplayer.pyx":379
- *             val, y, x = self.alpha_beta_finale(_board, turn, 8)
+ *             val, y, x = self.final_stage_alpha_beta(_board, turn, 8)
  *         else:
  *             val, y, x = self.alpha_beta(_board, turn, self.depth)             # <<<<<<<<<<<<<<
  * 
@@ -10769,12 +10769,12 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
 /* "cplayer.pyx":452
  * 
  *     @cython.nonecheck(False)
- *     cdef alpha_beta_finale(self, list board, int player, int depth, alpha=-math.inf, beta=math.inf):             # <<<<<<<<<<<<<<
+ *     cdef final_stage_alpha_beta(self, list board, int player, int depth, alpha=-math.inf, beta=math.inf):             # <<<<<<<<<<<<<<
  *         cdef list legal_move_count_list
  *         cdef int black_stones
  */
 
-static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta_finale(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player, int __pyx_v_depth, struct __pyx_opt_args_7cplayer_17AlphaBetaSecondAI_alpha_beta_finale *__pyx_optional_args) {
+static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player, int __pyx_v_depth, struct __pyx_opt_args_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta *__pyx_optional_args) {
   PyObject *__pyx_v_alpha = __pyx_k__11;
   PyObject *__pyx_v_beta = __pyx_k__12;
   PyObject *__pyx_v_legal_move_count_list = 0;
@@ -10803,9 +10803,9 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta_finale(struct _
   PyObject *__pyx_t_9 = NULL;
   PyObject *__pyx_t_10 = NULL;
   PyObject *(*__pyx_t_11)(PyObject *);
-  struct __pyx_opt_args_7cplayer_17AlphaBetaSecondAI_alpha_beta_finale __pyx_t_12;
+  struct __pyx_opt_args_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta __pyx_t_12;
   int __pyx_t_13;
-  __Pyx_RefNannySetupContext("alpha_beta_finale", 0);
+  __Pyx_RefNannySetupContext("final_stage_alpha_beta", 0);
   if (__pyx_optional_args) {
     if (__pyx_optional_args->__pyx_n > 0) {
       __pyx_v_alpha = __pyx_optional_args->alpha;
@@ -10821,7 +10821,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta_finale(struct _
  * 
  *         #
  *         if depth == 0:             # <<<<<<<<<<<<<<
- *             val = self.evaluation_function_finale(board, self.player)
+ *             val = self.final_stage_evaluation_function(board, self.player)
  *             return val
  */
   __pyx_t_1 = ((__pyx_v_depth == 0) != 0);
@@ -10830,15 +10830,15 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta_finale(struct _
     /* "cplayer.pyx":461
  *         #
  *         if depth == 0:
- *             val = self.evaluation_function_finale(board, self.player)             # <<<<<<<<<<<<<<
+ *             val = self.final_stage_evaluation_function(board, self.player)             # <<<<<<<<<<<<<<
  *             return val
  * 
  */
-    __pyx_v_val = ((struct __pyx_vtabstruct_7cplayer_AlphaBetaSecondAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->evaluation_function_finale(__pyx_v_self, __pyx_v_board, __pyx_v_self->__pyx_base.player);
+    __pyx_v_val = ((struct __pyx_vtabstruct_7cplayer_AlphaBetaSecondAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->final_stage_evaluation_function(__pyx_v_self, __pyx_v_board, __pyx_v_self->__pyx_base.player);
 
     /* "cplayer.pyx":462
  *         if depth == 0:
- *             val = self.evaluation_function_finale(board, self.player)
+ *             val = self.final_stage_evaluation_function(board, self.player)
  *             return val             # <<<<<<<<<<<<<<
  * 
  *         #
@@ -10854,7 +10854,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta_finale(struct _
  * 
  *         #
  *         if depth == 0:             # <<<<<<<<<<<<<<
- *             val = self.evaluation_function_finale(board, self.player)
+ *             val = self.final_stage_evaluation_function(board, self.player)
  *             return val
  */
   }
@@ -10969,7 +10969,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta_finale(struct _
  *         random.shuffle(legal_move_count_list)
  * 
  *         if len(legal_move_count_list) == 0:             # <<<<<<<<<<<<<<
- *             val = self.evaluation_function_finale(board, self.player)
+ *             val = self.final_stage_evaluation_function(board, self.player)
  *             return val
  */
   if (unlikely(__pyx_v_legal_move_count_list == Py_None)) {
@@ -10983,15 +10983,15 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta_finale(struct _
     /* "cplayer.pyx":473
  * 
  *         if len(legal_move_count_list) == 0:
- *             val = self.evaluation_function_finale(board, self.player)             # <<<<<<<<<<<<<<
+ *             val = self.final_stage_evaluation_function(board, self.player)             # <<<<<<<<<<<<<<
  *             return val
  * 
  */
-    __pyx_v_val = ((struct __pyx_vtabstruct_7cplayer_AlphaBetaSecondAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->evaluation_function_finale(__pyx_v_self, __pyx_v_board, __pyx_v_self->__pyx_base.player);
+    __pyx_v_val = ((struct __pyx_vtabstruct_7cplayer_AlphaBetaSecondAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->final_stage_evaluation_function(__pyx_v_self, __pyx_v_board, __pyx_v_self->__pyx_base.player);
 
     /* "cplayer.pyx":474
  *         if len(legal_move_count_list) == 0:
- *             val = self.evaluation_function_finale(board, self.player)
+ *             val = self.final_stage_evaluation_function(board, self.player)
  *             return val             # <<<<<<<<<<<<<<
  * 
  *         if player == self.player:
@@ -11007,7 +11007,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta_finale(struct _
  *         random.shuffle(legal_move_count_list)
  * 
  *         if len(legal_move_count_list) == 0:             # <<<<<<<<<<<<<<
- *             val = self.evaluation_function_finale(board, self.player)
+ *             val = self.final_stage_evaluation_function(board, self.player)
  *             return val
  */
   }
@@ -11137,7 +11137,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta_finale(struct _
  *             for y, x, count in legal_move_count_list:
  *                 _board = copy.deepcopy(board)             # <<<<<<<<<<<<<<
  *                 self.put_stone(_board, y, x, player)
- *                 min_max_result = self.alpha_beta_finale(_board, opponent, depth - 1, alpha, beta)
+ *                 min_max_result = self.final_stage_alpha_beta(_board, opponent, depth - 1, alpha, beta)
  */
       __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_copy); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 480, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
@@ -11167,7 +11167,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta_finale(struct _
  *             for y, x, count in legal_move_count_list:
  *                 _board = copy.deepcopy(board)
  *                 self.put_stone(_board, y, x, player)             # <<<<<<<<<<<<<<
- *                 min_max_result = self.alpha_beta_finale(_board, opponent, depth - 1, alpha, beta)
+ *                 min_max_result = self.final_stage_alpha_beta(_board, opponent, depth - 1, alpha, beta)
  *                 if isinstance(min_max_result, int):
  */
       __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_v_y); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 481, __pyx_L1_error)
@@ -11177,21 +11177,21 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta_finale(struct _
       /* "cplayer.pyx":482
  *                 _board = copy.deepcopy(board)
  *                 self.put_stone(_board, y, x, player)
- *                 min_max_result = self.alpha_beta_finale(_board, opponent, depth - 1, alpha, beta)             # <<<<<<<<<<<<<<
+ *                 min_max_result = self.final_stage_alpha_beta(_board, opponent, depth - 1, alpha, beta)             # <<<<<<<<<<<<<<
  *                 if isinstance(min_max_result, int):
  *                     val = min_max_result
  */
       __pyx_t_12.__pyx_n = 2;
       __pyx_t_12.alpha = __pyx_v_alpha;
       __pyx_t_12.beta = __pyx_v_beta;
-      __pyx_t_2 = ((struct __pyx_vtabstruct_7cplayer_AlphaBetaSecondAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->alpha_beta_finale(__pyx_v_self, __pyx_v__board, __pyx_v_opponent, (__pyx_v_depth - 1), &__pyx_t_12); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 482, __pyx_L1_error)
+      __pyx_t_2 = ((struct __pyx_vtabstruct_7cplayer_AlphaBetaSecondAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->final_stage_alpha_beta(__pyx_v_self, __pyx_v__board, __pyx_v_opponent, (__pyx_v_depth - 1), &__pyx_t_12); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 482, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_XDECREF_SET(__pyx_v_min_max_result, __pyx_t_2);
       __pyx_t_2 = 0;
 
       /* "cplayer.pyx":483
  *                 self.put_stone(_board, y, x, player)
- *                 min_max_result = self.alpha_beta_finale(_board, opponent, depth - 1, alpha, beta)
+ *                 min_max_result = self.final_stage_alpha_beta(_board, opponent, depth - 1, alpha, beta)
  *                 if isinstance(min_max_result, int):             # <<<<<<<<<<<<<<
  *                     val = min_max_result
  *                 else:
@@ -11201,7 +11201,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta_finale(struct _
       if (__pyx_t_13) {
 
         /* "cplayer.pyx":484
- *                 min_max_result = self.alpha_beta_finale(_board, opponent, depth - 1, alpha, beta)
+ *                 min_max_result = self.final_stage_alpha_beta(_board, opponent, depth - 1, alpha, beta)
  *                 if isinstance(min_max_result, int):
  *                     val = min_max_result             # <<<<<<<<<<<<<<
  *                 else:
@@ -11212,7 +11212,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta_finale(struct _
 
         /* "cplayer.pyx":483
  *                 self.put_stone(_board, y, x, player)
- *                 min_max_result = self.alpha_beta_finale(_board, opponent, depth - 1, alpha, beta)
+ *                 min_max_result = self.final_stage_alpha_beta(_board, opponent, depth - 1, alpha, beta)
  *                 if isinstance(min_max_result, int):             # <<<<<<<<<<<<<<
  *                     val = min_max_result
  *                 else:
@@ -11513,7 +11513,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta_finale(struct _
  *             for y, x, count in legal_move_count_list:
  *                 _board = copy.deepcopy(board)             # <<<<<<<<<<<<<<
  *                 self.put_stone(_board, y, x, player)
- *                 min_max_result = self.alpha_beta_finale(_board, opponent, depth - 1, alpha, beta)
+ *                 min_max_result = self.final_stage_alpha_beta(_board, opponent, depth - 1, alpha, beta)
  */
       __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_copy); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 501, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
@@ -11543,7 +11543,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta_finale(struct _
  *             for y, x, count in legal_move_count_list:
  *                 _board = copy.deepcopy(board)
  *                 self.put_stone(_board, y, x, player)             # <<<<<<<<<<<<<<
- *                 min_max_result = self.alpha_beta_finale(_board, opponent, depth - 1, alpha, beta)
+ *                 min_max_result = self.final_stage_alpha_beta(_board, opponent, depth - 1, alpha, beta)
  *                 if isinstance(min_max_result, int):
  */
       __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_y); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 502, __pyx_L1_error)
@@ -11553,21 +11553,21 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta_finale(struct _
       /* "cplayer.pyx":503
  *                 _board = copy.deepcopy(board)
  *                 self.put_stone(_board, y, x, player)
- *                 min_max_result = self.alpha_beta_finale(_board, opponent, depth - 1, alpha, beta)             # <<<<<<<<<<<<<<
+ *                 min_max_result = self.final_stage_alpha_beta(_board, opponent, depth - 1, alpha, beta)             # <<<<<<<<<<<<<<
  *                 if isinstance(min_max_result, int):
  *                     val = min_max_result
  */
       __pyx_t_12.__pyx_n = 2;
       __pyx_t_12.alpha = __pyx_v_alpha;
       __pyx_t_12.beta = __pyx_v_beta;
-      __pyx_t_5 = ((struct __pyx_vtabstruct_7cplayer_AlphaBetaSecondAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->alpha_beta_finale(__pyx_v_self, __pyx_v__board, __pyx_v_opponent, (__pyx_v_depth - 1), &__pyx_t_12); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 503, __pyx_L1_error)
+      __pyx_t_5 = ((struct __pyx_vtabstruct_7cplayer_AlphaBetaSecondAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->final_stage_alpha_beta(__pyx_v_self, __pyx_v__board, __pyx_v_opponent, (__pyx_v_depth - 1), &__pyx_t_12); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 503, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_XDECREF_SET(__pyx_v_min_max_result, __pyx_t_5);
       __pyx_t_5 = 0;
 
       /* "cplayer.pyx":504
  *                 self.put_stone(_board, y, x, player)
- *                 min_max_result = self.alpha_beta_finale(_board, opponent, depth - 1, alpha, beta)
+ *                 min_max_result = self.final_stage_alpha_beta(_board, opponent, depth - 1, alpha, beta)
  *                 if isinstance(min_max_result, int):             # <<<<<<<<<<<<<<
  *                     val = min_max_result
  *                 else:
@@ -11577,7 +11577,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta_finale(struct _
       if (__pyx_t_1) {
 
         /* "cplayer.pyx":505
- *                 min_max_result = self.alpha_beta_finale(_board, opponent, depth - 1, alpha, beta)
+ *                 min_max_result = self.final_stage_alpha_beta(_board, opponent, depth - 1, alpha, beta)
  *                 if isinstance(min_max_result, int):
  *                     val = min_max_result             # <<<<<<<<<<<<<<
  *                 else:
@@ -11588,7 +11588,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta_finale(struct _
 
         /* "cplayer.pyx":504
  *                 self.put_stone(_board, y, x, player)
- *                 min_max_result = self.alpha_beta_finale(_board, opponent, depth - 1, alpha, beta)
+ *                 min_max_result = self.final_stage_alpha_beta(_board, opponent, depth - 1, alpha, beta)
  *                 if isinstance(min_max_result, int):             # <<<<<<<<<<<<<<
  *                     val = min_max_result
  *                 else:
@@ -11770,7 +11770,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta_finale(struct _
   /* "cplayer.pyx":452
  * 
  *     @cython.nonecheck(False)
- *     cdef alpha_beta_finale(self, list board, int player, int depth, alpha=-math.inf, beta=math.inf):             # <<<<<<<<<<<<<<
+ *     cdef final_stage_alpha_beta(self, list board, int player, int depth, alpha=-math.inf, beta=math.inf):             # <<<<<<<<<<<<<<
  *         cdef list legal_move_count_list
  *         cdef int black_stones
  */
@@ -11785,7 +11785,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta_finale(struct _
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_9);
   __Pyx_XDECREF(__pyx_t_10);
-  __Pyx_AddTraceback("cplayer.AlphaBetaSecondAI.alpha_beta_finale", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cplayer.AlphaBetaSecondAI.final_stage_alpha_beta", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_legal_move_count_list);
@@ -11967,12 +11967,12 @@ static int __pyx_f_7cplayer_17AlphaBetaSecondAI_evaluation_function(struct __pyx
 /* "cplayer.pyx":530
  * 
  *     @cython.nonecheck(False)
- *     cdef int evaluation_function_finale(self, list board, int player):             # <<<<<<<<<<<<<<
+ *     cdef int final_stage_evaluation_function(self, list board, int player):             # <<<<<<<<<<<<<<
  *         cdef int evaluation = 0
  *         for y in range(1, 9):
  */
 
-static int __pyx_f_7cplayer_17AlphaBetaSecondAI_evaluation_function_finale(CYTHON_UNUSED struct __pyx_obj_7cplayer_AlphaBetaSecondAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player) {
+static int __pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_evaluation_function(CYTHON_UNUSED struct __pyx_obj_7cplayer_AlphaBetaSecondAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player) {
   int __pyx_v_evaluation;
   long __pyx_v_y;
   long __pyx_v_x;
@@ -11984,11 +11984,11 @@ static int __pyx_f_7cplayer_17AlphaBetaSecondAI_evaluation_function_finale(CYTHO
   PyObject *__pyx_t_4 = NULL;
   PyObject *__pyx_t_5 = NULL;
   int __pyx_t_6;
-  __Pyx_RefNannySetupContext("evaluation_function_finale", 0);
+  __Pyx_RefNannySetupContext("final_stage_evaluation_function", 0);
 
   /* "cplayer.pyx":531
  *     @cython.nonecheck(False)
- *     cdef int evaluation_function_finale(self, list board, int player):
+ *     cdef int final_stage_evaluation_function(self, list board, int player):
  *         cdef int evaluation = 0             # <<<<<<<<<<<<<<
  *         for y in range(1, 9):
  *             for x in range(1, 9):
@@ -11996,7 +11996,7 @@ static int __pyx_f_7cplayer_17AlphaBetaSecondAI_evaluation_function_finale(CYTHO
   __pyx_v_evaluation = 0;
 
   /* "cplayer.pyx":532
- *     cdef int evaluation_function_finale(self, list board, int player):
+ *     cdef int final_stage_evaluation_function(self, list board, int player):
  *         cdef int evaluation = 0
  *         for y in range(1, 9):             # <<<<<<<<<<<<<<
  *             for x in range(1, 9):
@@ -12073,7 +12073,7 @@ static int __pyx_f_7cplayer_17AlphaBetaSecondAI_evaluation_function_finale(CYTHO
   /* "cplayer.pyx":530
  * 
  *     @cython.nonecheck(False)
- *     cdef int evaluation_function_finale(self, list board, int player):             # <<<<<<<<<<<<<<
+ *     cdef int final_stage_evaluation_function(self, list board, int player):             # <<<<<<<<<<<<<<
  *         cdef int evaluation = 0
  *         for y in range(1, 9):
  */
@@ -12083,7 +12083,7 @@ static int __pyx_f_7cplayer_17AlphaBetaSecondAI_evaluation_function_finale(CYTHO
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_WriteUnraisable("cplayer.AlphaBetaSecondAI.evaluation_function_finale", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("cplayer.AlphaBetaSecondAI.final_stage_evaluation_function", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -28061,9 +28061,9 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_vtabptr_7cplayer_AlphaBetaSecondAI = &__pyx_vtable_7cplayer_AlphaBetaSecondAI;
   __pyx_vtable_7cplayer_AlphaBetaSecondAI.__pyx_base = *__pyx_vtabptr_7cplayer_Player;
   __pyx_vtable_7cplayer_AlphaBetaSecondAI.alpha_beta = (PyObject *(*)(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *, PyObject *, int, int, struct __pyx_opt_args_7cplayer_17AlphaBetaSecondAI_alpha_beta *__pyx_optional_args))__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta;
-  __pyx_vtable_7cplayer_AlphaBetaSecondAI.alpha_beta_finale = (PyObject *(*)(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *, PyObject *, int, int, struct __pyx_opt_args_7cplayer_17AlphaBetaSecondAI_alpha_beta_finale *__pyx_optional_args))__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta_finale;
+  __pyx_vtable_7cplayer_AlphaBetaSecondAI.final_stage_alpha_beta = (PyObject *(*)(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *, PyObject *, int, int, struct __pyx_opt_args_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta *__pyx_optional_args))__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta;
   __pyx_vtable_7cplayer_AlphaBetaSecondAI.evaluation_function = (int (*)(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *, PyObject *, int))__pyx_f_7cplayer_17AlphaBetaSecondAI_evaluation_function;
-  __pyx_vtable_7cplayer_AlphaBetaSecondAI.evaluation_function_finale = (int (*)(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *, PyObject *, int))__pyx_f_7cplayer_17AlphaBetaSecondAI_evaluation_function_finale;
+  __pyx_vtable_7cplayer_AlphaBetaSecondAI.final_stage_evaluation_function = (int (*)(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *, PyObject *, int))__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_evaluation_function;
   __pyx_type_7cplayer_AlphaBetaSecondAI.tp_base = __pyx_ptype_7cplayer_Player;
   if (PyType_Ready(&__pyx_type_7cplayer_AlphaBetaSecondAI) < 0) __PYX_ERR(0, 344, __pyx_L1_error)
   __pyx_type_7cplayer_AlphaBetaSecondAI.tp_print = 0;
@@ -28529,7 +28529,7 @@ if (!__Pyx_RefNanny) {
   /* "cplayer.pyx":452
  * 
  *     @cython.nonecheck(False)
- *     cdef alpha_beta_finale(self, list board, int player, int depth, alpha=-math.inf, beta=math.inf):             # <<<<<<<<<<<<<<
+ *     cdef final_stage_alpha_beta(self, list board, int player, int depth, alpha=-math.inf, beta=math.inf):             # <<<<<<<<<<<<<<
  *         cdef list legal_move_count_list
  *         cdef int black_stones
  */

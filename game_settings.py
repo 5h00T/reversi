@@ -4,7 +4,7 @@ import player
 import cplayer
 
 
-AI_TYPE = cplayer.RandomChoiceAI()
+AI_TYPE = player.RandomChoiceAI(0)
 
 
 class GameSettings():
