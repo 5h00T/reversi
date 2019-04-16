@@ -334,7 +334,7 @@ class AlphaBetaAI(Player):
         return evaluation
 
 
-class AlphaBetaSecondAI(Player):
+class SwitchTacticsAlphaBetaAI(Player):
     """
     終盤では評価関数を自分の石の数を返す評価関数に変更する
     """
@@ -349,6 +349,7 @@ class AlphaBetaSecondAI(Player):
                            (10, -5, 5, 3, 3, 5, -5, 10),
                            (-20, -30, -5, -5, -5, -5, -30, -20),
                            (50, -20, 10, 5, 5, 10, -20, 50))
+        self.switch_threshold = 52
 
     def thinking(self, board, turn):
         super().thinking(board, turn)
@@ -359,7 +360,7 @@ class AlphaBetaSecondAI(Player):
 
         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(
             _board, turn)
-        if black_stones + white_stones > 52:
+        if black_stones + white_stones > self.switch_threshold:
             val, y, x = self.final_stage_alpha_beta(_board, turn, 8)
         else:
             val, y, x = self.alpha_beta(_board, turn, self.depth)
@@ -509,7 +510,7 @@ class AlphaBetaSecondAI(Player):
         return evaluation
 
 
-class AlphaBetaThirdAI(Player):
+class CountMovesAlphaBetaAI(Player):
     def __init__(self, depth):
         super().__init__()
         self.depth = depth
