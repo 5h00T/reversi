@@ -341,9 +341,10 @@ cdef class AlphaBetaAI(Player):
         return evaluation
 
 
-cdef class AlphaBetaSecondAI(Player):
+cdef class SwitchTacticsAlphaBetaAI(Player):
     cdef int depth
     cdef tuple board_gain
+    cdef int switch_threshold
 
     @cython.nonecheck(False)
     def __init__(self, int depth):
@@ -357,6 +358,7 @@ cdef class AlphaBetaSecondAI(Player):
                            (10, -5, 5, 3, 3, 5, -5, 10),
                            (-20, -30, -5, -5, -5, -5, -30, -20),
                            (50, -20, 10, 5, 5, 10, -20, 50))
+        self.switch_threshold = 52
 
     @cython.nonecheck(False)
     def thinking(self, board, turn):
@@ -373,7 +375,7 @@ cdef class AlphaBetaSecondAI(Player):
 
         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(
             _board, turn)
-        if black_stones + white_stones > 52:
+        if black_stones + white_stones > self.switch_threshold:
             val, y, x = self.final_stage_alpha_beta(_board, turn, 8)
         else:
             val, y, x = self.alpha_beta(_board, turn, self.depth)
@@ -537,7 +539,7 @@ cdef class AlphaBetaSecondAI(Player):
         return evaluation
 
 
-cdef class AlphaBetaThirdAI(Player):
+cdef class CountMovesAlphaBetaAI(Player):
 
     cdef int depth
 

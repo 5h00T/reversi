@@ -819,15 +819,15 @@ struct __pyx_obj_7cplayer_Player;
 struct __pyx_obj_7cplayer_RandomChoiceAI;
 struct __pyx_obj_7cplayer_MinMaxAI;
 struct __pyx_obj_7cplayer_AlphaBetaAI;
-struct __pyx_obj_7cplayer_AlphaBetaSecondAI;
-struct __pyx_obj_7cplayer_AlphaBetaThirdAI;
+struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI;
+struct __pyx_obj_7cplayer_CountMovesAlphaBetaAI;
 struct __pyx_obj_7cplayer_node;
 struct __pyx_obj_7cplayer_PrimitiveMonteCarloPlayer;
 struct __pyx_obj_7cplayer_MCTSPlayer;
 struct __pyx_opt_args_7cplayer_11AlphaBetaAI_alpha_beta;
-struct __pyx_opt_args_7cplayer_17AlphaBetaSecondAI_alpha_beta;
-struct __pyx_opt_args_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta;
-struct __pyx_opt_args_7cplayer_16AlphaBetaThirdAI_alpha_beta;
+struct __pyx_opt_args_7cplayer_24SwitchTacticsAlphaBetaAI_alpha_beta;
+struct __pyx_opt_args_7cplayer_24SwitchTacticsAlphaBetaAI_final_stage_alpha_beta;
+struct __pyx_opt_args_7cplayer_21CountMovesAlphaBetaAI_alpha_beta;
 
 /* "cplayer.pyx":266
  * 
@@ -842,40 +842,40 @@ struct __pyx_opt_args_7cplayer_11AlphaBetaAI_alpha_beta {
   PyObject *beta;
 };
 
-/* "cplayer.pyx":384
+/* "cplayer.pyx":386
  * 
  *     @cython.nonecheck(False)
  *     cdef alpha_beta(self, list board, int player, int depth, alpha=-math.inf, beta=math.inf):             # <<<<<<<<<<<<<<
  *         cdef list legal_move_count_list
  *         cdef int black_stones
  */
-struct __pyx_opt_args_7cplayer_17AlphaBetaSecondAI_alpha_beta {
+struct __pyx_opt_args_7cplayer_24SwitchTacticsAlphaBetaAI_alpha_beta {
   int __pyx_n;
   PyObject *alpha;
   PyObject *beta;
 };
 
-/* "cplayer.pyx":452
+/* "cplayer.pyx":454
  * 
  *     @cython.nonecheck(False)
  *     cdef final_stage_alpha_beta(self, list board, int player, int depth, alpha=-math.inf, beta=math.inf):             # <<<<<<<<<<<<<<
  *         cdef list legal_move_count_list
  *         cdef int black_stones
  */
-struct __pyx_opt_args_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta {
+struct __pyx_opt_args_7cplayer_24SwitchTacticsAlphaBetaAI_final_stage_alpha_beta {
   int __pyx_n;
   PyObject *alpha;
   PyObject *beta;
 };
 
-/* "cplayer.pyx":562
+/* "cplayer.pyx":564
  * 
  *     @cython.nonecheck(False)
  *     cdef alpha_beta(self, list board, int player, int depth, alpha=-math.inf, beta=math.inf):             # <<<<<<<<<<<<<<
  *         cdef list legal_move_count_list
  *         cdef int black_stones
  */
-struct __pyx_opt_args_7cplayer_16AlphaBetaThirdAI_alpha_beta {
+struct __pyx_opt_args_7cplayer_21CountMovesAlphaBetaAI_alpha_beta {
   int __pyx_n;
   PyObject *alpha;
   PyObject *beta;
@@ -962,31 +962,32 @@ struct __pyx_obj_7cplayer_AlphaBetaAI {
 /* "cplayer.pyx":344
  * 
  * 
- * cdef class AlphaBetaSecondAI(Player):             # <<<<<<<<<<<<<<
+ * cdef class SwitchTacticsAlphaBetaAI(Player):             # <<<<<<<<<<<<<<
  *     cdef int depth
  *     cdef tuple board_gain
  */
-struct __pyx_obj_7cplayer_AlphaBetaSecondAI {
+struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI {
   struct __pyx_obj_7cplayer_Player __pyx_base;
   int depth;
   PyObject *board_gain;
+  int switch_threshold;
 };
 
 
-/* "cplayer.pyx":540
+/* "cplayer.pyx":542
  * 
  * 
- * cdef class AlphaBetaThirdAI(Player):             # <<<<<<<<<<<<<<
+ * cdef class CountMovesAlphaBetaAI(Player):             # <<<<<<<<<<<<<<
  * 
  *     cdef int depth
  */
-struct __pyx_obj_7cplayer_AlphaBetaThirdAI {
+struct __pyx_obj_7cplayer_CountMovesAlphaBetaAI {
   struct __pyx_obj_7cplayer_Player __pyx_base;
   int depth;
 };
 
 
-/* "cplayer.pyx":648
+/* "cplayer.pyx":650
  * 
  * 
  * cdef class node():             # <<<<<<<<<<<<<<
@@ -1003,7 +1004,7 @@ struct __pyx_obj_7cplayer_node {
 };
 
 
-/* "cplayer.pyx":662
+/* "cplayer.pyx":664
  * 
  * 
  * cdef class PrimitiveMonteCarloPlayer(Player):             # <<<<<<<<<<<<<<
@@ -1016,7 +1017,7 @@ struct __pyx_obj_7cplayer_PrimitiveMonteCarloPlayer {
 };
 
 
-/* "cplayer.pyx":840
+/* "cplayer.pyx":842
  * 
  * 
  * cdef class MCTSPlayer(Player):             # <<<<<<<<<<<<<<
@@ -1098,38 +1099,38 @@ static struct __pyx_vtabstruct_7cplayer_AlphaBetaAI *__pyx_vtabptr_7cplayer_Alph
 /* "cplayer.pyx":344
  * 
  * 
- * cdef class AlphaBetaSecondAI(Player):             # <<<<<<<<<<<<<<
+ * cdef class SwitchTacticsAlphaBetaAI(Player):             # <<<<<<<<<<<<<<
  *     cdef int depth
  *     cdef tuple board_gain
  */
 
-struct __pyx_vtabstruct_7cplayer_AlphaBetaSecondAI {
+struct __pyx_vtabstruct_7cplayer_SwitchTacticsAlphaBetaAI {
   struct __pyx_vtabstruct_7cplayer_Player __pyx_base;
-  PyObject *(*alpha_beta)(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *, PyObject *, int, int, struct __pyx_opt_args_7cplayer_17AlphaBetaSecondAI_alpha_beta *__pyx_optional_args);
-  PyObject *(*final_stage_alpha_beta)(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *, PyObject *, int, int, struct __pyx_opt_args_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta *__pyx_optional_args);
-  int (*evaluation_function)(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *, PyObject *, int);
-  int (*final_stage_evaluation_function)(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *, PyObject *, int);
+  PyObject *(*alpha_beta)(struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *, PyObject *, int, int, struct __pyx_opt_args_7cplayer_24SwitchTacticsAlphaBetaAI_alpha_beta *__pyx_optional_args);
+  PyObject *(*final_stage_alpha_beta)(struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *, PyObject *, int, int, struct __pyx_opt_args_7cplayer_24SwitchTacticsAlphaBetaAI_final_stage_alpha_beta *__pyx_optional_args);
+  int (*evaluation_function)(struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *, PyObject *, int);
+  int (*final_stage_evaluation_function)(struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *, PyObject *, int);
 };
-static struct __pyx_vtabstruct_7cplayer_AlphaBetaSecondAI *__pyx_vtabptr_7cplayer_AlphaBetaSecondAI;
+static struct __pyx_vtabstruct_7cplayer_SwitchTacticsAlphaBetaAI *__pyx_vtabptr_7cplayer_SwitchTacticsAlphaBetaAI;
 
 
-/* "cplayer.pyx":540
+/* "cplayer.pyx":542
  * 
  * 
- * cdef class AlphaBetaThirdAI(Player):             # <<<<<<<<<<<<<<
+ * cdef class CountMovesAlphaBetaAI(Player):             # <<<<<<<<<<<<<<
  * 
  *     cdef int depth
  */
 
-struct __pyx_vtabstruct_7cplayer_AlphaBetaThirdAI {
+struct __pyx_vtabstruct_7cplayer_CountMovesAlphaBetaAI {
   struct __pyx_vtabstruct_7cplayer_Player __pyx_base;
-  PyObject *(*alpha_beta)(struct __pyx_obj_7cplayer_AlphaBetaThirdAI *, PyObject *, int, int, struct __pyx_opt_args_7cplayer_16AlphaBetaThirdAI_alpha_beta *__pyx_optional_args);
-  int (*evaluation_function)(struct __pyx_obj_7cplayer_AlphaBetaThirdAI *, PyObject *, int);
+  PyObject *(*alpha_beta)(struct __pyx_obj_7cplayer_CountMovesAlphaBetaAI *, PyObject *, int, int, struct __pyx_opt_args_7cplayer_21CountMovesAlphaBetaAI_alpha_beta *__pyx_optional_args);
+  int (*evaluation_function)(struct __pyx_obj_7cplayer_CountMovesAlphaBetaAI *, PyObject *, int);
 };
-static struct __pyx_vtabstruct_7cplayer_AlphaBetaThirdAI *__pyx_vtabptr_7cplayer_AlphaBetaThirdAI;
+static struct __pyx_vtabstruct_7cplayer_CountMovesAlphaBetaAI *__pyx_vtabptr_7cplayer_CountMovesAlphaBetaAI;
 
 
-/* "cplayer.pyx":662
+/* "cplayer.pyx":664
  * 
  * 
  * cdef class PrimitiveMonteCarloPlayer(Player):             # <<<<<<<<<<<<<<
@@ -1146,7 +1147,7 @@ struct __pyx_vtabstruct_7cplayer_PrimitiveMonteCarloPlayer {
 static struct __pyx_vtabstruct_7cplayer_PrimitiveMonteCarloPlayer *__pyx_vtabptr_7cplayer_PrimitiveMonteCarloPlayer;
 
 
-/* "cplayer.pyx":840
+/* "cplayer.pyx":842
  * 
  * 
  * cdef class MCTSPlayer(Player):             # <<<<<<<<<<<<<<
@@ -1660,12 +1661,12 @@ static PyObject *__pyx_f_7cplayer_8MinMaxAI_mini_max(struct __pyx_obj_7cplayer_M
 static int __pyx_f_7cplayer_8MinMaxAI_evaluation_function(struct __pyx_obj_7cplayer_MinMaxAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player); /* proto*/
 static PyObject *__pyx_f_7cplayer_11AlphaBetaAI_alpha_beta(struct __pyx_obj_7cplayer_AlphaBetaAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player, int __pyx_v_depth, struct __pyx_opt_args_7cplayer_11AlphaBetaAI_alpha_beta *__pyx_optional_args); /* proto*/
 static int __pyx_f_7cplayer_11AlphaBetaAI_evaluation_function(struct __pyx_obj_7cplayer_AlphaBetaAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player); /* proto*/
-static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player, int __pyx_v_depth, struct __pyx_opt_args_7cplayer_17AlphaBetaSecondAI_alpha_beta *__pyx_optional_args); /* proto*/
-static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player, int __pyx_v_depth, struct __pyx_opt_args_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta *__pyx_optional_args); /* proto*/
-static int __pyx_f_7cplayer_17AlphaBetaSecondAI_evaluation_function(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player); /* proto*/
-static int __pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_evaluation_function(CYTHON_UNUSED struct __pyx_obj_7cplayer_AlphaBetaSecondAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player); /* proto*/
-static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj_7cplayer_AlphaBetaThirdAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player, int __pyx_v_depth, struct __pyx_opt_args_7cplayer_16AlphaBetaThirdAI_alpha_beta *__pyx_optional_args); /* proto*/
-static int __pyx_f_7cplayer_16AlphaBetaThirdAI_evaluation_function(struct __pyx_obj_7cplayer_AlphaBetaThirdAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player); /* proto*/
+static PyObject *__pyx_f_7cplayer_24SwitchTacticsAlphaBetaAI_alpha_beta(struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player, int __pyx_v_depth, struct __pyx_opt_args_7cplayer_24SwitchTacticsAlphaBetaAI_alpha_beta *__pyx_optional_args); /* proto*/
+static PyObject *__pyx_f_7cplayer_24SwitchTacticsAlphaBetaAI_final_stage_alpha_beta(struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player, int __pyx_v_depth, struct __pyx_opt_args_7cplayer_24SwitchTacticsAlphaBetaAI_final_stage_alpha_beta *__pyx_optional_args); /* proto*/
+static int __pyx_f_7cplayer_24SwitchTacticsAlphaBetaAI_evaluation_function(struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player); /* proto*/
+static int __pyx_f_7cplayer_24SwitchTacticsAlphaBetaAI_final_stage_evaluation_function(CYTHON_UNUSED struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player); /* proto*/
+static PyObject *__pyx_f_7cplayer_21CountMovesAlphaBetaAI_alpha_beta(struct __pyx_obj_7cplayer_CountMovesAlphaBetaAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player, int __pyx_v_depth, struct __pyx_opt_args_7cplayer_21CountMovesAlphaBetaAI_alpha_beta *__pyx_optional_args); /* proto*/
+static int __pyx_f_7cplayer_21CountMovesAlphaBetaAI_evaluation_function(struct __pyx_obj_7cplayer_CountMovesAlphaBetaAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player); /* proto*/
 static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecarlo(struct __pyx_obj_7cplayer_PrimitiveMonteCarloPlayer *__pyx_v_self, int __pyx_v_turn, struct __pyx_obj_7cplayer_node *__pyx_v_tree); /* proto*/
 static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj_7cplayer_PrimitiveMonteCarloPlayer *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player); /* proto*/
 static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_selection(struct __pyx_obj_7cplayer_PrimitiveMonteCarloPlayer *__pyx_v_self, int __pyx_v_player, struct __pyx_obj_7cplayer_node *__pyx_v_tree); /* proto*/
@@ -1684,8 +1685,8 @@ static PyTypeObject *__pyx_ptype_7cplayer_Player = 0;
 static PyTypeObject *__pyx_ptype_7cplayer_RandomChoiceAI = 0;
 static PyTypeObject *__pyx_ptype_7cplayer_MinMaxAI = 0;
 static PyTypeObject *__pyx_ptype_7cplayer_AlphaBetaAI = 0;
-static PyTypeObject *__pyx_ptype_7cplayer_AlphaBetaSecondAI = 0;
-static PyTypeObject *__pyx_ptype_7cplayer_AlphaBetaThirdAI = 0;
+static PyTypeObject *__pyx_ptype_7cplayer_SwitchTacticsAlphaBetaAI = 0;
+static PyTypeObject *__pyx_ptype_7cplayer_CountMovesAlphaBetaAI = 0;
 static PyTypeObject *__pyx_ptype_7cplayer_node = 0;
 static PyTypeObject *__pyx_ptype_7cplayer_PrimitiveMonteCarloPlayer = 0;
 static PyTypeObject *__pyx_ptype_7cplayer_MCTSPlayer = 0;
@@ -1695,8 +1696,8 @@ static PyObject *__pyx_f_7cplayer___pyx_unpickle_Player__set_state(struct __pyx_
 static PyObject *__pyx_f_7cplayer___pyx_unpickle_RandomChoiceAI__set_state(struct __pyx_obj_7cplayer_RandomChoiceAI *, PyObject *); /*proto*/
 static PyObject *__pyx_f_7cplayer___pyx_unpickle_MinMaxAI__set_state(struct __pyx_obj_7cplayer_MinMaxAI *, PyObject *); /*proto*/
 static PyObject *__pyx_f_7cplayer___pyx_unpickle_AlphaBetaAI__set_state(struct __pyx_obj_7cplayer_AlphaBetaAI *, PyObject *); /*proto*/
-static PyObject *__pyx_f_7cplayer___pyx_unpickle_AlphaBetaSecondAI__set_state(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *, PyObject *); /*proto*/
-static PyObject *__pyx_f_7cplayer___pyx_unpickle_AlphaBetaThirdAI__set_state(struct __pyx_obj_7cplayer_AlphaBetaThirdAI *, PyObject *); /*proto*/
+static PyObject *__pyx_f_7cplayer___pyx_unpickle_SwitchTacticsAlphaBetaAI__set_state(struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *, PyObject *); /*proto*/
+static PyObject *__pyx_f_7cplayer___pyx_unpickle_CountMovesAlphaBetaAI__set_state(struct __pyx_obj_7cplayer_CountMovesAlphaBetaAI *, PyObject *); /*proto*/
 static PyObject *__pyx_f_7cplayer___pyx_unpickle_node__set_state(struct __pyx_obj_7cplayer_node *, PyObject *); /*proto*/
 static PyObject *__pyx_f_7cplayer___pyx_unpickle_PrimitiveMonteCarloPlayer__set_state(struct __pyx_obj_7cplayer_PrimitiveMonteCarloPlayer *, PyObject *); /*proto*/
 static PyObject *__pyx_f_7cplayer___pyx_unpickle_MCTSPlayer__set_state(struct __pyx_obj_7cplayer_MCTSPlayer *, PyObject *); /*proto*/
@@ -1774,36 +1775,37 @@ static const char __pyx_k_RandomChoiceAI[] = "RandomChoiceAI";
 static const char __pyx_k_pyx_PickleError[] = "__pyx_PickleError";
 static const char __pyx_k_setstate_cython[] = "__setstate_cython__";
 static const char __pyx_k_visit_threshold[] = "visit_threshold";
-static const char __pyx_k_AlphaBetaThirdAI[] = "AlphaBetaThirdAI";
-static const char __pyx_k_AlphaBetaSecondAI[] = "AlphaBetaSecondAI";
 static const char __pyx_k_pyx_unpickle_Turn[] = "__pyx_unpickle_Turn";
 static const char __pyx_k_pyx_unpickle_node[] = "__pyx_unpickle_node";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_pyx_unpickle_Stone[] = "__pyx_unpickle_Stone";
 static const char __pyx_k_pyx_unpickle_Player[] = "__pyx_unpickle_Player";
+static const char __pyx_k_CountMovesAlphaBetaAI[] = "CountMovesAlphaBetaAI";
 static const char __pyx_k_pyx_unpickle_MinMaxAI[] = "__pyx_unpickle_MinMaxAI";
 static const char __pyx_k_pyx_unpickle_MCTSPlayer[] = "__pyx_unpickle_MCTSPlayer";
+static const char __pyx_k_SwitchTacticsAlphaBetaAI[] = "SwitchTacticsAlphaBetaAI";
 static const char __pyx_k_pyx_unpickle_AlphaBetaAI[] = "__pyx_unpickle_AlphaBetaAI";
 static const char __pyx_k_PrimitiveMonteCarloPlayer[] = "PrimitiveMonteCarloPlayer";
 static const char __pyx_k_pyx_unpickle_RandomChoiceAI[] = "__pyx_unpickle_RandomChoiceAI";
-static const char __pyx_k_pyx_unpickle_AlphaBetaThirdAI[] = "__pyx_unpickle_AlphaBetaThirdAI";
-static const char __pyx_k_pyx_unpickle_AlphaBetaSecondAI[] = "__pyx_unpickle_AlphaBetaSecondAI";
+static const char __pyx_k_pyx_unpickle_CountMovesAlphaBe[] = "__pyx_unpickle_CountMovesAlphaBetaAI";
 static const char __pyx_k_pyx_unpickle_PrimitiveMonteCar[] = "__pyx_unpickle_PrimitiveMonteCarloPlayer";
+static const char __pyx_k_pyx_unpickle_SwitchTacticsAlph[] = "__pyx_unpickle_SwitchTacticsAlphaBetaAI";
 static const char __pyx_k_Incompatible_checksums_s_vs_0x0f[] = "Incompatible checksums (%s vs 0x0f9c8d3 = (player, playout_num))";
 static const char __pyx_k_Incompatible_checksums_s_vs_0x32[] = "Incompatible checksums (%s vs 0x32c9b52 = (depth, player))";
 static const char __pyx_k_Incompatible_checksums_s_vs_0x91[] = "Incompatible checksums (%s vs 0x912af0d = (player))";
 static const char __pyx_k_Incompatible_checksums_s_vs_0xa3[] = "Incompatible checksums (%s vs 0xa30b71b = (board_gain, depth, player))";
+static const char __pyx_k_Incompatible_checksums_s_vs_0xa5[] = "Incompatible checksums (%s vs 0xa5d0ddf = (board_gain, depth, player, switch_threshold))";
 static const char __pyx_k_Incompatible_checksums_s_vs_0xab[] = "Incompatible checksums (%s vs 0xabeca97 = (board, child, te, visit_count, wins))";
 static const char __pyx_k_Incompatible_checksums_s_vs_0xb4[] = "Incompatible checksums (%s vs 0xb4fedbe = (player, playout_num, visit_threshold))";
 static const char __pyx_k_Incompatible_checksums_s_vs_0xd4[] = "Incompatible checksums (%s vs 0xd41d8cd = ())";
 static PyObject *__pyx_n_s_AlphaBetaAI;
-static PyObject *__pyx_n_s_AlphaBetaSecondAI;
-static PyObject *__pyx_n_s_AlphaBetaThirdAI;
 static PyObject *__pyx_n_s_BLACK;
+static PyObject *__pyx_n_s_CountMovesAlphaBetaAI;
 static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0x0f;
 static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0x32;
 static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0x91;
 static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0xa3;
+static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0xa5;
 static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0xab;
 static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0xb4;
 static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0xd4;
@@ -1816,6 +1818,7 @@ static PyObject *__pyx_n_s_PrimitiveMonteCarloPlayer;
 static PyObject *__pyx_n_s_ROW_CELLS;
 static PyObject *__pyx_n_s_RandomChoiceAI;
 static PyObject *__pyx_n_s_Stone;
+static PyObject *__pyx_n_s_SwitchTacticsAlphaBetaAI;
 static PyObject *__pyx_n_s_Turn;
 static PyObject *__pyx_n_s_UNDEFINED;
 static PyObject *__pyx_n_s_WHITE;
@@ -1853,14 +1856,14 @@ static PyObject *__pyx_n_s_pyx_result;
 static PyObject *__pyx_n_s_pyx_state;
 static PyObject *__pyx_n_s_pyx_type;
 static PyObject *__pyx_n_s_pyx_unpickle_AlphaBetaAI;
-static PyObject *__pyx_n_s_pyx_unpickle_AlphaBetaSecondAI;
-static PyObject *__pyx_n_s_pyx_unpickle_AlphaBetaThirdAI;
+static PyObject *__pyx_n_s_pyx_unpickle_CountMovesAlphaBe;
 static PyObject *__pyx_n_s_pyx_unpickle_MCTSPlayer;
 static PyObject *__pyx_n_s_pyx_unpickle_MinMaxAI;
 static PyObject *__pyx_n_s_pyx_unpickle_Player;
 static PyObject *__pyx_n_s_pyx_unpickle_PrimitiveMonteCar;
 static PyObject *__pyx_n_s_pyx_unpickle_RandomChoiceAI;
 static PyObject *__pyx_n_s_pyx_unpickle_Stone;
+static PyObject *__pyx_n_s_pyx_unpickle_SwitchTacticsAlph;
 static PyObject *__pyx_n_s_pyx_unpickle_Turn;
 static PyObject *__pyx_n_s_pyx_unpickle_node;
 static PyObject *__pyx_n_s_pyx_vtable;
@@ -1905,14 +1908,14 @@ static int __pyx_pf_7cplayer_11AlphaBetaAI___init__(struct __pyx_obj_7cplayer_Al
 static PyObject *__pyx_pf_7cplayer_11AlphaBetaAI_2thinking(struct __pyx_obj_7cplayer_AlphaBetaAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_turn); /* proto */
 static PyObject *__pyx_pf_7cplayer_11AlphaBetaAI_4__reduce_cython__(struct __pyx_obj_7cplayer_AlphaBetaAI *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_7cplayer_11AlphaBetaAI_6__setstate_cython__(struct __pyx_obj_7cplayer_AlphaBetaAI *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
-static int __pyx_pf_7cplayer_17AlphaBetaSecondAI___init__(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *__pyx_v_self, int __pyx_v_depth); /* proto */
-static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_2thinking(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *__pyx_v_self, PyObject *__pyx_v_board, PyObject *__pyx_v_turn); /* proto */
-static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_4__reduce_cython__(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_6__setstate_cython__(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
-static int __pyx_pf_7cplayer_16AlphaBetaThirdAI___init__(struct __pyx_obj_7cplayer_AlphaBetaThirdAI *__pyx_v_self, int __pyx_v_depth); /* proto */
-static PyObject *__pyx_pf_7cplayer_16AlphaBetaThirdAI_2thinking(struct __pyx_obj_7cplayer_AlphaBetaThirdAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_turn); /* proto */
-static PyObject *__pyx_pf_7cplayer_16AlphaBetaThirdAI_4__reduce_cython__(struct __pyx_obj_7cplayer_AlphaBetaThirdAI *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_7cplayer_16AlphaBetaThirdAI_6__setstate_cython__(struct __pyx_obj_7cplayer_AlphaBetaThirdAI *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
+static int __pyx_pf_7cplayer_24SwitchTacticsAlphaBetaAI___init__(struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *__pyx_v_self, int __pyx_v_depth); /* proto */
+static PyObject *__pyx_pf_7cplayer_24SwitchTacticsAlphaBetaAI_2thinking(struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *__pyx_v_self, PyObject *__pyx_v_board, PyObject *__pyx_v_turn); /* proto */
+static PyObject *__pyx_pf_7cplayer_24SwitchTacticsAlphaBetaAI_4__reduce_cython__(struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_7cplayer_24SwitchTacticsAlphaBetaAI_6__setstate_cython__(struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
+static int __pyx_pf_7cplayer_21CountMovesAlphaBetaAI___init__(struct __pyx_obj_7cplayer_CountMovesAlphaBetaAI *__pyx_v_self, int __pyx_v_depth); /* proto */
+static PyObject *__pyx_pf_7cplayer_21CountMovesAlphaBetaAI_2thinking(struct __pyx_obj_7cplayer_CountMovesAlphaBetaAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_turn); /* proto */
+static PyObject *__pyx_pf_7cplayer_21CountMovesAlphaBetaAI_4__reduce_cython__(struct __pyx_obj_7cplayer_CountMovesAlphaBetaAI *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_7cplayer_21CountMovesAlphaBetaAI_6__setstate_cython__(struct __pyx_obj_7cplayer_CountMovesAlphaBetaAI *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
 static int __pyx_pf_7cplayer_4node___init__(struct __pyx_obj_7cplayer_node *__pyx_v_self, PyObject *__pyx_v_board, PyObject *__pyx_v_te); /* proto */
 static PyObject *__pyx_pf_7cplayer_4node_5child___get__(struct __pyx_obj_7cplayer_node *__pyx_v_self); /* proto */
 static int __pyx_pf_7cplayer_4node_5child_2__set__(struct __pyx_obj_7cplayer_node *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
@@ -1943,8 +1946,8 @@ static PyObject *__pyx_pf_7cplayer_4__pyx_unpickle_Player(CYTHON_UNUSED PyObject
 static PyObject *__pyx_pf_7cplayer_6__pyx_unpickle_RandomChoiceAI(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_pf_7cplayer_8__pyx_unpickle_MinMaxAI(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_pf_7cplayer_10__pyx_unpickle_AlphaBetaAI(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
-static PyObject *__pyx_pf_7cplayer_12__pyx_unpickle_AlphaBetaSecondAI(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
-static PyObject *__pyx_pf_7cplayer_14__pyx_unpickle_AlphaBetaThirdAI(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_pf_7cplayer_12__pyx_unpickle_SwitchTacticsAlphaBetaAI(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_pf_7cplayer_14__pyx_unpickle_CountMovesAlphaBetaAI(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_pf_7cplayer_16__pyx_unpickle_node(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_pf_7cplayer_18__pyx_unpickle_PrimitiveMonteCarloPlayer(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_pf_7cplayer_20__pyx_unpickle_MCTSPlayer(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
@@ -1954,8 +1957,8 @@ static PyObject *__pyx_tp_new_7cplayer_Player(PyTypeObject *t, PyObject *a, PyOb
 static PyObject *__pyx_tp_new_7cplayer_RandomChoiceAI(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_7cplayer_MinMaxAI(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_7cplayer_AlphaBetaAI(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_7cplayer_AlphaBetaSecondAI(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_7cplayer_AlphaBetaThirdAI(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_7cplayer_SwitchTacticsAlphaBetaAI(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_7cplayer_CountMovesAlphaBetaAI(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_7cplayer_node(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_7cplayer_PrimitiveMonteCarloPlayer(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_7cplayer_MCTSPlayer(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
@@ -1971,6 +1974,7 @@ static PyObject *__pyx_int_16369875;
 static PyObject *__pyx_int_53254994;
 static PyObject *__pyx_int_152219405;
 static PyObject *__pyx_int_170964763;
+static PyObject *__pyx_int_173870559;
 static PyObject *__pyx_int_180275863;
 static PyObject *__pyx_int_189787582;
 static PyObject *__pyx_int_222419149;
@@ -9006,7 +9010,7 @@ static PyObject *__pyx_pf_7cplayer_11AlphaBetaAI_6__setstate_cython__(struct __p
   return __pyx_r;
 }
 
-/* "cplayer.pyx":349
+/* "cplayer.pyx":350
  * 
  *     @cython.nonecheck(False)
  *     def __init__(self, int depth):             # <<<<<<<<<<<<<<
@@ -9015,8 +9019,8 @@ static PyObject *__pyx_pf_7cplayer_11AlphaBetaAI_6__setstate_cython__(struct __p
  */
 
 /* Python wrapper */
-static int __pyx_pw_7cplayer_17AlphaBetaSecondAI_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_pw_7cplayer_17AlphaBetaSecondAI_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_7cplayer_24SwitchTacticsAlphaBetaAI_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_7cplayer_24SwitchTacticsAlphaBetaAI_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   int __pyx_v_depth;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
@@ -9040,31 +9044,31 @@ static int __pyx_pw_7cplayer_17AlphaBetaSecondAI_1__init__(PyObject *__pyx_v_sel
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 349, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 350, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
     }
-    __pyx_v_depth = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_depth == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 349, __pyx_L3_error)
+    __pyx_v_depth = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_depth == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 350, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 349, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 350, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("cplayer.AlphaBetaSecondAI.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cplayer.SwitchTacticsAlphaBetaAI.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_7cplayer_17AlphaBetaSecondAI___init__(((struct __pyx_obj_7cplayer_AlphaBetaSecondAI *)__pyx_v_self), __pyx_v_depth);
+  __pyx_r = __pyx_pf_7cplayer_24SwitchTacticsAlphaBetaAI___init__(((struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *)__pyx_v_self), __pyx_v_depth);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_7cplayer_17AlphaBetaSecondAI___init__(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *__pyx_v_self, int __pyx_v_depth) {
+static int __pyx_pf_7cplayer_24SwitchTacticsAlphaBetaAI___init__(struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *__pyx_v_self, int __pyx_v_depth) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -9072,25 +9076,25 @@ static int __pyx_pf_7cplayer_17AlphaBetaSecondAI___init__(struct __pyx_obj_7cpla
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "cplayer.pyx":350
+  /* "cplayer.pyx":351
  *     @cython.nonecheck(False)
  *     def __init__(self, int depth):
  *         super().__init__()             # <<<<<<<<<<<<<<
  *         self.depth = depth
  *         self.board_gain = ((50, -20, 10, 5, 5, 10, -20, 50),
  */
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 350, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 351, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_INCREF(((PyObject *)__pyx_ptype_7cplayer_AlphaBetaSecondAI));
-  __Pyx_GIVEREF(((PyObject *)__pyx_ptype_7cplayer_AlphaBetaSecondAI));
-  PyTuple_SET_ITEM(__pyx_t_2, 0, ((PyObject *)__pyx_ptype_7cplayer_AlphaBetaSecondAI));
+  __Pyx_INCREF(((PyObject *)__pyx_ptype_7cplayer_SwitchTacticsAlphaBetaAI));
+  __Pyx_GIVEREF(((PyObject *)__pyx_ptype_7cplayer_SwitchTacticsAlphaBetaAI));
+  PyTuple_SET_ITEM(__pyx_t_2, 0, ((PyObject *)__pyx_ptype_7cplayer_SwitchTacticsAlphaBetaAI));
   __Pyx_INCREF(((PyObject *)__pyx_v_self));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
   PyTuple_SET_ITEM(__pyx_t_2, 1, ((PyObject *)__pyx_v_self));
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 350, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 351, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_init); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 350, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_init); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 351, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -9105,12 +9109,12 @@ static int __pyx_pf_7cplayer_17AlphaBetaSecondAI___init__(struct __pyx_obj_7cpla
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 350, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 351, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "cplayer.pyx":351
+  /* "cplayer.pyx":352
  *     def __init__(self, int depth):
  *         super().__init__()
  *         self.depth = depth             # <<<<<<<<<<<<<<
@@ -9119,7 +9123,7 @@ static int __pyx_pf_7cplayer_17AlphaBetaSecondAI___init__(struct __pyx_obj_7cpla
  */
   __pyx_v_self->depth = __pyx_v_depth;
 
-  /* "cplayer.pyx":352
+  /* "cplayer.pyx":353
  *         super().__init__()
  *         self.depth = depth
  *         self.board_gain = ((50, -20, 10, 5, 5, 10, -20, 50),             # <<<<<<<<<<<<<<
@@ -9132,7 +9136,16 @@ static int __pyx_pf_7cplayer_17AlphaBetaSecondAI___init__(struct __pyx_obj_7cpla
   __Pyx_DECREF(__pyx_v_self->board_gain);
   __pyx_v_self->board_gain = __pyx_tuple__6;
 
-  /* "cplayer.pyx":349
+  /* "cplayer.pyx":361
+ *                            (-20, -30, -5, -5, -5, -5, -30, -20),
+ *                            (50, -20, 10, 5, 5, 10, -20, 50))
+ *         self.switch_threshold = 52             # <<<<<<<<<<<<<<
+ * 
+ *     @cython.nonecheck(False)
+ */
+  __pyx_v_self->switch_threshold = 52;
+
+  /* "cplayer.pyx":350
  * 
  *     @cython.nonecheck(False)
  *     def __init__(self, int depth):             # <<<<<<<<<<<<<<
@@ -9147,14 +9160,14 @@ static int __pyx_pf_7cplayer_17AlphaBetaSecondAI___init__(struct __pyx_obj_7cpla
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("cplayer.AlphaBetaSecondAI.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cplayer.SwitchTacticsAlphaBetaAI.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "cplayer.pyx":362
+/* "cplayer.pyx":364
  * 
  *     @cython.nonecheck(False)
  *     def thinking(self, board, turn):             # <<<<<<<<<<<<<<
@@ -9163,8 +9176,8 @@ static int __pyx_pf_7cplayer_17AlphaBetaSecondAI___init__(struct __pyx_obj_7cpla
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_7cplayer_17AlphaBetaSecondAI_3thinking(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pw_7cplayer_17AlphaBetaSecondAI_3thinking(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_7cplayer_24SwitchTacticsAlphaBetaAI_3thinking(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_7cplayer_24SwitchTacticsAlphaBetaAI_3thinking(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_board = 0;
   PyObject *__pyx_v_turn = 0;
   PyObject *__pyx_r = 0;
@@ -9193,11 +9206,11 @@ static PyObject *__pyx_pw_7cplayer_17AlphaBetaSecondAI_3thinking(PyObject *__pyx
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_turn)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("thinking", 1, 2, 2, 1); __PYX_ERR(0, 362, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("thinking", 1, 2, 2, 1); __PYX_ERR(0, 364, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "thinking") < 0)) __PYX_ERR(0, 362, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "thinking") < 0)) __PYX_ERR(0, 364, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -9210,20 +9223,20 @@ static PyObject *__pyx_pw_7cplayer_17AlphaBetaSecondAI_3thinking(PyObject *__pyx
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("thinking", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 362, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("thinking", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 364, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("cplayer.AlphaBetaSecondAI.thinking", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cplayer.SwitchTacticsAlphaBetaAI.thinking", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_7cplayer_17AlphaBetaSecondAI_2thinking(((struct __pyx_obj_7cplayer_AlphaBetaSecondAI *)__pyx_v_self), __pyx_v_board, __pyx_v_turn);
+  __pyx_r = __pyx_pf_7cplayer_24SwitchTacticsAlphaBetaAI_2thinking(((struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *)__pyx_v_self), __pyx_v_board, __pyx_v_turn);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_2thinking(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *__pyx_v_self, PyObject *__pyx_v_board, PyObject *__pyx_v_turn) {
+static PyObject *__pyx_pf_7cplayer_24SwitchTacticsAlphaBetaAI_2thinking(struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *__pyx_v_self, PyObject *__pyx_v_board, PyObject *__pyx_v_turn) {
   int __pyx_v_x;
   int __pyx_v_y;
   CYTHON_UNUSED int __pyx_v_val;
@@ -9251,25 +9264,25 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_2thinking(struct __pyx_ob
   int __pyx_t_14;
   __Pyx_RefNannySetupContext("thinking", 0);
 
-  /* "cplayer.pyx":368
+  /* "cplayer.pyx":370
  *         cdef int white_stones
  * 
  *         super().thinking(board, turn)             # <<<<<<<<<<<<<<
  *         _board = [[0] * (ROW_CELLS + 2) for i in range(ROW_CELLS + 2)]
  *         for i in range(1, 9):
  */
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 368, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 370, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_INCREF(((PyObject *)__pyx_ptype_7cplayer_AlphaBetaSecondAI));
-  __Pyx_GIVEREF(((PyObject *)__pyx_ptype_7cplayer_AlphaBetaSecondAI));
-  PyTuple_SET_ITEM(__pyx_t_2, 0, ((PyObject *)__pyx_ptype_7cplayer_AlphaBetaSecondAI));
+  __Pyx_INCREF(((PyObject *)__pyx_ptype_7cplayer_SwitchTacticsAlphaBetaAI));
+  __Pyx_GIVEREF(((PyObject *)__pyx_ptype_7cplayer_SwitchTacticsAlphaBetaAI));
+  PyTuple_SET_ITEM(__pyx_t_2, 0, ((PyObject *)__pyx_ptype_7cplayer_SwitchTacticsAlphaBetaAI));
   __Pyx_INCREF(((PyObject *)__pyx_v_self));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
   PyTuple_SET_ITEM(__pyx_t_2, 1, ((PyObject *)__pyx_v_self));
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 368, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 370, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_thinking); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 368, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_thinking); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 370, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -9287,7 +9300,7 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_2thinking(struct __pyx_ob
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_v_board, __pyx_v_turn};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 368, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 370, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
@@ -9295,13 +9308,13 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_2thinking(struct __pyx_ob
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_v_board, __pyx_v_turn};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 368, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 370, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
   #endif
   {
-    __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 368, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 370, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     if (__pyx_t_3) {
       __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -9312,37 +9325,37 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_2thinking(struct __pyx_ob
     __Pyx_INCREF(__pyx_v_turn);
     __Pyx_GIVEREF(__pyx_v_turn);
     PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_4, __pyx_v_turn);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 368, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 370, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "cplayer.pyx":369
+  /* "cplayer.pyx":371
  * 
  *         super().thinking(board, turn)
  *         _board = [[0] * (ROW_CELLS + 2) for i in range(ROW_CELLS + 2)]             # <<<<<<<<<<<<<<
  *         for i in range(1, 9):
  *             for j in range(1, 9):
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 369, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 371, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ROW_CELLS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 369, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ROW_CELLS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 371, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_5 = __Pyx_PyInt_AddObjC(__pyx_t_2, __pyx_int_2, 2, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 369, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_AddObjC(__pyx_t_2, __pyx_int_2, 2, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 371, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_range, __pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 369, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_range, __pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 371, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   if (likely(PyList_CheckExact(__pyx_t_2)) || PyTuple_CheckExact(__pyx_t_2)) {
     __pyx_t_5 = __pyx_t_2; __Pyx_INCREF(__pyx_t_5); __pyx_t_6 = 0;
     __pyx_t_7 = NULL;
   } else {
-    __pyx_t_6 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 369, __pyx_L1_error)
+    __pyx_t_6 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 371, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_7 = Py_TYPE(__pyx_t_5)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 369, __pyx_L1_error)
+    __pyx_t_7 = Py_TYPE(__pyx_t_5)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 371, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   for (;;) {
@@ -9350,17 +9363,17 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_2thinking(struct __pyx_ob
       if (likely(PyList_CheckExact(__pyx_t_5))) {
         if (__pyx_t_6 >= PyList_GET_SIZE(__pyx_t_5)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_6); __Pyx_INCREF(__pyx_t_2); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 369, __pyx_L1_error)
+        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_6); __Pyx_INCREF(__pyx_t_2); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 371, __pyx_L1_error)
         #else
-        __pyx_t_2 = PySequence_ITEM(__pyx_t_5, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 369, __pyx_L1_error)
+        __pyx_t_2 = PySequence_ITEM(__pyx_t_5, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 371, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         #endif
       } else {
         if (__pyx_t_6 >= PyTuple_GET_SIZE(__pyx_t_5)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_6); __Pyx_INCREF(__pyx_t_2); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 369, __pyx_L1_error)
+        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_6); __Pyx_INCREF(__pyx_t_2); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 371, __pyx_L1_error)
         #else
-        __pyx_t_2 = PySequence_ITEM(__pyx_t_5, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 369, __pyx_L1_error)
+        __pyx_t_2 = PySequence_ITEM(__pyx_t_5, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 371, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         #endif
       }
@@ -9370,7 +9383,7 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_2thinking(struct __pyx_ob
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 369, __pyx_L1_error)
+          else __PYX_ERR(0, 371, __pyx_L1_error)
         }
         break;
       }
@@ -9378,30 +9391,30 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_2thinking(struct __pyx_ob
     }
     __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_2);
     __pyx_t_2 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ROW_CELLS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 369, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ROW_CELLS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 371, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_PyInt_AddObjC(__pyx_t_2, __pyx_int_2, 2, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 369, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyInt_AddObjC(__pyx_t_2, __pyx_int_2, 2, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 371, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 369, __pyx_L1_error)
+    __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 371, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_INCREF(__pyx_int_0);
     __Pyx_GIVEREF(__pyx_int_0);
     PyList_SET_ITEM(__pyx_t_2, 0, __pyx_int_0);
-    { PyObject* __pyx_temp = PyNumber_InPlaceMultiply(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_temp)) __PYX_ERR(0, 369, __pyx_L1_error)
+    { PyObject* __pyx_temp = PyNumber_InPlaceMultiply(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_temp)) __PYX_ERR(0, 371, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_temp);
       __Pyx_DECREF(__pyx_t_2);
       __pyx_t_2 = __pyx_temp;
     }
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(__Pyx_ListComp_Append(__pyx_t_1, (PyObject*)__pyx_t_2))) __PYX_ERR(0, 369, __pyx_L1_error)
+    if (unlikely(__Pyx_ListComp_Append(__pyx_t_1, (PyObject*)__pyx_t_2))) __PYX_ERR(0, 371, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_v__board = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "cplayer.pyx":370
+  /* "cplayer.pyx":372
  *         super().thinking(board, turn)
  *         _board = [[0] * (ROW_CELLS + 2) for i in range(ROW_CELLS + 2)]
  *         for i in range(1, 9):             # <<<<<<<<<<<<<<
@@ -9409,12 +9422,12 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_2thinking(struct __pyx_ob
  *                 _board[i][j] = board[i - 1][j - 1]
  */
   for (__pyx_t_8 = 1; __pyx_t_8 < 9; __pyx_t_8+=1) {
-    __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 370, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 372, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "cplayer.pyx":371
+    /* "cplayer.pyx":373
  *         _board = [[0] * (ROW_CELLS + 2) for i in range(ROW_CELLS + 2)]
  *         for i in range(1, 9):
  *             for j in range(1, 9):             # <<<<<<<<<<<<<<
@@ -9422,54 +9435,54 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_2thinking(struct __pyx_ob
  * 
  */
     for (__pyx_t_9 = 1; __pyx_t_9 < 9; __pyx_t_9+=1) {
-      __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 371, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 373, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_XDECREF_SET(__pyx_v_j, __pyx_t_1);
       __pyx_t_1 = 0;
 
-      /* "cplayer.pyx":372
+      /* "cplayer.pyx":374
  *         for i in range(1, 9):
  *             for j in range(1, 9):
  *                 _board[i][j] = board[i - 1][j - 1]             # <<<<<<<<<<<<<<
  * 
  *         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(
  */
-      __pyx_t_1 = __Pyx_PyInt_SubtractObjC(__pyx_v_i, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 372, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyInt_SubtractObjC(__pyx_v_i, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 374, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_5 = __Pyx_PyObject_GetItem(__pyx_v_board, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 372, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_GetItem(__pyx_v_board, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 374, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_1 = __Pyx_PyInt_SubtractObjC(__pyx_v_j, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 372, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyInt_SubtractObjC(__pyx_v_j, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 374, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_t_5, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 372, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_t_5, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 374, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_1 = __Pyx_PyObject_GetItem(__pyx_v__board, __pyx_v_i); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 372, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetItem(__pyx_v__board, __pyx_v_i); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 374, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (unlikely(PyObject_SetItem(__pyx_t_1, __pyx_v_j, __pyx_t_2) < 0)) __PYX_ERR(0, 372, __pyx_L1_error)
+      if (unlikely(PyObject_SetItem(__pyx_t_1, __pyx_v_j, __pyx_t_2) < 0)) __PYX_ERR(0, 374, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     }
   }
 
-  /* "cplayer.pyx":375
+  /* "cplayer.pyx":377
  * 
  *         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(
  *             _board, turn)             # <<<<<<<<<<<<<<
- *         if black_stones + white_stones > 52:
+ *         if black_stones + white_stones > self.switch_threshold:
  *             val, y, x = self.final_stage_alpha_beta(_board, turn, 8)
  */
-  __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_v_turn); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 375, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_v_turn); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 377, __pyx_L1_error)
 
-  /* "cplayer.pyx":374
+  /* "cplayer.pyx":376
  *                 _board[i][j] = board[i - 1][j - 1]
  * 
  *         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(             # <<<<<<<<<<<<<<
  *             _board, turn)
- *         if black_stones + white_stones > 52:
+ *         if black_stones + white_stones > self.switch_threshold:
  */
-  __pyx_t_2 = ((struct __pyx_vtabstruct_7cplayer_AlphaBetaSecondAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v__board, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 374, __pyx_L1_error)
+  __pyx_t_2 = ((struct __pyx_vtabstruct_7cplayer_SwitchTacticsAlphaBetaAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v__board, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 376, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (likely(__pyx_t_2 != Py_None)) {
     PyObject* sequence = __pyx_t_2;
@@ -9477,7 +9490,7 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_2thinking(struct __pyx_ob
     if (unlikely(size != 3)) {
       if (size > 3) __Pyx_RaiseTooManyValuesError(3);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 374, __pyx_L1_error)
+      __PYX_ERR(0, 376, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     __pyx_t_1 = PyTuple_GET_ITEM(sequence, 0); 
@@ -9487,46 +9500,46 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_2thinking(struct __pyx_ob
     __Pyx_INCREF(__pyx_t_5);
     __Pyx_INCREF(__pyx_t_3);
     #else
-    __pyx_t_1 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 374, __pyx_L1_error)
+    __pyx_t_1 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 376, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_5 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 374, __pyx_L1_error)
+    __pyx_t_5 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 376, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_3 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 374, __pyx_L1_error)
+    __pyx_t_3 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 376, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     #endif
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   } else {
-    __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 374, __pyx_L1_error)
+    __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 376, __pyx_L1_error)
   }
-  if (!(likely(PyList_CheckExact(__pyx_t_1))||((__pyx_t_1) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_1)->tp_name), 0))) __PYX_ERR(0, 374, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 374, __pyx_L1_error)
+  if (!(likely(PyList_CheckExact(__pyx_t_1))||((__pyx_t_1) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_1)->tp_name), 0))) __PYX_ERR(0, 376, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 376, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_10 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_10 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 374, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_10 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 376, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_legal_move_count_list = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
   __pyx_v_black_stones = __pyx_t_4;
   __pyx_v_white_stones = __pyx_t_10;
 
-  /* "cplayer.pyx":376
+  /* "cplayer.pyx":378
  *         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(
  *             _board, turn)
- *         if black_stones + white_stones > 52:             # <<<<<<<<<<<<<<
+ *         if black_stones + white_stones > self.switch_threshold:             # <<<<<<<<<<<<<<
  *             val, y, x = self.final_stage_alpha_beta(_board, turn, 8)
  *         else:
  */
-  __pyx_t_11 = (((__pyx_v_black_stones + __pyx_v_white_stones) > 52) != 0);
+  __pyx_t_11 = (((__pyx_v_black_stones + __pyx_v_white_stones) > __pyx_v_self->switch_threshold) != 0);
   if (__pyx_t_11) {
 
-    /* "cplayer.pyx":377
+    /* "cplayer.pyx":379
  *             _board, turn)
- *         if black_stones + white_stones > 52:
+ *         if black_stones + white_stones > self.switch_threshold:
  *             val, y, x = self.final_stage_alpha_beta(_board, turn, 8)             # <<<<<<<<<<<<<<
  *         else:
  *             val, y, x = self.alpha_beta(_board, turn, self.depth)
  */
-    __pyx_t_10 = __Pyx_PyInt_As_int(__pyx_v_turn); if (unlikely((__pyx_t_10 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 377, __pyx_L1_error)
-    __pyx_t_2 = ((struct __pyx_vtabstruct_7cplayer_AlphaBetaSecondAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->final_stage_alpha_beta(__pyx_v_self, __pyx_v__board, __pyx_t_10, 8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 377, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyInt_As_int(__pyx_v_turn); if (unlikely((__pyx_t_10 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 379, __pyx_L1_error)
+    __pyx_t_2 = ((struct __pyx_vtabstruct_7cplayer_SwitchTacticsAlphaBetaAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->final_stage_alpha_beta(__pyx_v_self, __pyx_v__board, __pyx_t_10, 8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 379, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     if ((likely(PyTuple_CheckExact(__pyx_t_2))) || (PyList_CheckExact(__pyx_t_2))) {
       PyObject* sequence = __pyx_t_2;
@@ -9534,7 +9547,7 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_2thinking(struct __pyx_ob
       if (unlikely(size != 3)) {
         if (size > 3) __Pyx_RaiseTooManyValuesError(3);
         else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        __PYX_ERR(0, 377, __pyx_L1_error)
+        __PYX_ERR(0, 379, __pyx_L1_error)
       }
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
       if (likely(PyTuple_CheckExact(sequence))) {
@@ -9550,17 +9563,17 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_2thinking(struct __pyx_ob
       __Pyx_INCREF(__pyx_t_5);
       __Pyx_INCREF(__pyx_t_1);
       #else
-      __pyx_t_3 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 377, __pyx_L1_error)
+      __pyx_t_3 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 379, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_5 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 377, __pyx_L1_error)
+      __pyx_t_5 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 379, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_1 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 377, __pyx_L1_error)
+      __pyx_t_1 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 379, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       #endif
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     } else {
       Py_ssize_t index = -1;
-      __pyx_t_12 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 377, __pyx_L1_error)
+      __pyx_t_12 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 379, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __pyx_t_13 = Py_TYPE(__pyx_t_12)->tp_iternext;
@@ -9570,7 +9583,7 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_2thinking(struct __pyx_ob
       __Pyx_GOTREF(__pyx_t_5);
       index = 2; __pyx_t_1 = __pyx_t_13(__pyx_t_12); if (unlikely(!__pyx_t_1)) goto __pyx_L10_unpacking_failed;
       __Pyx_GOTREF(__pyx_t_1);
-      if (__Pyx_IternextUnpackEndCheck(__pyx_t_13(__pyx_t_12), 3) < 0) __PYX_ERR(0, 377, __pyx_L1_error)
+      if (__Pyx_IternextUnpackEndCheck(__pyx_t_13(__pyx_t_12), 3) < 0) __PYX_ERR(0, 379, __pyx_L1_error)
       __pyx_t_13 = NULL;
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       goto __pyx_L11_unpacking_done;
@@ -9578,30 +9591,30 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_2thinking(struct __pyx_ob
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       __pyx_t_13 = NULL;
       if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-      __PYX_ERR(0, 377, __pyx_L1_error)
+      __PYX_ERR(0, 379, __pyx_L1_error)
       __pyx_L11_unpacking_done:;
     }
-    __pyx_t_10 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_10 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 377, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_10 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 379, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 377, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 379, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_14 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_14 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 377, __pyx_L1_error)
+    __pyx_t_14 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_14 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 379, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_v_val = __pyx_t_10;
     __pyx_v_y = __pyx_t_4;
     __pyx_v_x = __pyx_t_14;
 
-    /* "cplayer.pyx":376
+    /* "cplayer.pyx":378
  *         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(
  *             _board, turn)
- *         if black_stones + white_stones > 52:             # <<<<<<<<<<<<<<
+ *         if black_stones + white_stones > self.switch_threshold:             # <<<<<<<<<<<<<<
  *             val, y, x = self.final_stage_alpha_beta(_board, turn, 8)
  *         else:
  */
     goto __pyx_L9;
   }
 
-  /* "cplayer.pyx":379
+  /* "cplayer.pyx":381
  *             val, y, x = self.final_stage_alpha_beta(_board, turn, 8)
  *         else:
  *             val, y, x = self.alpha_beta(_board, turn, self.depth)             # <<<<<<<<<<<<<<
@@ -9609,8 +9622,8 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_2thinking(struct __pyx_ob
  *         return y, x
  */
   /*else*/ {
-    __pyx_t_14 = __Pyx_PyInt_As_int(__pyx_v_turn); if (unlikely((__pyx_t_14 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 379, __pyx_L1_error)
-    __pyx_t_2 = ((struct __pyx_vtabstruct_7cplayer_AlphaBetaSecondAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->alpha_beta(__pyx_v_self, __pyx_v__board, __pyx_t_14, __pyx_v_self->depth, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 379, __pyx_L1_error)
+    __pyx_t_14 = __Pyx_PyInt_As_int(__pyx_v_turn); if (unlikely((__pyx_t_14 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 381, __pyx_L1_error)
+    __pyx_t_2 = ((struct __pyx_vtabstruct_7cplayer_SwitchTacticsAlphaBetaAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->alpha_beta(__pyx_v_self, __pyx_v__board, __pyx_t_14, __pyx_v_self->depth, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 381, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     if ((likely(PyTuple_CheckExact(__pyx_t_2))) || (PyList_CheckExact(__pyx_t_2))) {
       PyObject* sequence = __pyx_t_2;
@@ -9618,7 +9631,7 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_2thinking(struct __pyx_ob
       if (unlikely(size != 3)) {
         if (size > 3) __Pyx_RaiseTooManyValuesError(3);
         else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        __PYX_ERR(0, 379, __pyx_L1_error)
+        __PYX_ERR(0, 381, __pyx_L1_error)
       }
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
       if (likely(PyTuple_CheckExact(sequence))) {
@@ -9634,17 +9647,17 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_2thinking(struct __pyx_ob
       __Pyx_INCREF(__pyx_t_5);
       __Pyx_INCREF(__pyx_t_3);
       #else
-      __pyx_t_1 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 379, __pyx_L1_error)
+      __pyx_t_1 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 381, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_5 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 379, __pyx_L1_error)
+      __pyx_t_5 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 381, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_3 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 379, __pyx_L1_error)
+      __pyx_t_3 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 381, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       #endif
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     } else {
       Py_ssize_t index = -1;
-      __pyx_t_12 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 379, __pyx_L1_error)
+      __pyx_t_12 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 381, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __pyx_t_13 = Py_TYPE(__pyx_t_12)->tp_iternext;
@@ -9654,7 +9667,7 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_2thinking(struct __pyx_ob
       __Pyx_GOTREF(__pyx_t_5);
       index = 2; __pyx_t_3 = __pyx_t_13(__pyx_t_12); if (unlikely(!__pyx_t_3)) goto __pyx_L12_unpacking_failed;
       __Pyx_GOTREF(__pyx_t_3);
-      if (__Pyx_IternextUnpackEndCheck(__pyx_t_13(__pyx_t_12), 3) < 0) __PYX_ERR(0, 379, __pyx_L1_error)
+      if (__Pyx_IternextUnpackEndCheck(__pyx_t_13(__pyx_t_12), 3) < 0) __PYX_ERR(0, 381, __pyx_L1_error)
       __pyx_t_13 = NULL;
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       goto __pyx_L13_unpacking_done;
@@ -9662,14 +9675,14 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_2thinking(struct __pyx_ob
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       __pyx_t_13 = NULL;
       if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-      __PYX_ERR(0, 379, __pyx_L1_error)
+      __PYX_ERR(0, 381, __pyx_L1_error)
       __pyx_L13_unpacking_done:;
     }
-    __pyx_t_14 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_14 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 379, __pyx_L1_error)
+    __pyx_t_14 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_14 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 381, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 379, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 381, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_10 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_10 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 379, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_10 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 381, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_v_val = __pyx_t_14;
     __pyx_v_y = __pyx_t_4;
@@ -9677,7 +9690,7 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_2thinking(struct __pyx_ob
   }
   __pyx_L9:;
 
-  /* "cplayer.pyx":381
+  /* "cplayer.pyx":383
  *             val, y, x = self.alpha_beta(_board, turn, self.depth)
  * 
  *         return y, x             # <<<<<<<<<<<<<<
@@ -9685,11 +9698,11 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_2thinking(struct __pyx_ob
  *     @cython.nonecheck(False)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_y); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 381, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_y); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 383, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_x); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 381, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_x); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 383, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 381, __pyx_L1_error)
+  __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 383, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_2);
@@ -9701,7 +9714,7 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_2thinking(struct __pyx_ob
   __pyx_t_5 = 0;
   goto __pyx_L0;
 
-  /* "cplayer.pyx":362
+  /* "cplayer.pyx":364
  * 
  *     @cython.nonecheck(False)
  *     def thinking(self, board, turn):             # <<<<<<<<<<<<<<
@@ -9716,7 +9729,7 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_2thinking(struct __pyx_ob
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_12);
-  __Pyx_AddTraceback("cplayer.AlphaBetaSecondAI.thinking", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cplayer.SwitchTacticsAlphaBetaAI.thinking", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_legal_move_count_list);
@@ -9728,7 +9741,7 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_2thinking(struct __pyx_ob
   return __pyx_r;
 }
 
-/* "cplayer.pyx":384
+/* "cplayer.pyx":386
  * 
  *     @cython.nonecheck(False)
  *     cdef alpha_beta(self, list board, int player, int depth, alpha=-math.inf, beta=math.inf):             # <<<<<<<<<<<<<<
@@ -9736,7 +9749,7 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_2thinking(struct __pyx_ob
  *         cdef int black_stones
  */
 
-static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player, int __pyx_v_depth, struct __pyx_opt_args_7cplayer_17AlphaBetaSecondAI_alpha_beta *__pyx_optional_args) {
+static PyObject *__pyx_f_7cplayer_24SwitchTacticsAlphaBetaAI_alpha_beta(struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player, int __pyx_v_depth, struct __pyx_opt_args_7cplayer_24SwitchTacticsAlphaBetaAI_alpha_beta *__pyx_optional_args) {
   PyObject *__pyx_v_alpha = __pyx_k__9;
   PyObject *__pyx_v_beta = __pyx_k__10;
   PyObject *__pyx_v_legal_move_count_list = 0;
@@ -9765,7 +9778,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
   PyObject *__pyx_t_9 = NULL;
   PyObject *__pyx_t_10 = NULL;
   PyObject *(*__pyx_t_11)(PyObject *);
-  struct __pyx_opt_args_7cplayer_17AlphaBetaSecondAI_alpha_beta __pyx_t_12;
+  struct __pyx_opt_args_7cplayer_24SwitchTacticsAlphaBetaAI_alpha_beta __pyx_t_12;
   int __pyx_t_13;
   __Pyx_RefNannySetupContext("alpha_beta", 0);
   if (__pyx_optional_args) {
@@ -9779,7 +9792,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
   __Pyx_INCREF(__pyx_v_alpha);
   __Pyx_INCREF(__pyx_v_beta);
 
-  /* "cplayer.pyx":392
+  /* "cplayer.pyx":394
  * 
  *         #
  *         if depth == 0:             # <<<<<<<<<<<<<<
@@ -9789,16 +9802,16 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
   __pyx_t_1 = ((__pyx_v_depth == 0) != 0);
   if (__pyx_t_1) {
 
-    /* "cplayer.pyx":393
+    /* "cplayer.pyx":395
  *         #
  *         if depth == 0:
  *             val = self.evaluation_function(board, self.player)             # <<<<<<<<<<<<<<
  *             return val
  * 
  */
-    __pyx_v_val = ((struct __pyx_vtabstruct_7cplayer_AlphaBetaSecondAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->evaluation_function(__pyx_v_self, __pyx_v_board, __pyx_v_self->__pyx_base.player);
+    __pyx_v_val = ((struct __pyx_vtabstruct_7cplayer_SwitchTacticsAlphaBetaAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->evaluation_function(__pyx_v_self, __pyx_v_board, __pyx_v_self->__pyx_base.player);
 
-    /* "cplayer.pyx":394
+    /* "cplayer.pyx":396
  *         if depth == 0:
  *             val = self.evaluation_function(board, self.player)
  *             return val             # <<<<<<<<<<<<<<
@@ -9806,13 +9819,13 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
  *         #
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 394, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 396, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_r = __pyx_t_2;
     __pyx_t_2 = 0;
     goto __pyx_L0;
 
-    /* "cplayer.pyx":392
+    /* "cplayer.pyx":394
  * 
  *         #
  *         if depth == 0:             # <<<<<<<<<<<<<<
@@ -9821,45 +9834,45 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
  */
   }
 
-  /* "cplayer.pyx":397
+  /* "cplayer.pyx":399
  * 
  *         #
  *         cdef int opponent = Turn.BLACK if player == Turn.WHITE else Turn.WHITE             # <<<<<<<<<<<<<<
  * 
  *         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(
  */
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_player); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 397, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_player); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 399, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 397, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 399, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = PyObject_RichCompare(__pyx_t_2, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 397, __pyx_L1_error)
+  __pyx_t_5 = PyObject_RichCompare(__pyx_t_2, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 399, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 397, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 399, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   if (__pyx_t_1) {
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_BLACK); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 397, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_BLACK); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 399, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 397, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 399, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_3 = __pyx_t_6;
   } else {
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 397, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 399, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 397, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 399, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_3 = __pyx_t_6;
   }
   __pyx_v_opponent = __pyx_t_3;
 
-  /* "cplayer.pyx":399
+  /* "cplayer.pyx":401
  *         cdef int opponent = Turn.BLACK if player == Turn.WHITE else Turn.WHITE
  * 
  *         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(             # <<<<<<<<<<<<<<
  *             board, player)
  * 
  */
-  __pyx_t_5 = ((struct __pyx_vtabstruct_7cplayer_AlphaBetaSecondAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v_board, __pyx_v_player); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 399, __pyx_L1_error)
+  __pyx_t_5 = ((struct __pyx_vtabstruct_7cplayer_SwitchTacticsAlphaBetaAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v_board, __pyx_v_player); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 401, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   if (likely(__pyx_t_5 != Py_None)) {
     PyObject* sequence = __pyx_t_5;
@@ -9867,7 +9880,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
     if (unlikely(size != 3)) {
       if (size > 3) __Pyx_RaiseTooManyValuesError(3);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 399, __pyx_L1_error)
+      __PYX_ERR(0, 401, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     __pyx_t_4 = PyTuple_GET_ITEM(sequence, 0); 
@@ -9877,37 +9890,37 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
     __Pyx_INCREF(__pyx_t_2);
     __Pyx_INCREF(__pyx_t_7);
     #else
-    __pyx_t_4 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 399, __pyx_L1_error)
+    __pyx_t_4 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 401, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 399, __pyx_L1_error)
+    __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 401, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_7 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 399, __pyx_L1_error)
+    __pyx_t_7 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 401, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     #endif
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   } else {
-    __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 399, __pyx_L1_error)
+    __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 401, __pyx_L1_error)
   }
-  if (!(likely(PyList_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_4)->tp_name), 0))) __PYX_ERR(0, 399, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 399, __pyx_L1_error)
+  if (!(likely(PyList_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_4)->tp_name), 0))) __PYX_ERR(0, 401, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 401, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_7); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 399, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_7); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 401, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_v_legal_move_count_list = ((PyObject*)__pyx_t_4);
   __pyx_t_4 = 0;
   __pyx_v_black_stones = __pyx_t_3;
   __pyx_v_white_stones = __pyx_t_6;
 
-  /* "cplayer.pyx":402
+  /* "cplayer.pyx":404
  *             board, player)
  * 
  *         random.shuffle(legal_move_count_list)             # <<<<<<<<<<<<<<
  * 
  *         if len(legal_move_count_list) == 0:
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_random); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 402, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_random); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 404, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_shuffle); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 402, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_shuffle); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 404, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_t_7 = NULL;
@@ -9922,12 +9935,12 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
   }
   __pyx_t_5 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_7, __pyx_v_legal_move_count_list) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_legal_move_count_list);
   __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-  if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 402, __pyx_L1_error)
+  if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 404, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cplayer.pyx":404
+  /* "cplayer.pyx":406
  *         random.shuffle(legal_move_count_list)
  * 
  *         if len(legal_move_count_list) == 0:             # <<<<<<<<<<<<<<
@@ -9936,22 +9949,22 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
  */
   if (unlikely(__pyx_v_legal_move_count_list == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 404, __pyx_L1_error)
+    __PYX_ERR(0, 406, __pyx_L1_error)
   }
-  __pyx_t_8 = PyList_GET_SIZE(__pyx_v_legal_move_count_list); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 404, __pyx_L1_error)
+  __pyx_t_8 = PyList_GET_SIZE(__pyx_v_legal_move_count_list); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 406, __pyx_L1_error)
   __pyx_t_1 = ((__pyx_t_8 == 0) != 0);
   if (__pyx_t_1) {
 
-    /* "cplayer.pyx":405
+    /* "cplayer.pyx":407
  * 
  *         if len(legal_move_count_list) == 0:
  *             val = self.evaluation_function(board, self.player)             # <<<<<<<<<<<<<<
  *             return val
  * 
  */
-    __pyx_v_val = ((struct __pyx_vtabstruct_7cplayer_AlphaBetaSecondAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->evaluation_function(__pyx_v_self, __pyx_v_board, __pyx_v_self->__pyx_base.player);
+    __pyx_v_val = ((struct __pyx_vtabstruct_7cplayer_SwitchTacticsAlphaBetaAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->evaluation_function(__pyx_v_self, __pyx_v_board, __pyx_v_self->__pyx_base.player);
 
-    /* "cplayer.pyx":406
+    /* "cplayer.pyx":408
  *         if len(legal_move_count_list) == 0:
  *             val = self.evaluation_function(board, self.player)
  *             return val             # <<<<<<<<<<<<<<
@@ -9959,13 +9972,13 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
  *         if player == self.player:
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 406, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 408, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_r = __pyx_t_5;
     __pyx_t_5 = 0;
     goto __pyx_L0;
 
-    /* "cplayer.pyx":404
+    /* "cplayer.pyx":406
  *         random.shuffle(legal_move_count_list)
  * 
  *         if len(legal_move_count_list) == 0:             # <<<<<<<<<<<<<<
@@ -9974,7 +9987,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
  */
   }
 
-  /* "cplayer.pyx":408
+  /* "cplayer.pyx":410
  *             return val
  * 
  *         if player == self.player:             # <<<<<<<<<<<<<<
@@ -9984,25 +9997,25 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
   __pyx_t_1 = ((__pyx_v_player == __pyx_v_self->__pyx_base.player) != 0);
   if (__pyx_t_1) {
 
-    /* "cplayer.pyx":409
+    /* "cplayer.pyx":411
  * 
  *         if player == self.player:
  *             best = -math.inf             # <<<<<<<<<<<<<<
  *             best_y = best_x = None
  *             for y, x, count in legal_move_count_list:
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_math); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 409, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_math); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 411, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_inf); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 409, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_inf); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 411, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = PyNumber_Negative(__pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 409, __pyx_L1_error)
+    __pyx_t_5 = PyNumber_Negative(__pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 411, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_best = __pyx_t_5;
     __pyx_t_5 = 0;
 
-    /* "cplayer.pyx":410
+    /* "cplayer.pyx":412
  *         if player == self.player:
  *             best = -math.inf
  *             best_y = best_x = None             # <<<<<<<<<<<<<<
@@ -10014,7 +10027,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
     __Pyx_INCREF(Py_None);
     __pyx_v_best_x = Py_None;
 
-    /* "cplayer.pyx":411
+    /* "cplayer.pyx":413
  *             best = -math.inf
  *             best_y = best_x = None
  *             for y, x, count in legal_move_count_list:             # <<<<<<<<<<<<<<
@@ -10023,15 +10036,15 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
  */
     if (unlikely(__pyx_v_legal_move_count_list == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-      __PYX_ERR(0, 411, __pyx_L1_error)
+      __PYX_ERR(0, 413, __pyx_L1_error)
     }
     __pyx_t_5 = __pyx_v_legal_move_count_list; __Pyx_INCREF(__pyx_t_5); __pyx_t_8 = 0;
     for (;;) {
       if (__pyx_t_8 >= PyList_GET_SIZE(__pyx_t_5)) break;
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-      __pyx_t_2 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_8); __Pyx_INCREF(__pyx_t_2); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 411, __pyx_L1_error)
+      __pyx_t_2 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_8); __Pyx_INCREF(__pyx_t_2); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 413, __pyx_L1_error)
       #else
-      __pyx_t_2 = PySequence_ITEM(__pyx_t_5, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 411, __pyx_L1_error)
+      __pyx_t_2 = PySequence_ITEM(__pyx_t_5, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 413, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       #endif
       if ((likely(PyTuple_CheckExact(__pyx_t_2))) || (PyList_CheckExact(__pyx_t_2))) {
@@ -10040,7 +10053,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
         if (unlikely(size != 3)) {
           if (size > 3) __Pyx_RaiseTooManyValuesError(3);
           else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-          __PYX_ERR(0, 411, __pyx_L1_error)
+          __PYX_ERR(0, 413, __pyx_L1_error)
         }
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
         if (likely(PyTuple_CheckExact(sequence))) {
@@ -10056,17 +10069,17 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
         __Pyx_INCREF(__pyx_t_4);
         __Pyx_INCREF(__pyx_t_9);
         #else
-        __pyx_t_7 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 411, __pyx_L1_error)
+        __pyx_t_7 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 413, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
-        __pyx_t_4 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 411, __pyx_L1_error)
+        __pyx_t_4 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 413, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_9 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 411, __pyx_L1_error)
+        __pyx_t_9 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 413, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         #endif
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       } else {
         Py_ssize_t index = -1;
-        __pyx_t_10 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 411, __pyx_L1_error)
+        __pyx_t_10 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 413, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_t_11 = Py_TYPE(__pyx_t_10)->tp_iternext;
@@ -10076,7 +10089,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
         __Pyx_GOTREF(__pyx_t_4);
         index = 2; __pyx_t_9 = __pyx_t_11(__pyx_t_10); if (unlikely(!__pyx_t_9)) goto __pyx_L8_unpacking_failed;
         __Pyx_GOTREF(__pyx_t_9);
-        if (__Pyx_IternextUnpackEndCheck(__pyx_t_11(__pyx_t_10), 3) < 0) __PYX_ERR(0, 411, __pyx_L1_error)
+        if (__Pyx_IternextUnpackEndCheck(__pyx_t_11(__pyx_t_10), 3) < 0) __PYX_ERR(0, 413, __pyx_L1_error)
         __pyx_t_11 = NULL;
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         goto __pyx_L9_unpacking_done;
@@ -10084,7 +10097,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         __pyx_t_11 = NULL;
         if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-        __PYX_ERR(0, 411, __pyx_L1_error)
+        __PYX_ERR(0, 413, __pyx_L1_error)
         __pyx_L9_unpacking_done:;
       }
       __Pyx_XDECREF_SET(__pyx_v_y, __pyx_t_7);
@@ -10094,16 +10107,16 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
       __Pyx_XDECREF_SET(__pyx_v_count, __pyx_t_9);
       __pyx_t_9 = 0;
 
-      /* "cplayer.pyx":412
+      /* "cplayer.pyx":414
  *             best_y = best_x = None
  *             for y, x, count in legal_move_count_list:
  *                 _board = copy.deepcopy(board)             # <<<<<<<<<<<<<<
  *                 self.put_stone(_board, y, x, player)
  *                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_copy); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 412, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_copy); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 414, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_deepcopy); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 412, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_deepcopy); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 414, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       __pyx_t_9 = NULL;
@@ -10118,25 +10131,25 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
       }
       __pyx_t_2 = (__pyx_t_9) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_9, __pyx_v_board) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_board);
       __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 412, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 414, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (!(likely(PyList_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_2)->tp_name), 0))) __PYX_ERR(0, 412, __pyx_L1_error)
+      if (!(likely(PyList_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_2)->tp_name), 0))) __PYX_ERR(0, 414, __pyx_L1_error)
       __Pyx_XDECREF_SET(__pyx_v__board, ((PyObject*)__pyx_t_2));
       __pyx_t_2 = 0;
 
-      /* "cplayer.pyx":413
+      /* "cplayer.pyx":415
  *             for y, x, count in legal_move_count_list:
  *                 _board = copy.deepcopy(board)
  *                 self.put_stone(_board, y, x, player)             # <<<<<<<<<<<<<<
  *                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)
  *                 if isinstance(min_max_result, int):
  */
-      __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_v_y); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 413, __pyx_L1_error)
-      __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 413, __pyx_L1_error)
-      ((struct __pyx_vtabstruct_7cplayer_AlphaBetaSecondAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.put_stone(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v__board, __pyx_t_6, __pyx_t_3, __pyx_v_player);
+      __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_v_y); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 415, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 415, __pyx_L1_error)
+      ((struct __pyx_vtabstruct_7cplayer_SwitchTacticsAlphaBetaAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.put_stone(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v__board, __pyx_t_6, __pyx_t_3, __pyx_v_player);
 
-      /* "cplayer.pyx":414
+      /* "cplayer.pyx":416
  *                 _board = copy.deepcopy(board)
  *                 self.put_stone(_board, y, x, player)
  *                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)             # <<<<<<<<<<<<<<
@@ -10146,12 +10159,12 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
       __pyx_t_12.__pyx_n = 2;
       __pyx_t_12.alpha = __pyx_v_alpha;
       __pyx_t_12.beta = __pyx_v_beta;
-      __pyx_t_2 = ((struct __pyx_vtabstruct_7cplayer_AlphaBetaSecondAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->alpha_beta(__pyx_v_self, __pyx_v__board, __pyx_v_opponent, (__pyx_v_depth - 1), &__pyx_t_12); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 414, __pyx_L1_error)
+      __pyx_t_2 = ((struct __pyx_vtabstruct_7cplayer_SwitchTacticsAlphaBetaAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->alpha_beta(__pyx_v_self, __pyx_v__board, __pyx_v_opponent, (__pyx_v_depth - 1), &__pyx_t_12); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 416, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_XDECREF_SET(__pyx_v_min_max_result, __pyx_t_2);
       __pyx_t_2 = 0;
 
-      /* "cplayer.pyx":415
+      /* "cplayer.pyx":417
  *                 self.put_stone(_board, y, x, player)
  *                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)
  *                 if isinstance(min_max_result, int):             # <<<<<<<<<<<<<<
@@ -10162,17 +10175,17 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
       __pyx_t_13 = (__pyx_t_1 != 0);
       if (__pyx_t_13) {
 
-        /* "cplayer.pyx":416
+        /* "cplayer.pyx":418
  *                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)
  *                 if isinstance(min_max_result, int):
  *                     val = min_max_result             # <<<<<<<<<<<<<<
  *                 else:
  *                     val = min_max_result[0]
  */
-        __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_min_max_result); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 416, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_min_max_result); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 418, __pyx_L1_error)
         __pyx_v_val = __pyx_t_3;
 
-        /* "cplayer.pyx":415
+        /* "cplayer.pyx":417
  *                 self.put_stone(_board, y, x, player)
  *                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)
  *                 if isinstance(min_max_result, int):             # <<<<<<<<<<<<<<
@@ -10182,7 +10195,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
         goto __pyx_L10;
       }
 
-      /* "cplayer.pyx":418
+      /* "cplayer.pyx":420
  *                     val = min_max_result
  *                 else:
  *                     val = min_max_result[0]             # <<<<<<<<<<<<<<
@@ -10190,54 +10203,54 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
  *                     alpha = val
  */
       /*else*/ {
-        __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_min_max_result, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 418, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_min_max_result, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 420, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 418, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 420, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_v_val = __pyx_t_3;
       }
       __pyx_L10:;
 
-      /* "cplayer.pyx":419
+      /* "cplayer.pyx":421
  *                 else:
  *                     val = min_max_result[0]
  *                 if val > best:             # <<<<<<<<<<<<<<
  *                     alpha = val
  *                     best = val
  */
-      __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 419, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 421, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_4 = PyObject_RichCompare(__pyx_t_2, __pyx_v_best, Py_GT); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 419, __pyx_L1_error)
+      __pyx_t_4 = PyObject_RichCompare(__pyx_t_2, __pyx_v_best, Py_GT); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 421, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __pyx_t_13 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_13 < 0)) __PYX_ERR(0, 419, __pyx_L1_error)
+      __pyx_t_13 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_13 < 0)) __PYX_ERR(0, 421, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       if (__pyx_t_13) {
 
-        /* "cplayer.pyx":420
+        /* "cplayer.pyx":422
  *                     val = min_max_result[0]
  *                 if val > best:
  *                     alpha = val             # <<<<<<<<<<<<<<
  *                     best = val
  *                     best_y = y
  */
-        __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 420, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 422, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF_SET(__pyx_v_alpha, __pyx_t_4);
         __pyx_t_4 = 0;
 
-        /* "cplayer.pyx":421
+        /* "cplayer.pyx":423
  *                 if val > best:
  *                     alpha = val
  *                     best = val             # <<<<<<<<<<<<<<
  *                     best_y = y
  *                     best_x = x
  */
-        __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 421, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 423, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF_SET(__pyx_v_best, __pyx_t_4);
         __pyx_t_4 = 0;
 
-        /* "cplayer.pyx":422
+        /* "cplayer.pyx":424
  *                     alpha = val
  *                     best = val
  *                     best_y = y             # <<<<<<<<<<<<<<
@@ -10247,7 +10260,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
         __Pyx_INCREF(__pyx_v_y);
         __Pyx_DECREF_SET(__pyx_v_best_y, __pyx_v_y);
 
-        /* "cplayer.pyx":423
+        /* "cplayer.pyx":425
  *                     best = val
  *                     best_y = y
  *                     best_x = x             # <<<<<<<<<<<<<<
@@ -10257,7 +10270,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
         __Pyx_INCREF(__pyx_v_x);
         __Pyx_DECREF_SET(__pyx_v_best_x, __pyx_v_x);
 
-        /* "cplayer.pyx":419
+        /* "cplayer.pyx":421
  *                 else:
  *                     val = min_max_result[0]
  *                 if val > best:             # <<<<<<<<<<<<<<
@@ -10266,19 +10279,19 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
  */
       }
 
-      /* "cplayer.pyx":425
+      /* "cplayer.pyx":427
  *                     best_x = x
  * 
  *                 if best > beta:  # beta             # <<<<<<<<<<<<<<
  *                     return best, best_y, best_x
  * 
  */
-      __pyx_t_4 = PyObject_RichCompare(__pyx_v_best, __pyx_v_beta, Py_GT); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 425, __pyx_L1_error)
-      __pyx_t_13 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_13 < 0)) __PYX_ERR(0, 425, __pyx_L1_error)
+      __pyx_t_4 = PyObject_RichCompare(__pyx_v_best, __pyx_v_beta, Py_GT); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 427, __pyx_L1_error)
+      __pyx_t_13 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_13 < 0)) __PYX_ERR(0, 427, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       if (__pyx_t_13) {
 
-        /* "cplayer.pyx":426
+        /* "cplayer.pyx":428
  * 
  *                 if best > beta:  # beta
  *                     return best, best_y, best_x             # <<<<<<<<<<<<<<
@@ -10286,7 +10299,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
  *             return best, best_y, best_x
  */
         __Pyx_XDECREF(__pyx_r);
-        __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 426, __pyx_L1_error)
+        __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 428, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_INCREF(__pyx_v_best);
         __Pyx_GIVEREF(__pyx_v_best);
@@ -10302,7 +10315,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         goto __pyx_L0;
 
-        /* "cplayer.pyx":425
+        /* "cplayer.pyx":427
  *                     best_x = x
  * 
  *                 if best > beta:  # beta             # <<<<<<<<<<<<<<
@@ -10311,7 +10324,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
  */
       }
 
-      /* "cplayer.pyx":411
+      /* "cplayer.pyx":413
  *             best = -math.inf
  *             best_y = best_x = None
  *             for y, x, count in legal_move_count_list:             # <<<<<<<<<<<<<<
@@ -10321,7 +10334,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
     }
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-    /* "cplayer.pyx":428
+    /* "cplayer.pyx":430
  *                     return best, best_y, best_x
  * 
  *             return best, best_y, best_x             # <<<<<<<<<<<<<<
@@ -10329,7 +10342,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
  *             best = math.inf
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 428, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 430, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_INCREF(__pyx_v_best);
     __Pyx_GIVEREF(__pyx_v_best);
@@ -10344,7 +10357,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
     __pyx_t_5 = 0;
     goto __pyx_L0;
 
-    /* "cplayer.pyx":408
+    /* "cplayer.pyx":410
  *             return val
  * 
  *         if player == self.player:             # <<<<<<<<<<<<<<
@@ -10353,7 +10366,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
  */
   }
 
-  /* "cplayer.pyx":429
+  /* "cplayer.pyx":431
  * 
  *             return best, best_y, best_x
  *         elif player != self.player:             # <<<<<<<<<<<<<<
@@ -10363,22 +10376,22 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
   __pyx_t_13 = ((__pyx_v_player != __pyx_v_self->__pyx_base.player) != 0);
   if (__pyx_t_13) {
 
-    /* "cplayer.pyx":430
+    /* "cplayer.pyx":432
  *             return best, best_y, best_x
  *         elif player != self.player:
  *             best = math.inf             # <<<<<<<<<<<<<<
  *             best_y = best_x = None
  *             for y, x, count in legal_move_count_list:
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_math); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 430, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_math); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 432, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_inf); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 430, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_inf); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 432, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_v_best = __pyx_t_4;
     __pyx_t_4 = 0;
 
-    /* "cplayer.pyx":431
+    /* "cplayer.pyx":433
  *         elif player != self.player:
  *             best = math.inf
  *             best_y = best_x = None             # <<<<<<<<<<<<<<
@@ -10390,7 +10403,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
     __Pyx_INCREF(Py_None);
     __pyx_v_best_x = Py_None;
 
-    /* "cplayer.pyx":432
+    /* "cplayer.pyx":434
  *             best = math.inf
  *             best_y = best_x = None
  *             for y, x, count in legal_move_count_list:             # <<<<<<<<<<<<<<
@@ -10399,15 +10412,15 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
  */
     if (unlikely(__pyx_v_legal_move_count_list == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-      __PYX_ERR(0, 432, __pyx_L1_error)
+      __PYX_ERR(0, 434, __pyx_L1_error)
     }
     __pyx_t_4 = __pyx_v_legal_move_count_list; __Pyx_INCREF(__pyx_t_4); __pyx_t_8 = 0;
     for (;;) {
       if (__pyx_t_8 >= PyList_GET_SIZE(__pyx_t_4)) break;
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-      __pyx_t_5 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_8); __Pyx_INCREF(__pyx_t_5); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 432, __pyx_L1_error)
+      __pyx_t_5 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_8); __Pyx_INCREF(__pyx_t_5); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 434, __pyx_L1_error)
       #else
-      __pyx_t_5 = PySequence_ITEM(__pyx_t_4, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 432, __pyx_L1_error)
+      __pyx_t_5 = PySequence_ITEM(__pyx_t_4, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 434, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       #endif
       if ((likely(PyTuple_CheckExact(__pyx_t_5))) || (PyList_CheckExact(__pyx_t_5))) {
@@ -10416,7 +10429,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
         if (unlikely(size != 3)) {
           if (size > 3) __Pyx_RaiseTooManyValuesError(3);
           else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-          __PYX_ERR(0, 432, __pyx_L1_error)
+          __PYX_ERR(0, 434, __pyx_L1_error)
         }
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
         if (likely(PyTuple_CheckExact(sequence))) {
@@ -10432,17 +10445,17 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
         __Pyx_INCREF(__pyx_t_9);
         __Pyx_INCREF(__pyx_t_7);
         #else
-        __pyx_t_2 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 432, __pyx_L1_error)
+        __pyx_t_2 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 434, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_9 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 432, __pyx_L1_error)
+        __pyx_t_9 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 434, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
-        __pyx_t_7 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 432, __pyx_L1_error)
+        __pyx_t_7 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 434, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
         #endif
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       } else {
         Py_ssize_t index = -1;
-        __pyx_t_10 = PyObject_GetIter(__pyx_t_5); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 432, __pyx_L1_error)
+        __pyx_t_10 = PyObject_GetIter(__pyx_t_5); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 434, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         __pyx_t_11 = Py_TYPE(__pyx_t_10)->tp_iternext;
@@ -10452,7 +10465,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
         __Pyx_GOTREF(__pyx_t_9);
         index = 2; __pyx_t_7 = __pyx_t_11(__pyx_t_10); if (unlikely(!__pyx_t_7)) goto __pyx_L15_unpacking_failed;
         __Pyx_GOTREF(__pyx_t_7);
-        if (__Pyx_IternextUnpackEndCheck(__pyx_t_11(__pyx_t_10), 3) < 0) __PYX_ERR(0, 432, __pyx_L1_error)
+        if (__Pyx_IternextUnpackEndCheck(__pyx_t_11(__pyx_t_10), 3) < 0) __PYX_ERR(0, 434, __pyx_L1_error)
         __pyx_t_11 = NULL;
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         goto __pyx_L16_unpacking_done;
@@ -10460,7 +10473,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         __pyx_t_11 = NULL;
         if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-        __PYX_ERR(0, 432, __pyx_L1_error)
+        __PYX_ERR(0, 434, __pyx_L1_error)
         __pyx_L16_unpacking_done:;
       }
       __Pyx_XDECREF_SET(__pyx_v_y, __pyx_t_2);
@@ -10470,16 +10483,16 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
       __Pyx_XDECREF_SET(__pyx_v_count, __pyx_t_7);
       __pyx_t_7 = 0;
 
-      /* "cplayer.pyx":433
+      /* "cplayer.pyx":435
  *             best_y = best_x = None
  *             for y, x, count in legal_move_count_list:
  *                 _board = copy.deepcopy(board)             # <<<<<<<<<<<<<<
  *                 self.put_stone(_board, y, x, player)
  *                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_copy); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 433, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_copy); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 435, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_deepcopy); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 433, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_deepcopy); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 435, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __pyx_t_7 = NULL;
@@ -10494,25 +10507,25 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
       }
       __pyx_t_5 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_9, __pyx_t_7, __pyx_v_board) : __Pyx_PyObject_CallOneArg(__pyx_t_9, __pyx_v_board);
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 433, __pyx_L1_error)
+      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 435, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-      if (!(likely(PyList_CheckExact(__pyx_t_5))||((__pyx_t_5) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_5)->tp_name), 0))) __PYX_ERR(0, 433, __pyx_L1_error)
+      if (!(likely(PyList_CheckExact(__pyx_t_5))||((__pyx_t_5) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_5)->tp_name), 0))) __PYX_ERR(0, 435, __pyx_L1_error)
       __Pyx_XDECREF_SET(__pyx_v__board, ((PyObject*)__pyx_t_5));
       __pyx_t_5 = 0;
 
-      /* "cplayer.pyx":434
+      /* "cplayer.pyx":436
  *             for y, x, count in legal_move_count_list:
  *                 _board = copy.deepcopy(board)
  *                 self.put_stone(_board, y, x, player)             # <<<<<<<<<<<<<<
  *                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)
  *                 if isinstance(min_max_result, int):
  */
-      __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_y); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 434, __pyx_L1_error)
-      __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 434, __pyx_L1_error)
-      ((struct __pyx_vtabstruct_7cplayer_AlphaBetaSecondAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.put_stone(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v__board, __pyx_t_3, __pyx_t_6, __pyx_v_player);
+      __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_y); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 436, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 436, __pyx_L1_error)
+      ((struct __pyx_vtabstruct_7cplayer_SwitchTacticsAlphaBetaAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.put_stone(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v__board, __pyx_t_3, __pyx_t_6, __pyx_v_player);
 
-      /* "cplayer.pyx":435
+      /* "cplayer.pyx":437
  *                 _board = copy.deepcopy(board)
  *                 self.put_stone(_board, y, x, player)
  *                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)             # <<<<<<<<<<<<<<
@@ -10522,12 +10535,12 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
       __pyx_t_12.__pyx_n = 2;
       __pyx_t_12.alpha = __pyx_v_alpha;
       __pyx_t_12.beta = __pyx_v_beta;
-      __pyx_t_5 = ((struct __pyx_vtabstruct_7cplayer_AlphaBetaSecondAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->alpha_beta(__pyx_v_self, __pyx_v__board, __pyx_v_opponent, (__pyx_v_depth - 1), &__pyx_t_12); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 435, __pyx_L1_error)
+      __pyx_t_5 = ((struct __pyx_vtabstruct_7cplayer_SwitchTacticsAlphaBetaAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->alpha_beta(__pyx_v_self, __pyx_v__board, __pyx_v_opponent, (__pyx_v_depth - 1), &__pyx_t_12); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 437, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_XDECREF_SET(__pyx_v_min_max_result, __pyx_t_5);
       __pyx_t_5 = 0;
 
-      /* "cplayer.pyx":436
+      /* "cplayer.pyx":438
  *                 self.put_stone(_board, y, x, player)
  *                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)
  *                 if isinstance(min_max_result, int):             # <<<<<<<<<<<<<<
@@ -10538,17 +10551,17 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
       __pyx_t_1 = (__pyx_t_13 != 0);
       if (__pyx_t_1) {
 
-        /* "cplayer.pyx":437
+        /* "cplayer.pyx":439
  *                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)
  *                 if isinstance(min_max_result, int):
  *                     val = min_max_result             # <<<<<<<<<<<<<<
  *                 else:
  *                     val = min_max_result[0]
  */
-        __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_v_min_max_result); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 437, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_v_min_max_result); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 439, __pyx_L1_error)
         __pyx_v_val = __pyx_t_6;
 
-        /* "cplayer.pyx":436
+        /* "cplayer.pyx":438
  *                 self.put_stone(_board, y, x, player)
  *                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)
  *                 if isinstance(min_max_result, int):             # <<<<<<<<<<<<<<
@@ -10558,7 +10571,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
         goto __pyx_L17;
       }
 
-      /* "cplayer.pyx":439
+      /* "cplayer.pyx":441
  *                     val = min_max_result
  *                 else:
  *                     val = min_max_result[0]             # <<<<<<<<<<<<<<
@@ -10566,54 +10579,54 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
  *                     beta = val
  */
       /*else*/ {
-        __pyx_t_5 = __Pyx_GetItemInt(__pyx_v_min_max_result, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 439, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_GetItemInt(__pyx_v_min_max_result, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 441, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 439, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 441, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         __pyx_v_val = __pyx_t_6;
       }
       __pyx_L17:;
 
-      /* "cplayer.pyx":440
+      /* "cplayer.pyx":442
  *                 else:
  *                     val = min_max_result[0]
  *                 if val < best:             # <<<<<<<<<<<<<<
  *                     beta = val
  *                     best = val
  */
-      __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 440, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 442, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_9 = PyObject_RichCompare(__pyx_t_5, __pyx_v_best, Py_LT); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 440, __pyx_L1_error)
+      __pyx_t_9 = PyObject_RichCompare(__pyx_t_5, __pyx_v_best, Py_LT); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 442, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 440, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 442, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       if (__pyx_t_1) {
 
-        /* "cplayer.pyx":441
+        /* "cplayer.pyx":443
  *                     val = min_max_result[0]
  *                 if val < best:
  *                     beta = val             # <<<<<<<<<<<<<<
  *                     best = val
  *                     best_y = y
  */
-        __pyx_t_9 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 441, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 443, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_DECREF_SET(__pyx_v_beta, __pyx_t_9);
         __pyx_t_9 = 0;
 
-        /* "cplayer.pyx":442
+        /* "cplayer.pyx":444
  *                 if val < best:
  *                     beta = val
  *                     best = val             # <<<<<<<<<<<<<<
  *                     best_y = y
  *                     best_x = x
  */
-        __pyx_t_9 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 442, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 444, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_DECREF_SET(__pyx_v_best, __pyx_t_9);
         __pyx_t_9 = 0;
 
-        /* "cplayer.pyx":443
+        /* "cplayer.pyx":445
  *                     beta = val
  *                     best = val
  *                     best_y = y             # <<<<<<<<<<<<<<
@@ -10623,7 +10636,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
         __Pyx_INCREF(__pyx_v_y);
         __Pyx_DECREF_SET(__pyx_v_best_y, __pyx_v_y);
 
-        /* "cplayer.pyx":444
+        /* "cplayer.pyx":446
  *                     best = val
  *                     best_y = y
  *                     best_x = x             # <<<<<<<<<<<<<<
@@ -10633,7 +10646,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
         __Pyx_INCREF(__pyx_v_x);
         __Pyx_DECREF_SET(__pyx_v_best_x, __pyx_v_x);
 
-        /* "cplayer.pyx":440
+        /* "cplayer.pyx":442
  *                 else:
  *                     val = min_max_result[0]
  *                 if val < best:             # <<<<<<<<<<<<<<
@@ -10642,19 +10655,19 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
  */
       }
 
-      /* "cplayer.pyx":446
+      /* "cplayer.pyx":448
  *                     best_x = x
  * 
  *                 if best < alpha:             # <<<<<<<<<<<<<<
  *                     return best, best_y, best_x
  * 
  */
-      __pyx_t_9 = PyObject_RichCompare(__pyx_v_best, __pyx_v_alpha, Py_LT); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 446, __pyx_L1_error)
-      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 446, __pyx_L1_error)
+      __pyx_t_9 = PyObject_RichCompare(__pyx_v_best, __pyx_v_alpha, Py_LT); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 448, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 448, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       if (__pyx_t_1) {
 
-        /* "cplayer.pyx":447
+        /* "cplayer.pyx":449
  * 
  *                 if best < alpha:
  *                     return best, best_y, best_x             # <<<<<<<<<<<<<<
@@ -10662,7 +10675,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
  *             return best, best_y, best_x
  */
         __Pyx_XDECREF(__pyx_r);
-        __pyx_t_9 = PyTuple_New(3); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 447, __pyx_L1_error)
+        __pyx_t_9 = PyTuple_New(3); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 449, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_INCREF(__pyx_v_best);
         __Pyx_GIVEREF(__pyx_v_best);
@@ -10678,7 +10691,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         goto __pyx_L0;
 
-        /* "cplayer.pyx":446
+        /* "cplayer.pyx":448
  *                     best_x = x
  * 
  *                 if best < alpha:             # <<<<<<<<<<<<<<
@@ -10687,7 +10700,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
  */
       }
 
-      /* "cplayer.pyx":432
+      /* "cplayer.pyx":434
  *             best = math.inf
  *             best_y = best_x = None
  *             for y, x, count in legal_move_count_list:             # <<<<<<<<<<<<<<
@@ -10697,7 +10710,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
     }
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "cplayer.pyx":449
+    /* "cplayer.pyx":451
  *                     return best, best_y, best_x
  * 
  *             return best, best_y, best_x             # <<<<<<<<<<<<<<
@@ -10705,7 +10718,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
  *     @cython.nonecheck(False)
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 449, __pyx_L1_error)
+    __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 451, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_INCREF(__pyx_v_best);
     __Pyx_GIVEREF(__pyx_v_best);
@@ -10720,7 +10733,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
     __pyx_t_4 = 0;
     goto __pyx_L0;
 
-    /* "cplayer.pyx":429
+    /* "cplayer.pyx":431
  * 
  *             return best, best_y, best_x
  *         elif player != self.player:             # <<<<<<<<<<<<<<
@@ -10729,7 +10742,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
  */
   }
 
-  /* "cplayer.pyx":384
+  /* "cplayer.pyx":386
  * 
  *     @cython.nonecheck(False)
  *     cdef alpha_beta(self, list board, int player, int depth, alpha=-math.inf, beta=math.inf):             # <<<<<<<<<<<<<<
@@ -10747,7 +10760,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_9);
   __Pyx_XDECREF(__pyx_t_10);
-  __Pyx_AddTraceback("cplayer.AlphaBetaSecondAI.alpha_beta", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cplayer.SwitchTacticsAlphaBetaAI.alpha_beta", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_legal_move_count_list);
@@ -10766,7 +10779,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
   return __pyx_r;
 }
 
-/* "cplayer.pyx":452
+/* "cplayer.pyx":454
  * 
  *     @cython.nonecheck(False)
  *     cdef final_stage_alpha_beta(self, list board, int player, int depth, alpha=-math.inf, beta=math.inf):             # <<<<<<<<<<<<<<
@@ -10774,7 +10787,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta(struct __pyx_ob
  *         cdef int black_stones
  */
 
-static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player, int __pyx_v_depth, struct __pyx_opt_args_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta *__pyx_optional_args) {
+static PyObject *__pyx_f_7cplayer_24SwitchTacticsAlphaBetaAI_final_stage_alpha_beta(struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player, int __pyx_v_depth, struct __pyx_opt_args_7cplayer_24SwitchTacticsAlphaBetaAI_final_stage_alpha_beta *__pyx_optional_args) {
   PyObject *__pyx_v_alpha = __pyx_k__11;
   PyObject *__pyx_v_beta = __pyx_k__12;
   PyObject *__pyx_v_legal_move_count_list = 0;
@@ -10803,7 +10816,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
   PyObject *__pyx_t_9 = NULL;
   PyObject *__pyx_t_10 = NULL;
   PyObject *(*__pyx_t_11)(PyObject *);
-  struct __pyx_opt_args_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta __pyx_t_12;
+  struct __pyx_opt_args_7cplayer_24SwitchTacticsAlphaBetaAI_final_stage_alpha_beta __pyx_t_12;
   int __pyx_t_13;
   __Pyx_RefNannySetupContext("final_stage_alpha_beta", 0);
   if (__pyx_optional_args) {
@@ -10817,7 +10830,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
   __Pyx_INCREF(__pyx_v_alpha);
   __Pyx_INCREF(__pyx_v_beta);
 
-  /* "cplayer.pyx":460
+  /* "cplayer.pyx":462
  * 
  *         #
  *         if depth == 0:             # <<<<<<<<<<<<<<
@@ -10827,16 +10840,16 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
   __pyx_t_1 = ((__pyx_v_depth == 0) != 0);
   if (__pyx_t_1) {
 
-    /* "cplayer.pyx":461
+    /* "cplayer.pyx":463
  *         #
  *         if depth == 0:
  *             val = self.final_stage_evaluation_function(board, self.player)             # <<<<<<<<<<<<<<
  *             return val
  * 
  */
-    __pyx_v_val = ((struct __pyx_vtabstruct_7cplayer_AlphaBetaSecondAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->final_stage_evaluation_function(__pyx_v_self, __pyx_v_board, __pyx_v_self->__pyx_base.player);
+    __pyx_v_val = ((struct __pyx_vtabstruct_7cplayer_SwitchTacticsAlphaBetaAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->final_stage_evaluation_function(__pyx_v_self, __pyx_v_board, __pyx_v_self->__pyx_base.player);
 
-    /* "cplayer.pyx":462
+    /* "cplayer.pyx":464
  *         if depth == 0:
  *             val = self.final_stage_evaluation_function(board, self.player)
  *             return val             # <<<<<<<<<<<<<<
@@ -10844,13 +10857,13 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
  *         #
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 462, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 464, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_r = __pyx_t_2;
     __pyx_t_2 = 0;
     goto __pyx_L0;
 
-    /* "cplayer.pyx":460
+    /* "cplayer.pyx":462
  * 
  *         #
  *         if depth == 0:             # <<<<<<<<<<<<<<
@@ -10859,45 +10872,45 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
  */
   }
 
-  /* "cplayer.pyx":465
+  /* "cplayer.pyx":467
  * 
  *         #
  *         cdef int opponent = Turn.BLACK if player == Turn.WHITE else Turn.WHITE             # <<<<<<<<<<<<<<
  * 
  *         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(
  */
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_player); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 465, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_player); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 467, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 465, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 467, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = PyObject_RichCompare(__pyx_t_2, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 465, __pyx_L1_error)
+  __pyx_t_5 = PyObject_RichCompare(__pyx_t_2, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 467, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 465, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 467, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   if (__pyx_t_1) {
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_BLACK); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 465, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_BLACK); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 467, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 465, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 467, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_3 = __pyx_t_6;
   } else {
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 465, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 467, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 465, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 467, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_3 = __pyx_t_6;
   }
   __pyx_v_opponent = __pyx_t_3;
 
-  /* "cplayer.pyx":467
+  /* "cplayer.pyx":469
  *         cdef int opponent = Turn.BLACK if player == Turn.WHITE else Turn.WHITE
  * 
  *         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(             # <<<<<<<<<<<<<<
  *             board, player)
  * 
  */
-  __pyx_t_5 = ((struct __pyx_vtabstruct_7cplayer_AlphaBetaSecondAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v_board, __pyx_v_player); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 467, __pyx_L1_error)
+  __pyx_t_5 = ((struct __pyx_vtabstruct_7cplayer_SwitchTacticsAlphaBetaAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v_board, __pyx_v_player); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 469, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   if (likely(__pyx_t_5 != Py_None)) {
     PyObject* sequence = __pyx_t_5;
@@ -10905,7 +10918,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
     if (unlikely(size != 3)) {
       if (size > 3) __Pyx_RaiseTooManyValuesError(3);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 467, __pyx_L1_error)
+      __PYX_ERR(0, 469, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     __pyx_t_4 = PyTuple_GET_ITEM(sequence, 0); 
@@ -10915,37 +10928,37 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
     __Pyx_INCREF(__pyx_t_2);
     __Pyx_INCREF(__pyx_t_7);
     #else
-    __pyx_t_4 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 467, __pyx_L1_error)
+    __pyx_t_4 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 469, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 467, __pyx_L1_error)
+    __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 469, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_7 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 467, __pyx_L1_error)
+    __pyx_t_7 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 469, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     #endif
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   } else {
-    __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 467, __pyx_L1_error)
+    __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 469, __pyx_L1_error)
   }
-  if (!(likely(PyList_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_4)->tp_name), 0))) __PYX_ERR(0, 467, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 467, __pyx_L1_error)
+  if (!(likely(PyList_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_4)->tp_name), 0))) __PYX_ERR(0, 469, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 469, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_7); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 467, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_7); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 469, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_v_legal_move_count_list = ((PyObject*)__pyx_t_4);
   __pyx_t_4 = 0;
   __pyx_v_black_stones = __pyx_t_3;
   __pyx_v_white_stones = __pyx_t_6;
 
-  /* "cplayer.pyx":470
+  /* "cplayer.pyx":472
  *             board, player)
  * 
  *         random.shuffle(legal_move_count_list)             # <<<<<<<<<<<<<<
  * 
  *         if len(legal_move_count_list) == 0:
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_random); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 470, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_random); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 472, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_shuffle); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 470, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_shuffle); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 472, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_t_7 = NULL;
@@ -10960,12 +10973,12 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
   }
   __pyx_t_5 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_7, __pyx_v_legal_move_count_list) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_legal_move_count_list);
   __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-  if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 470, __pyx_L1_error)
+  if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 472, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cplayer.pyx":472
+  /* "cplayer.pyx":474
  *         random.shuffle(legal_move_count_list)
  * 
  *         if len(legal_move_count_list) == 0:             # <<<<<<<<<<<<<<
@@ -10974,22 +10987,22 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
  */
   if (unlikely(__pyx_v_legal_move_count_list == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 472, __pyx_L1_error)
+    __PYX_ERR(0, 474, __pyx_L1_error)
   }
-  __pyx_t_8 = PyList_GET_SIZE(__pyx_v_legal_move_count_list); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 472, __pyx_L1_error)
+  __pyx_t_8 = PyList_GET_SIZE(__pyx_v_legal_move_count_list); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 474, __pyx_L1_error)
   __pyx_t_1 = ((__pyx_t_8 == 0) != 0);
   if (__pyx_t_1) {
 
-    /* "cplayer.pyx":473
+    /* "cplayer.pyx":475
  * 
  *         if len(legal_move_count_list) == 0:
  *             val = self.final_stage_evaluation_function(board, self.player)             # <<<<<<<<<<<<<<
  *             return val
  * 
  */
-    __pyx_v_val = ((struct __pyx_vtabstruct_7cplayer_AlphaBetaSecondAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->final_stage_evaluation_function(__pyx_v_self, __pyx_v_board, __pyx_v_self->__pyx_base.player);
+    __pyx_v_val = ((struct __pyx_vtabstruct_7cplayer_SwitchTacticsAlphaBetaAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->final_stage_evaluation_function(__pyx_v_self, __pyx_v_board, __pyx_v_self->__pyx_base.player);
 
-    /* "cplayer.pyx":474
+    /* "cplayer.pyx":476
  *         if len(legal_move_count_list) == 0:
  *             val = self.final_stage_evaluation_function(board, self.player)
  *             return val             # <<<<<<<<<<<<<<
@@ -10997,13 +11010,13 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
  *         if player == self.player:
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 474, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 476, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_r = __pyx_t_5;
     __pyx_t_5 = 0;
     goto __pyx_L0;
 
-    /* "cplayer.pyx":472
+    /* "cplayer.pyx":474
  *         random.shuffle(legal_move_count_list)
  * 
  *         if len(legal_move_count_list) == 0:             # <<<<<<<<<<<<<<
@@ -11012,7 +11025,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
  */
   }
 
-  /* "cplayer.pyx":476
+  /* "cplayer.pyx":478
  *             return val
  * 
  *         if player == self.player:             # <<<<<<<<<<<<<<
@@ -11022,25 +11035,25 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
   __pyx_t_1 = ((__pyx_v_player == __pyx_v_self->__pyx_base.player) != 0);
   if (__pyx_t_1) {
 
-    /* "cplayer.pyx":477
+    /* "cplayer.pyx":479
  * 
  *         if player == self.player:
  *             best = -math.inf             # <<<<<<<<<<<<<<
  *             best_y = best_x = None
  *             for y, x, count in legal_move_count_list:
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_math); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 477, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_math); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 479, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_inf); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 477, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_inf); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 479, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = PyNumber_Negative(__pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 477, __pyx_L1_error)
+    __pyx_t_5 = PyNumber_Negative(__pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 479, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_best = __pyx_t_5;
     __pyx_t_5 = 0;
 
-    /* "cplayer.pyx":478
+    /* "cplayer.pyx":480
  *         if player == self.player:
  *             best = -math.inf
  *             best_y = best_x = None             # <<<<<<<<<<<<<<
@@ -11052,7 +11065,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
     __Pyx_INCREF(Py_None);
     __pyx_v_best_x = Py_None;
 
-    /* "cplayer.pyx":479
+    /* "cplayer.pyx":481
  *             best = -math.inf
  *             best_y = best_x = None
  *             for y, x, count in legal_move_count_list:             # <<<<<<<<<<<<<<
@@ -11061,15 +11074,15 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
  */
     if (unlikely(__pyx_v_legal_move_count_list == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-      __PYX_ERR(0, 479, __pyx_L1_error)
+      __PYX_ERR(0, 481, __pyx_L1_error)
     }
     __pyx_t_5 = __pyx_v_legal_move_count_list; __Pyx_INCREF(__pyx_t_5); __pyx_t_8 = 0;
     for (;;) {
       if (__pyx_t_8 >= PyList_GET_SIZE(__pyx_t_5)) break;
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-      __pyx_t_2 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_8); __Pyx_INCREF(__pyx_t_2); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 479, __pyx_L1_error)
+      __pyx_t_2 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_8); __Pyx_INCREF(__pyx_t_2); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 481, __pyx_L1_error)
       #else
-      __pyx_t_2 = PySequence_ITEM(__pyx_t_5, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 479, __pyx_L1_error)
+      __pyx_t_2 = PySequence_ITEM(__pyx_t_5, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 481, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       #endif
       if ((likely(PyTuple_CheckExact(__pyx_t_2))) || (PyList_CheckExact(__pyx_t_2))) {
@@ -11078,7 +11091,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
         if (unlikely(size != 3)) {
           if (size > 3) __Pyx_RaiseTooManyValuesError(3);
           else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-          __PYX_ERR(0, 479, __pyx_L1_error)
+          __PYX_ERR(0, 481, __pyx_L1_error)
         }
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
         if (likely(PyTuple_CheckExact(sequence))) {
@@ -11094,17 +11107,17 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
         __Pyx_INCREF(__pyx_t_4);
         __Pyx_INCREF(__pyx_t_9);
         #else
-        __pyx_t_7 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 479, __pyx_L1_error)
+        __pyx_t_7 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 481, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
-        __pyx_t_4 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 479, __pyx_L1_error)
+        __pyx_t_4 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 481, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_9 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 479, __pyx_L1_error)
+        __pyx_t_9 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 481, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         #endif
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       } else {
         Py_ssize_t index = -1;
-        __pyx_t_10 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 479, __pyx_L1_error)
+        __pyx_t_10 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 481, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_t_11 = Py_TYPE(__pyx_t_10)->tp_iternext;
@@ -11114,7 +11127,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
         __Pyx_GOTREF(__pyx_t_4);
         index = 2; __pyx_t_9 = __pyx_t_11(__pyx_t_10); if (unlikely(!__pyx_t_9)) goto __pyx_L8_unpacking_failed;
         __Pyx_GOTREF(__pyx_t_9);
-        if (__Pyx_IternextUnpackEndCheck(__pyx_t_11(__pyx_t_10), 3) < 0) __PYX_ERR(0, 479, __pyx_L1_error)
+        if (__Pyx_IternextUnpackEndCheck(__pyx_t_11(__pyx_t_10), 3) < 0) __PYX_ERR(0, 481, __pyx_L1_error)
         __pyx_t_11 = NULL;
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         goto __pyx_L9_unpacking_done;
@@ -11122,7 +11135,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         __pyx_t_11 = NULL;
         if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-        __PYX_ERR(0, 479, __pyx_L1_error)
+        __PYX_ERR(0, 481, __pyx_L1_error)
         __pyx_L9_unpacking_done:;
       }
       __Pyx_XDECREF_SET(__pyx_v_y, __pyx_t_7);
@@ -11132,16 +11145,16 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
       __Pyx_XDECREF_SET(__pyx_v_count, __pyx_t_9);
       __pyx_t_9 = 0;
 
-      /* "cplayer.pyx":480
+      /* "cplayer.pyx":482
  *             best_y = best_x = None
  *             for y, x, count in legal_move_count_list:
  *                 _board = copy.deepcopy(board)             # <<<<<<<<<<<<<<
  *                 self.put_stone(_board, y, x, player)
  *                 min_max_result = self.final_stage_alpha_beta(_board, opponent, depth - 1, alpha, beta)
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_copy); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 480, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_copy); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 482, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_deepcopy); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 480, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_deepcopy); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 482, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       __pyx_t_9 = NULL;
@@ -11156,25 +11169,25 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
       }
       __pyx_t_2 = (__pyx_t_9) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_9, __pyx_v_board) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_board);
       __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 480, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 482, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (!(likely(PyList_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_2)->tp_name), 0))) __PYX_ERR(0, 480, __pyx_L1_error)
+      if (!(likely(PyList_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_2)->tp_name), 0))) __PYX_ERR(0, 482, __pyx_L1_error)
       __Pyx_XDECREF_SET(__pyx_v__board, ((PyObject*)__pyx_t_2));
       __pyx_t_2 = 0;
 
-      /* "cplayer.pyx":481
+      /* "cplayer.pyx":483
  *             for y, x, count in legal_move_count_list:
  *                 _board = copy.deepcopy(board)
  *                 self.put_stone(_board, y, x, player)             # <<<<<<<<<<<<<<
  *                 min_max_result = self.final_stage_alpha_beta(_board, opponent, depth - 1, alpha, beta)
  *                 if isinstance(min_max_result, int):
  */
-      __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_v_y); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 481, __pyx_L1_error)
-      __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 481, __pyx_L1_error)
-      ((struct __pyx_vtabstruct_7cplayer_AlphaBetaSecondAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.put_stone(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v__board, __pyx_t_6, __pyx_t_3, __pyx_v_player);
+      __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_v_y); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 483, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 483, __pyx_L1_error)
+      ((struct __pyx_vtabstruct_7cplayer_SwitchTacticsAlphaBetaAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.put_stone(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v__board, __pyx_t_6, __pyx_t_3, __pyx_v_player);
 
-      /* "cplayer.pyx":482
+      /* "cplayer.pyx":484
  *                 _board = copy.deepcopy(board)
  *                 self.put_stone(_board, y, x, player)
  *                 min_max_result = self.final_stage_alpha_beta(_board, opponent, depth - 1, alpha, beta)             # <<<<<<<<<<<<<<
@@ -11184,12 +11197,12 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
       __pyx_t_12.__pyx_n = 2;
       __pyx_t_12.alpha = __pyx_v_alpha;
       __pyx_t_12.beta = __pyx_v_beta;
-      __pyx_t_2 = ((struct __pyx_vtabstruct_7cplayer_AlphaBetaSecondAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->final_stage_alpha_beta(__pyx_v_self, __pyx_v__board, __pyx_v_opponent, (__pyx_v_depth - 1), &__pyx_t_12); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 482, __pyx_L1_error)
+      __pyx_t_2 = ((struct __pyx_vtabstruct_7cplayer_SwitchTacticsAlphaBetaAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->final_stage_alpha_beta(__pyx_v_self, __pyx_v__board, __pyx_v_opponent, (__pyx_v_depth - 1), &__pyx_t_12); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 484, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_XDECREF_SET(__pyx_v_min_max_result, __pyx_t_2);
       __pyx_t_2 = 0;
 
-      /* "cplayer.pyx":483
+      /* "cplayer.pyx":485
  *                 self.put_stone(_board, y, x, player)
  *                 min_max_result = self.final_stage_alpha_beta(_board, opponent, depth - 1, alpha, beta)
  *                 if isinstance(min_max_result, int):             # <<<<<<<<<<<<<<
@@ -11200,17 +11213,17 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
       __pyx_t_13 = (__pyx_t_1 != 0);
       if (__pyx_t_13) {
 
-        /* "cplayer.pyx":484
+        /* "cplayer.pyx":486
  *                 min_max_result = self.final_stage_alpha_beta(_board, opponent, depth - 1, alpha, beta)
  *                 if isinstance(min_max_result, int):
  *                     val = min_max_result             # <<<<<<<<<<<<<<
  *                 else:
  *                     val = min_max_result[0]
  */
-        __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_min_max_result); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 484, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_min_max_result); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 486, __pyx_L1_error)
         __pyx_v_val = __pyx_t_3;
 
-        /* "cplayer.pyx":483
+        /* "cplayer.pyx":485
  *                 self.put_stone(_board, y, x, player)
  *                 min_max_result = self.final_stage_alpha_beta(_board, opponent, depth - 1, alpha, beta)
  *                 if isinstance(min_max_result, int):             # <<<<<<<<<<<<<<
@@ -11220,7 +11233,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
         goto __pyx_L10;
       }
 
-      /* "cplayer.pyx":486
+      /* "cplayer.pyx":488
  *                     val = min_max_result
  *                 else:
  *                     val = min_max_result[0]             # <<<<<<<<<<<<<<
@@ -11228,54 +11241,54 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
  *                     alpha = val
  */
       /*else*/ {
-        __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_min_max_result, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 486, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_min_max_result, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 488, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 486, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 488, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_v_val = __pyx_t_3;
       }
       __pyx_L10:;
 
-      /* "cplayer.pyx":487
+      /* "cplayer.pyx":489
  *                 else:
  *                     val = min_max_result[0]
  *                 if val > best:             # <<<<<<<<<<<<<<
  *                     alpha = val
  *                     best = val
  */
-      __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 487, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 489, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_4 = PyObject_RichCompare(__pyx_t_2, __pyx_v_best, Py_GT); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 487, __pyx_L1_error)
+      __pyx_t_4 = PyObject_RichCompare(__pyx_t_2, __pyx_v_best, Py_GT); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 489, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __pyx_t_13 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_13 < 0)) __PYX_ERR(0, 487, __pyx_L1_error)
+      __pyx_t_13 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_13 < 0)) __PYX_ERR(0, 489, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       if (__pyx_t_13) {
 
-        /* "cplayer.pyx":488
+        /* "cplayer.pyx":490
  *                     val = min_max_result[0]
  *                 if val > best:
  *                     alpha = val             # <<<<<<<<<<<<<<
  *                     best = val
  *                     best_y = y
  */
-        __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 488, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 490, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF_SET(__pyx_v_alpha, __pyx_t_4);
         __pyx_t_4 = 0;
 
-        /* "cplayer.pyx":489
+        /* "cplayer.pyx":491
  *                 if val > best:
  *                     alpha = val
  *                     best = val             # <<<<<<<<<<<<<<
  *                     best_y = y
  *                     best_x = x
  */
-        __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 489, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 491, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF_SET(__pyx_v_best, __pyx_t_4);
         __pyx_t_4 = 0;
 
-        /* "cplayer.pyx":490
+        /* "cplayer.pyx":492
  *                     alpha = val
  *                     best = val
  *                     best_y = y             # <<<<<<<<<<<<<<
@@ -11285,7 +11298,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
         __Pyx_INCREF(__pyx_v_y);
         __Pyx_DECREF_SET(__pyx_v_best_y, __pyx_v_y);
 
-        /* "cplayer.pyx":491
+        /* "cplayer.pyx":493
  *                     best = val
  *                     best_y = y
  *                     best_x = x             # <<<<<<<<<<<<<<
@@ -11295,7 +11308,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
         __Pyx_INCREF(__pyx_v_x);
         __Pyx_DECREF_SET(__pyx_v_best_x, __pyx_v_x);
 
-        /* "cplayer.pyx":487
+        /* "cplayer.pyx":489
  *                 else:
  *                     val = min_max_result[0]
  *                 if val > best:             # <<<<<<<<<<<<<<
@@ -11304,19 +11317,19 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
  */
       }
 
-      /* "cplayer.pyx":493
+      /* "cplayer.pyx":495
  *                     best_x = x
  * 
  *                 if best > beta:  # beta             # <<<<<<<<<<<<<<
  *                     return best, best_y, best_x
  * 
  */
-      __pyx_t_4 = PyObject_RichCompare(__pyx_v_best, __pyx_v_beta, Py_GT); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 493, __pyx_L1_error)
-      __pyx_t_13 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_13 < 0)) __PYX_ERR(0, 493, __pyx_L1_error)
+      __pyx_t_4 = PyObject_RichCompare(__pyx_v_best, __pyx_v_beta, Py_GT); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 495, __pyx_L1_error)
+      __pyx_t_13 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_13 < 0)) __PYX_ERR(0, 495, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       if (__pyx_t_13) {
 
-        /* "cplayer.pyx":494
+        /* "cplayer.pyx":496
  * 
  *                 if best > beta:  # beta
  *                     return best, best_y, best_x             # <<<<<<<<<<<<<<
@@ -11324,7 +11337,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
  *             return best, best_y, best_x
  */
         __Pyx_XDECREF(__pyx_r);
-        __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 494, __pyx_L1_error)
+        __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 496, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_INCREF(__pyx_v_best);
         __Pyx_GIVEREF(__pyx_v_best);
@@ -11340,7 +11353,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         goto __pyx_L0;
 
-        /* "cplayer.pyx":493
+        /* "cplayer.pyx":495
  *                     best_x = x
  * 
  *                 if best > beta:  # beta             # <<<<<<<<<<<<<<
@@ -11349,7 +11362,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
  */
       }
 
-      /* "cplayer.pyx":479
+      /* "cplayer.pyx":481
  *             best = -math.inf
  *             best_y = best_x = None
  *             for y, x, count in legal_move_count_list:             # <<<<<<<<<<<<<<
@@ -11359,7 +11372,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
     }
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-    /* "cplayer.pyx":496
+    /* "cplayer.pyx":498
  *                     return best, best_y, best_x
  * 
  *             return best, best_y, best_x             # <<<<<<<<<<<<<<
@@ -11367,7 +11380,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
  *             best = math.inf
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 496, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 498, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_INCREF(__pyx_v_best);
     __Pyx_GIVEREF(__pyx_v_best);
@@ -11382,7 +11395,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
     __pyx_t_5 = 0;
     goto __pyx_L0;
 
-    /* "cplayer.pyx":476
+    /* "cplayer.pyx":478
  *             return val
  * 
  *         if player == self.player:             # <<<<<<<<<<<<<<
@@ -11391,7 +11404,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
  */
   }
 
-  /* "cplayer.pyx":497
+  /* "cplayer.pyx":499
  * 
  *             return best, best_y, best_x
  *         elif player != self.player:             # <<<<<<<<<<<<<<
@@ -11401,22 +11414,22 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
   __pyx_t_13 = ((__pyx_v_player != __pyx_v_self->__pyx_base.player) != 0);
   if (__pyx_t_13) {
 
-    /* "cplayer.pyx":498
+    /* "cplayer.pyx":500
  *             return best, best_y, best_x
  *         elif player != self.player:
  *             best = math.inf             # <<<<<<<<<<<<<<
  *             best_y = best_x = None
  *             for y, x, count in legal_move_count_list:
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_math); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 498, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_math); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 500, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_inf); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 498, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_inf); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 500, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_v_best = __pyx_t_4;
     __pyx_t_4 = 0;
 
-    /* "cplayer.pyx":499
+    /* "cplayer.pyx":501
  *         elif player != self.player:
  *             best = math.inf
  *             best_y = best_x = None             # <<<<<<<<<<<<<<
@@ -11428,7 +11441,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
     __Pyx_INCREF(Py_None);
     __pyx_v_best_x = Py_None;
 
-    /* "cplayer.pyx":500
+    /* "cplayer.pyx":502
  *             best = math.inf
  *             best_y = best_x = None
  *             for y, x, count in legal_move_count_list:             # <<<<<<<<<<<<<<
@@ -11437,15 +11450,15 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
  */
     if (unlikely(__pyx_v_legal_move_count_list == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-      __PYX_ERR(0, 500, __pyx_L1_error)
+      __PYX_ERR(0, 502, __pyx_L1_error)
     }
     __pyx_t_4 = __pyx_v_legal_move_count_list; __Pyx_INCREF(__pyx_t_4); __pyx_t_8 = 0;
     for (;;) {
       if (__pyx_t_8 >= PyList_GET_SIZE(__pyx_t_4)) break;
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-      __pyx_t_5 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_8); __Pyx_INCREF(__pyx_t_5); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 500, __pyx_L1_error)
+      __pyx_t_5 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_8); __Pyx_INCREF(__pyx_t_5); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 502, __pyx_L1_error)
       #else
-      __pyx_t_5 = PySequence_ITEM(__pyx_t_4, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 500, __pyx_L1_error)
+      __pyx_t_5 = PySequence_ITEM(__pyx_t_4, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 502, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       #endif
       if ((likely(PyTuple_CheckExact(__pyx_t_5))) || (PyList_CheckExact(__pyx_t_5))) {
@@ -11454,7 +11467,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
         if (unlikely(size != 3)) {
           if (size > 3) __Pyx_RaiseTooManyValuesError(3);
           else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-          __PYX_ERR(0, 500, __pyx_L1_error)
+          __PYX_ERR(0, 502, __pyx_L1_error)
         }
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
         if (likely(PyTuple_CheckExact(sequence))) {
@@ -11470,17 +11483,17 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
         __Pyx_INCREF(__pyx_t_9);
         __Pyx_INCREF(__pyx_t_7);
         #else
-        __pyx_t_2 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 500, __pyx_L1_error)
+        __pyx_t_2 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 502, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_9 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 500, __pyx_L1_error)
+        __pyx_t_9 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 502, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
-        __pyx_t_7 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 500, __pyx_L1_error)
+        __pyx_t_7 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 502, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
         #endif
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       } else {
         Py_ssize_t index = -1;
-        __pyx_t_10 = PyObject_GetIter(__pyx_t_5); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 500, __pyx_L1_error)
+        __pyx_t_10 = PyObject_GetIter(__pyx_t_5); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 502, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         __pyx_t_11 = Py_TYPE(__pyx_t_10)->tp_iternext;
@@ -11490,7 +11503,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
         __Pyx_GOTREF(__pyx_t_9);
         index = 2; __pyx_t_7 = __pyx_t_11(__pyx_t_10); if (unlikely(!__pyx_t_7)) goto __pyx_L15_unpacking_failed;
         __Pyx_GOTREF(__pyx_t_7);
-        if (__Pyx_IternextUnpackEndCheck(__pyx_t_11(__pyx_t_10), 3) < 0) __PYX_ERR(0, 500, __pyx_L1_error)
+        if (__Pyx_IternextUnpackEndCheck(__pyx_t_11(__pyx_t_10), 3) < 0) __PYX_ERR(0, 502, __pyx_L1_error)
         __pyx_t_11 = NULL;
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         goto __pyx_L16_unpacking_done;
@@ -11498,7 +11511,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         __pyx_t_11 = NULL;
         if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-        __PYX_ERR(0, 500, __pyx_L1_error)
+        __PYX_ERR(0, 502, __pyx_L1_error)
         __pyx_L16_unpacking_done:;
       }
       __Pyx_XDECREF_SET(__pyx_v_y, __pyx_t_2);
@@ -11508,16 +11521,16 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
       __Pyx_XDECREF_SET(__pyx_v_count, __pyx_t_7);
       __pyx_t_7 = 0;
 
-      /* "cplayer.pyx":501
+      /* "cplayer.pyx":503
  *             best_y = best_x = None
  *             for y, x, count in legal_move_count_list:
  *                 _board = copy.deepcopy(board)             # <<<<<<<<<<<<<<
  *                 self.put_stone(_board, y, x, player)
  *                 min_max_result = self.final_stage_alpha_beta(_board, opponent, depth - 1, alpha, beta)
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_copy); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 501, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_copy); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 503, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_deepcopy); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 501, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_deepcopy); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 503, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __pyx_t_7 = NULL;
@@ -11532,25 +11545,25 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
       }
       __pyx_t_5 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_9, __pyx_t_7, __pyx_v_board) : __Pyx_PyObject_CallOneArg(__pyx_t_9, __pyx_v_board);
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 501, __pyx_L1_error)
+      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 503, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-      if (!(likely(PyList_CheckExact(__pyx_t_5))||((__pyx_t_5) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_5)->tp_name), 0))) __PYX_ERR(0, 501, __pyx_L1_error)
+      if (!(likely(PyList_CheckExact(__pyx_t_5))||((__pyx_t_5) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_5)->tp_name), 0))) __PYX_ERR(0, 503, __pyx_L1_error)
       __Pyx_XDECREF_SET(__pyx_v__board, ((PyObject*)__pyx_t_5));
       __pyx_t_5 = 0;
 
-      /* "cplayer.pyx":502
+      /* "cplayer.pyx":504
  *             for y, x, count in legal_move_count_list:
  *                 _board = copy.deepcopy(board)
  *                 self.put_stone(_board, y, x, player)             # <<<<<<<<<<<<<<
  *                 min_max_result = self.final_stage_alpha_beta(_board, opponent, depth - 1, alpha, beta)
  *                 if isinstance(min_max_result, int):
  */
-      __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_y); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 502, __pyx_L1_error)
-      __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 502, __pyx_L1_error)
-      ((struct __pyx_vtabstruct_7cplayer_AlphaBetaSecondAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.put_stone(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v__board, __pyx_t_3, __pyx_t_6, __pyx_v_player);
+      __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_y); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 504, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 504, __pyx_L1_error)
+      ((struct __pyx_vtabstruct_7cplayer_SwitchTacticsAlphaBetaAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.put_stone(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v__board, __pyx_t_3, __pyx_t_6, __pyx_v_player);
 
-      /* "cplayer.pyx":503
+      /* "cplayer.pyx":505
  *                 _board = copy.deepcopy(board)
  *                 self.put_stone(_board, y, x, player)
  *                 min_max_result = self.final_stage_alpha_beta(_board, opponent, depth - 1, alpha, beta)             # <<<<<<<<<<<<<<
@@ -11560,12 +11573,12 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
       __pyx_t_12.__pyx_n = 2;
       __pyx_t_12.alpha = __pyx_v_alpha;
       __pyx_t_12.beta = __pyx_v_beta;
-      __pyx_t_5 = ((struct __pyx_vtabstruct_7cplayer_AlphaBetaSecondAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->final_stage_alpha_beta(__pyx_v_self, __pyx_v__board, __pyx_v_opponent, (__pyx_v_depth - 1), &__pyx_t_12); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 503, __pyx_L1_error)
+      __pyx_t_5 = ((struct __pyx_vtabstruct_7cplayer_SwitchTacticsAlphaBetaAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->final_stage_alpha_beta(__pyx_v_self, __pyx_v__board, __pyx_v_opponent, (__pyx_v_depth - 1), &__pyx_t_12); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 505, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_XDECREF_SET(__pyx_v_min_max_result, __pyx_t_5);
       __pyx_t_5 = 0;
 
-      /* "cplayer.pyx":504
+      /* "cplayer.pyx":506
  *                 self.put_stone(_board, y, x, player)
  *                 min_max_result = self.final_stage_alpha_beta(_board, opponent, depth - 1, alpha, beta)
  *                 if isinstance(min_max_result, int):             # <<<<<<<<<<<<<<
@@ -11576,17 +11589,17 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
       __pyx_t_1 = (__pyx_t_13 != 0);
       if (__pyx_t_1) {
 
-        /* "cplayer.pyx":505
+        /* "cplayer.pyx":507
  *                 min_max_result = self.final_stage_alpha_beta(_board, opponent, depth - 1, alpha, beta)
  *                 if isinstance(min_max_result, int):
  *                     val = min_max_result             # <<<<<<<<<<<<<<
  *                 else:
  *                     val = min_max_result[0]
  */
-        __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_v_min_max_result); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 505, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_v_min_max_result); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 507, __pyx_L1_error)
         __pyx_v_val = __pyx_t_6;
 
-        /* "cplayer.pyx":504
+        /* "cplayer.pyx":506
  *                 self.put_stone(_board, y, x, player)
  *                 min_max_result = self.final_stage_alpha_beta(_board, opponent, depth - 1, alpha, beta)
  *                 if isinstance(min_max_result, int):             # <<<<<<<<<<<<<<
@@ -11596,7 +11609,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
         goto __pyx_L17;
       }
 
-      /* "cplayer.pyx":507
+      /* "cplayer.pyx":509
  *                     val = min_max_result
  *                 else:
  *                     val = min_max_result[0]             # <<<<<<<<<<<<<<
@@ -11604,54 +11617,54 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
  *                     beta = val
  */
       /*else*/ {
-        __pyx_t_5 = __Pyx_GetItemInt(__pyx_v_min_max_result, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 507, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_GetItemInt(__pyx_v_min_max_result, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 509, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 507, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 509, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         __pyx_v_val = __pyx_t_6;
       }
       __pyx_L17:;
 
-      /* "cplayer.pyx":508
+      /* "cplayer.pyx":510
  *                 else:
  *                     val = min_max_result[0]
  *                 if val < best:             # <<<<<<<<<<<<<<
  *                     beta = val
  *                     best = val
  */
-      __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 508, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 510, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_9 = PyObject_RichCompare(__pyx_t_5, __pyx_v_best, Py_LT); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 508, __pyx_L1_error)
+      __pyx_t_9 = PyObject_RichCompare(__pyx_t_5, __pyx_v_best, Py_LT); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 510, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 508, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 510, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       if (__pyx_t_1) {
 
-        /* "cplayer.pyx":509
+        /* "cplayer.pyx":511
  *                     val = min_max_result[0]
  *                 if val < best:
  *                     beta = val             # <<<<<<<<<<<<<<
  *                     best = val
  *                     best_y = y
  */
-        __pyx_t_9 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 509, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 511, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_DECREF_SET(__pyx_v_beta, __pyx_t_9);
         __pyx_t_9 = 0;
 
-        /* "cplayer.pyx":510
+        /* "cplayer.pyx":512
  *                 if val < best:
  *                     beta = val
  *                     best = val             # <<<<<<<<<<<<<<
  *                     best_y = y
  *                     best_x = x
  */
-        __pyx_t_9 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 510, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 512, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_DECREF_SET(__pyx_v_best, __pyx_t_9);
         __pyx_t_9 = 0;
 
-        /* "cplayer.pyx":511
+        /* "cplayer.pyx":513
  *                     beta = val
  *                     best = val
  *                     best_y = y             # <<<<<<<<<<<<<<
@@ -11661,7 +11674,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
         __Pyx_INCREF(__pyx_v_y);
         __Pyx_DECREF_SET(__pyx_v_best_y, __pyx_v_y);
 
-        /* "cplayer.pyx":512
+        /* "cplayer.pyx":514
  *                     best = val
  *                     best_y = y
  *                     best_x = x             # <<<<<<<<<<<<<<
@@ -11671,7 +11684,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
         __Pyx_INCREF(__pyx_v_x);
         __Pyx_DECREF_SET(__pyx_v_best_x, __pyx_v_x);
 
-        /* "cplayer.pyx":508
+        /* "cplayer.pyx":510
  *                 else:
  *                     val = min_max_result[0]
  *                 if val < best:             # <<<<<<<<<<<<<<
@@ -11680,19 +11693,19 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
  */
       }
 
-      /* "cplayer.pyx":514
+      /* "cplayer.pyx":516
  *                     best_x = x
  * 
  *                 if best < alpha:             # <<<<<<<<<<<<<<
  *                     return best, best_y, best_x
  * 
  */
-      __pyx_t_9 = PyObject_RichCompare(__pyx_v_best, __pyx_v_alpha, Py_LT); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 514, __pyx_L1_error)
-      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 514, __pyx_L1_error)
+      __pyx_t_9 = PyObject_RichCompare(__pyx_v_best, __pyx_v_alpha, Py_LT); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 516, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 516, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       if (__pyx_t_1) {
 
-        /* "cplayer.pyx":515
+        /* "cplayer.pyx":517
  * 
  *                 if best < alpha:
  *                     return best, best_y, best_x             # <<<<<<<<<<<<<<
@@ -11700,7 +11713,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
  *             return best, best_y, best_x
  */
         __Pyx_XDECREF(__pyx_r);
-        __pyx_t_9 = PyTuple_New(3); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 515, __pyx_L1_error)
+        __pyx_t_9 = PyTuple_New(3); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 517, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_INCREF(__pyx_v_best);
         __Pyx_GIVEREF(__pyx_v_best);
@@ -11716,7 +11729,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         goto __pyx_L0;
 
-        /* "cplayer.pyx":514
+        /* "cplayer.pyx":516
  *                     best_x = x
  * 
  *                 if best < alpha:             # <<<<<<<<<<<<<<
@@ -11725,7 +11738,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
  */
       }
 
-      /* "cplayer.pyx":500
+      /* "cplayer.pyx":502
  *             best = math.inf
  *             best_y = best_x = None
  *             for y, x, count in legal_move_count_list:             # <<<<<<<<<<<<<<
@@ -11735,7 +11748,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
     }
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "cplayer.pyx":517
+    /* "cplayer.pyx":519
  *                     return best, best_y, best_x
  * 
  *             return best, best_y, best_x             # <<<<<<<<<<<<<<
@@ -11743,7 +11756,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
  *     @cython.nonecheck(False)
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 517, __pyx_L1_error)
+    __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 519, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_INCREF(__pyx_v_best);
     __Pyx_GIVEREF(__pyx_v_best);
@@ -11758,7 +11771,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
     __pyx_t_4 = 0;
     goto __pyx_L0;
 
-    /* "cplayer.pyx":497
+    /* "cplayer.pyx":499
  * 
  *             return best, best_y, best_x
  *         elif player != self.player:             # <<<<<<<<<<<<<<
@@ -11767,7 +11780,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
  */
   }
 
-  /* "cplayer.pyx":452
+  /* "cplayer.pyx":454
  * 
  *     @cython.nonecheck(False)
  *     cdef final_stage_alpha_beta(self, list board, int player, int depth, alpha=-math.inf, beta=math.inf):             # <<<<<<<<<<<<<<
@@ -11785,7 +11798,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_9);
   __Pyx_XDECREF(__pyx_t_10);
-  __Pyx_AddTraceback("cplayer.AlphaBetaSecondAI.final_stage_alpha_beta", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cplayer.SwitchTacticsAlphaBetaAI.final_stage_alpha_beta", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_legal_move_count_list);
@@ -11804,7 +11817,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
   return __pyx_r;
 }
 
-/* "cplayer.pyx":520
+/* "cplayer.pyx":522
  * 
  *     @cython.nonecheck(False)
  *     cdef int evaluation_function(self, list board, int player):             # <<<<<<<<<<<<<<
@@ -11812,7 +11825,7 @@ static PyObject *__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta(str
  *         for y in range(1, 9):
  */
 
-static int __pyx_f_7cplayer_17AlphaBetaSecondAI_evaluation_function(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player) {
+static int __pyx_f_7cplayer_24SwitchTacticsAlphaBetaAI_evaluation_function(struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player) {
   int __pyx_v_evaluation;
   PyObject *__pyx_v_y = NULL;
   PyObject *__pyx_v_x = NULL;
@@ -11828,7 +11841,7 @@ static int __pyx_f_7cplayer_17AlphaBetaSecondAI_evaluation_function(struct __pyx
   int __pyx_t_8;
   __Pyx_RefNannySetupContext("evaluation_function", 0);
 
-  /* "cplayer.pyx":521
+  /* "cplayer.pyx":523
  *     @cython.nonecheck(False)
  *     cdef int evaluation_function(self, list board, int player):
  *         cdef int evaluation = 0             # <<<<<<<<<<<<<<
@@ -11837,7 +11850,7 @@ static int __pyx_f_7cplayer_17AlphaBetaSecondAI_evaluation_function(struct __pyx
  */
   __pyx_v_evaluation = 0;
 
-  /* "cplayer.pyx":522
+  /* "cplayer.pyx":524
  *     cdef int evaluation_function(self, list board, int player):
  *         cdef int evaluation = 0
  *         for y in range(1, 9):             # <<<<<<<<<<<<<<
@@ -11845,12 +11858,12 @@ static int __pyx_f_7cplayer_17AlphaBetaSecondAI_evaluation_function(struct __pyx
  *                 if board[y][x] == player:
  */
   for (__pyx_t_1 = 1; __pyx_t_1 < 9; __pyx_t_1+=1) {
-    __pyx_t_2 = __Pyx_PyInt_From_long(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 522, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyInt_From_long(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 524, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_XDECREF_SET(__pyx_v_y, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "cplayer.pyx":523
+    /* "cplayer.pyx":525
  *         cdef int evaluation = 0
  *         for y in range(1, 9):
  *             for x in range(1, 9):             # <<<<<<<<<<<<<<
@@ -11858,12 +11871,12 @@ static int __pyx_f_7cplayer_17AlphaBetaSecondAI_evaluation_function(struct __pyx
  *                     evaluation += self.board_gain[y - 1][x - 1]
  */
     for (__pyx_t_3 = 1; __pyx_t_3 < 9; __pyx_t_3+=1) {
-      __pyx_t_2 = __Pyx_PyInt_From_long(__pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 523, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyInt_From_long(__pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 525, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_XDECREF_SET(__pyx_v_x, __pyx_t_2);
       __pyx_t_2 = 0;
 
-      /* "cplayer.pyx":524
+      /* "cplayer.pyx":526
  *         for y in range(1, 9):
  *             for x in range(1, 9):
  *                 if board[y][x] == player:             # <<<<<<<<<<<<<<
@@ -11872,55 +11885,55 @@ static int __pyx_f_7cplayer_17AlphaBetaSecondAI_evaluation_function(struct __pyx
  */
       if (unlikely(__pyx_v_board == Py_None)) {
         PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-        __PYX_ERR(0, 524, __pyx_L1_error)
+        __PYX_ERR(0, 526, __pyx_L1_error)
       }
-      __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_v_board, __pyx_v_y); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 524, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_v_board, __pyx_v_y); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 526, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_4 = __Pyx_PyObject_GetItem(__pyx_t_2, __pyx_v_x); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 524, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetItem(__pyx_t_2, __pyx_v_x); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 526, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_player); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 524, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_player); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 526, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_5 = PyObject_RichCompare(__pyx_t_4, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 524, __pyx_L1_error)
+      __pyx_t_5 = PyObject_RichCompare(__pyx_t_4, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 526, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 524, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 526, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       if (__pyx_t_6) {
 
-        /* "cplayer.pyx":525
+        /* "cplayer.pyx":527
  *             for x in range(1, 9):
  *                 if board[y][x] == player:
  *                     evaluation += self.board_gain[y - 1][x - 1]             # <<<<<<<<<<<<<<
  * 
  *         return evaluation
  */
-        __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_evaluation); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 525, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_evaluation); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 527, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         if (unlikely(__pyx_v_self->board_gain == Py_None)) {
           PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-          __PYX_ERR(0, 525, __pyx_L1_error)
+          __PYX_ERR(0, 527, __pyx_L1_error)
         }
-        __pyx_t_2 = __Pyx_PyInt_SubtractObjC(__pyx_v_y, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 525, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyInt_SubtractObjC(__pyx_v_y, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 527, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_4 = __Pyx_PyObject_GetItem(__pyx_v_self->board_gain, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 525, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyObject_GetItem(__pyx_v_self->board_gain, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 527, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-        __pyx_t_2 = __Pyx_PyInt_SubtractObjC(__pyx_v_x, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 525, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyInt_SubtractObjC(__pyx_v_x, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 527, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_7 = __Pyx_PyObject_GetItem(__pyx_t_4, __pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 525, __pyx_L1_error)
+        __pyx_t_7 = __Pyx_PyObject_GetItem(__pyx_t_4, __pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 527, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-        __pyx_t_2 = PyNumber_InPlaceAdd(__pyx_t_5, __pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 525, __pyx_L1_error)
+        __pyx_t_2 = PyNumber_InPlaceAdd(__pyx_t_5, __pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 527, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        __pyx_t_8 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_8 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 525, __pyx_L1_error)
+        __pyx_t_8 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_8 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 527, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_v_evaluation = __pyx_t_8;
 
-        /* "cplayer.pyx":524
+        /* "cplayer.pyx":526
  *         for y in range(1, 9):
  *             for x in range(1, 9):
  *                 if board[y][x] == player:             # <<<<<<<<<<<<<<
@@ -11931,7 +11944,7 @@ static int __pyx_f_7cplayer_17AlphaBetaSecondAI_evaluation_function(struct __pyx
     }
   }
 
-  /* "cplayer.pyx":527
+  /* "cplayer.pyx":529
  *                     evaluation += self.board_gain[y - 1][x - 1]
  * 
  *         return evaluation             # <<<<<<<<<<<<<<
@@ -11941,7 +11954,7 @@ static int __pyx_f_7cplayer_17AlphaBetaSecondAI_evaluation_function(struct __pyx
   __pyx_r = __pyx_v_evaluation;
   goto __pyx_L0;
 
-  /* "cplayer.pyx":520
+  /* "cplayer.pyx":522
  * 
  *     @cython.nonecheck(False)
  *     cdef int evaluation_function(self, list board, int player):             # <<<<<<<<<<<<<<
@@ -11955,7 +11968,7 @@ static int __pyx_f_7cplayer_17AlphaBetaSecondAI_evaluation_function(struct __pyx
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_7);
-  __Pyx_WriteUnraisable("cplayer.AlphaBetaSecondAI.evaluation_function", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("cplayer.SwitchTacticsAlphaBetaAI.evaluation_function", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_y);
@@ -11964,7 +11977,7 @@ static int __pyx_f_7cplayer_17AlphaBetaSecondAI_evaluation_function(struct __pyx
   return __pyx_r;
 }
 
-/* "cplayer.pyx":530
+/* "cplayer.pyx":532
  * 
  *     @cython.nonecheck(False)
  *     cdef int final_stage_evaluation_function(self, list board, int player):             # <<<<<<<<<<<<<<
@@ -11972,7 +11985,7 @@ static int __pyx_f_7cplayer_17AlphaBetaSecondAI_evaluation_function(struct __pyx
  *         for y in range(1, 9):
  */
 
-static int __pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_evaluation_function(CYTHON_UNUSED struct __pyx_obj_7cplayer_AlphaBetaSecondAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player) {
+static int __pyx_f_7cplayer_24SwitchTacticsAlphaBetaAI_final_stage_evaluation_function(CYTHON_UNUSED struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player) {
   int __pyx_v_evaluation;
   long __pyx_v_y;
   long __pyx_v_x;
@@ -11986,7 +11999,7 @@ static int __pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_evaluation_function(
   int __pyx_t_6;
   __Pyx_RefNannySetupContext("final_stage_evaluation_function", 0);
 
-  /* "cplayer.pyx":531
+  /* "cplayer.pyx":533
  *     @cython.nonecheck(False)
  *     cdef int final_stage_evaluation_function(self, list board, int player):
  *         cdef int evaluation = 0             # <<<<<<<<<<<<<<
@@ -11995,7 +12008,7 @@ static int __pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_evaluation_function(
  */
   __pyx_v_evaluation = 0;
 
-  /* "cplayer.pyx":532
+  /* "cplayer.pyx":534
  *     cdef int final_stage_evaluation_function(self, list board, int player):
  *         cdef int evaluation = 0
  *         for y in range(1, 9):             # <<<<<<<<<<<<<<
@@ -12005,7 +12018,7 @@ static int __pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_evaluation_function(
   for (__pyx_t_1 = 1; __pyx_t_1 < 9; __pyx_t_1+=1) {
     __pyx_v_y = __pyx_t_1;
 
-    /* "cplayer.pyx":533
+    /* "cplayer.pyx":535
  *         cdef int evaluation = 0
  *         for y in range(1, 9):
  *             for x in range(1, 9):             # <<<<<<<<<<<<<<
@@ -12015,7 +12028,7 @@ static int __pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_evaluation_function(
     for (__pyx_t_2 = 1; __pyx_t_2 < 9; __pyx_t_2+=1) {
       __pyx_v_x = __pyx_t_2;
 
-      /* "cplayer.pyx":534
+      /* "cplayer.pyx":536
  *         for y in range(1, 9):
  *             for x in range(1, 9):
  *                 if board[y][x] == player:             # <<<<<<<<<<<<<<
@@ -12024,23 +12037,23 @@ static int __pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_evaluation_function(
  */
       if (unlikely(__pyx_v_board == Py_None)) {
         PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-        __PYX_ERR(0, 534, __pyx_L1_error)
+        __PYX_ERR(0, 536, __pyx_L1_error)
       }
-      __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_board, __pyx_v_y, long, 1, __Pyx_PyInt_From_long, 1, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 534, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_board, __pyx_v_y, long, 1, __Pyx_PyInt_From_long, 1, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 536, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_3, __pyx_v_x, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 534, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_3, __pyx_v_x, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 536, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_player); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 534, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_player); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 536, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_5 = PyObject_RichCompare(__pyx_t_4, __pyx_t_3, Py_EQ); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 534, __pyx_L1_error)
+      __pyx_t_5 = PyObject_RichCompare(__pyx_t_4, __pyx_t_3, Py_EQ); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 536, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 534, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 536, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       if (__pyx_t_6) {
 
-        /* "cplayer.pyx":535
+        /* "cplayer.pyx":537
  *             for x in range(1, 9):
  *                 if board[y][x] == player:
  *                     evaluation += 1             # <<<<<<<<<<<<<<
@@ -12049,7 +12062,7 @@ static int __pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_evaluation_function(
  */
         __pyx_v_evaluation = (__pyx_v_evaluation + 1);
 
-        /* "cplayer.pyx":534
+        /* "cplayer.pyx":536
  *         for y in range(1, 9):
  *             for x in range(1, 9):
  *                 if board[y][x] == player:             # <<<<<<<<<<<<<<
@@ -12060,7 +12073,7 @@ static int __pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_evaluation_function(
     }
   }
 
-  /* "cplayer.pyx":537
+  /* "cplayer.pyx":539
  *                     evaluation += 1
  * 
  *         return evaluation             # <<<<<<<<<<<<<<
@@ -12070,7 +12083,7 @@ static int __pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_evaluation_function(
   __pyx_r = __pyx_v_evaluation;
   goto __pyx_L0;
 
-  /* "cplayer.pyx":530
+  /* "cplayer.pyx":532
  * 
  *     @cython.nonecheck(False)
  *     cdef int final_stage_evaluation_function(self, list board, int player):             # <<<<<<<<<<<<<<
@@ -12083,7 +12096,7 @@ static int __pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_evaluation_function(
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_WriteUnraisable("cplayer.AlphaBetaSecondAI.final_stage_evaluation_function", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("cplayer.SwitchTacticsAlphaBetaAI.final_stage_evaluation_function", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -12097,19 +12110,19 @@ static int __pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_evaluation_function(
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_7cplayer_17AlphaBetaSecondAI_5__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_7cplayer_17AlphaBetaSecondAI_5__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_7cplayer_24SwitchTacticsAlphaBetaAI_5__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_7cplayer_24SwitchTacticsAlphaBetaAI_5__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__reduce_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_7cplayer_17AlphaBetaSecondAI_4__reduce_cython__(((struct __pyx_obj_7cplayer_AlphaBetaSecondAI *)__pyx_v_self));
+  __pyx_r = __pyx_pf_7cplayer_24SwitchTacticsAlphaBetaAI_4__reduce_cython__(((struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_4__reduce_cython__(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *__pyx_v_self) {
+static PyObject *__pyx_pf_7cplayer_24SwitchTacticsAlphaBetaAI_4__reduce_cython__(struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *__pyx_v_self) {
   PyObject *__pyx_v_state = 0;
   PyObject *__pyx_v__dict = 0;
   int __pyx_v_use_setstate;
@@ -12118,14 +12131,15 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_4__reduce_cython__(struct
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
   PyObject *__pyx_t_3 = NULL;
-  int __pyx_t_4;
+  PyObject *__pyx_t_4 = NULL;
   int __pyx_t_5;
+  int __pyx_t_6;
   __Pyx_RefNannySetupContext("__reduce_cython__", 0);
 
   /* "(tree fragment)":5
  *     cdef object _dict
  *     cdef bint use_setstate
- *     state = (self.board_gain, self.depth, self.player)             # <<<<<<<<<<<<<<
+ *     state = (self.board_gain, self.depth, self.player, self.switch_threshold)             # <<<<<<<<<<<<<<
  *     _dict = getattr(self, '__dict__', None)
  *     if _dict is not None:
  */
@@ -12133,42 +12147,47 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_4__reduce_cython__(struct
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->__pyx_base.player); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 5, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 5, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_self->switch_threshold); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 5, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_4 = PyTuple_New(4); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 5, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(__pyx_v_self->board_gain);
   __Pyx_GIVEREF(__pyx_v_self->board_gain);
-  PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_v_self->board_gain);
+  PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_v_self->board_gain);
   __Pyx_GIVEREF(__pyx_t_1);
-  PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_1);
+  PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_2);
-  PyTuple_SET_ITEM(__pyx_t_3, 2, __pyx_t_2);
+  PyTuple_SET_ITEM(__pyx_t_4, 2, __pyx_t_2);
+  __Pyx_GIVEREF(__pyx_t_3);
+  PyTuple_SET_ITEM(__pyx_t_4, 3, __pyx_t_3);
   __pyx_t_1 = 0;
   __pyx_t_2 = 0;
-  __pyx_v_state = ((PyObject*)__pyx_t_3);
   __pyx_t_3 = 0;
+  __pyx_v_state = ((PyObject*)__pyx_t_4);
+  __pyx_t_4 = 0;
 
   /* "(tree fragment)":6
  *     cdef bint use_setstate
- *     state = (self.board_gain, self.depth, self.player)
+ *     state = (self.board_gain, self.depth, self.player, self.switch_threshold)
  *     _dict = getattr(self, '__dict__', None)             # <<<<<<<<<<<<<<
  *     if _dict is not None:
  *         state += (_dict,)
  */
-  __pyx_t_3 = __Pyx_GetAttr3(((PyObject *)__pyx_v_self), __pyx_n_s_dict, Py_None); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 6, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_v__dict = __pyx_t_3;
-  __pyx_t_3 = 0;
+  __pyx_t_4 = __Pyx_GetAttr3(((PyObject *)__pyx_v_self), __pyx_n_s_dict, Py_None); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 6, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_v__dict = __pyx_t_4;
+  __pyx_t_4 = 0;
 
   /* "(tree fragment)":7
- *     state = (self.board_gain, self.depth, self.player)
+ *     state = (self.board_gain, self.depth, self.player, self.switch_threshold)
  *     _dict = getattr(self, '__dict__', None)
  *     if _dict is not None:             # <<<<<<<<<<<<<<
  *         state += (_dict,)
  *         use_setstate = True
  */
-  __pyx_t_4 = (__pyx_v__dict != Py_None);
-  __pyx_t_5 = (__pyx_t_4 != 0);
-  if (__pyx_t_5) {
+  __pyx_t_5 = (__pyx_v__dict != Py_None);
+  __pyx_t_6 = (__pyx_t_5 != 0);
+  if (__pyx_t_6) {
 
     /* "(tree fragment)":8
  *     _dict = getattr(self, '__dict__', None)
@@ -12177,16 +12196,16 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_4__reduce_cython__(struct
  *         use_setstate = True
  *     else:
  */
-    __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 8, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 8, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
     __Pyx_INCREF(__pyx_v__dict);
     __Pyx_GIVEREF(__pyx_v__dict);
-    PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_v__dict);
-    __pyx_t_2 = PyNumber_InPlaceAdd(__pyx_v_state, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 8, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __Pyx_DECREF_SET(__pyx_v_state, ((PyObject*)__pyx_t_2));
-    __pyx_t_2 = 0;
+    PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_v__dict);
+    __pyx_t_3 = PyNumber_InPlaceAdd(__pyx_v_state, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 8, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __Pyx_DECREF_SET(__pyx_v_state, ((PyObject*)__pyx_t_3));
+    __pyx_t_3 = 0;
 
     /* "(tree fragment)":9
  *     if _dict is not None:
@@ -12198,7 +12217,7 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_4__reduce_cython__(struct
     __pyx_v_use_setstate = 1;
 
     /* "(tree fragment)":7
- *     state = (self.board_gain, self.depth, self.player)
+ *     state = (self.board_gain, self.depth, self.player, self.switch_threshold)
  *     _dict = getattr(self, '__dict__', None)
  *     if _dict is not None:             # <<<<<<<<<<<<<<
  *         state += (_dict,)
@@ -12212,11 +12231,11 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_4__reduce_cython__(struct
  *     else:
  *         use_setstate = self.board_gain is not None             # <<<<<<<<<<<<<<
  *     if use_setstate:
- *         return __pyx_unpickle_AlphaBetaSecondAI, (type(self), 0xa30b71b, None), state
+ *         return __pyx_unpickle_SwitchTacticsAlphaBetaAI, (type(self), 0xa5d0ddf, None), state
  */
   /*else*/ {
-    __pyx_t_5 = (__pyx_v_self->board_gain != ((PyObject*)Py_None));
-    __pyx_v_use_setstate = __pyx_t_5;
+    __pyx_t_6 = (__pyx_v_self->board_gain != ((PyObject*)Py_None));
+    __pyx_v_use_setstate = __pyx_t_6;
   }
   __pyx_L3:;
 
@@ -12224,89 +12243,89 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_4__reduce_cython__(struct
  *     else:
  *         use_setstate = self.board_gain is not None
  *     if use_setstate:             # <<<<<<<<<<<<<<
- *         return __pyx_unpickle_AlphaBetaSecondAI, (type(self), 0xa30b71b, None), state
+ *         return __pyx_unpickle_SwitchTacticsAlphaBetaAI, (type(self), 0xa5d0ddf, None), state
  *     else:
  */
-  __pyx_t_5 = (__pyx_v_use_setstate != 0);
-  if (__pyx_t_5) {
+  __pyx_t_6 = (__pyx_v_use_setstate != 0);
+  if (__pyx_t_6) {
 
     /* "(tree fragment)":13
  *         use_setstate = self.board_gain is not None
  *     if use_setstate:
- *         return __pyx_unpickle_AlphaBetaSecondAI, (type(self), 0xa30b71b, None), state             # <<<<<<<<<<<<<<
+ *         return __pyx_unpickle_SwitchTacticsAlphaBetaAI, (type(self), 0xa5d0ddf, None), state             # <<<<<<<<<<<<<<
  *     else:
- *         return __pyx_unpickle_AlphaBetaSecondAI, (type(self), 0xa30b71b, state)
+ *         return __pyx_unpickle_SwitchTacticsAlphaBetaAI, (type(self), 0xa5d0ddf, state)
  */
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_pyx_unpickle_AlphaBetaSecondAI); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 13, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 13, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_pyx_unpickle_SwitchTacticsAlph); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 13, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 13, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
     __Pyx_INCREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
     __Pyx_GIVEREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
-    PyTuple_SET_ITEM(__pyx_t_3, 0, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
-    __Pyx_INCREF(__pyx_int_170964763);
-    __Pyx_GIVEREF(__pyx_int_170964763);
-    PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_int_170964763);
+    PyTuple_SET_ITEM(__pyx_t_4, 0, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
+    __Pyx_INCREF(__pyx_int_173870559);
+    __Pyx_GIVEREF(__pyx_int_173870559);
+    PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_int_173870559);
     __Pyx_INCREF(Py_None);
     __Pyx_GIVEREF(Py_None);
-    PyTuple_SET_ITEM(__pyx_t_3, 2, Py_None);
-    __pyx_t_1 = PyTuple_New(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 13, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_GIVEREF(__pyx_t_2);
-    PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_2);
+    PyTuple_SET_ITEM(__pyx_t_4, 2, Py_None);
+    __pyx_t_2 = PyTuple_New(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 13, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
     __Pyx_GIVEREF(__pyx_t_3);
-    PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_3);
+    PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_3);
+    __Pyx_GIVEREF(__pyx_t_4);
+    PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_4);
     __Pyx_INCREF(__pyx_v_state);
     __Pyx_GIVEREF(__pyx_v_state);
-    PyTuple_SET_ITEM(__pyx_t_1, 2, __pyx_v_state);
-    __pyx_t_2 = 0;
+    PyTuple_SET_ITEM(__pyx_t_2, 2, __pyx_v_state);
     __pyx_t_3 = 0;
-    __pyx_r = __pyx_t_1;
-    __pyx_t_1 = 0;
+    __pyx_t_4 = 0;
+    __pyx_r = __pyx_t_2;
+    __pyx_t_2 = 0;
     goto __pyx_L0;
 
     /* "(tree fragment)":12
  *     else:
  *         use_setstate = self.board_gain is not None
  *     if use_setstate:             # <<<<<<<<<<<<<<
- *         return __pyx_unpickle_AlphaBetaSecondAI, (type(self), 0xa30b71b, None), state
+ *         return __pyx_unpickle_SwitchTacticsAlphaBetaAI, (type(self), 0xa5d0ddf, None), state
  *     else:
  */
   }
 
   /* "(tree fragment)":15
- *         return __pyx_unpickle_AlphaBetaSecondAI, (type(self), 0xa30b71b, None), state
+ *         return __pyx_unpickle_SwitchTacticsAlphaBetaAI, (type(self), 0xa5d0ddf, None), state
  *     else:
- *         return __pyx_unpickle_AlphaBetaSecondAI, (type(self), 0xa30b71b, state)             # <<<<<<<<<<<<<<
+ *         return __pyx_unpickle_SwitchTacticsAlphaBetaAI, (type(self), 0xa5d0ddf, state)             # <<<<<<<<<<<<<<
  * def __setstate_cython__(self, __pyx_state):
- *     __pyx_unpickle_AlphaBetaSecondAI__set_state(self, __pyx_state)
+ *     __pyx_unpickle_SwitchTacticsAlphaBetaAI__set_state(self, __pyx_state)
  */
   /*else*/ {
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_pyx_unpickle_AlphaBetaSecondAI); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 15, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 15, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_pyx_unpickle_SwitchTacticsAlph); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 15, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 15, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
     __Pyx_INCREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
     __Pyx_GIVEREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
-    PyTuple_SET_ITEM(__pyx_t_3, 0, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
-    __Pyx_INCREF(__pyx_int_170964763);
-    __Pyx_GIVEREF(__pyx_int_170964763);
-    PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_int_170964763);
+    PyTuple_SET_ITEM(__pyx_t_4, 0, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
+    __Pyx_INCREF(__pyx_int_173870559);
+    __Pyx_GIVEREF(__pyx_int_173870559);
+    PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_int_173870559);
     __Pyx_INCREF(__pyx_v_state);
     __Pyx_GIVEREF(__pyx_v_state);
-    PyTuple_SET_ITEM(__pyx_t_3, 2, __pyx_v_state);
-    __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 15, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_GIVEREF(__pyx_t_1);
-    PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
-    __Pyx_GIVEREF(__pyx_t_3);
-    PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_3);
-    __pyx_t_1 = 0;
-    __pyx_t_3 = 0;
-    __pyx_r = __pyx_t_2;
+    PyTuple_SET_ITEM(__pyx_t_4, 2, __pyx_v_state);
+    __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 15, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __Pyx_GIVEREF(__pyx_t_2);
+    PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2);
+    __Pyx_GIVEREF(__pyx_t_4);
+    PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_4);
     __pyx_t_2 = 0;
+    __pyx_t_4 = 0;
+    __pyx_r = __pyx_t_3;
+    __pyx_t_3 = 0;
     goto __pyx_L0;
   }
 
@@ -12321,7 +12340,8 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_4__reduce_cython__(struct
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("cplayer.AlphaBetaSecondAI.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_AddTraceback("cplayer.SwitchTacticsAlphaBetaAI.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_state);
@@ -12333,45 +12353,45 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_4__reduce_cython__(struct
 
 /* "(tree fragment)":16
  *     else:
- *         return __pyx_unpickle_AlphaBetaSecondAI, (type(self), 0xa30b71b, state)
+ *         return __pyx_unpickle_SwitchTacticsAlphaBetaAI, (type(self), 0xa5d0ddf, state)
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_unpickle_AlphaBetaSecondAI__set_state(self, __pyx_state)
+ *     __pyx_unpickle_SwitchTacticsAlphaBetaAI__set_state(self, __pyx_state)
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_7cplayer_17AlphaBetaSecondAI_7__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
-static PyObject *__pyx_pw_7cplayer_17AlphaBetaSecondAI_7__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pw_7cplayer_24SwitchTacticsAlphaBetaAI_7__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
+static PyObject *__pyx_pw_7cplayer_24SwitchTacticsAlphaBetaAI_7__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setstate_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_7cplayer_17AlphaBetaSecondAI_6__setstate_cython__(((struct __pyx_obj_7cplayer_AlphaBetaSecondAI *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
+  __pyx_r = __pyx_pf_7cplayer_24SwitchTacticsAlphaBetaAI_6__setstate_cython__(((struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_6__setstate_cython__(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_7cplayer_24SwitchTacticsAlphaBetaAI_6__setstate_cython__(struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__setstate_cython__", 0);
 
   /* "(tree fragment)":17
- *         return __pyx_unpickle_AlphaBetaSecondAI, (type(self), 0xa30b71b, state)
+ *         return __pyx_unpickle_SwitchTacticsAlphaBetaAI, (type(self), 0xa5d0ddf, state)
  * def __setstate_cython__(self, __pyx_state):
- *     __pyx_unpickle_AlphaBetaSecondAI__set_state(self, __pyx_state)             # <<<<<<<<<<<<<<
+ *     __pyx_unpickle_SwitchTacticsAlphaBetaAI__set_state(self, __pyx_state)             # <<<<<<<<<<<<<<
  */
   if (!(likely(PyTuple_CheckExact(__pyx_v___pyx_state))||((__pyx_v___pyx_state) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "tuple", Py_TYPE(__pyx_v___pyx_state)->tp_name), 0))) __PYX_ERR(1, 17, __pyx_L1_error)
-  __pyx_t_1 = __pyx_f_7cplayer___pyx_unpickle_AlphaBetaSecondAI__set_state(__pyx_v_self, ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 17, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_7cplayer___pyx_unpickle_SwitchTacticsAlphaBetaAI__set_state(__pyx_v_self, ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "(tree fragment)":16
  *     else:
- *         return __pyx_unpickle_AlphaBetaSecondAI, (type(self), 0xa30b71b, state)
+ *         return __pyx_unpickle_SwitchTacticsAlphaBetaAI, (type(self), 0xa5d0ddf, state)
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_unpickle_AlphaBetaSecondAI__set_state(self, __pyx_state)
+ *     __pyx_unpickle_SwitchTacticsAlphaBetaAI__set_state(self, __pyx_state)
  */
 
   /* function exit code */
@@ -12379,7 +12399,7 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_6__setstate_cython__(stru
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("cplayer.AlphaBetaSecondAI.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cplayer.SwitchTacticsAlphaBetaAI.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -12387,7 +12407,7 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_6__setstate_cython__(stru
   return __pyx_r;
 }
 
-/* "cplayer.pyx":545
+/* "cplayer.pyx":547
  * 
  *     @cython.nonecheck(False)
  *     def __init__(self, int depth):             # <<<<<<<<<<<<<<
@@ -12396,8 +12416,8 @@ static PyObject *__pyx_pf_7cplayer_17AlphaBetaSecondAI_6__setstate_cython__(stru
  */
 
 /* Python wrapper */
-static int __pyx_pw_7cplayer_16AlphaBetaThirdAI_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_pw_7cplayer_16AlphaBetaThirdAI_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_7cplayer_21CountMovesAlphaBetaAI_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_7cplayer_21CountMovesAlphaBetaAI_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   int __pyx_v_depth;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
@@ -12421,31 +12441,31 @@ static int __pyx_pw_7cplayer_16AlphaBetaThirdAI_1__init__(PyObject *__pyx_v_self
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 545, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 547, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
     }
-    __pyx_v_depth = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_depth == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 545, __pyx_L3_error)
+    __pyx_v_depth = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_depth == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 547, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 545, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 547, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("cplayer.AlphaBetaThirdAI.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cplayer.CountMovesAlphaBetaAI.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_7cplayer_16AlphaBetaThirdAI___init__(((struct __pyx_obj_7cplayer_AlphaBetaThirdAI *)__pyx_v_self), __pyx_v_depth);
+  __pyx_r = __pyx_pf_7cplayer_21CountMovesAlphaBetaAI___init__(((struct __pyx_obj_7cplayer_CountMovesAlphaBetaAI *)__pyx_v_self), __pyx_v_depth);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_7cplayer_16AlphaBetaThirdAI___init__(struct __pyx_obj_7cplayer_AlphaBetaThirdAI *__pyx_v_self, int __pyx_v_depth) {
+static int __pyx_pf_7cplayer_21CountMovesAlphaBetaAI___init__(struct __pyx_obj_7cplayer_CountMovesAlphaBetaAI *__pyx_v_self, int __pyx_v_depth) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -12453,25 +12473,25 @@ static int __pyx_pf_7cplayer_16AlphaBetaThirdAI___init__(struct __pyx_obj_7cplay
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "cplayer.pyx":546
+  /* "cplayer.pyx":548
  *     @cython.nonecheck(False)
  *     def __init__(self, int depth):
  *         super().__init__()             # <<<<<<<<<<<<<<
  *         self.depth = depth
  * 
  */
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 546, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 548, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_INCREF(((PyObject *)__pyx_ptype_7cplayer_AlphaBetaThirdAI));
-  __Pyx_GIVEREF(((PyObject *)__pyx_ptype_7cplayer_AlphaBetaThirdAI));
-  PyTuple_SET_ITEM(__pyx_t_2, 0, ((PyObject *)__pyx_ptype_7cplayer_AlphaBetaThirdAI));
+  __Pyx_INCREF(((PyObject *)__pyx_ptype_7cplayer_CountMovesAlphaBetaAI));
+  __Pyx_GIVEREF(((PyObject *)__pyx_ptype_7cplayer_CountMovesAlphaBetaAI));
+  PyTuple_SET_ITEM(__pyx_t_2, 0, ((PyObject *)__pyx_ptype_7cplayer_CountMovesAlphaBetaAI));
   __Pyx_INCREF(((PyObject *)__pyx_v_self));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
   PyTuple_SET_ITEM(__pyx_t_2, 1, ((PyObject *)__pyx_v_self));
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 546, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 548, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_init); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 546, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_init); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 548, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -12486,12 +12506,12 @@ static int __pyx_pf_7cplayer_16AlphaBetaThirdAI___init__(struct __pyx_obj_7cplay
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 546, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 548, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "cplayer.pyx":547
+  /* "cplayer.pyx":549
  *     def __init__(self, int depth):
  *         super().__init__()
  *         self.depth = depth             # <<<<<<<<<<<<<<
@@ -12500,7 +12520,7 @@ static int __pyx_pf_7cplayer_16AlphaBetaThirdAI___init__(struct __pyx_obj_7cplay
  */
   __pyx_v_self->depth = __pyx_v_depth;
 
-  /* "cplayer.pyx":545
+  /* "cplayer.pyx":547
  * 
  *     @cython.nonecheck(False)
  *     def __init__(self, int depth):             # <<<<<<<<<<<<<<
@@ -12515,14 +12535,14 @@ static int __pyx_pf_7cplayer_16AlphaBetaThirdAI___init__(struct __pyx_obj_7cplay
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("cplayer.AlphaBetaThirdAI.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cplayer.CountMovesAlphaBetaAI.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "cplayer.pyx":550
+/* "cplayer.pyx":552
  * 
  *     @cython.nonecheck(False)
  *     def thinking(self, list board, int turn):             # <<<<<<<<<<<<<<
@@ -12531,8 +12551,8 @@ static int __pyx_pf_7cplayer_16AlphaBetaThirdAI___init__(struct __pyx_obj_7cplay
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_7cplayer_16AlphaBetaThirdAI_3thinking(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pw_7cplayer_16AlphaBetaThirdAI_3thinking(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_7cplayer_21CountMovesAlphaBetaAI_3thinking(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_7cplayer_21CountMovesAlphaBetaAI_3thinking(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_board = 0;
   int __pyx_v_turn;
   PyObject *__pyx_r = 0;
@@ -12561,11 +12581,11 @@ static PyObject *__pyx_pw_7cplayer_16AlphaBetaThirdAI_3thinking(PyObject *__pyx_
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_turn)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("thinking", 1, 2, 2, 1); __PYX_ERR(0, 550, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("thinking", 1, 2, 2, 1); __PYX_ERR(0, 552, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "thinking") < 0)) __PYX_ERR(0, 550, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "thinking") < 0)) __PYX_ERR(0, 552, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -12574,18 +12594,18 @@ static PyObject *__pyx_pw_7cplayer_16AlphaBetaThirdAI_3thinking(PyObject *__pyx_
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
     __pyx_v_board = ((PyObject*)values[0]);
-    __pyx_v_turn = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_turn == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 550, __pyx_L3_error)
+    __pyx_v_turn = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_turn == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 552, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("thinking", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 550, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("thinking", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 552, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("cplayer.AlphaBetaThirdAI.thinking", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cplayer.CountMovesAlphaBetaAI.thinking", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_board), (&PyList_Type), 1, "board", 1))) __PYX_ERR(0, 550, __pyx_L1_error)
-  __pyx_r = __pyx_pf_7cplayer_16AlphaBetaThirdAI_2thinking(((struct __pyx_obj_7cplayer_AlphaBetaThirdAI *)__pyx_v_self), __pyx_v_board, __pyx_v_turn);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_board), (&PyList_Type), 1, "board", 1))) __PYX_ERR(0, 552, __pyx_L1_error)
+  __pyx_r = __pyx_pf_7cplayer_21CountMovesAlphaBetaAI_2thinking(((struct __pyx_obj_7cplayer_CountMovesAlphaBetaAI *)__pyx_v_self), __pyx_v_board, __pyx_v_turn);
 
   /* function exit code */
   goto __pyx_L0;
@@ -12596,7 +12616,7 @@ static PyObject *__pyx_pw_7cplayer_16AlphaBetaThirdAI_3thinking(PyObject *__pyx_
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_7cplayer_16AlphaBetaThirdAI_2thinking(struct __pyx_obj_7cplayer_AlphaBetaThirdAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_turn) {
+static PyObject *__pyx_pf_7cplayer_21CountMovesAlphaBetaAI_2thinking(struct __pyx_obj_7cplayer_CountMovesAlphaBetaAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_turn) {
   int __pyx_v_x;
   int __pyx_v_y;
   CYTHON_UNUSED int __pyx_v_val;
@@ -12620,28 +12640,28 @@ static PyObject *__pyx_pf_7cplayer_16AlphaBetaThirdAI_2thinking(struct __pyx_obj
   int __pyx_t_13;
   __Pyx_RefNannySetupContext("thinking", 0);
 
-  /* "cplayer.pyx":552
+  /* "cplayer.pyx":554
  *     def thinking(self, list board, int turn):
  *         cdef int x, y, val
  *         super().thinking(board, turn)             # <<<<<<<<<<<<<<
  *         _board = [[0] * (ROW_CELLS + 2) for i in range(ROW_CELLS + 2)]
  *         for i in range(1, 9):
  */
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 552, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 554, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_INCREF(((PyObject *)__pyx_ptype_7cplayer_AlphaBetaThirdAI));
-  __Pyx_GIVEREF(((PyObject *)__pyx_ptype_7cplayer_AlphaBetaThirdAI));
-  PyTuple_SET_ITEM(__pyx_t_2, 0, ((PyObject *)__pyx_ptype_7cplayer_AlphaBetaThirdAI));
+  __Pyx_INCREF(((PyObject *)__pyx_ptype_7cplayer_CountMovesAlphaBetaAI));
+  __Pyx_GIVEREF(((PyObject *)__pyx_ptype_7cplayer_CountMovesAlphaBetaAI));
+  PyTuple_SET_ITEM(__pyx_t_2, 0, ((PyObject *)__pyx_ptype_7cplayer_CountMovesAlphaBetaAI));
   __Pyx_INCREF(((PyObject *)__pyx_v_self));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
   PyTuple_SET_ITEM(__pyx_t_2, 1, ((PyObject *)__pyx_v_self));
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 552, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 554, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_thinking); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 552, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_thinking); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 554, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_turn); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 552, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_turn); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 554, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   __pyx_t_5 = 0;
@@ -12658,7 +12678,7 @@ static PyObject *__pyx_pf_7cplayer_16AlphaBetaThirdAI_2thinking(struct __pyx_obj
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_v_board, __pyx_t_3};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 552, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 554, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -12667,14 +12687,14 @@ static PyObject *__pyx_pf_7cplayer_16AlphaBetaThirdAI_2thinking(struct __pyx_obj
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_v_board, __pyx_t_3};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 552, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 554, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else
   #endif
   {
-    __pyx_t_6 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 552, __pyx_L1_error)
+    __pyx_t_6 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 554, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     if (__pyx_t_4) {
       __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_4); __pyx_t_4 = NULL;
@@ -12685,37 +12705,37 @@ static PyObject *__pyx_pf_7cplayer_16AlphaBetaThirdAI_2thinking(struct __pyx_obj
     __Pyx_GIVEREF(__pyx_t_3);
     PyTuple_SET_ITEM(__pyx_t_6, 1+__pyx_t_5, __pyx_t_3);
     __pyx_t_3 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 552, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 554, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "cplayer.pyx":553
+  /* "cplayer.pyx":555
  *         cdef int x, y, val
  *         super().thinking(board, turn)
  *         _board = [[0] * (ROW_CELLS + 2) for i in range(ROW_CELLS + 2)]             # <<<<<<<<<<<<<<
  *         for i in range(1, 9):
  *             for j in range(1, 9):
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 553, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 555, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ROW_CELLS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 553, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ROW_CELLS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 555, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_6 = __Pyx_PyInt_AddObjC(__pyx_t_2, __pyx_int_2, 2, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 553, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyInt_AddObjC(__pyx_t_2, __pyx_int_2, 2, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 555, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_range, __pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 553, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_range, __pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 555, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   if (likely(PyList_CheckExact(__pyx_t_2)) || PyTuple_CheckExact(__pyx_t_2)) {
     __pyx_t_6 = __pyx_t_2; __Pyx_INCREF(__pyx_t_6); __pyx_t_7 = 0;
     __pyx_t_8 = NULL;
   } else {
-    __pyx_t_7 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 553, __pyx_L1_error)
+    __pyx_t_7 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 555, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_8 = Py_TYPE(__pyx_t_6)->tp_iternext; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 553, __pyx_L1_error)
+    __pyx_t_8 = Py_TYPE(__pyx_t_6)->tp_iternext; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 555, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   for (;;) {
@@ -12723,17 +12743,17 @@ static PyObject *__pyx_pf_7cplayer_16AlphaBetaThirdAI_2thinking(struct __pyx_obj
       if (likely(PyList_CheckExact(__pyx_t_6))) {
         if (__pyx_t_7 >= PyList_GET_SIZE(__pyx_t_6)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_6, __pyx_t_7); __Pyx_INCREF(__pyx_t_2); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 553, __pyx_L1_error)
+        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_6, __pyx_t_7); __Pyx_INCREF(__pyx_t_2); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 555, __pyx_L1_error)
         #else
-        __pyx_t_2 = PySequence_ITEM(__pyx_t_6, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 553, __pyx_L1_error)
+        __pyx_t_2 = PySequence_ITEM(__pyx_t_6, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 555, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         #endif
       } else {
         if (__pyx_t_7 >= PyTuple_GET_SIZE(__pyx_t_6)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_6, __pyx_t_7); __Pyx_INCREF(__pyx_t_2); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 553, __pyx_L1_error)
+        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_6, __pyx_t_7); __Pyx_INCREF(__pyx_t_2); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 555, __pyx_L1_error)
         #else
-        __pyx_t_2 = PySequence_ITEM(__pyx_t_6, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 553, __pyx_L1_error)
+        __pyx_t_2 = PySequence_ITEM(__pyx_t_6, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 555, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         #endif
       }
@@ -12743,7 +12763,7 @@ static PyObject *__pyx_pf_7cplayer_16AlphaBetaThirdAI_2thinking(struct __pyx_obj
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 553, __pyx_L1_error)
+          else __PYX_ERR(0, 555, __pyx_L1_error)
         }
         break;
       }
@@ -12751,30 +12771,30 @@ static PyObject *__pyx_pf_7cplayer_16AlphaBetaThirdAI_2thinking(struct __pyx_obj
     }
     __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_2);
     __pyx_t_2 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ROW_CELLS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 553, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ROW_CELLS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 555, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_PyInt_AddObjC(__pyx_t_2, __pyx_int_2, 2, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 553, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyInt_AddObjC(__pyx_t_2, __pyx_int_2, 2, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 555, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 553, __pyx_L1_error)
+    __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 555, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_INCREF(__pyx_int_0);
     __Pyx_GIVEREF(__pyx_int_0);
     PyList_SET_ITEM(__pyx_t_2, 0, __pyx_int_0);
-    { PyObject* __pyx_temp = PyNumber_InPlaceMultiply(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_temp)) __PYX_ERR(0, 553, __pyx_L1_error)
+    { PyObject* __pyx_temp = PyNumber_InPlaceMultiply(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_temp)) __PYX_ERR(0, 555, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_temp);
       __Pyx_DECREF(__pyx_t_2);
       __pyx_t_2 = __pyx_temp;
     }
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(__Pyx_ListComp_Append(__pyx_t_1, (PyObject*)__pyx_t_2))) __PYX_ERR(0, 553, __pyx_L1_error)
+    if (unlikely(__Pyx_ListComp_Append(__pyx_t_1, (PyObject*)__pyx_t_2))) __PYX_ERR(0, 555, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __pyx_v__board = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "cplayer.pyx":554
+  /* "cplayer.pyx":556
  *         super().thinking(board, turn)
  *         _board = [[0] * (ROW_CELLS + 2) for i in range(ROW_CELLS + 2)]
  *         for i in range(1, 9):             # <<<<<<<<<<<<<<
@@ -12782,12 +12802,12 @@ static PyObject *__pyx_pf_7cplayer_16AlphaBetaThirdAI_2thinking(struct __pyx_obj
  *                 _board[i][j] = board[i - 1][j - 1]
  */
   for (__pyx_t_9 = 1; __pyx_t_9 < 9; __pyx_t_9+=1) {
-    __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 554, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 556, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "cplayer.pyx":555
+    /* "cplayer.pyx":557
  *         _board = [[0] * (ROW_CELLS + 2) for i in range(ROW_CELLS + 2)]
  *         for i in range(1, 9):
  *             for j in range(1, 9):             # <<<<<<<<<<<<<<
@@ -12795,12 +12815,12 @@ static PyObject *__pyx_pf_7cplayer_16AlphaBetaThirdAI_2thinking(struct __pyx_obj
  * 
  */
     for (__pyx_t_10 = 1; __pyx_t_10 < 9; __pyx_t_10+=1) {
-      __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 555, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 557, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_XDECREF_SET(__pyx_v_j, __pyx_t_1);
       __pyx_t_1 = 0;
 
-      /* "cplayer.pyx":556
+      /* "cplayer.pyx":558
  *         for i in range(1, 9):
  *             for j in range(1, 9):
  *                 _board[i][j] = board[i - 1][j - 1]             # <<<<<<<<<<<<<<
@@ -12809,35 +12829,35 @@ static PyObject *__pyx_pf_7cplayer_16AlphaBetaThirdAI_2thinking(struct __pyx_obj
  */
       if (unlikely(__pyx_v_board == Py_None)) {
         PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-        __PYX_ERR(0, 556, __pyx_L1_error)
+        __PYX_ERR(0, 558, __pyx_L1_error)
       }
-      __pyx_t_1 = __Pyx_PyInt_SubtractObjC(__pyx_v_i, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 556, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyInt_SubtractObjC(__pyx_v_i, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 558, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_6 = __Pyx_PyObject_GetItem(__pyx_v_board, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 556, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyObject_GetItem(__pyx_v_board, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 558, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_1 = __Pyx_PyInt_SubtractObjC(__pyx_v_j, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 556, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyInt_SubtractObjC(__pyx_v_j, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 558, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_t_6, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 556, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_t_6, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 558, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_1 = __Pyx_PyObject_GetItem(__pyx_v__board, __pyx_v_i); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 556, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetItem(__pyx_v__board, __pyx_v_i); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 558, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (unlikely(PyObject_SetItem(__pyx_t_1, __pyx_v_j, __pyx_t_2) < 0)) __PYX_ERR(0, 556, __pyx_L1_error)
+      if (unlikely(PyObject_SetItem(__pyx_t_1, __pyx_v_j, __pyx_t_2) < 0)) __PYX_ERR(0, 558, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     }
   }
 
-  /* "cplayer.pyx":558
+  /* "cplayer.pyx":560
  *                 _board[i][j] = board[i - 1][j - 1]
  * 
  *         val, y, x = self.alpha_beta(_board, turn, self.depth)             # <<<<<<<<<<<<<<
  *         return y, x
  * 
  */
-  __pyx_t_2 = ((struct __pyx_vtabstruct_7cplayer_AlphaBetaThirdAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->alpha_beta(__pyx_v_self, __pyx_v__board, __pyx_v_turn, __pyx_v_self->depth, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 558, __pyx_L1_error)
+  __pyx_t_2 = ((struct __pyx_vtabstruct_7cplayer_CountMovesAlphaBetaAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->alpha_beta(__pyx_v_self, __pyx_v__board, __pyx_v_turn, __pyx_v_self->depth, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 560, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if ((likely(PyTuple_CheckExact(__pyx_t_2))) || (PyList_CheckExact(__pyx_t_2))) {
     PyObject* sequence = __pyx_t_2;
@@ -12845,7 +12865,7 @@ static PyObject *__pyx_pf_7cplayer_16AlphaBetaThirdAI_2thinking(struct __pyx_obj
     if (unlikely(size != 3)) {
       if (size > 3) __Pyx_RaiseTooManyValuesError(3);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 558, __pyx_L1_error)
+      __PYX_ERR(0, 560, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     if (likely(PyTuple_CheckExact(sequence))) {
@@ -12861,17 +12881,17 @@ static PyObject *__pyx_pf_7cplayer_16AlphaBetaThirdAI_2thinking(struct __pyx_obj
     __Pyx_INCREF(__pyx_t_6);
     __Pyx_INCREF(__pyx_t_3);
     #else
-    __pyx_t_1 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 558, __pyx_L1_error)
+    __pyx_t_1 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 560, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_6 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 558, __pyx_L1_error)
+    __pyx_t_6 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 560, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_3 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 558, __pyx_L1_error)
+    __pyx_t_3 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 560, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     #endif
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   } else {
     Py_ssize_t index = -1;
-    __pyx_t_4 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 558, __pyx_L1_error)
+    __pyx_t_4 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 560, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_11 = Py_TYPE(__pyx_t_4)->tp_iternext;
@@ -12881,7 +12901,7 @@ static PyObject *__pyx_pf_7cplayer_16AlphaBetaThirdAI_2thinking(struct __pyx_obj
     __Pyx_GOTREF(__pyx_t_6);
     index = 2; __pyx_t_3 = __pyx_t_11(__pyx_t_4); if (unlikely(!__pyx_t_3)) goto __pyx_L9_unpacking_failed;
     __Pyx_GOTREF(__pyx_t_3);
-    if (__Pyx_IternextUnpackEndCheck(__pyx_t_11(__pyx_t_4), 3) < 0) __PYX_ERR(0, 558, __pyx_L1_error)
+    if (__Pyx_IternextUnpackEndCheck(__pyx_t_11(__pyx_t_4), 3) < 0) __PYX_ERR(0, 560, __pyx_L1_error)
     __pyx_t_11 = NULL;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     goto __pyx_L10_unpacking_done;
@@ -12889,20 +12909,20 @@ static PyObject *__pyx_pf_7cplayer_16AlphaBetaThirdAI_2thinking(struct __pyx_obj
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_11 = NULL;
     if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-    __PYX_ERR(0, 558, __pyx_L1_error)
+    __PYX_ERR(0, 560, __pyx_L1_error)
     __pyx_L10_unpacking_done:;
   }
-  __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 558, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 560, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_12 = __Pyx_PyInt_As_int(__pyx_t_6); if (unlikely((__pyx_t_12 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 558, __pyx_L1_error)
+  __pyx_t_12 = __Pyx_PyInt_As_int(__pyx_t_6); if (unlikely((__pyx_t_12 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 560, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_13 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_13 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 558, __pyx_L1_error)
+  __pyx_t_13 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_13 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 560, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_val = __pyx_t_5;
   __pyx_v_y = __pyx_t_12;
   __pyx_v_x = __pyx_t_13;
 
-  /* "cplayer.pyx":559
+  /* "cplayer.pyx":561
  * 
  *         val, y, x = self.alpha_beta(_board, turn, self.depth)
  *         return y, x             # <<<<<<<<<<<<<<
@@ -12910,11 +12930,11 @@ static PyObject *__pyx_pf_7cplayer_16AlphaBetaThirdAI_2thinking(struct __pyx_obj
  *     @cython.nonecheck(False)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_y); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 559, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_y); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 561, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_x); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 559, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_x); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 561, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 559, __pyx_L1_error)
+  __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 561, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_2);
@@ -12926,7 +12946,7 @@ static PyObject *__pyx_pf_7cplayer_16AlphaBetaThirdAI_2thinking(struct __pyx_obj
   __pyx_t_6 = 0;
   goto __pyx_L0;
 
-  /* "cplayer.pyx":550
+  /* "cplayer.pyx":552
  * 
  *     @cython.nonecheck(False)
  *     def thinking(self, list board, int turn):             # <<<<<<<<<<<<<<
@@ -12941,7 +12961,7 @@ static PyObject *__pyx_pf_7cplayer_16AlphaBetaThirdAI_2thinking(struct __pyx_obj
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("cplayer.AlphaBetaThirdAI.thinking", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cplayer.CountMovesAlphaBetaAI.thinking", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v__board);
@@ -12952,7 +12972,7 @@ static PyObject *__pyx_pf_7cplayer_16AlphaBetaThirdAI_2thinking(struct __pyx_obj
   return __pyx_r;
 }
 
-/* "cplayer.pyx":562
+/* "cplayer.pyx":564
  * 
  *     @cython.nonecheck(False)
  *     cdef alpha_beta(self, list board, int player, int depth, alpha=-math.inf, beta=math.inf):             # <<<<<<<<<<<<<<
@@ -12960,7 +12980,7 @@ static PyObject *__pyx_pf_7cplayer_16AlphaBetaThirdAI_2thinking(struct __pyx_obj
  *         cdef int black_stones
  */
 
-static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj_7cplayer_AlphaBetaThirdAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player, int __pyx_v_depth, struct __pyx_opt_args_7cplayer_16AlphaBetaThirdAI_alpha_beta *__pyx_optional_args) {
+static PyObject *__pyx_f_7cplayer_21CountMovesAlphaBetaAI_alpha_beta(struct __pyx_obj_7cplayer_CountMovesAlphaBetaAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player, int __pyx_v_depth, struct __pyx_opt_args_7cplayer_21CountMovesAlphaBetaAI_alpha_beta *__pyx_optional_args) {
   PyObject *__pyx_v_alpha = __pyx_k__13;
   PyObject *__pyx_v_beta = __pyx_k__14;
   PyObject *__pyx_v_legal_move_count_list = 0;
@@ -12989,7 +13009,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
   PyObject *__pyx_t_9 = NULL;
   PyObject *__pyx_t_10 = NULL;
   PyObject *(*__pyx_t_11)(PyObject *);
-  struct __pyx_opt_args_7cplayer_16AlphaBetaThirdAI_alpha_beta __pyx_t_12;
+  struct __pyx_opt_args_7cplayer_21CountMovesAlphaBetaAI_alpha_beta __pyx_t_12;
   int __pyx_t_13;
   __Pyx_RefNannySetupContext("alpha_beta", 0);
   if (__pyx_optional_args) {
@@ -13003,7 +13023,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
   __Pyx_INCREF(__pyx_v_alpha);
   __Pyx_INCREF(__pyx_v_beta);
 
-  /* "cplayer.pyx":570
+  /* "cplayer.pyx":572
  * 
  *         #
  *         if depth == 0:             # <<<<<<<<<<<<<<
@@ -13013,16 +13033,16 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
   __pyx_t_1 = ((__pyx_v_depth == 0) != 0);
   if (__pyx_t_1) {
 
-    /* "cplayer.pyx":571
+    /* "cplayer.pyx":573
  *         #
  *         if depth == 0:
  *             val = self.evaluation_function(board, self.player)             # <<<<<<<<<<<<<<
  *             return val
  * 
  */
-    __pyx_v_val = ((struct __pyx_vtabstruct_7cplayer_AlphaBetaThirdAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->evaluation_function(__pyx_v_self, __pyx_v_board, __pyx_v_self->__pyx_base.player);
+    __pyx_v_val = ((struct __pyx_vtabstruct_7cplayer_CountMovesAlphaBetaAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->evaluation_function(__pyx_v_self, __pyx_v_board, __pyx_v_self->__pyx_base.player);
 
-    /* "cplayer.pyx":572
+    /* "cplayer.pyx":574
  *         if depth == 0:
  *             val = self.evaluation_function(board, self.player)
  *             return val             # <<<<<<<<<<<<<<
@@ -13030,13 +13050,13 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
  *         #
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 572, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 574, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_r = __pyx_t_2;
     __pyx_t_2 = 0;
     goto __pyx_L0;
 
-    /* "cplayer.pyx":570
+    /* "cplayer.pyx":572
  * 
  *         #
  *         if depth == 0:             # <<<<<<<<<<<<<<
@@ -13045,45 +13065,45 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
  */
   }
 
-  /* "cplayer.pyx":575
+  /* "cplayer.pyx":577
  * 
  *         #
  *         cdef int opponent = Turn.BLACK if player == Turn.WHITE else Turn.WHITE             # <<<<<<<<<<<<<<
  * 
  *         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(
  */
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_player); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 575, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_player); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 577, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 575, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 577, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = PyObject_RichCompare(__pyx_t_2, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 575, __pyx_L1_error)
+  __pyx_t_5 = PyObject_RichCompare(__pyx_t_2, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 577, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 575, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 577, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   if (__pyx_t_1) {
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_BLACK); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 575, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_BLACK); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 577, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 575, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 577, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_3 = __pyx_t_6;
   } else {
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 575, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 577, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 575, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 577, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_3 = __pyx_t_6;
   }
   __pyx_v_opponent = __pyx_t_3;
 
-  /* "cplayer.pyx":577
+  /* "cplayer.pyx":579
  *         cdef int opponent = Turn.BLACK if player == Turn.WHITE else Turn.WHITE
  * 
  *         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(             # <<<<<<<<<<<<<<
  *             board, player)
  * 
  */
-  __pyx_t_5 = ((struct __pyx_vtabstruct_7cplayer_AlphaBetaThirdAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v_board, __pyx_v_player); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 577, __pyx_L1_error)
+  __pyx_t_5 = ((struct __pyx_vtabstruct_7cplayer_CountMovesAlphaBetaAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v_board, __pyx_v_player); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 579, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   if (likely(__pyx_t_5 != Py_None)) {
     PyObject* sequence = __pyx_t_5;
@@ -13091,7 +13111,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
     if (unlikely(size != 3)) {
       if (size > 3) __Pyx_RaiseTooManyValuesError(3);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 577, __pyx_L1_error)
+      __PYX_ERR(0, 579, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     __pyx_t_4 = PyTuple_GET_ITEM(sequence, 0); 
@@ -13101,37 +13121,37 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
     __Pyx_INCREF(__pyx_t_2);
     __Pyx_INCREF(__pyx_t_7);
     #else
-    __pyx_t_4 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 577, __pyx_L1_error)
+    __pyx_t_4 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 579, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 577, __pyx_L1_error)
+    __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 579, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_7 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 577, __pyx_L1_error)
+    __pyx_t_7 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 579, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     #endif
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   } else {
-    __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 577, __pyx_L1_error)
+    __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 579, __pyx_L1_error)
   }
-  if (!(likely(PyList_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_4)->tp_name), 0))) __PYX_ERR(0, 577, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 577, __pyx_L1_error)
+  if (!(likely(PyList_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_4)->tp_name), 0))) __PYX_ERR(0, 579, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 579, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_7); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 577, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_7); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 579, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_v_legal_move_count_list = ((PyObject*)__pyx_t_4);
   __pyx_t_4 = 0;
   __pyx_v_black_stones = __pyx_t_3;
   __pyx_v_white_stones = __pyx_t_6;
 
-  /* "cplayer.pyx":580
+  /* "cplayer.pyx":582
  *             board, player)
  * 
  *         random.shuffle(legal_move_count_list)             # <<<<<<<<<<<<<<
  * 
  *         if len(legal_move_count_list) == 0:
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_random); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 580, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_random); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 582, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_shuffle); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 580, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_shuffle); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 582, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_t_7 = NULL;
@@ -13146,12 +13166,12 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
   }
   __pyx_t_5 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_7, __pyx_v_legal_move_count_list) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_legal_move_count_list);
   __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-  if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 580, __pyx_L1_error)
+  if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 582, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cplayer.pyx":582
+  /* "cplayer.pyx":584
  *         random.shuffle(legal_move_count_list)
  * 
  *         if len(legal_move_count_list) == 0:             # <<<<<<<<<<<<<<
@@ -13160,22 +13180,22 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
  */
   if (unlikely(__pyx_v_legal_move_count_list == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 582, __pyx_L1_error)
+    __PYX_ERR(0, 584, __pyx_L1_error)
   }
-  __pyx_t_8 = PyList_GET_SIZE(__pyx_v_legal_move_count_list); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 582, __pyx_L1_error)
+  __pyx_t_8 = PyList_GET_SIZE(__pyx_v_legal_move_count_list); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 584, __pyx_L1_error)
   __pyx_t_1 = ((__pyx_t_8 == 0) != 0);
   if (__pyx_t_1) {
 
-    /* "cplayer.pyx":583
+    /* "cplayer.pyx":585
  * 
  *         if len(legal_move_count_list) == 0:
  *             val = self.evaluation_function(board, self.player)             # <<<<<<<<<<<<<<
  *             return val
  * 
  */
-    __pyx_v_val = ((struct __pyx_vtabstruct_7cplayer_AlphaBetaThirdAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->evaluation_function(__pyx_v_self, __pyx_v_board, __pyx_v_self->__pyx_base.player);
+    __pyx_v_val = ((struct __pyx_vtabstruct_7cplayer_CountMovesAlphaBetaAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->evaluation_function(__pyx_v_self, __pyx_v_board, __pyx_v_self->__pyx_base.player);
 
-    /* "cplayer.pyx":584
+    /* "cplayer.pyx":586
  *         if len(legal_move_count_list) == 0:
  *             val = self.evaluation_function(board, self.player)
  *             return val             # <<<<<<<<<<<<<<
@@ -13183,13 +13203,13 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
  *         if player == self.player:
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 584, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 586, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_r = __pyx_t_5;
     __pyx_t_5 = 0;
     goto __pyx_L0;
 
-    /* "cplayer.pyx":582
+    /* "cplayer.pyx":584
  *         random.shuffle(legal_move_count_list)
  * 
  *         if len(legal_move_count_list) == 0:             # <<<<<<<<<<<<<<
@@ -13198,7 +13218,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
  */
   }
 
-  /* "cplayer.pyx":586
+  /* "cplayer.pyx":588
  *             return val
  * 
  *         if player == self.player:             # <<<<<<<<<<<<<<
@@ -13208,25 +13228,25 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
   __pyx_t_1 = ((__pyx_v_player == __pyx_v_self->__pyx_base.player) != 0);
   if (__pyx_t_1) {
 
-    /* "cplayer.pyx":587
+    /* "cplayer.pyx":589
  * 
  *         if player == self.player:
  *             best = -math.inf             # <<<<<<<<<<<<<<
  *             best_y = best_x = None
  *             for y, x, count in legal_move_count_list:
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_math); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 587, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_math); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 589, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_inf); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 587, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_inf); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 589, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = PyNumber_Negative(__pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 587, __pyx_L1_error)
+    __pyx_t_5 = PyNumber_Negative(__pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 589, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_best = __pyx_t_5;
     __pyx_t_5 = 0;
 
-    /* "cplayer.pyx":588
+    /* "cplayer.pyx":590
  *         if player == self.player:
  *             best = -math.inf
  *             best_y = best_x = None             # <<<<<<<<<<<<<<
@@ -13238,7 +13258,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
     __Pyx_INCREF(Py_None);
     __pyx_v_best_x = Py_None;
 
-    /* "cplayer.pyx":589
+    /* "cplayer.pyx":591
  *             best = -math.inf
  *             best_y = best_x = None
  *             for y, x, count in legal_move_count_list:             # <<<<<<<<<<<<<<
@@ -13247,15 +13267,15 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
  */
     if (unlikely(__pyx_v_legal_move_count_list == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-      __PYX_ERR(0, 589, __pyx_L1_error)
+      __PYX_ERR(0, 591, __pyx_L1_error)
     }
     __pyx_t_5 = __pyx_v_legal_move_count_list; __Pyx_INCREF(__pyx_t_5); __pyx_t_8 = 0;
     for (;;) {
       if (__pyx_t_8 >= PyList_GET_SIZE(__pyx_t_5)) break;
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-      __pyx_t_2 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_8); __Pyx_INCREF(__pyx_t_2); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 589, __pyx_L1_error)
+      __pyx_t_2 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_8); __Pyx_INCREF(__pyx_t_2); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 591, __pyx_L1_error)
       #else
-      __pyx_t_2 = PySequence_ITEM(__pyx_t_5, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 589, __pyx_L1_error)
+      __pyx_t_2 = PySequence_ITEM(__pyx_t_5, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 591, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       #endif
       if ((likely(PyTuple_CheckExact(__pyx_t_2))) || (PyList_CheckExact(__pyx_t_2))) {
@@ -13264,7 +13284,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
         if (unlikely(size != 3)) {
           if (size > 3) __Pyx_RaiseTooManyValuesError(3);
           else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-          __PYX_ERR(0, 589, __pyx_L1_error)
+          __PYX_ERR(0, 591, __pyx_L1_error)
         }
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
         if (likely(PyTuple_CheckExact(sequence))) {
@@ -13280,17 +13300,17 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
         __Pyx_INCREF(__pyx_t_4);
         __Pyx_INCREF(__pyx_t_9);
         #else
-        __pyx_t_7 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 589, __pyx_L1_error)
+        __pyx_t_7 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 591, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
-        __pyx_t_4 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 589, __pyx_L1_error)
+        __pyx_t_4 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 591, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_9 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 589, __pyx_L1_error)
+        __pyx_t_9 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 591, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         #endif
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       } else {
         Py_ssize_t index = -1;
-        __pyx_t_10 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 589, __pyx_L1_error)
+        __pyx_t_10 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 591, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_t_11 = Py_TYPE(__pyx_t_10)->tp_iternext;
@@ -13300,7 +13320,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
         __Pyx_GOTREF(__pyx_t_4);
         index = 2; __pyx_t_9 = __pyx_t_11(__pyx_t_10); if (unlikely(!__pyx_t_9)) goto __pyx_L8_unpacking_failed;
         __Pyx_GOTREF(__pyx_t_9);
-        if (__Pyx_IternextUnpackEndCheck(__pyx_t_11(__pyx_t_10), 3) < 0) __PYX_ERR(0, 589, __pyx_L1_error)
+        if (__Pyx_IternextUnpackEndCheck(__pyx_t_11(__pyx_t_10), 3) < 0) __PYX_ERR(0, 591, __pyx_L1_error)
         __pyx_t_11 = NULL;
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         goto __pyx_L9_unpacking_done;
@@ -13308,7 +13328,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         __pyx_t_11 = NULL;
         if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-        __PYX_ERR(0, 589, __pyx_L1_error)
+        __PYX_ERR(0, 591, __pyx_L1_error)
         __pyx_L9_unpacking_done:;
       }
       __Pyx_XDECREF_SET(__pyx_v_y, __pyx_t_7);
@@ -13318,16 +13338,16 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
       __Pyx_XDECREF_SET(__pyx_v_count, __pyx_t_9);
       __pyx_t_9 = 0;
 
-      /* "cplayer.pyx":590
+      /* "cplayer.pyx":592
  *             best_y = best_x = None
  *             for y, x, count in legal_move_count_list:
  *                 _board = copy.deepcopy(board)             # <<<<<<<<<<<<<<
  *                 self.put_stone(_board, y, x, player)
  *                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_copy); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 590, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_copy); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 592, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_deepcopy); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 590, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_deepcopy); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 592, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       __pyx_t_9 = NULL;
@@ -13342,25 +13362,25 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
       }
       __pyx_t_2 = (__pyx_t_9) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_9, __pyx_v_board) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_board);
       __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 590, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 592, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (!(likely(PyList_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_2)->tp_name), 0))) __PYX_ERR(0, 590, __pyx_L1_error)
+      if (!(likely(PyList_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_2)->tp_name), 0))) __PYX_ERR(0, 592, __pyx_L1_error)
       __Pyx_XDECREF_SET(__pyx_v__board, ((PyObject*)__pyx_t_2));
       __pyx_t_2 = 0;
 
-      /* "cplayer.pyx":591
+      /* "cplayer.pyx":593
  *             for y, x, count in legal_move_count_list:
  *                 _board = copy.deepcopy(board)
  *                 self.put_stone(_board, y, x, player)             # <<<<<<<<<<<<<<
  *                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)
  *                 if isinstance(min_max_result, int):
  */
-      __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_v_y); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 591, __pyx_L1_error)
-      __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 591, __pyx_L1_error)
-      ((struct __pyx_vtabstruct_7cplayer_AlphaBetaThirdAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.put_stone(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v__board, __pyx_t_6, __pyx_t_3, __pyx_v_player);
+      __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_v_y); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 593, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 593, __pyx_L1_error)
+      ((struct __pyx_vtabstruct_7cplayer_CountMovesAlphaBetaAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.put_stone(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v__board, __pyx_t_6, __pyx_t_3, __pyx_v_player);
 
-      /* "cplayer.pyx":592
+      /* "cplayer.pyx":594
  *                 _board = copy.deepcopy(board)
  *                 self.put_stone(_board, y, x, player)
  *                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)             # <<<<<<<<<<<<<<
@@ -13370,12 +13390,12 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
       __pyx_t_12.__pyx_n = 2;
       __pyx_t_12.alpha = __pyx_v_alpha;
       __pyx_t_12.beta = __pyx_v_beta;
-      __pyx_t_2 = ((struct __pyx_vtabstruct_7cplayer_AlphaBetaThirdAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->alpha_beta(__pyx_v_self, __pyx_v__board, __pyx_v_opponent, (__pyx_v_depth - 1), &__pyx_t_12); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 592, __pyx_L1_error)
+      __pyx_t_2 = ((struct __pyx_vtabstruct_7cplayer_CountMovesAlphaBetaAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->alpha_beta(__pyx_v_self, __pyx_v__board, __pyx_v_opponent, (__pyx_v_depth - 1), &__pyx_t_12); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 594, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_XDECREF_SET(__pyx_v_min_max_result, __pyx_t_2);
       __pyx_t_2 = 0;
 
-      /* "cplayer.pyx":593
+      /* "cplayer.pyx":595
  *                 self.put_stone(_board, y, x, player)
  *                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)
  *                 if isinstance(min_max_result, int):             # <<<<<<<<<<<<<<
@@ -13386,17 +13406,17 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
       __pyx_t_13 = (__pyx_t_1 != 0);
       if (__pyx_t_13) {
 
-        /* "cplayer.pyx":594
+        /* "cplayer.pyx":596
  *                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)
  *                 if isinstance(min_max_result, int):
  *                     val = min_max_result             # <<<<<<<<<<<<<<
  *                 else:
  *                     val = min_max_result[0]
  */
-        __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_min_max_result); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 594, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_min_max_result); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 596, __pyx_L1_error)
         __pyx_v_val = __pyx_t_3;
 
-        /* "cplayer.pyx":593
+        /* "cplayer.pyx":595
  *                 self.put_stone(_board, y, x, player)
  *                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)
  *                 if isinstance(min_max_result, int):             # <<<<<<<<<<<<<<
@@ -13406,7 +13426,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
         goto __pyx_L10;
       }
 
-      /* "cplayer.pyx":596
+      /* "cplayer.pyx":598
  *                     val = min_max_result
  *                 else:
  *                     val = min_max_result[0]             # <<<<<<<<<<<<<<
@@ -13414,54 +13434,54 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
  *                     alpha = val
  */
       /*else*/ {
-        __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_min_max_result, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 596, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_min_max_result, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 598, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 596, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 598, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_v_val = __pyx_t_3;
       }
       __pyx_L10:;
 
-      /* "cplayer.pyx":597
+      /* "cplayer.pyx":599
  *                 else:
  *                     val = min_max_result[0]
  *                 if val > best:             # <<<<<<<<<<<<<<
  *                     alpha = val
  *                     best = val
  */
-      __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 597, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 599, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_4 = PyObject_RichCompare(__pyx_t_2, __pyx_v_best, Py_GT); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 597, __pyx_L1_error)
+      __pyx_t_4 = PyObject_RichCompare(__pyx_t_2, __pyx_v_best, Py_GT); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 599, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __pyx_t_13 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_13 < 0)) __PYX_ERR(0, 597, __pyx_L1_error)
+      __pyx_t_13 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_13 < 0)) __PYX_ERR(0, 599, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       if (__pyx_t_13) {
 
-        /* "cplayer.pyx":598
+        /* "cplayer.pyx":600
  *                     val = min_max_result[0]
  *                 if val > best:
  *                     alpha = val             # <<<<<<<<<<<<<<
  *                     best = val
  *                     best_y = y
  */
-        __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 598, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 600, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF_SET(__pyx_v_alpha, __pyx_t_4);
         __pyx_t_4 = 0;
 
-        /* "cplayer.pyx":599
+        /* "cplayer.pyx":601
  *                 if val > best:
  *                     alpha = val
  *                     best = val             # <<<<<<<<<<<<<<
  *                     best_y = y
  *                     best_x = x
  */
-        __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 599, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 601, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF_SET(__pyx_v_best, __pyx_t_4);
         __pyx_t_4 = 0;
 
-        /* "cplayer.pyx":600
+        /* "cplayer.pyx":602
  *                     alpha = val
  *                     best = val
  *                     best_y = y             # <<<<<<<<<<<<<<
@@ -13471,7 +13491,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
         __Pyx_INCREF(__pyx_v_y);
         __Pyx_DECREF_SET(__pyx_v_best_y, __pyx_v_y);
 
-        /* "cplayer.pyx":601
+        /* "cplayer.pyx":603
  *                     best = val
  *                     best_y = y
  *                     best_x = x             # <<<<<<<<<<<<<<
@@ -13481,7 +13501,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
         __Pyx_INCREF(__pyx_v_x);
         __Pyx_DECREF_SET(__pyx_v_best_x, __pyx_v_x);
 
-        /* "cplayer.pyx":597
+        /* "cplayer.pyx":599
  *                 else:
  *                     val = min_max_result[0]
  *                 if val > best:             # <<<<<<<<<<<<<<
@@ -13490,19 +13510,19 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
  */
       }
 
-      /* "cplayer.pyx":603
+      /* "cplayer.pyx":605
  *                     best_x = x
  * 
  *                 if best > beta:  # beta             # <<<<<<<<<<<<<<
  *                     return best, best_y, best_x
  * 
  */
-      __pyx_t_4 = PyObject_RichCompare(__pyx_v_best, __pyx_v_beta, Py_GT); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 603, __pyx_L1_error)
-      __pyx_t_13 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_13 < 0)) __PYX_ERR(0, 603, __pyx_L1_error)
+      __pyx_t_4 = PyObject_RichCompare(__pyx_v_best, __pyx_v_beta, Py_GT); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 605, __pyx_L1_error)
+      __pyx_t_13 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_13 < 0)) __PYX_ERR(0, 605, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       if (__pyx_t_13) {
 
-        /* "cplayer.pyx":604
+        /* "cplayer.pyx":606
  * 
  *                 if best > beta:  # beta
  *                     return best, best_y, best_x             # <<<<<<<<<<<<<<
@@ -13510,7 +13530,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
  *             return best, best_y, best_x
  */
         __Pyx_XDECREF(__pyx_r);
-        __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 604, __pyx_L1_error)
+        __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 606, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_INCREF(__pyx_v_best);
         __Pyx_GIVEREF(__pyx_v_best);
@@ -13526,7 +13546,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         goto __pyx_L0;
 
-        /* "cplayer.pyx":603
+        /* "cplayer.pyx":605
  *                     best_x = x
  * 
  *                 if best > beta:  # beta             # <<<<<<<<<<<<<<
@@ -13535,7 +13555,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
  */
       }
 
-      /* "cplayer.pyx":589
+      /* "cplayer.pyx":591
  *             best = -math.inf
  *             best_y = best_x = None
  *             for y, x, count in legal_move_count_list:             # <<<<<<<<<<<<<<
@@ -13545,7 +13565,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
     }
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-    /* "cplayer.pyx":606
+    /* "cplayer.pyx":608
  *                     return best, best_y, best_x
  * 
  *             return best, best_y, best_x             # <<<<<<<<<<<<<<
@@ -13553,7 +13573,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
  *             best = math.inf
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 606, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 608, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_INCREF(__pyx_v_best);
     __Pyx_GIVEREF(__pyx_v_best);
@@ -13568,7 +13588,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
     __pyx_t_5 = 0;
     goto __pyx_L0;
 
-    /* "cplayer.pyx":586
+    /* "cplayer.pyx":588
  *             return val
  * 
  *         if player == self.player:             # <<<<<<<<<<<<<<
@@ -13577,7 +13597,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
  */
   }
 
-  /* "cplayer.pyx":607
+  /* "cplayer.pyx":609
  * 
  *             return best, best_y, best_x
  *         elif player != self.player:             # <<<<<<<<<<<<<<
@@ -13587,22 +13607,22 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
   __pyx_t_13 = ((__pyx_v_player != __pyx_v_self->__pyx_base.player) != 0);
   if (__pyx_t_13) {
 
-    /* "cplayer.pyx":608
+    /* "cplayer.pyx":610
  *             return best, best_y, best_x
  *         elif player != self.player:
  *             best = math.inf             # <<<<<<<<<<<<<<
  *             best_y = best_x = None
  *             for y, x, count in legal_move_count_list:
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_math); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 608, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_math); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 610, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_inf); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 608, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_inf); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 610, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_v_best = __pyx_t_4;
     __pyx_t_4 = 0;
 
-    /* "cplayer.pyx":609
+    /* "cplayer.pyx":611
  *         elif player != self.player:
  *             best = math.inf
  *             best_y = best_x = None             # <<<<<<<<<<<<<<
@@ -13614,7 +13634,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
     __Pyx_INCREF(Py_None);
     __pyx_v_best_x = Py_None;
 
-    /* "cplayer.pyx":610
+    /* "cplayer.pyx":612
  *             best = math.inf
  *             best_y = best_x = None
  *             for y, x, count in legal_move_count_list:             # <<<<<<<<<<<<<<
@@ -13623,15 +13643,15 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
  */
     if (unlikely(__pyx_v_legal_move_count_list == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-      __PYX_ERR(0, 610, __pyx_L1_error)
+      __PYX_ERR(0, 612, __pyx_L1_error)
     }
     __pyx_t_4 = __pyx_v_legal_move_count_list; __Pyx_INCREF(__pyx_t_4); __pyx_t_8 = 0;
     for (;;) {
       if (__pyx_t_8 >= PyList_GET_SIZE(__pyx_t_4)) break;
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-      __pyx_t_5 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_8); __Pyx_INCREF(__pyx_t_5); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 610, __pyx_L1_error)
+      __pyx_t_5 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_8); __Pyx_INCREF(__pyx_t_5); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 612, __pyx_L1_error)
       #else
-      __pyx_t_5 = PySequence_ITEM(__pyx_t_4, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 610, __pyx_L1_error)
+      __pyx_t_5 = PySequence_ITEM(__pyx_t_4, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 612, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       #endif
       if ((likely(PyTuple_CheckExact(__pyx_t_5))) || (PyList_CheckExact(__pyx_t_5))) {
@@ -13640,7 +13660,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
         if (unlikely(size != 3)) {
           if (size > 3) __Pyx_RaiseTooManyValuesError(3);
           else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-          __PYX_ERR(0, 610, __pyx_L1_error)
+          __PYX_ERR(0, 612, __pyx_L1_error)
         }
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
         if (likely(PyTuple_CheckExact(sequence))) {
@@ -13656,17 +13676,17 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
         __Pyx_INCREF(__pyx_t_9);
         __Pyx_INCREF(__pyx_t_7);
         #else
-        __pyx_t_2 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 610, __pyx_L1_error)
+        __pyx_t_2 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 612, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_9 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 610, __pyx_L1_error)
+        __pyx_t_9 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 612, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
-        __pyx_t_7 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 610, __pyx_L1_error)
+        __pyx_t_7 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 612, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
         #endif
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       } else {
         Py_ssize_t index = -1;
-        __pyx_t_10 = PyObject_GetIter(__pyx_t_5); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 610, __pyx_L1_error)
+        __pyx_t_10 = PyObject_GetIter(__pyx_t_5); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 612, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         __pyx_t_11 = Py_TYPE(__pyx_t_10)->tp_iternext;
@@ -13676,7 +13696,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
         __Pyx_GOTREF(__pyx_t_9);
         index = 2; __pyx_t_7 = __pyx_t_11(__pyx_t_10); if (unlikely(!__pyx_t_7)) goto __pyx_L15_unpacking_failed;
         __Pyx_GOTREF(__pyx_t_7);
-        if (__Pyx_IternextUnpackEndCheck(__pyx_t_11(__pyx_t_10), 3) < 0) __PYX_ERR(0, 610, __pyx_L1_error)
+        if (__Pyx_IternextUnpackEndCheck(__pyx_t_11(__pyx_t_10), 3) < 0) __PYX_ERR(0, 612, __pyx_L1_error)
         __pyx_t_11 = NULL;
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         goto __pyx_L16_unpacking_done;
@@ -13684,7 +13704,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         __pyx_t_11 = NULL;
         if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-        __PYX_ERR(0, 610, __pyx_L1_error)
+        __PYX_ERR(0, 612, __pyx_L1_error)
         __pyx_L16_unpacking_done:;
       }
       __Pyx_XDECREF_SET(__pyx_v_y, __pyx_t_2);
@@ -13694,16 +13714,16 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
       __Pyx_XDECREF_SET(__pyx_v_count, __pyx_t_7);
       __pyx_t_7 = 0;
 
-      /* "cplayer.pyx":611
+      /* "cplayer.pyx":613
  *             best_y = best_x = None
  *             for y, x, count in legal_move_count_list:
  *                 _board = copy.deepcopy(board)             # <<<<<<<<<<<<<<
  *                 self.put_stone(_board, y, x, player)
  *                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_copy); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 611, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_copy); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 613, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_deepcopy); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 611, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_deepcopy); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 613, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __pyx_t_7 = NULL;
@@ -13718,25 +13738,25 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
       }
       __pyx_t_5 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_9, __pyx_t_7, __pyx_v_board) : __Pyx_PyObject_CallOneArg(__pyx_t_9, __pyx_v_board);
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 611, __pyx_L1_error)
+      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 613, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-      if (!(likely(PyList_CheckExact(__pyx_t_5))||((__pyx_t_5) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_5)->tp_name), 0))) __PYX_ERR(0, 611, __pyx_L1_error)
+      if (!(likely(PyList_CheckExact(__pyx_t_5))||((__pyx_t_5) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_5)->tp_name), 0))) __PYX_ERR(0, 613, __pyx_L1_error)
       __Pyx_XDECREF_SET(__pyx_v__board, ((PyObject*)__pyx_t_5));
       __pyx_t_5 = 0;
 
-      /* "cplayer.pyx":612
+      /* "cplayer.pyx":614
  *             for y, x, count in legal_move_count_list:
  *                 _board = copy.deepcopy(board)
  *                 self.put_stone(_board, y, x, player)             # <<<<<<<<<<<<<<
  *                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)
  *                 if isinstance(min_max_result, int):
  */
-      __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_y); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 612, __pyx_L1_error)
-      __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 612, __pyx_L1_error)
-      ((struct __pyx_vtabstruct_7cplayer_AlphaBetaThirdAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.put_stone(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v__board, __pyx_t_3, __pyx_t_6, __pyx_v_player);
+      __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_y); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 614, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 614, __pyx_L1_error)
+      ((struct __pyx_vtabstruct_7cplayer_CountMovesAlphaBetaAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.put_stone(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v__board, __pyx_t_3, __pyx_t_6, __pyx_v_player);
 
-      /* "cplayer.pyx":613
+      /* "cplayer.pyx":615
  *                 _board = copy.deepcopy(board)
  *                 self.put_stone(_board, y, x, player)
  *                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)             # <<<<<<<<<<<<<<
@@ -13746,12 +13766,12 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
       __pyx_t_12.__pyx_n = 2;
       __pyx_t_12.alpha = __pyx_v_alpha;
       __pyx_t_12.beta = __pyx_v_beta;
-      __pyx_t_5 = ((struct __pyx_vtabstruct_7cplayer_AlphaBetaThirdAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->alpha_beta(__pyx_v_self, __pyx_v__board, __pyx_v_opponent, (__pyx_v_depth - 1), &__pyx_t_12); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 613, __pyx_L1_error)
+      __pyx_t_5 = ((struct __pyx_vtabstruct_7cplayer_CountMovesAlphaBetaAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->alpha_beta(__pyx_v_self, __pyx_v__board, __pyx_v_opponent, (__pyx_v_depth - 1), &__pyx_t_12); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 615, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_XDECREF_SET(__pyx_v_min_max_result, __pyx_t_5);
       __pyx_t_5 = 0;
 
-      /* "cplayer.pyx":614
+      /* "cplayer.pyx":616
  *                 self.put_stone(_board, y, x, player)
  *                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)
  *                 if isinstance(min_max_result, int):             # <<<<<<<<<<<<<<
@@ -13762,17 +13782,17 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
       __pyx_t_1 = (__pyx_t_13 != 0);
       if (__pyx_t_1) {
 
-        /* "cplayer.pyx":615
+        /* "cplayer.pyx":617
  *                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)
  *                 if isinstance(min_max_result, int):
  *                     val = min_max_result             # <<<<<<<<<<<<<<
  *                 else:
  *                     val = min_max_result[0]
  */
-        __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_v_min_max_result); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 615, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_v_min_max_result); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 617, __pyx_L1_error)
         __pyx_v_val = __pyx_t_6;
 
-        /* "cplayer.pyx":614
+        /* "cplayer.pyx":616
  *                 self.put_stone(_board, y, x, player)
  *                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)
  *                 if isinstance(min_max_result, int):             # <<<<<<<<<<<<<<
@@ -13782,7 +13802,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
         goto __pyx_L17;
       }
 
-      /* "cplayer.pyx":617
+      /* "cplayer.pyx":619
  *                     val = min_max_result
  *                 else:
  *                     val = min_max_result[0]             # <<<<<<<<<<<<<<
@@ -13790,54 +13810,54 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
  *                     beta = val
  */
       /*else*/ {
-        __pyx_t_5 = __Pyx_GetItemInt(__pyx_v_min_max_result, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 617, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_GetItemInt(__pyx_v_min_max_result, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 619, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 617, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 619, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         __pyx_v_val = __pyx_t_6;
       }
       __pyx_L17:;
 
-      /* "cplayer.pyx":618
+      /* "cplayer.pyx":620
  *                 else:
  *                     val = min_max_result[0]
  *                 if val < best:             # <<<<<<<<<<<<<<
  *                     beta = val
  *                     best = val
  */
-      __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 618, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 620, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_9 = PyObject_RichCompare(__pyx_t_5, __pyx_v_best, Py_LT); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 618, __pyx_L1_error)
+      __pyx_t_9 = PyObject_RichCompare(__pyx_t_5, __pyx_v_best, Py_LT); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 620, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 618, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 620, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       if (__pyx_t_1) {
 
-        /* "cplayer.pyx":619
+        /* "cplayer.pyx":621
  *                     val = min_max_result[0]
  *                 if val < best:
  *                     beta = val             # <<<<<<<<<<<<<<
  *                     best = val
  *                     best_y = y
  */
-        __pyx_t_9 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 619, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 621, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_DECREF_SET(__pyx_v_beta, __pyx_t_9);
         __pyx_t_9 = 0;
 
-        /* "cplayer.pyx":620
+        /* "cplayer.pyx":622
  *                 if val < best:
  *                     beta = val
  *                     best = val             # <<<<<<<<<<<<<<
  *                     best_y = y
  *                     best_x = x
  */
-        __pyx_t_9 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 620, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyInt_From_int(__pyx_v_val); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 622, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_DECREF_SET(__pyx_v_best, __pyx_t_9);
         __pyx_t_9 = 0;
 
-        /* "cplayer.pyx":621
+        /* "cplayer.pyx":623
  *                     beta = val
  *                     best = val
  *                     best_y = y             # <<<<<<<<<<<<<<
@@ -13847,7 +13867,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
         __Pyx_INCREF(__pyx_v_y);
         __Pyx_DECREF_SET(__pyx_v_best_y, __pyx_v_y);
 
-        /* "cplayer.pyx":622
+        /* "cplayer.pyx":624
  *                     best = val
  *                     best_y = y
  *                     best_x = x             # <<<<<<<<<<<<<<
@@ -13857,7 +13877,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
         __Pyx_INCREF(__pyx_v_x);
         __Pyx_DECREF_SET(__pyx_v_best_x, __pyx_v_x);
 
-        /* "cplayer.pyx":618
+        /* "cplayer.pyx":620
  *                 else:
  *                     val = min_max_result[0]
  *                 if val < best:             # <<<<<<<<<<<<<<
@@ -13866,19 +13886,19 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
  */
       }
 
-      /* "cplayer.pyx":624
+      /* "cplayer.pyx":626
  *                     best_x = x
  * 
  *                 if best < alpha:             # <<<<<<<<<<<<<<
  *                     return best, best_y, best_x
  * 
  */
-      __pyx_t_9 = PyObject_RichCompare(__pyx_v_best, __pyx_v_alpha, Py_LT); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 624, __pyx_L1_error)
-      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 624, __pyx_L1_error)
+      __pyx_t_9 = PyObject_RichCompare(__pyx_v_best, __pyx_v_alpha, Py_LT); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 626, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 626, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       if (__pyx_t_1) {
 
-        /* "cplayer.pyx":625
+        /* "cplayer.pyx":627
  * 
  *                 if best < alpha:
  *                     return best, best_y, best_x             # <<<<<<<<<<<<<<
@@ -13886,7 +13906,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
  *             return best, best_y, best_x
  */
         __Pyx_XDECREF(__pyx_r);
-        __pyx_t_9 = PyTuple_New(3); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 625, __pyx_L1_error)
+        __pyx_t_9 = PyTuple_New(3); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 627, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_INCREF(__pyx_v_best);
         __Pyx_GIVEREF(__pyx_v_best);
@@ -13902,7 +13922,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         goto __pyx_L0;
 
-        /* "cplayer.pyx":624
+        /* "cplayer.pyx":626
  *                     best_x = x
  * 
  *                 if best < alpha:             # <<<<<<<<<<<<<<
@@ -13911,7 +13931,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
  */
       }
 
-      /* "cplayer.pyx":610
+      /* "cplayer.pyx":612
  *             best = math.inf
  *             best_y = best_x = None
  *             for y, x, count in legal_move_count_list:             # <<<<<<<<<<<<<<
@@ -13921,7 +13941,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
     }
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "cplayer.pyx":627
+    /* "cplayer.pyx":629
  *                     return best, best_y, best_x
  * 
  *             return best, best_y, best_x             # <<<<<<<<<<<<<<
@@ -13929,7 +13949,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
  *     @cython.nonecheck(False)
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 627, __pyx_L1_error)
+    __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 629, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_INCREF(__pyx_v_best);
     __Pyx_GIVEREF(__pyx_v_best);
@@ -13944,7 +13964,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
     __pyx_t_4 = 0;
     goto __pyx_L0;
 
-    /* "cplayer.pyx":607
+    /* "cplayer.pyx":609
  * 
  *             return best, best_y, best_x
  *         elif player != self.player:             # <<<<<<<<<<<<<<
@@ -13953,7 +13973,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
  */
   }
 
-  /* "cplayer.pyx":562
+  /* "cplayer.pyx":564
  * 
  *     @cython.nonecheck(False)
  *     cdef alpha_beta(self, list board, int player, int depth, alpha=-math.inf, beta=math.inf):             # <<<<<<<<<<<<<<
@@ -13971,7 +13991,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_9);
   __Pyx_XDECREF(__pyx_t_10);
-  __Pyx_AddTraceback("cplayer.AlphaBetaThirdAI.alpha_beta", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cplayer.CountMovesAlphaBetaAI.alpha_beta", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_legal_move_count_list);
@@ -13990,7 +14010,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
   return __pyx_r;
 }
 
-/* "cplayer.pyx":630
+/* "cplayer.pyx":632
  * 
  *     @cython.nonecheck(False)
  *     cdef int evaluation_function(self, list board, int player):             # <<<<<<<<<<<<<<
@@ -13998,7 +14018,7 @@ static PyObject *__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta(struct __pyx_obj
  *          -
  */
 
-static int __pyx_f_7cplayer_16AlphaBetaThirdAI_evaluation_function(struct __pyx_obj_7cplayer_AlphaBetaThirdAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player) {
+static int __pyx_f_7cplayer_21CountMovesAlphaBetaAI_evaluation_function(struct __pyx_obj_7cplayer_CountMovesAlphaBetaAI *__pyx_v_self, PyObject *__pyx_v_board, int __pyx_v_player) {
   int __pyx_v_opponent;
   PyObject *__pyx_v_self_legal_move_count_list = 0;
   PyObject *__pyx_v_opponent_legal_move_count_list = 0;
@@ -14017,89 +14037,45 @@ static int __pyx_f_7cplayer_16AlphaBetaThirdAI_evaluation_function(struct __pyx_
   Py_ssize_t __pyx_t_9;
   __Pyx_RefNannySetupContext("evaluation_function", 0);
 
-  /* "cplayer.pyx":634
+  /* "cplayer.pyx":636
  *          -
  *         """
  *         cdef int opponent = Turn.BLACK if player == Turn.WHITE else Turn.WHITE             # <<<<<<<<<<<<<<
  *         cdef list self_legal_move_count_list
  *         cdef list opponent_legal_move_count_list
  */
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_player); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 634, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_player); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 636, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 634, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 636, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyObject_RichCompare(__pyx_t_2, __pyx_t_3, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 634, __pyx_L1_error)
+  __pyx_t_4 = PyObject_RichCompare(__pyx_t_2, __pyx_t_3, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 636, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 634, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 636, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (__pyx_t_5) {
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_BLACK); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 634, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_BLACK); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 636, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 634, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 636, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_1 = __pyx_t_6;
   } else {
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 634, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 636, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 634, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 636, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_1 = __pyx_t_6;
   }
   __pyx_v_opponent = __pyx_t_1;
 
-  /* "cplayer.pyx":639
+  /* "cplayer.pyx":641
  *         cdef int evaluation
  * 
  *         self_legal_move_count_list, _, _ = self.exist_legal_move_and_count_stones(             # <<<<<<<<<<<<<<
  *             board, player)
  *         opponent_legal_move_count_list, _, _ = self.exist_legal_move_and_count_stones(
  */
-  __pyx_t_4 = ((struct __pyx_vtabstruct_7cplayer_AlphaBetaThirdAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v_board, __pyx_v_player); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 639, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (likely(__pyx_t_4 != Py_None)) {
-    PyObject* sequence = __pyx_t_4;
-    Py_ssize_t size = __Pyx_PySequence_SIZE(sequence);
-    if (unlikely(size != 3)) {
-      if (size > 3) __Pyx_RaiseTooManyValuesError(3);
-      else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 639, __pyx_L1_error)
-    }
-    #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    __pyx_t_3 = PyTuple_GET_ITEM(sequence, 0); 
-    __pyx_t_2 = PyTuple_GET_ITEM(sequence, 1); 
-    __pyx_t_7 = PyTuple_GET_ITEM(sequence, 2); 
-    __Pyx_INCREF(__pyx_t_3);
-    __Pyx_INCREF(__pyx_t_2);
-    __Pyx_INCREF(__pyx_t_7);
-    #else
-    __pyx_t_3 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 639, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 639, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_7 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 639, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    #endif
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  } else {
-    __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 639, __pyx_L1_error)
-  }
-  if (!(likely(PyList_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 639, __pyx_L1_error)
-  __pyx_v_self_legal_move_count_list = ((PyObject*)__pyx_t_3);
-  __pyx_t_3 = 0;
-  __pyx_v__ = __pyx_t_2;
-  __pyx_t_2 = 0;
-  __Pyx_DECREF_SET(__pyx_v__, __pyx_t_7);
-  __pyx_t_7 = 0;
-
-  /* "cplayer.pyx":641
- *         self_legal_move_count_list, _, _ = self.exist_legal_move_and_count_stones(
- *             board, player)
- *         opponent_legal_move_count_list, _, _ = self.exist_legal_move_and_count_stones(             # <<<<<<<<<<<<<<
- *             board, opponent)
- *         evaluation = len(self_legal_move_count_list) - len(opponent_legal_move_count_list)
- */
-  __pyx_t_4 = ((struct __pyx_vtabstruct_7cplayer_AlphaBetaThirdAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v_board, __pyx_v_opponent); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 641, __pyx_L1_error)
+  __pyx_t_4 = ((struct __pyx_vtabstruct_7cplayer_CountMovesAlphaBetaAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v_board, __pyx_v_player); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 641, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   if (likely(__pyx_t_4 != Py_None)) {
     PyObject* sequence = __pyx_t_4;
@@ -14110,6 +14086,50 @@ static int __pyx_f_7cplayer_16AlphaBetaThirdAI_evaluation_function(struct __pyx_
       __PYX_ERR(0, 641, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+    __pyx_t_3 = PyTuple_GET_ITEM(sequence, 0); 
+    __pyx_t_2 = PyTuple_GET_ITEM(sequence, 1); 
+    __pyx_t_7 = PyTuple_GET_ITEM(sequence, 2); 
+    __Pyx_INCREF(__pyx_t_3);
+    __Pyx_INCREF(__pyx_t_2);
+    __Pyx_INCREF(__pyx_t_7);
+    #else
+    __pyx_t_3 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 641, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 641, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_7 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 641, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
+    #endif
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  } else {
+    __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 641, __pyx_L1_error)
+  }
+  if (!(likely(PyList_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 641, __pyx_L1_error)
+  __pyx_v_self_legal_move_count_list = ((PyObject*)__pyx_t_3);
+  __pyx_t_3 = 0;
+  __pyx_v__ = __pyx_t_2;
+  __pyx_t_2 = 0;
+  __Pyx_DECREF_SET(__pyx_v__, __pyx_t_7);
+  __pyx_t_7 = 0;
+
+  /* "cplayer.pyx":643
+ *         self_legal_move_count_list, _, _ = self.exist_legal_move_and_count_stones(
+ *             board, player)
+ *         opponent_legal_move_count_list, _, _ = self.exist_legal_move_and_count_stones(             # <<<<<<<<<<<<<<
+ *             board, opponent)
+ *         evaluation = len(self_legal_move_count_list) - len(opponent_legal_move_count_list)
+ */
+  __pyx_t_4 = ((struct __pyx_vtabstruct_7cplayer_CountMovesAlphaBetaAI *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v_board, __pyx_v_opponent); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 643, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (likely(__pyx_t_4 != Py_None)) {
+    PyObject* sequence = __pyx_t_4;
+    Py_ssize_t size = __Pyx_PySequence_SIZE(sequence);
+    if (unlikely(size != 3)) {
+      if (size > 3) __Pyx_RaiseTooManyValuesError(3);
+      else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
+      __PYX_ERR(0, 643, __pyx_L1_error)
+    }
+    #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     __pyx_t_7 = PyTuple_GET_ITEM(sequence, 0); 
     __pyx_t_2 = PyTuple_GET_ITEM(sequence, 1); 
     __pyx_t_3 = PyTuple_GET_ITEM(sequence, 2); 
@@ -14117,18 +14137,18 @@ static int __pyx_f_7cplayer_16AlphaBetaThirdAI_evaluation_function(struct __pyx_
     __Pyx_INCREF(__pyx_t_2);
     __Pyx_INCREF(__pyx_t_3);
     #else
-    __pyx_t_7 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 641, __pyx_L1_error)
+    __pyx_t_7 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 643, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 641, __pyx_L1_error)
+    __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 643, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 641, __pyx_L1_error)
+    __pyx_t_3 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 643, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     #endif
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   } else {
-    __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 641, __pyx_L1_error)
+    __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 643, __pyx_L1_error)
   }
-  if (!(likely(PyList_CheckExact(__pyx_t_7))||((__pyx_t_7) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_7)->tp_name), 0))) __PYX_ERR(0, 641, __pyx_L1_error)
+  if (!(likely(PyList_CheckExact(__pyx_t_7))||((__pyx_t_7) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_7)->tp_name), 0))) __PYX_ERR(0, 643, __pyx_L1_error)
   __pyx_v_opponent_legal_move_count_list = ((PyObject*)__pyx_t_7);
   __pyx_t_7 = 0;
   __Pyx_DECREF_SET(__pyx_v__, __pyx_t_2);
@@ -14136,7 +14156,7 @@ static int __pyx_f_7cplayer_16AlphaBetaThirdAI_evaluation_function(struct __pyx_
   __Pyx_DECREF_SET(__pyx_v__, __pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "cplayer.pyx":643
+  /* "cplayer.pyx":645
  *         opponent_legal_move_count_list, _, _ = self.exist_legal_move_and_count_stones(
  *             board, opponent)
  *         evaluation = len(self_legal_move_count_list) - len(opponent_legal_move_count_list)             # <<<<<<<<<<<<<<
@@ -14145,17 +14165,17 @@ static int __pyx_f_7cplayer_16AlphaBetaThirdAI_evaluation_function(struct __pyx_
  */
   if (unlikely(__pyx_v_self_legal_move_count_list == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 643, __pyx_L1_error)
+    __PYX_ERR(0, 645, __pyx_L1_error)
   }
-  __pyx_t_8 = PyList_GET_SIZE(__pyx_v_self_legal_move_count_list); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 643, __pyx_L1_error)
+  __pyx_t_8 = PyList_GET_SIZE(__pyx_v_self_legal_move_count_list); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 645, __pyx_L1_error)
   if (unlikely(__pyx_v_opponent_legal_move_count_list == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 643, __pyx_L1_error)
+    __PYX_ERR(0, 645, __pyx_L1_error)
   }
-  __pyx_t_9 = PyList_GET_SIZE(__pyx_v_opponent_legal_move_count_list); if (unlikely(__pyx_t_9 == ((Py_ssize_t)-1))) __PYX_ERR(0, 643, __pyx_L1_error)
+  __pyx_t_9 = PyList_GET_SIZE(__pyx_v_opponent_legal_move_count_list); if (unlikely(__pyx_t_9 == ((Py_ssize_t)-1))) __PYX_ERR(0, 645, __pyx_L1_error)
   __pyx_v_evaluation = (__pyx_t_8 - __pyx_t_9);
 
-  /* "cplayer.pyx":645
+  /* "cplayer.pyx":647
  *         evaluation = len(self_legal_move_count_list) - len(opponent_legal_move_count_list)
  * 
  *         return evaluation             # <<<<<<<<<<<<<<
@@ -14165,7 +14185,7 @@ static int __pyx_f_7cplayer_16AlphaBetaThirdAI_evaluation_function(struct __pyx_
   __pyx_r = __pyx_v_evaluation;
   goto __pyx_L0;
 
-  /* "cplayer.pyx":630
+  /* "cplayer.pyx":632
  * 
  *     @cython.nonecheck(False)
  *     cdef int evaluation_function(self, list board, int player):             # <<<<<<<<<<<<<<
@@ -14179,7 +14199,7 @@ static int __pyx_f_7cplayer_16AlphaBetaThirdAI_evaluation_function(struct __pyx_
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_7);
-  __Pyx_WriteUnraisable("cplayer.AlphaBetaThirdAI.evaluation_function", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("cplayer.CountMovesAlphaBetaAI.evaluation_function", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_self_legal_move_count_list);
@@ -14196,19 +14216,19 @@ static int __pyx_f_7cplayer_16AlphaBetaThirdAI_evaluation_function(struct __pyx_
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_7cplayer_16AlphaBetaThirdAI_5__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_7cplayer_16AlphaBetaThirdAI_5__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_7cplayer_21CountMovesAlphaBetaAI_5__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_7cplayer_21CountMovesAlphaBetaAI_5__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__reduce_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_7cplayer_16AlphaBetaThirdAI_4__reduce_cython__(((struct __pyx_obj_7cplayer_AlphaBetaThirdAI *)__pyx_v_self));
+  __pyx_r = __pyx_pf_7cplayer_21CountMovesAlphaBetaAI_4__reduce_cython__(((struct __pyx_obj_7cplayer_CountMovesAlphaBetaAI *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_7cplayer_16AlphaBetaThirdAI_4__reduce_cython__(struct __pyx_obj_7cplayer_AlphaBetaThirdAI *__pyx_v_self) {
+static PyObject *__pyx_pf_7cplayer_21CountMovesAlphaBetaAI_4__reduce_cython__(struct __pyx_obj_7cplayer_CountMovesAlphaBetaAI *__pyx_v_self) {
   PyObject *__pyx_v_state = 0;
   PyObject *__pyx_v__dict = 0;
   int __pyx_v_use_setstate;
@@ -14308,7 +14328,7 @@ static PyObject *__pyx_pf_7cplayer_16AlphaBetaThirdAI_4__reduce_cython__(struct 
  *     else:
  *         use_setstate = False             # <<<<<<<<<<<<<<
  *     if use_setstate:
- *         return __pyx_unpickle_AlphaBetaThirdAI, (type(self), 0x32c9b52, None), state
+ *         return __pyx_unpickle_CountMovesAlphaBetaAI, (type(self), 0x32c9b52, None), state
  */
   /*else*/ {
     __pyx_v_use_setstate = 0;
@@ -14319,7 +14339,7 @@ static PyObject *__pyx_pf_7cplayer_16AlphaBetaThirdAI_4__reduce_cython__(struct 
  *     else:
  *         use_setstate = False
  *     if use_setstate:             # <<<<<<<<<<<<<<
- *         return __pyx_unpickle_AlphaBetaThirdAI, (type(self), 0x32c9b52, None), state
+ *         return __pyx_unpickle_CountMovesAlphaBetaAI, (type(self), 0x32c9b52, None), state
  *     else:
  */
   __pyx_t_5 = (__pyx_v_use_setstate != 0);
@@ -14328,12 +14348,12 @@ static PyObject *__pyx_pf_7cplayer_16AlphaBetaThirdAI_4__reduce_cython__(struct 
     /* "(tree fragment)":13
  *         use_setstate = False
  *     if use_setstate:
- *         return __pyx_unpickle_AlphaBetaThirdAI, (type(self), 0x32c9b52, None), state             # <<<<<<<<<<<<<<
+ *         return __pyx_unpickle_CountMovesAlphaBetaAI, (type(self), 0x32c9b52, None), state             # <<<<<<<<<<<<<<
  *     else:
- *         return __pyx_unpickle_AlphaBetaThirdAI, (type(self), 0x32c9b52, state)
+ *         return __pyx_unpickle_CountMovesAlphaBetaAI, (type(self), 0x32c9b52, state)
  */
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_pyx_unpickle_AlphaBetaThirdAI); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 13, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_pyx_unpickle_CountMovesAlphaBe); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 13, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 13, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
@@ -14365,21 +14385,21 @@ static PyObject *__pyx_pf_7cplayer_16AlphaBetaThirdAI_4__reduce_cython__(struct 
  *     else:
  *         use_setstate = False
  *     if use_setstate:             # <<<<<<<<<<<<<<
- *         return __pyx_unpickle_AlphaBetaThirdAI, (type(self), 0x32c9b52, None), state
+ *         return __pyx_unpickle_CountMovesAlphaBetaAI, (type(self), 0x32c9b52, None), state
  *     else:
  */
   }
 
   /* "(tree fragment)":15
- *         return __pyx_unpickle_AlphaBetaThirdAI, (type(self), 0x32c9b52, None), state
+ *         return __pyx_unpickle_CountMovesAlphaBetaAI, (type(self), 0x32c9b52, None), state
  *     else:
- *         return __pyx_unpickle_AlphaBetaThirdAI, (type(self), 0x32c9b52, state)             # <<<<<<<<<<<<<<
+ *         return __pyx_unpickle_CountMovesAlphaBetaAI, (type(self), 0x32c9b52, state)             # <<<<<<<<<<<<<<
  * def __setstate_cython__(self, __pyx_state):
- *     __pyx_unpickle_AlphaBetaThirdAI__set_state(self, __pyx_state)
+ *     __pyx_unpickle_CountMovesAlphaBetaAI__set_state(self, __pyx_state)
  */
   /*else*/ {
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_pyx_unpickle_AlphaBetaThirdAI); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 15, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_pyx_unpickle_CountMovesAlphaBe); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 15, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 15, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
@@ -14416,7 +14436,7 @@ static PyObject *__pyx_pf_7cplayer_16AlphaBetaThirdAI_4__reduce_cython__(struct 
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("cplayer.AlphaBetaThirdAI.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cplayer.CountMovesAlphaBetaAI.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_state);
@@ -14428,45 +14448,45 @@ static PyObject *__pyx_pf_7cplayer_16AlphaBetaThirdAI_4__reduce_cython__(struct 
 
 /* "(tree fragment)":16
  *     else:
- *         return __pyx_unpickle_AlphaBetaThirdAI, (type(self), 0x32c9b52, state)
+ *         return __pyx_unpickle_CountMovesAlphaBetaAI, (type(self), 0x32c9b52, state)
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_unpickle_AlphaBetaThirdAI__set_state(self, __pyx_state)
+ *     __pyx_unpickle_CountMovesAlphaBetaAI__set_state(self, __pyx_state)
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_7cplayer_16AlphaBetaThirdAI_7__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
-static PyObject *__pyx_pw_7cplayer_16AlphaBetaThirdAI_7__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pw_7cplayer_21CountMovesAlphaBetaAI_7__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
+static PyObject *__pyx_pw_7cplayer_21CountMovesAlphaBetaAI_7__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setstate_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_7cplayer_16AlphaBetaThirdAI_6__setstate_cython__(((struct __pyx_obj_7cplayer_AlphaBetaThirdAI *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
+  __pyx_r = __pyx_pf_7cplayer_21CountMovesAlphaBetaAI_6__setstate_cython__(((struct __pyx_obj_7cplayer_CountMovesAlphaBetaAI *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_7cplayer_16AlphaBetaThirdAI_6__setstate_cython__(struct __pyx_obj_7cplayer_AlphaBetaThirdAI *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_7cplayer_21CountMovesAlphaBetaAI_6__setstate_cython__(struct __pyx_obj_7cplayer_CountMovesAlphaBetaAI *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__setstate_cython__", 0);
 
   /* "(tree fragment)":17
- *         return __pyx_unpickle_AlphaBetaThirdAI, (type(self), 0x32c9b52, state)
+ *         return __pyx_unpickle_CountMovesAlphaBetaAI, (type(self), 0x32c9b52, state)
  * def __setstate_cython__(self, __pyx_state):
- *     __pyx_unpickle_AlphaBetaThirdAI__set_state(self, __pyx_state)             # <<<<<<<<<<<<<<
+ *     __pyx_unpickle_CountMovesAlphaBetaAI__set_state(self, __pyx_state)             # <<<<<<<<<<<<<<
  */
   if (!(likely(PyTuple_CheckExact(__pyx_v___pyx_state))||((__pyx_v___pyx_state) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "tuple", Py_TYPE(__pyx_v___pyx_state)->tp_name), 0))) __PYX_ERR(1, 17, __pyx_L1_error)
-  __pyx_t_1 = __pyx_f_7cplayer___pyx_unpickle_AlphaBetaThirdAI__set_state(__pyx_v_self, ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 17, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_7cplayer___pyx_unpickle_CountMovesAlphaBetaAI__set_state(__pyx_v_self, ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "(tree fragment)":16
  *     else:
- *         return __pyx_unpickle_AlphaBetaThirdAI, (type(self), 0x32c9b52, state)
+ *         return __pyx_unpickle_CountMovesAlphaBetaAI, (type(self), 0x32c9b52, state)
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_unpickle_AlphaBetaThirdAI__set_state(self, __pyx_state)
+ *     __pyx_unpickle_CountMovesAlphaBetaAI__set_state(self, __pyx_state)
  */
 
   /* function exit code */
@@ -14474,7 +14494,7 @@ static PyObject *__pyx_pf_7cplayer_16AlphaBetaThirdAI_6__setstate_cython__(struc
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("cplayer.AlphaBetaThirdAI.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cplayer.CountMovesAlphaBetaAI.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -14482,7 +14502,7 @@ static PyObject *__pyx_pf_7cplayer_16AlphaBetaThirdAI_6__setstate_cython__(struc
   return __pyx_r;
 }
 
-/* "cplayer.pyx":654
+/* "cplayer.pyx":656
  *     cdef public int wins
  *     cdef public tuple te
  *     def __init__(self, list board, tuple te):             # <<<<<<<<<<<<<<
@@ -14521,11 +14541,11 @@ static int __pyx_pw_7cplayer_4node_1__init__(PyObject *__pyx_v_self, PyObject *_
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_te)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, 1); __PYX_ERR(0, 654, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, 1); __PYX_ERR(0, 656, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 654, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 656, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -14538,14 +14558,14 @@ static int __pyx_pw_7cplayer_4node_1__init__(PyObject *__pyx_v_self, PyObject *_
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 654, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 656, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("cplayer.node.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_board), (&PyList_Type), 1, "board", 1))) __PYX_ERR(0, 654, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_te), (&PyTuple_Type), 1, "te", 1))) __PYX_ERR(0, 654, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_board), (&PyList_Type), 1, "board", 1))) __PYX_ERR(0, 656, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_te), (&PyTuple_Type), 1, "te", 1))) __PYX_ERR(0, 656, __pyx_L1_error)
   __pyx_r = __pyx_pf_7cplayer_4node___init__(((struct __pyx_obj_7cplayer_node *)__pyx_v_self), __pyx_v_board, __pyx_v_te);
 
   /* function exit code */
@@ -14563,14 +14583,14 @@ static int __pyx_pf_7cplayer_4node___init__(struct __pyx_obj_7cplayer_node *__py
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "cplayer.pyx":655
+  /* "cplayer.pyx":657
  *     cdef public tuple te
  *     def __init__(self, list board, tuple te):
  *         self.child = []             # <<<<<<<<<<<<<<
  *         self.board = board
  *         self.visit_count = 0
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 655, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 657, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v_self->child);
@@ -14578,7 +14598,7 @@ static int __pyx_pf_7cplayer_4node___init__(struct __pyx_obj_7cplayer_node *__py
   __pyx_v_self->child = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "cplayer.pyx":656
+  /* "cplayer.pyx":658
  *     def __init__(self, list board, tuple te):
  *         self.child = []
  *         self.board = board             # <<<<<<<<<<<<<<
@@ -14591,7 +14611,7 @@ static int __pyx_pf_7cplayer_4node___init__(struct __pyx_obj_7cplayer_node *__py
   __Pyx_DECREF(__pyx_v_self->board);
   __pyx_v_self->board = __pyx_v_board;
 
-  /* "cplayer.pyx":657
+  /* "cplayer.pyx":659
  *         self.child = []
  *         self.board = board
  *         self.visit_count = 0             # <<<<<<<<<<<<<<
@@ -14600,7 +14620,7 @@ static int __pyx_pf_7cplayer_4node___init__(struct __pyx_obj_7cplayer_node *__py
  */
   __pyx_v_self->visit_count = 0;
 
-  /* "cplayer.pyx":658
+  /* "cplayer.pyx":660
  *         self.board = board
  *         self.visit_count = 0
  *         self.wins = 0             # <<<<<<<<<<<<<<
@@ -14609,7 +14629,7 @@ static int __pyx_pf_7cplayer_4node___init__(struct __pyx_obj_7cplayer_node *__py
  */
   __pyx_v_self->wins = 0;
 
-  /* "cplayer.pyx":659
+  /* "cplayer.pyx":661
  *         self.visit_count = 0
  *         self.wins = 0
  *         self.te = te             # <<<<<<<<<<<<<<
@@ -14622,7 +14642,7 @@ static int __pyx_pf_7cplayer_4node___init__(struct __pyx_obj_7cplayer_node *__py
   __Pyx_DECREF(__pyx_v_self->te);
   __pyx_v_self->te = __pyx_v_te;
 
-  /* "cplayer.pyx":654
+  /* "cplayer.pyx":656
  *     cdef public int wins
  *     cdef public tuple te
  *     def __init__(self, list board, tuple te):             # <<<<<<<<<<<<<<
@@ -14642,7 +14662,7 @@ static int __pyx_pf_7cplayer_4node___init__(struct __pyx_obj_7cplayer_node *__py
   return __pyx_r;
 }
 
-/* "cplayer.pyx":649
+/* "cplayer.pyx":651
  * 
  * cdef class node():
  *     cdef public list child             # <<<<<<<<<<<<<<
@@ -14697,7 +14717,7 @@ static int __pyx_pf_7cplayer_4node_5child_2__set__(struct __pyx_obj_7cplayer_nod
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__set__", 0);
-  if (!(likely(PyList_CheckExact(__pyx_v_value))||((__pyx_v_value) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_v_value)->tp_name), 0))) __PYX_ERR(0, 649, __pyx_L1_error)
+  if (!(likely(PyList_CheckExact(__pyx_v_value))||((__pyx_v_value) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_v_value)->tp_name), 0))) __PYX_ERR(0, 651, __pyx_L1_error)
   __pyx_t_1 = __pyx_v_value;
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
@@ -14747,7 +14767,7 @@ static int __pyx_pf_7cplayer_4node_5child_4__del__(struct __pyx_obj_7cplayer_nod
   return __pyx_r;
 }
 
-/* "cplayer.pyx":650
+/* "cplayer.pyx":652
  * cdef class node():
  *     cdef public list child
  *     cdef public list board             # <<<<<<<<<<<<<<
@@ -14802,7 +14822,7 @@ static int __pyx_pf_7cplayer_4node_5board_2__set__(struct __pyx_obj_7cplayer_nod
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__set__", 0);
-  if (!(likely(PyList_CheckExact(__pyx_v_value))||((__pyx_v_value) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_v_value)->tp_name), 0))) __PYX_ERR(0, 650, __pyx_L1_error)
+  if (!(likely(PyList_CheckExact(__pyx_v_value))||((__pyx_v_value) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_v_value)->tp_name), 0))) __PYX_ERR(0, 652, __pyx_L1_error)
   __pyx_t_1 = __pyx_v_value;
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
@@ -14852,7 +14872,7 @@ static int __pyx_pf_7cplayer_4node_5board_4__del__(struct __pyx_obj_7cplayer_nod
   return __pyx_r;
 }
 
-/* "cplayer.pyx":651
+/* "cplayer.pyx":653
  *     cdef public list child
  *     cdef public list board
  *     cdef public int visit_count             # <<<<<<<<<<<<<<
@@ -14879,7 +14899,7 @@ static PyObject *__pyx_pf_7cplayer_4node_11visit_count___get__(struct __pyx_obj_
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->visit_count); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 651, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->visit_count); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 653, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -14914,7 +14934,7 @@ static int __pyx_pf_7cplayer_4node_11visit_count_2__set__(struct __pyx_obj_7cpla
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("__set__", 0);
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 651, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 653, __pyx_L1_error)
   __pyx_v_self->visit_count = __pyx_t_1;
 
   /* function exit code */
@@ -14928,7 +14948,7 @@ static int __pyx_pf_7cplayer_4node_11visit_count_2__set__(struct __pyx_obj_7cpla
   return __pyx_r;
 }
 
-/* "cplayer.pyx":652
+/* "cplayer.pyx":654
  *     cdef public list board
  *     cdef public int visit_count
  *     cdef public int wins             # <<<<<<<<<<<<<<
@@ -14955,7 +14975,7 @@ static PyObject *__pyx_pf_7cplayer_4node_4wins___get__(struct __pyx_obj_7cplayer
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->wins); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 652, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->wins); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 654, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -14990,7 +15010,7 @@ static int __pyx_pf_7cplayer_4node_4wins_2__set__(struct __pyx_obj_7cplayer_node
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("__set__", 0);
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 652, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 654, __pyx_L1_error)
   __pyx_v_self->wins = __pyx_t_1;
 
   /* function exit code */
@@ -15004,7 +15024,7 @@ static int __pyx_pf_7cplayer_4node_4wins_2__set__(struct __pyx_obj_7cplayer_node
   return __pyx_r;
 }
 
-/* "cplayer.pyx":653
+/* "cplayer.pyx":655
  *     cdef public int visit_count
  *     cdef public int wins
  *     cdef public tuple te             # <<<<<<<<<<<<<<
@@ -15059,7 +15079,7 @@ static int __pyx_pf_7cplayer_4node_2te_2__set__(struct __pyx_obj_7cplayer_node *
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__set__", 0);
-  if (!(likely(PyTuple_CheckExact(__pyx_v_value))||((__pyx_v_value) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "tuple", Py_TYPE(__pyx_v_value)->tp_name), 0))) __PYX_ERR(0, 653, __pyx_L1_error)
+  if (!(likely(PyTuple_CheckExact(__pyx_v_value))||((__pyx_v_value) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "tuple", Py_TYPE(__pyx_v_value)->tp_name), 0))) __PYX_ERR(0, 655, __pyx_L1_error)
   __pyx_t_1 = __pyx_v_value;
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
@@ -15430,7 +15450,7 @@ static PyObject *__pyx_pf_7cplayer_4node_4__setstate_cython__(struct __pyx_obj_7
   return __pyx_r;
 }
 
-/* "cplayer.pyx":668
+/* "cplayer.pyx":670
  *     cdef int playout_num
  *     @cython.nonecheck(False)
  *     def __init__(self, int playout_num):             # <<<<<<<<<<<<<<
@@ -15464,18 +15484,18 @@ static int __pyx_pw_7cplayer_25PrimitiveMonteCarloPlayer_1__init__(PyObject *__p
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 668, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 670, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
     }
-    __pyx_v_playout_num = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_playout_num == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 668, __pyx_L3_error)
+    __pyx_v_playout_num = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_playout_num == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 670, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 668, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 670, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("cplayer.PrimitiveMonteCarloPlayer.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -15496,14 +15516,14 @@ static int __pyx_pf_7cplayer_25PrimitiveMonteCarloPlayer___init__(struct __pyx_o
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "cplayer.pyx":669
+  /* "cplayer.pyx":671
  *     @cython.nonecheck(False)
  *     def __init__(self, int playout_num):
  *         super().__init__()             # <<<<<<<<<<<<<<
  *         self.playout_num = playout_num
  * 
  */
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 669, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 671, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(((PyObject *)__pyx_ptype_7cplayer_PrimitiveMonteCarloPlayer));
   __Pyx_GIVEREF(((PyObject *)__pyx_ptype_7cplayer_PrimitiveMonteCarloPlayer));
@@ -15511,10 +15531,10 @@ static int __pyx_pf_7cplayer_25PrimitiveMonteCarloPlayer___init__(struct __pyx_o
   __Pyx_INCREF(((PyObject *)__pyx_v_self));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
   PyTuple_SET_ITEM(__pyx_t_2, 1, ((PyObject *)__pyx_v_self));
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 669, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 671, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_init); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 669, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_init); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 671, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -15529,12 +15549,12 @@ static int __pyx_pf_7cplayer_25PrimitiveMonteCarloPlayer___init__(struct __pyx_o
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 669, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 671, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "cplayer.pyx":670
+  /* "cplayer.pyx":672
  *     def __init__(self, int playout_num):
  *         super().__init__()
  *         self.playout_num = playout_num             # <<<<<<<<<<<<<<
@@ -15543,7 +15563,7 @@ static int __pyx_pf_7cplayer_25PrimitiveMonteCarloPlayer___init__(struct __pyx_o
  */
   __pyx_v_self->playout_num = __pyx_v_playout_num;
 
-  /* "cplayer.pyx":668
+  /* "cplayer.pyx":670
  *     cdef int playout_num
  *     @cython.nonecheck(False)
  *     def __init__(self, int playout_num):             # <<<<<<<<<<<<<<
@@ -15565,7 +15585,7 @@ static int __pyx_pf_7cplayer_25PrimitiveMonteCarloPlayer___init__(struct __pyx_o
   return __pyx_r;
 }
 
-/* "cplayer.pyx":673
+/* "cplayer.pyx":675
  * 
  *     @cython.nonecheck(False)
  *     def thinking(self, list board, int turn):             # <<<<<<<<<<<<<<
@@ -15604,11 +15624,11 @@ static PyObject *__pyx_pw_7cplayer_25PrimitiveMonteCarloPlayer_3thinking(PyObjec
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_turn)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("thinking", 1, 2, 2, 1); __PYX_ERR(0, 673, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("thinking", 1, 2, 2, 1); __PYX_ERR(0, 675, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "thinking") < 0)) __PYX_ERR(0, 673, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "thinking") < 0)) __PYX_ERR(0, 675, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -15617,17 +15637,17 @@ static PyObject *__pyx_pw_7cplayer_25PrimitiveMonteCarloPlayer_3thinking(PyObjec
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
     __pyx_v_board = ((PyObject*)values[0]);
-    __pyx_v_turn = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_turn == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 673, __pyx_L3_error)
+    __pyx_v_turn = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_turn == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 675, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("thinking", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 673, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("thinking", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 675, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("cplayer.PrimitiveMonteCarloPlayer.thinking", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_board), (&PyList_Type), 1, "board", 1))) __PYX_ERR(0, 673, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_board), (&PyList_Type), 1, "board", 1))) __PYX_ERR(0, 675, __pyx_L1_error)
   __pyx_r = __pyx_pf_7cplayer_25PrimitiveMonteCarloPlayer_2thinking(((struct __pyx_obj_7cplayer_PrimitiveMonteCarloPlayer *)__pyx_v_self), __pyx_v_board, __pyx_v_turn);
 
   /* function exit code */
@@ -15662,16 +15682,16 @@ static PyObject *__pyx_pf_7cplayer_25PrimitiveMonteCarloPlayer_2thinking(struct 
   int __pyx_t_11;
   __Pyx_RefNannySetupContext("thinking", 0);
 
-  /* "cplayer.pyx":674
+  /* "cplayer.pyx":676
  *     @cython.nonecheck(False)
  *     def thinking(self, list board, int turn):
  *         start = time.time()             # <<<<<<<<<<<<<<
  *         cdef list _board
  *         cdef int x, y
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_time); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 674, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_time); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 676, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_time); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 674, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_time); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 676, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -15686,20 +15706,20 @@ static PyObject *__pyx_pf_7cplayer_25PrimitiveMonteCarloPlayer_2thinking(struct 
   }
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 674, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 676, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_start = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "cplayer.pyx":677
+  /* "cplayer.pyx":679
  *         cdef list _board
  *         cdef int x, y
  *         super().thinking(board, turn)             # <<<<<<<<<<<<<<
  *         _board = [[0] * (ROW_CELLS + 2) for i in range(ROW_CELLS + 2)]
  *         for i in range(1, 9):
  */
-  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 677, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 679, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(((PyObject *)__pyx_ptype_7cplayer_PrimitiveMonteCarloPlayer));
   __Pyx_GIVEREF(((PyObject *)__pyx_ptype_7cplayer_PrimitiveMonteCarloPlayer));
@@ -15707,13 +15727,13 @@ static PyObject *__pyx_pf_7cplayer_25PrimitiveMonteCarloPlayer_2thinking(struct 
   __Pyx_INCREF(((PyObject *)__pyx_v_self));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
   PyTuple_SET_ITEM(__pyx_t_3, 1, ((PyObject *)__pyx_v_self));
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_3, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 677, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_3, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 679, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_thinking); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 677, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_thinking); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 679, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_turn); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 677, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_turn); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 679, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_4 = NULL;
   __pyx_t_5 = 0;
@@ -15730,7 +15750,7 @@ static PyObject *__pyx_pf_7cplayer_25PrimitiveMonteCarloPlayer_2thinking(struct 
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_v_board, __pyx_t_2};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 677, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 679, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -15739,14 +15759,14 @@ static PyObject *__pyx_pf_7cplayer_25PrimitiveMonteCarloPlayer_2thinking(struct 
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_v_board, __pyx_t_2};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 677, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 679, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   } else
   #endif
   {
-    __pyx_t_6 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 677, __pyx_L1_error)
+    __pyx_t_6 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 679, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     if (__pyx_t_4) {
       __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_4); __pyx_t_4 = NULL;
@@ -15757,37 +15777,37 @@ static PyObject *__pyx_pf_7cplayer_25PrimitiveMonteCarloPlayer_2thinking(struct 
     __Pyx_GIVEREF(__pyx_t_2);
     PyTuple_SET_ITEM(__pyx_t_6, 1+__pyx_t_5, __pyx_t_2);
     __pyx_t_2 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 677, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 679, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "cplayer.pyx":678
+  /* "cplayer.pyx":680
  *         cdef int x, y
  *         super().thinking(board, turn)
  *         _board = [[0] * (ROW_CELLS + 2) for i in range(ROW_CELLS + 2)]             # <<<<<<<<<<<<<<
  *         for i in range(1, 9):
  *             for j in range(1, 9):
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 678, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 680, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ROW_CELLS); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 678, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ROW_CELLS); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 680, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_6 = __Pyx_PyInt_AddObjC(__pyx_t_3, __pyx_int_2, 2, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 678, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyInt_AddObjC(__pyx_t_3, __pyx_int_2, 2, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 680, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_range, __pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 678, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_range, __pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 680, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   if (likely(PyList_CheckExact(__pyx_t_3)) || PyTuple_CheckExact(__pyx_t_3)) {
     __pyx_t_6 = __pyx_t_3; __Pyx_INCREF(__pyx_t_6); __pyx_t_7 = 0;
     __pyx_t_8 = NULL;
   } else {
-    __pyx_t_7 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 678, __pyx_L1_error)
+    __pyx_t_7 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 680, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_8 = Py_TYPE(__pyx_t_6)->tp_iternext; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 678, __pyx_L1_error)
+    __pyx_t_8 = Py_TYPE(__pyx_t_6)->tp_iternext; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 680, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   for (;;) {
@@ -15795,17 +15815,17 @@ static PyObject *__pyx_pf_7cplayer_25PrimitiveMonteCarloPlayer_2thinking(struct 
       if (likely(PyList_CheckExact(__pyx_t_6))) {
         if (__pyx_t_7 >= PyList_GET_SIZE(__pyx_t_6)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_3 = PyList_GET_ITEM(__pyx_t_6, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 678, __pyx_L1_error)
+        __pyx_t_3 = PyList_GET_ITEM(__pyx_t_6, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 680, __pyx_L1_error)
         #else
-        __pyx_t_3 = PySequence_ITEM(__pyx_t_6, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 678, __pyx_L1_error)
+        __pyx_t_3 = PySequence_ITEM(__pyx_t_6, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 680, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         #endif
       } else {
         if (__pyx_t_7 >= PyTuple_GET_SIZE(__pyx_t_6)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_6, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 678, __pyx_L1_error)
+        __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_6, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 680, __pyx_L1_error)
         #else
-        __pyx_t_3 = PySequence_ITEM(__pyx_t_6, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 678, __pyx_L1_error)
+        __pyx_t_3 = PySequence_ITEM(__pyx_t_6, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 680, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         #endif
       }
@@ -15815,7 +15835,7 @@ static PyObject *__pyx_pf_7cplayer_25PrimitiveMonteCarloPlayer_2thinking(struct 
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 678, __pyx_L1_error)
+          else __PYX_ERR(0, 680, __pyx_L1_error)
         }
         break;
       }
@@ -15823,30 +15843,30 @@ static PyObject *__pyx_pf_7cplayer_25PrimitiveMonteCarloPlayer_2thinking(struct 
     }
     __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_3);
     __pyx_t_3 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ROW_CELLS); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 678, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ROW_CELLS); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 680, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyInt_AddObjC(__pyx_t_3, __pyx_int_2, 2, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 678, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyInt_AddObjC(__pyx_t_3, __pyx_int_2, 2, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 680, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = PyList_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 678, __pyx_L1_error)
+    __pyx_t_3 = PyList_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 680, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_INCREF(__pyx_int_0);
     __Pyx_GIVEREF(__pyx_int_0);
     PyList_SET_ITEM(__pyx_t_3, 0, __pyx_int_0);
-    { PyObject* __pyx_temp = PyNumber_InPlaceMultiply(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_temp)) __PYX_ERR(0, 678, __pyx_L1_error)
+    { PyObject* __pyx_temp = PyNumber_InPlaceMultiply(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_temp)) __PYX_ERR(0, 680, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_temp);
       __Pyx_DECREF(__pyx_t_3);
       __pyx_t_3 = __pyx_temp;
     }
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(__Pyx_ListComp_Append(__pyx_t_1, (PyObject*)__pyx_t_3))) __PYX_ERR(0, 678, __pyx_L1_error)
+    if (unlikely(__Pyx_ListComp_Append(__pyx_t_1, (PyObject*)__pyx_t_3))) __PYX_ERR(0, 680, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __pyx_v__board = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "cplayer.pyx":679
+  /* "cplayer.pyx":681
  *         super().thinking(board, turn)
  *         _board = [[0] * (ROW_CELLS + 2) for i in range(ROW_CELLS + 2)]
  *         for i in range(1, 9):             # <<<<<<<<<<<<<<
@@ -15854,12 +15874,12 @@ static PyObject *__pyx_pf_7cplayer_25PrimitiveMonteCarloPlayer_2thinking(struct 
  *                 _board[i][j] = board[i - 1][j - 1]
  */
   for (__pyx_t_9 = 1; __pyx_t_9 < 9; __pyx_t_9+=1) {
-    __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 679, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 681, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "cplayer.pyx":680
+    /* "cplayer.pyx":682
  *         _board = [[0] * (ROW_CELLS + 2) for i in range(ROW_CELLS + 2)]
  *         for i in range(1, 9):
  *             for j in range(1, 9):             # <<<<<<<<<<<<<<
@@ -15867,12 +15887,12 @@ static PyObject *__pyx_pf_7cplayer_25PrimitiveMonteCarloPlayer_2thinking(struct 
  * 
  */
     for (__pyx_t_10 = 1; __pyx_t_10 < 9; __pyx_t_10+=1) {
-      __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 680, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 682, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_XDECREF_SET(__pyx_v_j, __pyx_t_1);
       __pyx_t_1 = 0;
 
-      /* "cplayer.pyx":681
+      /* "cplayer.pyx":683
  *         for i in range(1, 9):
  *             for j in range(1, 9):
  *                 _board[i][j] = board[i - 1][j - 1]             # <<<<<<<<<<<<<<
@@ -15881,35 +15901,35 @@ static PyObject *__pyx_pf_7cplayer_25PrimitiveMonteCarloPlayer_2thinking(struct 
  */
       if (unlikely(__pyx_v_board == Py_None)) {
         PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-        __PYX_ERR(0, 681, __pyx_L1_error)
+        __PYX_ERR(0, 683, __pyx_L1_error)
       }
-      __pyx_t_1 = __Pyx_PyInt_SubtractObjC(__pyx_v_i, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 681, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyInt_SubtractObjC(__pyx_v_i, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 683, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_6 = __Pyx_PyObject_GetItem(__pyx_v_board, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 681, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyObject_GetItem(__pyx_v_board, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 683, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_1 = __Pyx_PyInt_SubtractObjC(__pyx_v_j, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 681, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyInt_SubtractObjC(__pyx_v_j, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 683, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_t_6, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 681, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_t_6, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 683, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_1 = __Pyx_PyObject_GetItem(__pyx_v__board, __pyx_v_i); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 681, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetItem(__pyx_v__board, __pyx_v_i); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 683, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (unlikely(PyObject_SetItem(__pyx_t_1, __pyx_v_j, __pyx_t_3) < 0)) __PYX_ERR(0, 681, __pyx_L1_error)
+      if (unlikely(PyObject_SetItem(__pyx_t_1, __pyx_v_j, __pyx_t_3) < 0)) __PYX_ERR(0, 683, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     }
   }
 
-  /* "cplayer.pyx":683
+  /* "cplayer.pyx":685
  *                 _board[i][j] = board[i - 1][j - 1]
  * 
  *         cdef node montecarlo_tree = node(_board, None)             # <<<<<<<<<<<<<<
  *         y, x = self.primitive_montecarlo(turn, montecarlo_tree)
  *         print(time.time() - start)
  */
-  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 683, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 685, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(__pyx_v__board);
   __Pyx_GIVEREF(__pyx_v__board);
@@ -15917,20 +15937,20 @@ static PyObject *__pyx_pf_7cplayer_25PrimitiveMonteCarloPlayer_2thinking(struct 
   __Pyx_INCREF(Py_None);
   __Pyx_GIVEREF(Py_None);
   PyTuple_SET_ITEM(__pyx_t_3, 1, Py_None);
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7cplayer_node), __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 683, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7cplayer_node), __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 685, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_montecarlo_tree = ((struct __pyx_obj_7cplayer_node *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "cplayer.pyx":684
+  /* "cplayer.pyx":686
  * 
  *         cdef node montecarlo_tree = node(_board, None)
  *         y, x = self.primitive_montecarlo(turn, montecarlo_tree)             # <<<<<<<<<<<<<<
  *         print(time.time() - start)
  * 
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_7cplayer_PrimitiveMonteCarloPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->primitive_montecarlo(__pyx_v_self, __pyx_v_turn, __pyx_v_montecarlo_tree); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 684, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_7cplayer_PrimitiveMonteCarloPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->primitive_montecarlo(__pyx_v_self, __pyx_v_turn, __pyx_v_montecarlo_tree); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 686, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (likely(__pyx_t_1 != Py_None)) {
     PyObject* sequence = __pyx_t_1;
@@ -15938,7 +15958,7 @@ static PyObject *__pyx_pf_7cplayer_25PrimitiveMonteCarloPlayer_2thinking(struct 
     if (unlikely(size != 2)) {
       if (size > 2) __Pyx_RaiseTooManyValuesError(2);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 684, __pyx_L1_error)
+      __PYX_ERR(0, 686, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     __pyx_t_3 = PyTuple_GET_ITEM(sequence, 0); 
@@ -15946,32 +15966,32 @@ static PyObject *__pyx_pf_7cplayer_25PrimitiveMonteCarloPlayer_2thinking(struct 
     __Pyx_INCREF(__pyx_t_3);
     __Pyx_INCREF(__pyx_t_6);
     #else
-    __pyx_t_3 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 684, __pyx_L1_error)
+    __pyx_t_3 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 686, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_6 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 684, __pyx_L1_error)
+    __pyx_t_6 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 686, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     #endif
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   } else {
-    __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 684, __pyx_L1_error)
+    __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 686, __pyx_L1_error)
   }
-  __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 684, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 686, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_11 = __Pyx_PyInt_As_int(__pyx_t_6); if (unlikely((__pyx_t_11 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 684, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_PyInt_As_int(__pyx_t_6); if (unlikely((__pyx_t_11 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 686, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __pyx_v_y = __pyx_t_5;
   __pyx_v_x = __pyx_t_11;
 
-  /* "cplayer.pyx":685
+  /* "cplayer.pyx":687
  *         cdef node montecarlo_tree = node(_board, None)
  *         y, x = self.primitive_montecarlo(turn, montecarlo_tree)
  *         print(time.time() - start)             # <<<<<<<<<<<<<<
  * 
  *         return y, x
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_time); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 685, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_time); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 687, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_time); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 685, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_time); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 687, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __pyx_t_6 = NULL;
@@ -15986,16 +16006,16 @@ static PyObject *__pyx_pf_7cplayer_25PrimitiveMonteCarloPlayer_2thinking(struct 
   }
   __pyx_t_1 = (__pyx_t_6) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_6) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 685, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 687, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_Subtract(__pyx_t_1, __pyx_v_start); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 685, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_Subtract(__pyx_t_1, __pyx_v_start); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 687, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (__Pyx_PrintOne(0, __pyx_t_3) < 0) __PYX_ERR(0, 685, __pyx_L1_error)
+  if (__Pyx_PrintOne(0, __pyx_t_3) < 0) __PYX_ERR(0, 687, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "cplayer.pyx":687
+  /* "cplayer.pyx":689
  *         print(time.time() - start)
  * 
  *         return y, x             # <<<<<<<<<<<<<<
@@ -16003,11 +16023,11 @@ static PyObject *__pyx_pf_7cplayer_25PrimitiveMonteCarloPlayer_2thinking(struct 
  *     @cython.nonecheck(False)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_y); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 687, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_y); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 689, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_x); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 687, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_x); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 689, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 687, __pyx_L1_error)
+  __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 689, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_GIVEREF(__pyx_t_3);
   PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_3);
@@ -16019,7 +16039,7 @@ static PyObject *__pyx_pf_7cplayer_25PrimitiveMonteCarloPlayer_2thinking(struct 
   __pyx_t_6 = 0;
   goto __pyx_L0;
 
-  /* "cplayer.pyx":673
+  /* "cplayer.pyx":675
  * 
  *     @cython.nonecheck(False)
  *     def thinking(self, list board, int turn):             # <<<<<<<<<<<<<<
@@ -16047,7 +16067,7 @@ static PyObject *__pyx_pf_7cplayer_25PrimitiveMonteCarloPlayer_2thinking(struct 
   return __pyx_r;
 }
 
-/* "cplayer.pyx":690
+/* "cplayer.pyx":692
  * 
  *     @cython.nonecheck(False)
  *     cdef tuple primitive_montecarlo(self, int turn, node tree):             # <<<<<<<<<<<<<<
@@ -16091,7 +16111,7 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
   int __pyx_t_20;
   __Pyx_RefNannySetupContext("primitive_montecarlo", 0);
 
-  /* "cplayer.pyx":698
+  /* "cplayer.pyx":700
  *         #
  *         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(
  *             tree.board, turn)             # <<<<<<<<<<<<<<
@@ -16101,14 +16121,14 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
   __pyx_t_1 = __pyx_v_tree->board;
   __Pyx_INCREF(__pyx_t_1);
 
-  /* "cplayer.pyx":697
+  /* "cplayer.pyx":699
  * 
  *         #
  *         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(             # <<<<<<<<<<<<<<
  *             tree.board, turn)
  * 
  */
-  __pyx_t_2 = ((struct __pyx_vtabstruct_7cplayer_PrimitiveMonteCarloPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), ((PyObject*)__pyx_t_1), __pyx_v_turn); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 697, __pyx_L1_error)
+  __pyx_t_2 = ((struct __pyx_vtabstruct_7cplayer_PrimitiveMonteCarloPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), ((PyObject*)__pyx_t_1), __pyx_v_turn); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 699, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (likely(__pyx_t_2 != Py_None)) {
@@ -16117,7 +16137,7 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
     if (unlikely(size != 3)) {
       if (size > 3) __Pyx_RaiseTooManyValuesError(3);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 697, __pyx_L1_error)
+      __PYX_ERR(0, 699, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     __pyx_t_1 = PyTuple_GET_ITEM(sequence, 0); 
@@ -16127,28 +16147,28 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
     __Pyx_INCREF(__pyx_t_3);
     __Pyx_INCREF(__pyx_t_4);
     #else
-    __pyx_t_1 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 697, __pyx_L1_error)
+    __pyx_t_1 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 699, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 697, __pyx_L1_error)
+    __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 699, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 697, __pyx_L1_error)
+    __pyx_t_4 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 699, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     #endif
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   } else {
-    __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 697, __pyx_L1_error)
+    __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 699, __pyx_L1_error)
   }
-  if (!(likely(PyList_CheckExact(__pyx_t_1))||((__pyx_t_1) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_1)->tp_name), 0))) __PYX_ERR(0, 697, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 697, __pyx_L1_error)
+  if (!(likely(PyList_CheckExact(__pyx_t_1))||((__pyx_t_1) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_1)->tp_name), 0))) __PYX_ERR(0, 699, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 699, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 697, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 699, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_v_legal_move_count_list = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
   __pyx_v_black_stones = __pyx_t_5;
   __pyx_v_white_stones = __pyx_t_6;
 
-  /* "cplayer.pyx":701
+  /* "cplayer.pyx":703
  * 
  *         #
  *         cdef int legal_move_count_list_len = len(legal_move_count_list)             # <<<<<<<<<<<<<<
@@ -16157,12 +16177,12 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
  */
   if (unlikely(__pyx_v_legal_move_count_list == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 701, __pyx_L1_error)
+    __PYX_ERR(0, 703, __pyx_L1_error)
   }
-  __pyx_t_7 = PyList_GET_SIZE(__pyx_v_legal_move_count_list); if (unlikely(__pyx_t_7 == ((Py_ssize_t)-1))) __PYX_ERR(0, 701, __pyx_L1_error)
+  __pyx_t_7 = PyList_GET_SIZE(__pyx_v_legal_move_count_list); if (unlikely(__pyx_t_7 == ((Py_ssize_t)-1))) __PYX_ERR(0, 703, __pyx_L1_error)
   __pyx_v_legal_move_count_list_len = __pyx_t_7;
 
-  /* "cplayer.pyx":702
+  /* "cplayer.pyx":704
  *         #
  *         cdef int legal_move_count_list_len = len(legal_move_count_list)
  *         for i in range(legal_move_count_list_len):             # <<<<<<<<<<<<<<
@@ -16174,16 +16194,16 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
   for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_5; __pyx_t_8+=1) {
     __pyx_v_i = __pyx_t_8;
 
-    /* "cplayer.pyx":703
+    /* "cplayer.pyx":705
  *         cdef int legal_move_count_list_len = len(legal_move_count_list)
  *         for i in range(legal_move_count_list_len):
  *             copy_board = copy.deepcopy(tree.board)             # <<<<<<<<<<<<<<
  *             self.put_stone(copy_board, legal_move_count_list[i][0], legal_move_count_list[i][1], turn)
  *             tree.child.append(node(copy_board, (legal_move_count_list[i][0], legal_move_count_list[i][1])))
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_copy); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 703, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_copy); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 705, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_deepcopy); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 703, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_deepcopy); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 705, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_4 = NULL;
@@ -16198,45 +16218,45 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
     }
     __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_v_tree->board) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_tree->board);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 703, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 705, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_XDECREF_SET(__pyx_v_copy_board, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "cplayer.pyx":704
+    /* "cplayer.pyx":706
  *         for i in range(legal_move_count_list_len):
  *             copy_board = copy.deepcopy(tree.board)
  *             self.put_stone(copy_board, legal_move_count_list[i][0], legal_move_count_list[i][1], turn)             # <<<<<<<<<<<<<<
  *             tree.child.append(node(copy_board, (legal_move_count_list[i][0], legal_move_count_list[i][1])))
  * 
  */
-    if (!(likely(PyList_CheckExact(__pyx_v_copy_board))||((__pyx_v_copy_board) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_v_copy_board)->tp_name), 0))) __PYX_ERR(0, 704, __pyx_L1_error)
+    if (!(likely(PyList_CheckExact(__pyx_v_copy_board))||((__pyx_v_copy_board) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_v_copy_board)->tp_name), 0))) __PYX_ERR(0, 706, __pyx_L1_error)
     if (unlikely(__pyx_v_legal_move_count_list == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 704, __pyx_L1_error)
+      __PYX_ERR(0, 706, __pyx_L1_error)
     }
-    __pyx_t_2 = __Pyx_GetItemInt_List(__pyx_v_legal_move_count_list, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 704, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt_List(__pyx_v_legal_move_count_list, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 706, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_2, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 704, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_2, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 706, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_9 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_9 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 704, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_9 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 706, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (unlikely(__pyx_v_legal_move_count_list == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 704, __pyx_L1_error)
+      __PYX_ERR(0, 706, __pyx_L1_error)
     }
-    __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_legal_move_count_list, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 704, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_legal_move_count_list, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 706, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_3, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 704, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_3, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 706, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_10 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_10 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 704, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_10 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 706, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     ((struct __pyx_vtabstruct_7cplayer_PrimitiveMonteCarloPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.put_stone(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), ((PyObject*)__pyx_v_copy_board), __pyx_t_9, __pyx_t_10, __pyx_v_turn);
 
-    /* "cplayer.pyx":705
+    /* "cplayer.pyx":707
  *             copy_board = copy.deepcopy(tree.board)
  *             self.put_stone(copy_board, legal_move_count_list[i][0], legal_move_count_list[i][1], turn)
  *             tree.child.append(node(copy_board, (legal_move_count_list[i][0], legal_move_count_list[i][1])))             # <<<<<<<<<<<<<<
@@ -16245,27 +16265,27 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
  */
     if (unlikely(__pyx_v_tree->child == Py_None)) {
       PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "append");
-      __PYX_ERR(0, 705, __pyx_L1_error)
+      __PYX_ERR(0, 707, __pyx_L1_error)
     }
     if (unlikely(__pyx_v_legal_move_count_list == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 705, __pyx_L1_error)
+      __PYX_ERR(0, 707, __pyx_L1_error)
     }
-    __pyx_t_2 = __Pyx_GetItemInt_List(__pyx_v_legal_move_count_list, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 705, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt_List(__pyx_v_legal_move_count_list, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 707, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_2, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 705, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_2, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 707, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (unlikely(__pyx_v_legal_move_count_list == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 705, __pyx_L1_error)
+      __PYX_ERR(0, 707, __pyx_L1_error)
     }
-    __pyx_t_2 = __Pyx_GetItemInt_List(__pyx_v_legal_move_count_list, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 705, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt_List(__pyx_v_legal_move_count_list, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 707, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_2, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 705, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_2, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 707, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 705, __pyx_L1_error)
+    __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 707, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_GIVEREF(__pyx_t_3);
     PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_3);
@@ -16273,7 +16293,7 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
     PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_4);
     __pyx_t_3 = 0;
     __pyx_t_4 = 0;
-    __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 705, __pyx_L1_error)
+    __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 707, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_INCREF(__pyx_v_copy_board);
     __Pyx_GIVEREF(__pyx_v_copy_board);
@@ -16281,14 +16301,14 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
     __Pyx_GIVEREF(__pyx_t_2);
     PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_2);
     __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7cplayer_node), __pyx_t_4, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 705, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7cplayer_node), __pyx_t_4, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 707, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_11 = __Pyx_PyList_Append(__pyx_v_tree->child, __pyx_t_2); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 705, __pyx_L1_error)
+    __pyx_t_11 = __Pyx_PyList_Append(__pyx_v_tree->child, __pyx_t_2); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 707, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
 
-  /* "cplayer.pyx":707
+  /* "cplayer.pyx":709
  *             tree.child.append(node(copy_board, (legal_move_count_list[i][0], legal_move_count_list[i][1])))
  * 
  *         for i in range(self.playout_num):             # <<<<<<<<<<<<<<
@@ -16300,7 +16320,7 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
   for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_5; __pyx_t_8+=1) {
     __pyx_v_i = __pyx_t_8;
 
-    /* "cplayer.pyx":708
+    /* "cplayer.pyx":710
  * 
  *         for i in range(self.playout_num):
  *             self.selection(turn, tree)             # <<<<<<<<<<<<<<
@@ -16310,16 +16330,16 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
     (void)(((struct __pyx_vtabstruct_7cplayer_PrimitiveMonteCarloPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->selection(__pyx_v_self, __pyx_v_turn, __pyx_v_tree));
   }
 
-  /* "cplayer.pyx":710
+  /* "cplayer.pyx":712
  *             self.selection(turn, tree)
  * 
  *         print("a", tree.visit_count)             # <<<<<<<<<<<<<<
  *         for child in tree.child:
  *             print(child.visit_count, child.wins, child.te)
  */
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_tree->visit_count); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 710, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_tree->visit_count); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 712, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 710, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 712, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(__pyx_n_s_a);
   __Pyx_GIVEREF(__pyx_n_s_a);
@@ -16327,10 +16347,10 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_2);
   __pyx_t_2 = 0;
-  if (__Pyx_PrintOne(0, __pyx_t_4) < 0) __PYX_ERR(0, 710, __pyx_L1_error)
+  if (__Pyx_PrintOne(0, __pyx_t_4) < 0) __PYX_ERR(0, 712, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cplayer.pyx":711
+  /* "cplayer.pyx":713
  * 
  *         print("a", tree.visit_count)
  *         for child in tree.child:             # <<<<<<<<<<<<<<
@@ -16339,34 +16359,34 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
  */
   if (unlikely(__pyx_v_tree->child == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-    __PYX_ERR(0, 711, __pyx_L1_error)
+    __PYX_ERR(0, 713, __pyx_L1_error)
   }
   __pyx_t_4 = __pyx_v_tree->child; __Pyx_INCREF(__pyx_t_4); __pyx_t_7 = 0;
   for (;;) {
     if (__pyx_t_7 >= PyList_GET_SIZE(__pyx_t_4)) break;
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    __pyx_t_2 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_7); __Pyx_INCREF(__pyx_t_2); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 711, __pyx_L1_error)
+    __pyx_t_2 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_7); __Pyx_INCREF(__pyx_t_2); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 713, __pyx_L1_error)
     #else
-    __pyx_t_2 = PySequence_ITEM(__pyx_t_4, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 711, __pyx_L1_error)
+    __pyx_t_2 = PySequence_ITEM(__pyx_t_4, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 713, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     #endif
     __Pyx_XDECREF_SET(__pyx_v_child, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "cplayer.pyx":712
+    /* "cplayer.pyx":714
  *         print("a", tree.visit_count)
  *         for child in tree.child:
  *             print(child.visit_count, child.wins, child.te)             # <<<<<<<<<<<<<<
  *             for c in child.child:
  *                 print("    " + str(c.visit_count), c.wins)
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_visit_count); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 712, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_visit_count); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 714, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_wins); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 712, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_wins); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 714, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_te); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 712, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_te); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 714, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_12 = PyTuple_New(3); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 712, __pyx_L1_error)
+    __pyx_t_12 = PyTuple_New(3); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 714, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
     __Pyx_GIVEREF(__pyx_t_2);
     PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_2);
@@ -16377,25 +16397,25 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
     __pyx_t_2 = 0;
     __pyx_t_3 = 0;
     __pyx_t_1 = 0;
-    if (__Pyx_PrintOne(0, __pyx_t_12) < 0) __PYX_ERR(0, 712, __pyx_L1_error)
+    if (__Pyx_PrintOne(0, __pyx_t_12) < 0) __PYX_ERR(0, 714, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
 
-    /* "cplayer.pyx":713
+    /* "cplayer.pyx":715
  *         for child in tree.child:
  *             print(child.visit_count, child.wins, child.te)
  *             for c in child.child:             # <<<<<<<<<<<<<<
  *                 print("    " + str(c.visit_count), c.wins)
  *                 for d in c.child:
  */
-    __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_child); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 713, __pyx_L1_error)
+    __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_child); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 715, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
     if (likely(PyList_CheckExact(__pyx_t_12)) || PyTuple_CheckExact(__pyx_t_12)) {
       __pyx_t_1 = __pyx_t_12; __Pyx_INCREF(__pyx_t_1); __pyx_t_13 = 0;
       __pyx_t_14 = NULL;
     } else {
-      __pyx_t_13 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_t_12); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 713, __pyx_L1_error)
+      __pyx_t_13 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_t_12); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 715, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_14 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 713, __pyx_L1_error)
+      __pyx_t_14 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 715, __pyx_L1_error)
     }
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
     for (;;) {
@@ -16403,17 +16423,17 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
         if (likely(PyList_CheckExact(__pyx_t_1))) {
           if (__pyx_t_13 >= PyList_GET_SIZE(__pyx_t_1)) break;
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_12 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_13); __Pyx_INCREF(__pyx_t_12); __pyx_t_13++; if (unlikely(0 < 0)) __PYX_ERR(0, 713, __pyx_L1_error)
+          __pyx_t_12 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_13); __Pyx_INCREF(__pyx_t_12); __pyx_t_13++; if (unlikely(0 < 0)) __PYX_ERR(0, 715, __pyx_L1_error)
           #else
-          __pyx_t_12 = PySequence_ITEM(__pyx_t_1, __pyx_t_13); __pyx_t_13++; if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 713, __pyx_L1_error)
+          __pyx_t_12 = PySequence_ITEM(__pyx_t_1, __pyx_t_13); __pyx_t_13++; if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 715, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_12);
           #endif
         } else {
           if (__pyx_t_13 >= PyTuple_GET_SIZE(__pyx_t_1)) break;
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_12 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_13); __Pyx_INCREF(__pyx_t_12); __pyx_t_13++; if (unlikely(0 < 0)) __PYX_ERR(0, 713, __pyx_L1_error)
+          __pyx_t_12 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_13); __Pyx_INCREF(__pyx_t_12); __pyx_t_13++; if (unlikely(0 < 0)) __PYX_ERR(0, 715, __pyx_L1_error)
           #else
-          __pyx_t_12 = PySequence_ITEM(__pyx_t_1, __pyx_t_13); __pyx_t_13++; if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 713, __pyx_L1_error)
+          __pyx_t_12 = PySequence_ITEM(__pyx_t_1, __pyx_t_13); __pyx_t_13++; if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 715, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_12);
           #endif
         }
@@ -16423,7 +16443,7 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else __PYX_ERR(0, 713, __pyx_L1_error)
+            else __PYX_ERR(0, 715, __pyx_L1_error)
           }
           break;
         }
@@ -16432,24 +16452,24 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
       __Pyx_XDECREF_SET(__pyx_v_c, __pyx_t_12);
       __pyx_t_12 = 0;
 
-      /* "cplayer.pyx":714
+      /* "cplayer.pyx":716
  *             print(child.visit_count, child.wins, child.te)
  *             for c in child.child:
  *                 print("    " + str(c.visit_count), c.wins)             # <<<<<<<<<<<<<<
  *                 for d in c.child:
  *                     print("        " + str(d.visit_count), d.wins)
  */
-      __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_v_c, __pyx_n_s_visit_count); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 714, __pyx_L1_error)
+      __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_v_c, __pyx_n_s_visit_count); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 716, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
-      __pyx_t_3 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_t_12); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 714, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_t_12); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 716, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-      __pyx_t_12 = PyNumber_Add(__pyx_kp_s__15, __pyx_t_3); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 714, __pyx_L1_error)
+      __pyx_t_12 = PyNumber_Add(__pyx_kp_s__15, __pyx_t_3); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 716, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_c, __pyx_n_s_wins); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 714, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_c, __pyx_n_s_wins); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 716, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 714, __pyx_L1_error)
+      __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 716, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_GIVEREF(__pyx_t_12);
       PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_12);
@@ -16457,25 +16477,25 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
       PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_3);
       __pyx_t_12 = 0;
       __pyx_t_3 = 0;
-      if (__Pyx_PrintOne(0, __pyx_t_2) < 0) __PYX_ERR(0, 714, __pyx_L1_error)
+      if (__Pyx_PrintOne(0, __pyx_t_2) < 0) __PYX_ERR(0, 716, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-      /* "cplayer.pyx":715
+      /* "cplayer.pyx":717
  *             for c in child.child:
  *                 print("    " + str(c.visit_count), c.wins)
  *                 for d in c.child:             # <<<<<<<<<<<<<<
  *                     print("        " + str(d.visit_count), d.wins)
  * 
  */
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_c, __pyx_n_s_child); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 715, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_c, __pyx_n_s_child); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 717, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       if (likely(PyList_CheckExact(__pyx_t_2)) || PyTuple_CheckExact(__pyx_t_2)) {
         __pyx_t_3 = __pyx_t_2; __Pyx_INCREF(__pyx_t_3); __pyx_t_15 = 0;
         __pyx_t_16 = NULL;
       } else {
-        __pyx_t_15 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 715, __pyx_L1_error)
+        __pyx_t_15 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 717, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_16 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 715, __pyx_L1_error)
+        __pyx_t_16 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 717, __pyx_L1_error)
       }
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       for (;;) {
@@ -16483,17 +16503,17 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
           if (likely(PyList_CheckExact(__pyx_t_3))) {
             if (__pyx_t_15 >= PyList_GET_SIZE(__pyx_t_3)) break;
             #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-            __pyx_t_2 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_15); __Pyx_INCREF(__pyx_t_2); __pyx_t_15++; if (unlikely(0 < 0)) __PYX_ERR(0, 715, __pyx_L1_error)
+            __pyx_t_2 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_15); __Pyx_INCREF(__pyx_t_2); __pyx_t_15++; if (unlikely(0 < 0)) __PYX_ERR(0, 717, __pyx_L1_error)
             #else
-            __pyx_t_2 = PySequence_ITEM(__pyx_t_3, __pyx_t_15); __pyx_t_15++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 715, __pyx_L1_error)
+            __pyx_t_2 = PySequence_ITEM(__pyx_t_3, __pyx_t_15); __pyx_t_15++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 717, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_2);
             #endif
           } else {
             if (__pyx_t_15 >= PyTuple_GET_SIZE(__pyx_t_3)) break;
             #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-            __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_15); __Pyx_INCREF(__pyx_t_2); __pyx_t_15++; if (unlikely(0 < 0)) __PYX_ERR(0, 715, __pyx_L1_error)
+            __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_15); __Pyx_INCREF(__pyx_t_2); __pyx_t_15++; if (unlikely(0 < 0)) __PYX_ERR(0, 717, __pyx_L1_error)
             #else
-            __pyx_t_2 = PySequence_ITEM(__pyx_t_3, __pyx_t_15); __pyx_t_15++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 715, __pyx_L1_error)
+            __pyx_t_2 = PySequence_ITEM(__pyx_t_3, __pyx_t_15); __pyx_t_15++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 717, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_2);
             #endif
           }
@@ -16503,7 +16523,7 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
             PyObject* exc_type = PyErr_Occurred();
             if (exc_type) {
               if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-              else __PYX_ERR(0, 715, __pyx_L1_error)
+              else __PYX_ERR(0, 717, __pyx_L1_error)
             }
             break;
           }
@@ -16512,24 +16532,24 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
         __Pyx_XDECREF_SET(__pyx_v_d, __pyx_t_2);
         __pyx_t_2 = 0;
 
-        /* "cplayer.pyx":716
+        /* "cplayer.pyx":718
  *                 print("    " + str(c.visit_count), c.wins)
  *                 for d in c.child:
  *                     print("        " + str(d.visit_count), d.wins)             # <<<<<<<<<<<<<<
  * 
  *         e = 0  #
  */
-        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_d, __pyx_n_s_visit_count); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 716, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_d, __pyx_n_s_visit_count); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 718, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_12 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_t_2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 716, __pyx_L1_error)
+        __pyx_t_12 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_t_2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 718, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-        __pyx_t_2 = PyNumber_Add(__pyx_kp_s__16, __pyx_t_12); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 716, __pyx_L1_error)
+        __pyx_t_2 = PyNumber_Add(__pyx_kp_s__16, __pyx_t_12); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 718, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-        __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_v_d, __pyx_n_s_wins); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 716, __pyx_L1_error)
+        __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_v_d, __pyx_n_s_wins); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 718, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
-        __pyx_t_17 = PyTuple_New(2); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 716, __pyx_L1_error)
+        __pyx_t_17 = PyTuple_New(2); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 718, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_17);
         __Pyx_GIVEREF(__pyx_t_2);
         PyTuple_SET_ITEM(__pyx_t_17, 0, __pyx_t_2);
@@ -16537,10 +16557,10 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
         PyTuple_SET_ITEM(__pyx_t_17, 1, __pyx_t_12);
         __pyx_t_2 = 0;
         __pyx_t_12 = 0;
-        if (__Pyx_PrintOne(0, __pyx_t_17) < 0) __PYX_ERR(0, 716, __pyx_L1_error)
+        if (__Pyx_PrintOne(0, __pyx_t_17) < 0) __PYX_ERR(0, 718, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
 
-        /* "cplayer.pyx":715
+        /* "cplayer.pyx":717
  *             for c in child.child:
  *                 print("    " + str(c.visit_count), c.wins)
  *                 for d in c.child:             # <<<<<<<<<<<<<<
@@ -16550,7 +16570,7 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
       }
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "cplayer.pyx":713
+      /* "cplayer.pyx":715
  *         for child in tree.child:
  *             print(child.visit_count, child.wins, child.te)
  *             for c in child.child:             # <<<<<<<<<<<<<<
@@ -16560,7 +16580,7 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "cplayer.pyx":711
+    /* "cplayer.pyx":713
  * 
  *         print("a", tree.visit_count)
  *         for child in tree.child:             # <<<<<<<<<<<<<<
@@ -16570,7 +16590,7 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
   }
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cplayer.pyx":718
+  /* "cplayer.pyx":720
  *                     print("        " + str(d.visit_count), d.wins)
  * 
  *         e = 0  #             # <<<<<<<<<<<<<<
@@ -16580,7 +16600,7 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
   __Pyx_INCREF(__pyx_int_0);
   __pyx_v_e = __pyx_int_0;
 
-  /* "cplayer.pyx":719
+  /* "cplayer.pyx":721
  * 
  *         e = 0  #
  *         vest_point = ()             # <<<<<<<<<<<<<<
@@ -16590,7 +16610,7 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
   __Pyx_INCREF(__pyx_empty_tuple);
   __pyx_v_vest_point = __pyx_empty_tuple;
 
-  /* "cplayer.pyx":720
+  /* "cplayer.pyx":722
  *         e = 0  #
  *         vest_point = ()
  *         for child in tree.child:             # <<<<<<<<<<<<<<
@@ -16599,28 +16619,28 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
  */
   if (unlikely(__pyx_v_tree->child == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-    __PYX_ERR(0, 720, __pyx_L1_error)
+    __PYX_ERR(0, 722, __pyx_L1_error)
   }
   __pyx_t_4 = __pyx_v_tree->child; __Pyx_INCREF(__pyx_t_4); __pyx_t_7 = 0;
   for (;;) {
     if (__pyx_t_7 >= PyList_GET_SIZE(__pyx_t_4)) break;
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    __pyx_t_1 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_7); __Pyx_INCREF(__pyx_t_1); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 720, __pyx_L1_error)
+    __pyx_t_1 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_7); __Pyx_INCREF(__pyx_t_1); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 722, __pyx_L1_error)
     #else
-    __pyx_t_1 = PySequence_ITEM(__pyx_t_4, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 720, __pyx_L1_error)
+    __pyx_t_1 = PySequence_ITEM(__pyx_t_4, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 722, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     #endif
     __Pyx_XDECREF_SET(__pyx_v_child, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "cplayer.pyx":722
+    /* "cplayer.pyx":724
  *         for child in tree.child:
  *             # 0
  *             if child.visit_count is not 0 and child.wins / child.visit_count > e:             # <<<<<<<<<<<<<<
  *                 e = child.wins / child.visit_count
  *                 vest_point = child.te
  */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_visit_count); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 722, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_visit_count); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 724, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_t_19 = (__pyx_t_1 != __pyx_int_0);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -16630,53 +16650,53 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
       __pyx_t_18 = __pyx_t_20;
       goto __pyx_L16_bool_binop_done;
     }
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_wins); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 722, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_wins); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 724, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_visit_count); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 722, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_visit_count); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 724, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_17 = __Pyx_PyNumber_Divide(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 722, __pyx_L1_error)
+    __pyx_t_17 = __Pyx_PyNumber_Divide(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 724, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_17);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = PyObject_RichCompare(__pyx_t_17, __pyx_v_e, Py_GT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 722, __pyx_L1_error)
+    __pyx_t_3 = PyObject_RichCompare(__pyx_t_17, __pyx_v_e, Py_GT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 724, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
-    __pyx_t_20 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_20 < 0)) __PYX_ERR(0, 722, __pyx_L1_error)
+    __pyx_t_20 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_20 < 0)) __PYX_ERR(0, 724, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_18 = __pyx_t_20;
     __pyx_L16_bool_binop_done:;
     if (__pyx_t_18) {
 
-      /* "cplayer.pyx":723
+      /* "cplayer.pyx":725
  *             # 0
  *             if child.visit_count is not 0 and child.wins / child.visit_count > e:
  *                 e = child.wins / child.visit_count             # <<<<<<<<<<<<<<
  *                 vest_point = child.te
  * 
  */
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_wins); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 723, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_wins); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 725, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_17 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_visit_count); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 723, __pyx_L1_error)
+      __pyx_t_17 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_visit_count); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 725, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_17);
-      __pyx_t_1 = __Pyx_PyNumber_Divide(__pyx_t_3, __pyx_t_17); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 723, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyNumber_Divide(__pyx_t_3, __pyx_t_17); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 725, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
       __Pyx_DECREF_SET(__pyx_v_e, __pyx_t_1);
       __pyx_t_1 = 0;
 
-      /* "cplayer.pyx":724
+      /* "cplayer.pyx":726
  *             if child.visit_count is not 0 and child.wins / child.visit_count > e:
  *                 e = child.wins / child.visit_count
  *                 vest_point = child.te             # <<<<<<<<<<<<<<
  * 
  *         if not vest_point:  #
  */
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_te); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 724, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_te); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 726, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF_SET(__pyx_v_vest_point, __pyx_t_1);
       __pyx_t_1 = 0;
 
-      /* "cplayer.pyx":722
+      /* "cplayer.pyx":724
  *         for child in tree.child:
  *             # 0
  *             if child.visit_count is not 0 and child.wins / child.visit_count > e:             # <<<<<<<<<<<<<<
@@ -16685,7 +16705,7 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
  */
     }
 
-    /* "cplayer.pyx":720
+    /* "cplayer.pyx":722
  *         e = 0  #
  *         vest_point = ()
  *         for child in tree.child:             # <<<<<<<<<<<<<<
@@ -16695,18 +16715,18 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
   }
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cplayer.pyx":726
+  /* "cplayer.pyx":728
  *                 vest_point = child.te
  * 
  *         if not vest_point:  #             # <<<<<<<<<<<<<<
  *             #
  *             legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(
  */
-  __pyx_t_18 = __Pyx_PyObject_IsTrue(__pyx_v_vest_point); if (unlikely(__pyx_t_18 < 0)) __PYX_ERR(0, 726, __pyx_L1_error)
+  __pyx_t_18 = __Pyx_PyObject_IsTrue(__pyx_v_vest_point); if (unlikely(__pyx_t_18 < 0)) __PYX_ERR(0, 728, __pyx_L1_error)
   __pyx_t_20 = ((!__pyx_t_18) != 0);
   if (__pyx_t_20) {
 
-    /* "cplayer.pyx":729
+    /* "cplayer.pyx":731
  *             #
  *             legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(
  *                 tree.board, turn)             # <<<<<<<<<<<<<<
@@ -16716,14 +16736,14 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
     __pyx_t_4 = __pyx_v_tree->board;
     __Pyx_INCREF(__pyx_t_4);
 
-    /* "cplayer.pyx":728
+    /* "cplayer.pyx":730
  *         if not vest_point:  #
  *             #
  *             legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(             # <<<<<<<<<<<<<<
  *                 tree.board, turn)
  *             vest_point = random.choice(legal_move_count_list)[:2]
  */
-    __pyx_t_1 = ((struct __pyx_vtabstruct_7cplayer_PrimitiveMonteCarloPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), ((PyObject*)__pyx_t_4), __pyx_v_turn); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 728, __pyx_L1_error)
+    __pyx_t_1 = ((struct __pyx_vtabstruct_7cplayer_PrimitiveMonteCarloPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), ((PyObject*)__pyx_t_4), __pyx_v_turn); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 730, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     if (likely(__pyx_t_1 != Py_None)) {
@@ -16732,7 +16752,7 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
       if (unlikely(size != 3)) {
         if (size > 3) __Pyx_RaiseTooManyValuesError(3);
         else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        __PYX_ERR(0, 728, __pyx_L1_error)
+        __PYX_ERR(0, 730, __pyx_L1_error)
       }
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
       __pyx_t_4 = PyTuple_GET_ITEM(sequence, 0); 
@@ -16742,37 +16762,37 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
       __Pyx_INCREF(__pyx_t_17);
       __Pyx_INCREF(__pyx_t_3);
       #else
-      __pyx_t_4 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 728, __pyx_L1_error)
+      __pyx_t_4 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 730, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_17 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 728, __pyx_L1_error)
+      __pyx_t_17 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 730, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_17);
-      __pyx_t_3 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 728, __pyx_L1_error)
+      __pyx_t_3 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 730, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       #endif
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     } else {
-      __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 728, __pyx_L1_error)
+      __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 730, __pyx_L1_error)
     }
-    if (!(likely(PyList_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_4)->tp_name), 0))) __PYX_ERR(0, 728, __pyx_L1_error)
-    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_17); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 728, __pyx_L1_error)
+    if (!(likely(PyList_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_4)->tp_name), 0))) __PYX_ERR(0, 730, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_17); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 730, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
-    __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 728, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 730, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF_SET(__pyx_v_legal_move_count_list, ((PyObject*)__pyx_t_4));
     __pyx_t_4 = 0;
     __pyx_v_black_stones = __pyx_t_6;
     __pyx_v_white_stones = __pyx_t_5;
 
-    /* "cplayer.pyx":730
+    /* "cplayer.pyx":732
  *             legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(
  *                 tree.board, turn)
  *             vest_point = random.choice(legal_move_count_list)[:2]             # <<<<<<<<<<<<<<
  *         return vest_point
  * 
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_random); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 730, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_random); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 732, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_17 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_choice); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 730, __pyx_L1_error)
+    __pyx_t_17 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_choice); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 732, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_17);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_3 = NULL;
@@ -16787,16 +16807,16 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
     }
     __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_17, __pyx_t_3, __pyx_v_legal_move_count_list) : __Pyx_PyObject_CallOneArg(__pyx_t_17, __pyx_v_legal_move_count_list);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 730, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 732, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
-    __pyx_t_17 = __Pyx_PyObject_GetSlice(__pyx_t_1, 0, 2, NULL, NULL, &__pyx_slice__17, 0, 1, 1); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 730, __pyx_L1_error)
+    __pyx_t_17 = __Pyx_PyObject_GetSlice(__pyx_t_1, 0, 2, NULL, NULL, &__pyx_slice__17, 0, 1, 1); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 732, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_17);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF_SET(__pyx_v_vest_point, __pyx_t_17);
     __pyx_t_17 = 0;
 
-    /* "cplayer.pyx":726
+    /* "cplayer.pyx":728
  *                 vest_point = child.te
  * 
  *         if not vest_point:  #             # <<<<<<<<<<<<<<
@@ -16805,7 +16825,7 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
  */
   }
 
-  /* "cplayer.pyx":731
+  /* "cplayer.pyx":733
  *                 tree.board, turn)
  *             vest_point = random.choice(legal_move_count_list)[:2]
  *         return vest_point             # <<<<<<<<<<<<<<
@@ -16813,12 +16833,12 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
  *     @cython.nonecheck(False)
  */
   __Pyx_XDECREF(__pyx_r);
-  if (!(likely(PyTuple_CheckExact(__pyx_v_vest_point))||((__pyx_v_vest_point) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "tuple", Py_TYPE(__pyx_v_vest_point)->tp_name), 0))) __PYX_ERR(0, 731, __pyx_L1_error)
+  if (!(likely(PyTuple_CheckExact(__pyx_v_vest_point))||((__pyx_v_vest_point) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "tuple", Py_TYPE(__pyx_v_vest_point)->tp_name), 0))) __PYX_ERR(0, 733, __pyx_L1_error)
   __Pyx_INCREF(__pyx_v_vest_point);
   __pyx_r = ((PyObject*)__pyx_v_vest_point);
   goto __pyx_L0;
 
-  /* "cplayer.pyx":690
+  /* "cplayer.pyx":692
  * 
  *     @cython.nonecheck(False)
  *     cdef tuple primitive_montecarlo(self, int turn, node tree):             # <<<<<<<<<<<<<<
@@ -16849,7 +16869,7 @@ static PyObject *__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_primitive_montecar
   return __pyx_r;
 }
 
-/* "cplayer.pyx":734
+/* "cplayer.pyx":736
  * 
  *     @cython.nonecheck(False)
  *     cdef int playout(self, list board, int player):             # <<<<<<<<<<<<<<
@@ -16885,45 +16905,45 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
   int __pyx_t_12;
   __Pyx_RefNannySetupContext("playout", 0);
 
-  /* "cplayer.pyx":735
+  /* "cplayer.pyx":737
  *     @cython.nonecheck(False)
  *     cdef int playout(self, list board, int player):
  *         cdef int opponent = Turn.BLACK if player == Turn.WHITE else Turn.WHITE             # <<<<<<<<<<<<<<
  *         #
  *         cdef list legal_move_count_list, _legal_move_count_list
  */
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_player); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 735, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_player); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 737, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 735, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 737, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyObject_RichCompare(__pyx_t_2, __pyx_t_3, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 735, __pyx_L1_error)
+  __pyx_t_4 = PyObject_RichCompare(__pyx_t_2, __pyx_t_3, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 737, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 735, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 737, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (__pyx_t_5) {
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_BLACK); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 735, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_BLACK); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 737, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 735, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 737, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_1 = __pyx_t_6;
   } else {
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 735, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 737, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 735, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 737, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_1 = __pyx_t_6;
   }
   __pyx_v_opponent = __pyx_t_1;
 
-  /* "cplayer.pyx":743
+  /* "cplayer.pyx":745
  *         cdef int y, x, count
  * 
  *         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(             # <<<<<<<<<<<<<<
  *         board, player)
  * 
  */
-  __pyx_t_4 = ((struct __pyx_vtabstruct_7cplayer_PrimitiveMonteCarloPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v_board, __pyx_v_player); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 743, __pyx_L1_error)
+  __pyx_t_4 = ((struct __pyx_vtabstruct_7cplayer_PrimitiveMonteCarloPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v_board, __pyx_v_player); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 745, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   if (likely(__pyx_t_4 != Py_None)) {
     PyObject* sequence = __pyx_t_4;
@@ -16931,7 +16951,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
     if (unlikely(size != 3)) {
       if (size > 3) __Pyx_RaiseTooManyValuesError(3);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 743, __pyx_L1_error)
+      __PYX_ERR(0, 745, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     __pyx_t_3 = PyTuple_GET_ITEM(sequence, 0); 
@@ -16941,28 +16961,28 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
     __Pyx_INCREF(__pyx_t_2);
     __Pyx_INCREF(__pyx_t_7);
     #else
-    __pyx_t_3 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 743, __pyx_L1_error)
+    __pyx_t_3 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 745, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 743, __pyx_L1_error)
+    __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 745, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_7 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 743, __pyx_L1_error)
+    __pyx_t_7 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 745, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     #endif
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   } else {
-    __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 743, __pyx_L1_error)
+    __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 745, __pyx_L1_error)
   }
-  if (!(likely(PyList_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 743, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 743, __pyx_L1_error)
+  if (!(likely(PyList_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 745, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 745, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_7); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 743, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_7); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 745, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_v_legal_move_count_list = ((PyObject*)__pyx_t_3);
   __pyx_t_3 = 0;
   __pyx_v_black_stones = __pyx_t_1;
   __pyx_v_white_stones = __pyx_t_6;
 
-  /* "cplayer.pyx":746
+  /* "cplayer.pyx":748
  *         board, player)
  * 
  *         if len(legal_move_count_list) == 0:             # <<<<<<<<<<<<<<
@@ -16971,51 +16991,51 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
  */
   if (unlikely(__pyx_v_legal_move_count_list == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 746, __pyx_L1_error)
+    __PYX_ERR(0, 748, __pyx_L1_error)
   }
-  __pyx_t_8 = PyList_GET_SIZE(__pyx_v_legal_move_count_list); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 746, __pyx_L1_error)
+  __pyx_t_8 = PyList_GET_SIZE(__pyx_v_legal_move_count_list); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 748, __pyx_L1_error)
   __pyx_t_5 = ((__pyx_t_8 == 0) != 0);
   if (__pyx_t_5) {
 
-    /* "cplayer.pyx":748
+    /* "cplayer.pyx":750
  *         if len(legal_move_count_list) == 0:
  *             #
  *             opponent = Turn.BLACK if player == Turn.WHITE else Turn.WHITE             # <<<<<<<<<<<<<<
  *             _legal_move_count_list, black_stones, white_stones = \
  *                 self.exist_legal_move_and_count_stones(board, opponent)
  */
-    __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_player); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 748, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_player); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 750, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 748, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 750, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_2 = PyObject_RichCompare(__pyx_t_4, __pyx_t_7, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 748, __pyx_L1_error)
+    __pyx_t_2 = PyObject_RichCompare(__pyx_t_4, __pyx_t_7, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 750, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 748, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 750, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (__pyx_t_5) {
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_BLACK); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 748, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_BLACK); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 750, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 748, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 750, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __pyx_t_6 = __pyx_t_1;
     } else {
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 748, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 750, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 748, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 750, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __pyx_t_6 = __pyx_t_1;
     }
     __pyx_v_opponent = __pyx_t_6;
 
-    /* "cplayer.pyx":750
+    /* "cplayer.pyx":752
  *             opponent = Turn.BLACK if player == Turn.WHITE else Turn.WHITE
  *             _legal_move_count_list, black_stones, white_stones = \
  *                 self.exist_legal_move_and_count_stones(board, opponent)             # <<<<<<<<<<<<<<
  *             legal_move_list = []
  *             for i in _legal_move_count_list:
  */
-    __pyx_t_2 = ((struct __pyx_vtabstruct_7cplayer_PrimitiveMonteCarloPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v_board, __pyx_v_opponent); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 750, __pyx_L1_error)
+    __pyx_t_2 = ((struct __pyx_vtabstruct_7cplayer_PrimitiveMonteCarloPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v_board, __pyx_v_opponent); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 752, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     if (likely(__pyx_t_2 != Py_None)) {
       PyObject* sequence = __pyx_t_2;
@@ -17023,7 +17043,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
       if (unlikely(size != 3)) {
         if (size > 3) __Pyx_RaiseTooManyValuesError(3);
         else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        __PYX_ERR(0, 749, __pyx_L1_error)
+        __PYX_ERR(0, 751, __pyx_L1_error)
       }
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
       __pyx_t_7 = PyTuple_GET_ITEM(sequence, 0); 
@@ -17033,48 +17053,48 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
       __Pyx_INCREF(__pyx_t_4);
       __Pyx_INCREF(__pyx_t_3);
       #else
-      __pyx_t_7 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 749, __pyx_L1_error)
+      __pyx_t_7 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 751, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_4 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 749, __pyx_L1_error)
+      __pyx_t_4 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 751, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_3 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 749, __pyx_L1_error)
+      __pyx_t_3 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 751, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       #endif
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     } else {
-      __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 749, __pyx_L1_error)
+      __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 751, __pyx_L1_error)
     }
 
-    /* "cplayer.pyx":749
+    /* "cplayer.pyx":751
  *             #
  *             opponent = Turn.BLACK if player == Turn.WHITE else Turn.WHITE
  *             _legal_move_count_list, black_stones, white_stones = \             # <<<<<<<<<<<<<<
  *                 self.exist_legal_move_and_count_stones(board, opponent)
  *             legal_move_list = []
  */
-    if (!(likely(PyList_CheckExact(__pyx_t_7))||((__pyx_t_7) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_7)->tp_name), 0))) __PYX_ERR(0, 749, __pyx_L1_error)
-    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 749, __pyx_L1_error)
+    if (!(likely(PyList_CheckExact(__pyx_t_7))||((__pyx_t_7) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_7)->tp_name), 0))) __PYX_ERR(0, 751, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 751, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 749, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 751, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_v__legal_move_count_list = ((PyObject*)__pyx_t_7);
     __pyx_t_7 = 0;
     __pyx_v_black_stones = __pyx_t_6;
     __pyx_v_white_stones = __pyx_t_1;
 
-    /* "cplayer.pyx":751
+    /* "cplayer.pyx":753
  *             _legal_move_count_list, black_stones, white_stones = \
  *                 self.exist_legal_move_and_count_stones(board, opponent)
  *             legal_move_list = []             # <<<<<<<<<<<<<<
  *             for i in _legal_move_count_list:
  *                 legal_move_list.append((i[0:2]))
  */
-    __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 751, __pyx_L1_error)
+    __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 753, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_v_legal_move_list = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "cplayer.pyx":752
+    /* "cplayer.pyx":754
  *                 self.exist_legal_move_and_count_stones(board, opponent)
  *             legal_move_list = []
  *             for i in _legal_move_count_list:             # <<<<<<<<<<<<<<
@@ -17083,33 +17103,33 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
  */
     if (unlikely(__pyx_v__legal_move_count_list == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-      __PYX_ERR(0, 752, __pyx_L1_error)
+      __PYX_ERR(0, 754, __pyx_L1_error)
     }
     __pyx_t_2 = __pyx_v__legal_move_count_list; __Pyx_INCREF(__pyx_t_2); __pyx_t_8 = 0;
     for (;;) {
       if (__pyx_t_8 >= PyList_GET_SIZE(__pyx_t_2)) break;
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-      __pyx_t_3 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_8); __Pyx_INCREF(__pyx_t_3); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 752, __pyx_L1_error)
+      __pyx_t_3 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_8); __Pyx_INCREF(__pyx_t_3); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 754, __pyx_L1_error)
       #else
-      __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 752, __pyx_L1_error)
+      __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 754, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       #endif
       __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_3);
       __pyx_t_3 = 0;
 
-      /* "cplayer.pyx":753
+      /* "cplayer.pyx":755
  *             legal_move_list = []
  *             for i in _legal_move_count_list:
  *                 legal_move_list.append((i[0:2]))             # <<<<<<<<<<<<<<
  *              # ()
  *              # :
  */
-      __pyx_t_3 = __Pyx_PyObject_GetSlice(__pyx_v_i, 0, 2, NULL, NULL, &__pyx_slice_, 1, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 753, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetSlice(__pyx_v_i, 0, 2, NULL, NULL, &__pyx_slice_, 1, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 755, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_9 = __Pyx_PyList_Append(__pyx_v_legal_move_list, __pyx_t_3); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 753, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyList_Append(__pyx_v_legal_move_list, __pyx_t_3); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 755, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "cplayer.pyx":752
+      /* "cplayer.pyx":754
  *                 self.exist_legal_move_and_count_stones(board, opponent)
  *             legal_move_list = []
  *             for i in _legal_move_count_list:             # <<<<<<<<<<<<<<
@@ -17119,36 +17139,36 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
     }
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "cplayer.pyx":758
+    /* "cplayer.pyx":760
  *              # :
  *              # :
  *             if len(legal_move_list) == 0:             # <<<<<<<<<<<<<<
  *                 #
  *                 if self.player == Turn.BLACK:
  */
-    __pyx_t_8 = PyList_GET_SIZE(__pyx_v_legal_move_list); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 758, __pyx_L1_error)
+    __pyx_t_8 = PyList_GET_SIZE(__pyx_v_legal_move_list); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 760, __pyx_L1_error)
     __pyx_t_5 = ((__pyx_t_8 == 0) != 0);
     if (__pyx_t_5) {
 
-      /* "cplayer.pyx":760
+      /* "cplayer.pyx":762
  *             if len(legal_move_list) == 0:
  *                 #
  *                 if self.player == Turn.BLACK:             # <<<<<<<<<<<<<<
  *                     if black_stones > white_stones:
  *                         return 1
  */
-      __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->__pyx_base.player); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 760, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->__pyx_base.player); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 762, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_BLACK); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 760, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_BLACK); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 762, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_4 = PyObject_RichCompare(__pyx_t_2, __pyx_t_3, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 760, __pyx_L1_error)
+      __pyx_t_4 = PyObject_RichCompare(__pyx_t_2, __pyx_t_3, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 762, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 760, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 762, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       if (__pyx_t_5) {
 
-        /* "cplayer.pyx":761
+        /* "cplayer.pyx":763
  *                 #
  *                 if self.player == Turn.BLACK:
  *                     if black_stones > white_stones:             # <<<<<<<<<<<<<<
@@ -17158,7 +17178,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
         __pyx_t_5 = ((__pyx_v_black_stones > __pyx_v_white_stones) != 0);
         if (__pyx_t_5) {
 
-          /* "cplayer.pyx":762
+          /* "cplayer.pyx":764
  *                 if self.player == Turn.BLACK:
  *                     if black_stones > white_stones:
  *                         return 1             # <<<<<<<<<<<<<<
@@ -17168,7 +17188,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
           __pyx_r = 1;
           goto __pyx_L0;
 
-          /* "cplayer.pyx":761
+          /* "cplayer.pyx":763
  *                 #
  *                 if self.player == Turn.BLACK:
  *                     if black_stones > white_stones:             # <<<<<<<<<<<<<<
@@ -17177,7 +17197,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
  */
         }
 
-        /* "cplayer.pyx":764
+        /* "cplayer.pyx":766
  *                         return 1
  *                     else:
  *                         return 0             # <<<<<<<<<<<<<<
@@ -17189,7 +17209,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
           goto __pyx_L0;
         }
 
-        /* "cplayer.pyx":760
+        /* "cplayer.pyx":762
  *             if len(legal_move_list) == 0:
  *                 #
  *                 if self.player == Turn.BLACK:             # <<<<<<<<<<<<<<
@@ -17198,7 +17218,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
  */
       }
 
-      /* "cplayer.pyx":766
+      /* "cplayer.pyx":768
  *                         return 0
  *                 else:
  *                     if white_stones > black_stones:             # <<<<<<<<<<<<<<
@@ -17209,7 +17229,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
         __pyx_t_5 = ((__pyx_v_white_stones > __pyx_v_black_stones) != 0);
         if (__pyx_t_5) {
 
-          /* "cplayer.pyx":767
+          /* "cplayer.pyx":769
  *                 else:
  *                     if white_stones > black_stones:
  *                         return 1             # <<<<<<<<<<<<<<
@@ -17219,7 +17239,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
           __pyx_r = 1;
           goto __pyx_L0;
 
-          /* "cplayer.pyx":766
+          /* "cplayer.pyx":768
  *                         return 0
  *                 else:
  *                     if white_stones > black_stones:             # <<<<<<<<<<<<<<
@@ -17228,7 +17248,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
  */
         }
 
-        /* "cplayer.pyx":769
+        /* "cplayer.pyx":771
  *                         return 1
  *                     else:
  *                         return 0             # <<<<<<<<<<<<<<
@@ -17241,7 +17261,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
         }
       }
 
-      /* "cplayer.pyx":758
+      /* "cplayer.pyx":760
  *              # :
  *              # :
  *             if len(legal_move_list) == 0:             # <<<<<<<<<<<<<<
@@ -17250,7 +17270,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
  */
     }
 
-    /* "cplayer.pyx":771
+    /* "cplayer.pyx":773
  *                         return 0
  *             else:
  *                 y, x, count = random.choice(_legal_move_count_list)             # <<<<<<<<<<<<<<
@@ -17258,9 +17278,9 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
  *                 self.put_stone(copy_board, y, x, player)
  */
     /*else*/ {
-      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_random); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 771, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_random); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 773, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_choice); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 771, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_choice); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 773, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __pyx_t_3 = NULL;
@@ -17275,7 +17295,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
       }
       __pyx_t_4 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v__legal_move_count_list) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v__legal_move_count_list);
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 771, __pyx_L1_error)
+      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 773, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       if ((likely(PyTuple_CheckExact(__pyx_t_4))) || (PyList_CheckExact(__pyx_t_4))) {
@@ -17284,7 +17304,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
         if (unlikely(size != 3)) {
           if (size > 3) __Pyx_RaiseTooManyValuesError(3);
           else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-          __PYX_ERR(0, 771, __pyx_L1_error)
+          __PYX_ERR(0, 773, __pyx_L1_error)
         }
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
         if (likely(PyTuple_CheckExact(sequence))) {
@@ -17300,17 +17320,17 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
         __Pyx_INCREF(__pyx_t_3);
         __Pyx_INCREF(__pyx_t_7);
         #else
-        __pyx_t_2 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 771, __pyx_L1_error)
+        __pyx_t_2 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 773, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 771, __pyx_L1_error)
+        __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 773, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_7 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 771, __pyx_L1_error)
+        __pyx_t_7 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 773, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
         #endif
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       } else {
         Py_ssize_t index = -1;
-        __pyx_t_10 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 771, __pyx_L1_error)
+        __pyx_t_10 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 773, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __pyx_t_11 = Py_TYPE(__pyx_t_10)->tp_iternext;
@@ -17320,7 +17340,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
         __Pyx_GOTREF(__pyx_t_3);
         index = 2; __pyx_t_7 = __pyx_t_11(__pyx_t_10); if (unlikely(!__pyx_t_7)) goto __pyx_L10_unpacking_failed;
         __Pyx_GOTREF(__pyx_t_7);
-        if (__Pyx_IternextUnpackEndCheck(__pyx_t_11(__pyx_t_10), 3) < 0) __PYX_ERR(0, 771, __pyx_L1_error)
+        if (__Pyx_IternextUnpackEndCheck(__pyx_t_11(__pyx_t_10), 3) < 0) __PYX_ERR(0, 773, __pyx_L1_error)
         __pyx_t_11 = NULL;
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         goto __pyx_L11_unpacking_done;
@@ -17328,29 +17348,29 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         __pyx_t_11 = NULL;
         if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-        __PYX_ERR(0, 771, __pyx_L1_error)
+        __PYX_ERR(0, 773, __pyx_L1_error)
         __pyx_L11_unpacking_done:;
       }
-      __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 771, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 773, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 771, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 773, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_12 = __Pyx_PyInt_As_int(__pyx_t_7); if (unlikely((__pyx_t_12 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 771, __pyx_L1_error)
+      __pyx_t_12 = __Pyx_PyInt_As_int(__pyx_t_7); if (unlikely((__pyx_t_12 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 773, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __pyx_v_y = __pyx_t_1;
       __pyx_v_x = __pyx_t_6;
       __pyx_v_count = __pyx_t_12;
 
-      /* "cplayer.pyx":772
+      /* "cplayer.pyx":774
  *             else:
  *                 y, x, count = random.choice(_legal_move_count_list)
  *                 copy_board = copy.deepcopy(board)             # <<<<<<<<<<<<<<
  *                 self.put_stone(copy_board, y, x, player)
  *                 if self.playout(copy_board, opponent) == 1:
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_copy); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 772, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_copy); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 774, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_deepcopy); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 772, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_deepcopy); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 774, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __pyx_t_7 = NULL;
@@ -17365,14 +17385,14 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
       }
       __pyx_t_4 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_7, __pyx_v_board) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_board);
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 772, __pyx_L1_error)
+      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 774, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (!(likely(PyList_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_4)->tp_name), 0))) __PYX_ERR(0, 772, __pyx_L1_error)
+      if (!(likely(PyList_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_4)->tp_name), 0))) __PYX_ERR(0, 774, __pyx_L1_error)
       __pyx_v_copy_board = ((PyObject*)__pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "cplayer.pyx":773
+      /* "cplayer.pyx":775
  *                 y, x, count = random.choice(_legal_move_count_list)
  *                 copy_board = copy.deepcopy(board)
  *                 self.put_stone(copy_board, y, x, player)             # <<<<<<<<<<<<<<
@@ -17381,7 +17401,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
  */
       ((struct __pyx_vtabstruct_7cplayer_PrimitiveMonteCarloPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.put_stone(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v_copy_board, __pyx_v_y, __pyx_v_x, __pyx_v_player);
 
-      /* "cplayer.pyx":774
+      /* "cplayer.pyx":776
  *                 copy_board = copy.deepcopy(board)
  *                 self.put_stone(copy_board, y, x, player)
  *                 if self.playout(copy_board, opponent) == 1:             # <<<<<<<<<<<<<<
@@ -17391,7 +17411,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
       __pyx_t_5 = ((((struct __pyx_vtabstruct_7cplayer_PrimitiveMonteCarloPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->playout(__pyx_v_self, __pyx_v_copy_board, __pyx_v_opponent) == 1) != 0);
       if (__pyx_t_5) {
 
-        /* "cplayer.pyx":775
+        /* "cplayer.pyx":777
  *                 self.put_stone(copy_board, y, x, player)
  *                 if self.playout(copy_board, opponent) == 1:
  *                     return 1             # <<<<<<<<<<<<<<
@@ -17401,7 +17421,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
         __pyx_r = 1;
         goto __pyx_L0;
 
-        /* "cplayer.pyx":774
+        /* "cplayer.pyx":776
  *                 copy_board = copy.deepcopy(board)
  *                 self.put_stone(copy_board, y, x, player)
  *                 if self.playout(copy_board, opponent) == 1:             # <<<<<<<<<<<<<<
@@ -17410,7 +17430,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
  */
       }
 
-      /* "cplayer.pyx":777
+      /* "cplayer.pyx":779
  *                     return 1
  *                 else:
  *                     return 0             # <<<<<<<<<<<<<<
@@ -17423,7 +17443,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
       }
     }
 
-    /* "cplayer.pyx":746
+    /* "cplayer.pyx":748
  *         board, player)
  * 
  *         if len(legal_move_count_list) == 0:             # <<<<<<<<<<<<<<
@@ -17432,16 +17452,16 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
  */
   }
 
-  /* "cplayer.pyx":779
+  /* "cplayer.pyx":781
  *                     return 0
  * 
  *         y, x, count = random.choice(legal_move_count_list)             # <<<<<<<<<<<<<<
  *         copy_board = copy.deepcopy(board)
  *         self.put_stone(copy_board, y, x, player)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_random); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 779, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_random); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 781, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_choice); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 779, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_choice); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 781, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -17456,7 +17476,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
   }
   __pyx_t_4 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_7, __pyx_t_3, __pyx_v_legal_move_count_list) : __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_v_legal_move_count_list);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 779, __pyx_L1_error)
+  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 781, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   if ((likely(PyTuple_CheckExact(__pyx_t_4))) || (PyList_CheckExact(__pyx_t_4))) {
@@ -17465,7 +17485,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
     if (unlikely(size != 3)) {
       if (size > 3) __Pyx_RaiseTooManyValuesError(3);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 779, __pyx_L1_error)
+      __PYX_ERR(0, 781, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     if (likely(PyTuple_CheckExact(sequence))) {
@@ -17481,17 +17501,17 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
     __Pyx_INCREF(__pyx_t_3);
     __Pyx_INCREF(__pyx_t_2);
     #else
-    __pyx_t_7 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 779, __pyx_L1_error)
+    __pyx_t_7 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 781, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 779, __pyx_L1_error)
+    __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 781, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 779, __pyx_L1_error)
+    __pyx_t_2 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 781, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     #endif
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   } else {
     Py_ssize_t index = -1;
-    __pyx_t_10 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 779, __pyx_L1_error)
+    __pyx_t_10 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 781, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_11 = Py_TYPE(__pyx_t_10)->tp_iternext;
@@ -17501,7 +17521,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
     __Pyx_GOTREF(__pyx_t_3);
     index = 2; __pyx_t_2 = __pyx_t_11(__pyx_t_10); if (unlikely(!__pyx_t_2)) goto __pyx_L13_unpacking_failed;
     __Pyx_GOTREF(__pyx_t_2);
-    if (__Pyx_IternextUnpackEndCheck(__pyx_t_11(__pyx_t_10), 3) < 0) __PYX_ERR(0, 779, __pyx_L1_error)
+    if (__Pyx_IternextUnpackEndCheck(__pyx_t_11(__pyx_t_10), 3) < 0) __PYX_ERR(0, 781, __pyx_L1_error)
     __pyx_t_11 = NULL;
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     goto __pyx_L14_unpacking_done;
@@ -17509,29 +17529,29 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     __pyx_t_11 = NULL;
     if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-    __PYX_ERR(0, 779, __pyx_L1_error)
+    __PYX_ERR(0, 781, __pyx_L1_error)
     __pyx_L14_unpacking_done:;
   }
-  __pyx_t_12 = __Pyx_PyInt_As_int(__pyx_t_7); if (unlikely((__pyx_t_12 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 779, __pyx_L1_error)
+  __pyx_t_12 = __Pyx_PyInt_As_int(__pyx_t_7); if (unlikely((__pyx_t_12 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 781, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 779, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 781, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 779, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 781, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_y = __pyx_t_12;
   __pyx_v_x = __pyx_t_6;
   __pyx_v_count = __pyx_t_1;
 
-  /* "cplayer.pyx":780
+  /* "cplayer.pyx":782
  * 
  *         y, x, count = random.choice(legal_move_count_list)
  *         copy_board = copy.deepcopy(board)             # <<<<<<<<<<<<<<
  *         self.put_stone(copy_board, y, x, player)
  *         if self.playout(copy_board, opponent) == 1:
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_copy); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 780, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_copy); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 782, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_deepcopy); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 780, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_deepcopy); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 782, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -17546,14 +17566,14 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
   }
   __pyx_t_4 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_2, __pyx_v_board) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_board);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 780, __pyx_L1_error)
+  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 782, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (!(likely(PyList_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_4)->tp_name), 0))) __PYX_ERR(0, 780, __pyx_L1_error)
+  if (!(likely(PyList_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_4)->tp_name), 0))) __PYX_ERR(0, 782, __pyx_L1_error)
   __pyx_v_copy_board = ((PyObject*)__pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "cplayer.pyx":781
+  /* "cplayer.pyx":783
  *         y, x, count = random.choice(legal_move_count_list)
  *         copy_board = copy.deepcopy(board)
  *         self.put_stone(copy_board, y, x, player)             # <<<<<<<<<<<<<<
@@ -17562,7 +17582,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
  */
   ((struct __pyx_vtabstruct_7cplayer_PrimitiveMonteCarloPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.put_stone(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v_copy_board, __pyx_v_y, __pyx_v_x, __pyx_v_player);
 
-  /* "cplayer.pyx":782
+  /* "cplayer.pyx":784
  *         copy_board = copy.deepcopy(board)
  *         self.put_stone(copy_board, y, x, player)
  *         if self.playout(copy_board, opponent) == 1:             # <<<<<<<<<<<<<<
@@ -17572,7 +17592,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
   __pyx_t_5 = ((((struct __pyx_vtabstruct_7cplayer_PrimitiveMonteCarloPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->playout(__pyx_v_self, __pyx_v_copy_board, __pyx_v_opponent) == 1) != 0);
   if (__pyx_t_5) {
 
-    /* "cplayer.pyx":783
+    /* "cplayer.pyx":785
  *         self.put_stone(copy_board, y, x, player)
  *         if self.playout(copy_board, opponent) == 1:
  *             return 1             # <<<<<<<<<<<<<<
@@ -17582,7 +17602,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
     __pyx_r = 1;
     goto __pyx_L0;
 
-    /* "cplayer.pyx":782
+    /* "cplayer.pyx":784
  *         copy_board = copy.deepcopy(board)
  *         self.put_stone(copy_board, y, x, player)
  *         if self.playout(copy_board, opponent) == 1:             # <<<<<<<<<<<<<<
@@ -17591,7 +17611,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
  */
   }
 
-  /* "cplayer.pyx":785
+  /* "cplayer.pyx":787
  *             return 1
  *         else:
  *             return 0             # <<<<<<<<<<<<<<
@@ -17603,7 +17623,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
     goto __pyx_L0;
   }
 
-  /* "cplayer.pyx":734
+  /* "cplayer.pyx":736
  * 
  *     @cython.nonecheck(False)
  *     cdef int playout(self, list board, int player):             # <<<<<<<<<<<<<<
@@ -17630,7 +17650,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout(struct __pyx_obj
   return __pyx_r;
 }
 
-/* "cplayer.pyx":788
+/* "cplayer.pyx":790
  * 
  *     @cython.nonecheck(False)
  *     cdef int selection(self, int player, node tree):             # <<<<<<<<<<<<<<
@@ -17661,7 +17681,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_selection(struct __pyx_o
   int __pyx_t_9;
   __Pyx_RefNannySetupContext("selection", 0);
 
-  /* "cplayer.pyx":799
+  /* "cplayer.pyx":801
  *         cdef int opponent
  * 
  *         tree.visit_count += 1             # <<<<<<<<<<<<<<
@@ -17670,7 +17690,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_selection(struct __pyx_o
  */
   __pyx_v_tree->visit_count = (__pyx_v_tree->visit_count + 1);
 
-  /* "cplayer.pyx":803
+  /* "cplayer.pyx":805
  *         #
  *         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(
  *             tree.board, player)             # <<<<<<<<<<<<<<
@@ -17680,14 +17700,14 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_selection(struct __pyx_o
   __pyx_t_1 = __pyx_v_tree->board;
   __Pyx_INCREF(__pyx_t_1);
 
-  /* "cplayer.pyx":802
+  /* "cplayer.pyx":804
  * 
  *         #
  *         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(             # <<<<<<<<<<<<<<
  *             tree.board, player)
  * 
  */
-  __pyx_t_2 = ((struct __pyx_vtabstruct_7cplayer_PrimitiveMonteCarloPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), ((PyObject*)__pyx_t_1), __pyx_v_player); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 802, __pyx_L1_error)
+  __pyx_t_2 = ((struct __pyx_vtabstruct_7cplayer_PrimitiveMonteCarloPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), ((PyObject*)__pyx_t_1), __pyx_v_player); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 804, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (likely(__pyx_t_2 != Py_None)) {
@@ -17696,7 +17716,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_selection(struct __pyx_o
     if (unlikely(size != 3)) {
       if (size > 3) __Pyx_RaiseTooManyValuesError(3);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 802, __pyx_L1_error)
+      __PYX_ERR(0, 804, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     __pyx_t_1 = PyTuple_GET_ITEM(sequence, 0); 
@@ -17706,28 +17726,28 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_selection(struct __pyx_o
     __Pyx_INCREF(__pyx_t_3);
     __Pyx_INCREF(__pyx_t_4);
     #else
-    __pyx_t_1 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 802, __pyx_L1_error)
+    __pyx_t_1 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 804, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 802, __pyx_L1_error)
+    __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 804, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 802, __pyx_L1_error)
+    __pyx_t_4 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 804, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     #endif
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   } else {
-    __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 802, __pyx_L1_error)
+    __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 804, __pyx_L1_error)
   }
-  if (!(likely(PyList_CheckExact(__pyx_t_1))||((__pyx_t_1) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_1)->tp_name), 0))) __PYX_ERR(0, 802, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 802, __pyx_L1_error)
+  if (!(likely(PyList_CheckExact(__pyx_t_1))||((__pyx_t_1) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_1)->tp_name), 0))) __PYX_ERR(0, 804, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 804, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 802, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 804, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_v_legal_move_count_list = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
   __pyx_v_black_stones = __pyx_t_5;
   __pyx_v_white_stones = __pyx_t_6;
 
-  /* "cplayer.pyx":805
+  /* "cplayer.pyx":807
  *             tree.board, player)
  * 
  *         if len(legal_move_count_list) == 0:             # <<<<<<<<<<<<<<
@@ -17736,44 +17756,44 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_selection(struct __pyx_o
  */
   if (unlikely(__pyx_v_legal_move_count_list == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 805, __pyx_L1_error)
+    __PYX_ERR(0, 807, __pyx_L1_error)
   }
-  __pyx_t_7 = PyList_GET_SIZE(__pyx_v_legal_move_count_list); if (unlikely(__pyx_t_7 == ((Py_ssize_t)-1))) __PYX_ERR(0, 805, __pyx_L1_error)
+  __pyx_t_7 = PyList_GET_SIZE(__pyx_v_legal_move_count_list); if (unlikely(__pyx_t_7 == ((Py_ssize_t)-1))) __PYX_ERR(0, 807, __pyx_L1_error)
   __pyx_t_8 = ((__pyx_t_7 == 0) != 0);
   if (__pyx_t_8) {
 
-    /* "cplayer.pyx":807
+    /* "cplayer.pyx":809
  *         if len(legal_move_count_list) == 0:
  *             #
  *             opponent = Turn.BLACK if player == Turn.WHITE else Turn.WHITE             # <<<<<<<<<<<<<<
  *             _legal_move_count_list, black_stones, white_stones = \
  *                 self.exist_legal_move_and_count_stones(tree.board, opponent)
  */
-    __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_player); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 807, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_player); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 809, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 807, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 809, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_3 = PyObject_RichCompare(__pyx_t_2, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 807, __pyx_L1_error)
+    __pyx_t_3 = PyObject_RichCompare(__pyx_t_2, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 809, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 807, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 809, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_8) {
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_BLACK); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 807, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_BLACK); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 809, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 807, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 809, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __pyx_t_6 = __pyx_t_5;
     } else {
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 807, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 809, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 807, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 809, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __pyx_t_6 = __pyx_t_5;
     }
     __pyx_v_opponent = __pyx_t_6;
 
-    /* "cplayer.pyx":809
+    /* "cplayer.pyx":811
  *             opponent = Turn.BLACK if player == Turn.WHITE else Turn.WHITE
  *             _legal_move_count_list, black_stones, white_stones = \
  *                 self.exist_legal_move_and_count_stones(tree.board, opponent)             # <<<<<<<<<<<<<<
@@ -17782,7 +17802,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_selection(struct __pyx_o
  */
     __pyx_t_3 = __pyx_v_tree->board;
     __Pyx_INCREF(__pyx_t_3);
-    __pyx_t_4 = ((struct __pyx_vtabstruct_7cplayer_PrimitiveMonteCarloPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), ((PyObject*)__pyx_t_3), __pyx_v_opponent); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 809, __pyx_L1_error)
+    __pyx_t_4 = ((struct __pyx_vtabstruct_7cplayer_PrimitiveMonteCarloPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), ((PyObject*)__pyx_t_3), __pyx_v_opponent); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 811, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (likely(__pyx_t_4 != Py_None)) {
@@ -17791,7 +17811,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_selection(struct __pyx_o
       if (unlikely(size != 3)) {
         if (size > 3) __Pyx_RaiseTooManyValuesError(3);
         else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        __PYX_ERR(0, 808, __pyx_L1_error)
+        __PYX_ERR(0, 810, __pyx_L1_error)
       }
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
       __pyx_t_3 = PyTuple_GET_ITEM(sequence, 0); 
@@ -17801,48 +17821,48 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_selection(struct __pyx_o
       __Pyx_INCREF(__pyx_t_2);
       __Pyx_INCREF(__pyx_t_1);
       #else
-      __pyx_t_3 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 808, __pyx_L1_error)
+      __pyx_t_3 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 810, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 808, __pyx_L1_error)
+      __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 810, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_1 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 808, __pyx_L1_error)
+      __pyx_t_1 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 810, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       #endif
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     } else {
-      __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 808, __pyx_L1_error)
+      __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 810, __pyx_L1_error)
     }
 
-    /* "cplayer.pyx":808
+    /* "cplayer.pyx":810
  *             #
  *             opponent = Turn.BLACK if player == Turn.WHITE else Turn.WHITE
  *             _legal_move_count_list, black_stones, white_stones = \             # <<<<<<<<<<<<<<
  *                 self.exist_legal_move_and_count_stones(tree.board, opponent)
  *             legal_move_list = []
  */
-    if (!(likely(PyList_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 808, __pyx_L1_error)
-    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 808, __pyx_L1_error)
+    if (!(likely(PyList_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 810, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 810, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 808, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 810, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_v__legal_move_count_list = ((PyObject*)__pyx_t_3);
     __pyx_t_3 = 0;
     __pyx_v_black_stones = __pyx_t_6;
     __pyx_v_white_stones = __pyx_t_5;
 
-    /* "cplayer.pyx":810
+    /* "cplayer.pyx":812
  *             _legal_move_count_list, black_stones, white_stones = \
  *                 self.exist_legal_move_and_count_stones(tree.board, opponent)
  *             legal_move_list = []             # <<<<<<<<<<<<<<
  *             for i in _legal_move_count_list:
  *                 legal_move_list.append((i[0:2]))
  */
-    __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 810, __pyx_L1_error)
+    __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 812, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_v_legal_move_list = ((PyObject*)__pyx_t_4);
     __pyx_t_4 = 0;
 
-    /* "cplayer.pyx":811
+    /* "cplayer.pyx":813
  *                 self.exist_legal_move_and_count_stones(tree.board, opponent)
  *             legal_move_list = []
  *             for i in _legal_move_count_list:             # <<<<<<<<<<<<<<
@@ -17851,33 +17871,33 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_selection(struct __pyx_o
  */
     if (unlikely(__pyx_v__legal_move_count_list == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-      __PYX_ERR(0, 811, __pyx_L1_error)
+      __PYX_ERR(0, 813, __pyx_L1_error)
     }
     __pyx_t_4 = __pyx_v__legal_move_count_list; __Pyx_INCREF(__pyx_t_4); __pyx_t_7 = 0;
     for (;;) {
       if (__pyx_t_7 >= PyList_GET_SIZE(__pyx_t_4)) break;
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-      __pyx_t_1 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_7); __Pyx_INCREF(__pyx_t_1); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 811, __pyx_L1_error)
+      __pyx_t_1 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_7); __Pyx_INCREF(__pyx_t_1); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 813, __pyx_L1_error)
       #else
-      __pyx_t_1 = PySequence_ITEM(__pyx_t_4, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 811, __pyx_L1_error)
+      __pyx_t_1 = PySequence_ITEM(__pyx_t_4, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 813, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       #endif
       __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_1);
       __pyx_t_1 = 0;
 
-      /* "cplayer.pyx":812
+      /* "cplayer.pyx":814
  *             legal_move_list = []
  *             for i in _legal_move_count_list:
  *                 legal_move_list.append((i[0:2]))             # <<<<<<<<<<<<<<
  *             # ()
  *             # :
  */
-      __pyx_t_1 = __Pyx_PyObject_GetSlice(__pyx_v_i, 0, 2, NULL, NULL, &__pyx_slice_, 1, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 812, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetSlice(__pyx_v_i, 0, 2, NULL, NULL, &__pyx_slice_, 1, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 814, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_9 = __Pyx_PyList_Append(__pyx_v_legal_move_list, __pyx_t_1); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 812, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyList_Append(__pyx_v_legal_move_list, __pyx_t_1); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 814, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "cplayer.pyx":811
+      /* "cplayer.pyx":813
  *                 self.exist_legal_move_and_count_stones(tree.board, opponent)
  *             legal_move_list = []
  *             for i in _legal_move_count_list:             # <<<<<<<<<<<<<<
@@ -17887,36 +17907,36 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_selection(struct __pyx_o
     }
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "cplayer.pyx":817
+    /* "cplayer.pyx":819
  *             # :
  *             # :
  *             if len(legal_move_list) == 0:             # <<<<<<<<<<<<<<
  *                 #
  *                 if self.player == Turn.BLACK:
  */
-    __pyx_t_7 = PyList_GET_SIZE(__pyx_v_legal_move_list); if (unlikely(__pyx_t_7 == ((Py_ssize_t)-1))) __PYX_ERR(0, 817, __pyx_L1_error)
+    __pyx_t_7 = PyList_GET_SIZE(__pyx_v_legal_move_list); if (unlikely(__pyx_t_7 == ((Py_ssize_t)-1))) __PYX_ERR(0, 819, __pyx_L1_error)
     __pyx_t_8 = ((__pyx_t_7 == 0) != 0);
     if (__pyx_t_8) {
 
-      /* "cplayer.pyx":819
+      /* "cplayer.pyx":821
  *             if len(legal_move_list) == 0:
  *                 #
  *                 if self.player == Turn.BLACK:             # <<<<<<<<<<<<<<
  *                     if black_stones > white_stones:
  *                         return 1
  */
-      __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_self->__pyx_base.player); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 819, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_self->__pyx_base.player); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 821, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_BLACK); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 819, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_BLACK); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 821, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_2 = PyObject_RichCompare(__pyx_t_4, __pyx_t_1, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 819, __pyx_L1_error)
+      __pyx_t_2 = PyObject_RichCompare(__pyx_t_4, __pyx_t_1, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 821, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 819, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 821, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       if (__pyx_t_8) {
 
-        /* "cplayer.pyx":820
+        /* "cplayer.pyx":822
  *                 #
  *                 if self.player == Turn.BLACK:
  *                     if black_stones > white_stones:             # <<<<<<<<<<<<<<
@@ -17926,7 +17946,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_selection(struct __pyx_o
         __pyx_t_8 = ((__pyx_v_black_stones > __pyx_v_white_stones) != 0);
         if (__pyx_t_8) {
 
-          /* "cplayer.pyx":821
+          /* "cplayer.pyx":823
  *                 if self.player == Turn.BLACK:
  *                     if black_stones > white_stones:
  *                         return 1             # <<<<<<<<<<<<<<
@@ -17936,7 +17956,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_selection(struct __pyx_o
           __pyx_r = 1;
           goto __pyx_L0;
 
-          /* "cplayer.pyx":820
+          /* "cplayer.pyx":822
  *                 #
  *                 if self.player == Turn.BLACK:
  *                     if black_stones > white_stones:             # <<<<<<<<<<<<<<
@@ -17945,7 +17965,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_selection(struct __pyx_o
  */
         }
 
-        /* "cplayer.pyx":823
+        /* "cplayer.pyx":825
  *                         return 1
  *                     else:
  *                         return 0             # <<<<<<<<<<<<<<
@@ -17957,7 +17977,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_selection(struct __pyx_o
           goto __pyx_L0;
         }
 
-        /* "cplayer.pyx":819
+        /* "cplayer.pyx":821
  *             if len(legal_move_list) == 0:
  *                 #
  *                 if self.player == Turn.BLACK:             # <<<<<<<<<<<<<<
@@ -17966,7 +17986,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_selection(struct __pyx_o
  */
       }
 
-      /* "cplayer.pyx":825
+      /* "cplayer.pyx":827
  *                         return 0
  *                 else:
  *                     if white_stones > black_stones:             # <<<<<<<<<<<<<<
@@ -17977,7 +17997,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_selection(struct __pyx_o
         __pyx_t_8 = ((__pyx_v_white_stones > __pyx_v_black_stones) != 0);
         if (__pyx_t_8) {
 
-          /* "cplayer.pyx":826
+          /* "cplayer.pyx":828
  *                 else:
  *                     if white_stones > black_stones:
  *                         return 1             # <<<<<<<<<<<<<<
@@ -17987,7 +18007,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_selection(struct __pyx_o
           __pyx_r = 1;
           goto __pyx_L0;
 
-          /* "cplayer.pyx":825
+          /* "cplayer.pyx":827
  *                         return 0
  *                 else:
  *                     if white_stones > black_stones:             # <<<<<<<<<<<<<<
@@ -17996,7 +18016,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_selection(struct __pyx_o
  */
         }
 
-        /* "cplayer.pyx":828
+        /* "cplayer.pyx":830
  *                         return 1
  *                     else:
  *                         return 0             # <<<<<<<<<<<<<<
@@ -18009,7 +18029,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_selection(struct __pyx_o
         }
       }
 
-      /* "cplayer.pyx":817
+      /* "cplayer.pyx":819
  *             # :
  *             # :
  *             if len(legal_move_list) == 0:             # <<<<<<<<<<<<<<
@@ -18018,7 +18038,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_selection(struct __pyx_o
  */
     }
 
-    /* "cplayer.pyx":805
+    /* "cplayer.pyx":807
  *             tree.board, player)
  * 
  *         if len(legal_move_count_list) == 0:             # <<<<<<<<<<<<<<
@@ -18027,16 +18047,16 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_selection(struct __pyx_o
  */
   }
 
-  /* "cplayer.pyx":830
+  /* "cplayer.pyx":832
  *                         return 0
  * 
  *         cdef node selected_child = random.choice(tree.child)             # <<<<<<<<<<<<<<
  *         selected_child.visit_count += 1
  *         cdef int result = self.playout(selected_child.board, player)  #
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_random); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 830, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_random); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 832, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_choice); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 830, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_choice); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 832, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = NULL;
@@ -18051,14 +18071,14 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_selection(struct __pyx_o
   }
   __pyx_t_2 = (__pyx_t_1) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_1, __pyx_v_tree->child) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_tree->child);
   __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 830, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 832, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_7cplayer_node))))) __PYX_ERR(0, 830, __pyx_L1_error)
+  if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_7cplayer_node))))) __PYX_ERR(0, 832, __pyx_L1_error)
   __pyx_v_selected_child = ((struct __pyx_obj_7cplayer_node *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "cplayer.pyx":831
+  /* "cplayer.pyx":833
  * 
  *         cdef node selected_child = random.choice(tree.child)
  *         selected_child.visit_count += 1             # <<<<<<<<<<<<<<
@@ -18067,7 +18087,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_selection(struct __pyx_o
  */
   __pyx_v_selected_child->visit_count = (__pyx_v_selected_child->visit_count + 1);
 
-  /* "cplayer.pyx":832
+  /* "cplayer.pyx":834
  *         cdef node selected_child = random.choice(tree.child)
  *         selected_child.visit_count += 1
  *         cdef int result = self.playout(selected_child.board, player)  #             # <<<<<<<<<<<<<<
@@ -18079,7 +18099,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_selection(struct __pyx_o
   __pyx_v_result = ((struct __pyx_vtabstruct_7cplayer_PrimitiveMonteCarloPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->playout(__pyx_v_self, ((PyObject*)__pyx_t_2), __pyx_v_player);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "cplayer.pyx":833
+  /* "cplayer.pyx":835
  *         selected_child.visit_count += 1
  *         cdef int result = self.playout(selected_child.board, player)  #
  *         if result == 1:             # <<<<<<<<<<<<<<
@@ -18089,7 +18109,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_selection(struct __pyx_o
   __pyx_t_8 = ((__pyx_v_result == 1) != 0);
   if (__pyx_t_8) {
 
-    /* "cplayer.pyx":834
+    /* "cplayer.pyx":836
  *         cdef int result = self.playout(selected_child.board, player)  #
  *         if result == 1:
  *             selected_child.wins += 1             # <<<<<<<<<<<<<<
@@ -18098,7 +18118,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_selection(struct __pyx_o
  */
     __pyx_v_selected_child->wins = (__pyx_v_selected_child->wins + 1);
 
-    /* "cplayer.pyx":835
+    /* "cplayer.pyx":837
  *         if result == 1:
  *             selected_child.wins += 1
  *             return 1             # <<<<<<<<<<<<<<
@@ -18108,7 +18128,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_selection(struct __pyx_o
     __pyx_r = 1;
     goto __pyx_L0;
 
-    /* "cplayer.pyx":833
+    /* "cplayer.pyx":835
  *         selected_child.visit_count += 1
  *         cdef int result = self.playout(selected_child.board, player)  #
  *         if result == 1:             # <<<<<<<<<<<<<<
@@ -18117,7 +18137,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_selection(struct __pyx_o
  */
   }
 
-  /* "cplayer.pyx":837
+  /* "cplayer.pyx":839
  *             return 1
  *         else:
  *             return 0             # <<<<<<<<<<<<<<
@@ -18129,7 +18149,7 @@ static int __pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_selection(struct __pyx_o
     goto __pyx_L0;
   }
 
-  /* "cplayer.pyx":788
+  /* "cplayer.pyx":790
  * 
  *     @cython.nonecheck(False)
  *     cdef int selection(self, int player, node tree):             # <<<<<<<<<<<<<<
@@ -18448,7 +18468,7 @@ static PyObject *__pyx_pf_7cplayer_25PrimitiveMonteCarloPlayer_6__setstate_cytho
   return __pyx_r;
 }
 
-/* "cplayer.pyx":848
+/* "cplayer.pyx":850
  * 
  *     @cython.nonecheck(False)
  *     def __init__(self, int playout_num, int visit_threshold):             # <<<<<<<<<<<<<<
@@ -18487,11 +18507,11 @@ static int __pyx_pw_7cplayer_10MCTSPlayer_1__init__(PyObject *__pyx_v_self, PyOb
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_visit_threshold)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, 1); __PYX_ERR(0, 848, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, 1); __PYX_ERR(0, 850, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 848, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 850, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -18499,12 +18519,12 @@ static int __pyx_pw_7cplayer_10MCTSPlayer_1__init__(PyObject *__pyx_v_self, PyOb
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_playout_num = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_playout_num == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 848, __pyx_L3_error)
-    __pyx_v_visit_threshold = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_visit_threshold == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 848, __pyx_L3_error)
+    __pyx_v_playout_num = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_playout_num == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 850, __pyx_L3_error)
+    __pyx_v_visit_threshold = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_visit_threshold == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 850, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 848, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 850, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("cplayer.MCTSPlayer.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -18525,14 +18545,14 @@ static int __pyx_pf_7cplayer_10MCTSPlayer___init__(struct __pyx_obj_7cplayer_MCT
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "cplayer.pyx":849
+  /* "cplayer.pyx":851
  *     @cython.nonecheck(False)
  *     def __init__(self, int playout_num, int visit_threshold):
  *         super().__init__()             # <<<<<<<<<<<<<<
  *         self.playout_num = playout_num
  *         self.visit_threshold = visit_threshold
  */
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 849, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 851, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(((PyObject *)__pyx_ptype_7cplayer_MCTSPlayer));
   __Pyx_GIVEREF(((PyObject *)__pyx_ptype_7cplayer_MCTSPlayer));
@@ -18540,10 +18560,10 @@ static int __pyx_pf_7cplayer_10MCTSPlayer___init__(struct __pyx_obj_7cplayer_MCT
   __Pyx_INCREF(((PyObject *)__pyx_v_self));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
   PyTuple_SET_ITEM(__pyx_t_2, 1, ((PyObject *)__pyx_v_self));
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 849, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 851, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_init); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 849, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_init); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 851, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -18558,12 +18578,12 @@ static int __pyx_pf_7cplayer_10MCTSPlayer___init__(struct __pyx_obj_7cplayer_MCT
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 849, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 851, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "cplayer.pyx":850
+  /* "cplayer.pyx":852
  *     def __init__(self, int playout_num, int visit_threshold):
  *         super().__init__()
  *         self.playout_num = playout_num             # <<<<<<<<<<<<<<
@@ -18572,7 +18592,7 @@ static int __pyx_pf_7cplayer_10MCTSPlayer___init__(struct __pyx_obj_7cplayer_MCT
  */
   __pyx_v_self->playout_num = __pyx_v_playout_num;
 
-  /* "cplayer.pyx":851
+  /* "cplayer.pyx":853
  *         super().__init__()
  *         self.playout_num = playout_num
  *         self.visit_threshold = visit_threshold             # <<<<<<<<<<<<<<
@@ -18581,7 +18601,7 @@ static int __pyx_pf_7cplayer_10MCTSPlayer___init__(struct __pyx_obj_7cplayer_MCT
  */
   __pyx_v_self->visit_threshold = __pyx_v_visit_threshold;
 
-  /* "cplayer.pyx":848
+  /* "cplayer.pyx":850
  * 
  *     @cython.nonecheck(False)
  *     def __init__(self, int playout_num, int visit_threshold):             # <<<<<<<<<<<<<<
@@ -18603,7 +18623,7 @@ static int __pyx_pf_7cplayer_10MCTSPlayer___init__(struct __pyx_obj_7cplayer_MCT
   return __pyx_r;
 }
 
-/* "cplayer.pyx":854
+/* "cplayer.pyx":856
  * 
  *     @cython.nonecheck(False)
  *     def thinking(self, list board, int turn):             # <<<<<<<<<<<<<<
@@ -18642,11 +18662,11 @@ static PyObject *__pyx_pw_7cplayer_10MCTSPlayer_3thinking(PyObject *__pyx_v_self
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_turn)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("thinking", 1, 2, 2, 1); __PYX_ERR(0, 854, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("thinking", 1, 2, 2, 1); __PYX_ERR(0, 856, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "thinking") < 0)) __PYX_ERR(0, 854, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "thinking") < 0)) __PYX_ERR(0, 856, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -18655,17 +18675,17 @@ static PyObject *__pyx_pw_7cplayer_10MCTSPlayer_3thinking(PyObject *__pyx_v_self
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
     __pyx_v_board = ((PyObject*)values[0]);
-    __pyx_v_turn = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_turn == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 854, __pyx_L3_error)
+    __pyx_v_turn = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_turn == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 856, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("thinking", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 854, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("thinking", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 856, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("cplayer.MCTSPlayer.thinking", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_board), (&PyList_Type), 1, "board", 1))) __PYX_ERR(0, 854, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_board), (&PyList_Type), 1, "board", 1))) __PYX_ERR(0, 856, __pyx_L1_error)
   __pyx_r = __pyx_pf_7cplayer_10MCTSPlayer_2thinking(((struct __pyx_obj_7cplayer_MCTSPlayer *)__pyx_v_self), __pyx_v_board, __pyx_v_turn);
 
   /* function exit code */
@@ -18700,16 +18720,16 @@ static PyObject *__pyx_pf_7cplayer_10MCTSPlayer_2thinking(struct __pyx_obj_7cpla
   int __pyx_t_11;
   __Pyx_RefNannySetupContext("thinking", 0);
 
-  /* "cplayer.pyx":855
+  /* "cplayer.pyx":857
  *     @cython.nonecheck(False)
  *     def thinking(self, list board, int turn):
  *         start = time.time()  # thinking             # <<<<<<<<<<<<<<
  *         cdef list _board
  *         cdef int x, y
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_time); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 855, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_time); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 857, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_time); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 855, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_time); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 857, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -18724,20 +18744,20 @@ static PyObject *__pyx_pf_7cplayer_10MCTSPlayer_2thinking(struct __pyx_obj_7cpla
   }
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 855, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 857, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_start = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "cplayer.pyx":858
+  /* "cplayer.pyx":860
  *         cdef list _board
  *         cdef int x, y
  *         super().thinking(board, turn)             # <<<<<<<<<<<<<<
  *         _board = [[0] * (ROW_CELLS + 2) for i in range(ROW_CELLS + 2)]
  *         for i in range(1, 9):
  */
-  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 858, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 860, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(((PyObject *)__pyx_ptype_7cplayer_MCTSPlayer));
   __Pyx_GIVEREF(((PyObject *)__pyx_ptype_7cplayer_MCTSPlayer));
@@ -18745,13 +18765,13 @@ static PyObject *__pyx_pf_7cplayer_10MCTSPlayer_2thinking(struct __pyx_obj_7cpla
   __Pyx_INCREF(((PyObject *)__pyx_v_self));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
   PyTuple_SET_ITEM(__pyx_t_3, 1, ((PyObject *)__pyx_v_self));
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_3, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 858, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_3, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 860, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_thinking); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 858, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_thinking); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 860, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_turn); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 858, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_turn); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 860, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_4 = NULL;
   __pyx_t_5 = 0;
@@ -18768,7 +18788,7 @@ static PyObject *__pyx_pf_7cplayer_10MCTSPlayer_2thinking(struct __pyx_obj_7cpla
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_v_board, __pyx_t_2};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 858, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 860, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -18777,14 +18797,14 @@ static PyObject *__pyx_pf_7cplayer_10MCTSPlayer_2thinking(struct __pyx_obj_7cpla
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_v_board, __pyx_t_2};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 858, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 860, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   } else
   #endif
   {
-    __pyx_t_6 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 858, __pyx_L1_error)
+    __pyx_t_6 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 860, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     if (__pyx_t_4) {
       __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_4); __pyx_t_4 = NULL;
@@ -18795,37 +18815,37 @@ static PyObject *__pyx_pf_7cplayer_10MCTSPlayer_2thinking(struct __pyx_obj_7cpla
     __Pyx_GIVEREF(__pyx_t_2);
     PyTuple_SET_ITEM(__pyx_t_6, 1+__pyx_t_5, __pyx_t_2);
     __pyx_t_2 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 858, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 860, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "cplayer.pyx":859
+  /* "cplayer.pyx":861
  *         cdef int x, y
  *         super().thinking(board, turn)
  *         _board = [[0] * (ROW_CELLS + 2) for i in range(ROW_CELLS + 2)]             # <<<<<<<<<<<<<<
  *         for i in range(1, 9):
  *             for j in range(1, 9):
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 859, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 861, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ROW_CELLS); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 859, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ROW_CELLS); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 861, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_6 = __Pyx_PyInt_AddObjC(__pyx_t_3, __pyx_int_2, 2, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 859, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyInt_AddObjC(__pyx_t_3, __pyx_int_2, 2, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 861, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_range, __pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 859, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_range, __pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 861, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   if (likely(PyList_CheckExact(__pyx_t_3)) || PyTuple_CheckExact(__pyx_t_3)) {
     __pyx_t_6 = __pyx_t_3; __Pyx_INCREF(__pyx_t_6); __pyx_t_7 = 0;
     __pyx_t_8 = NULL;
   } else {
-    __pyx_t_7 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 859, __pyx_L1_error)
+    __pyx_t_7 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 861, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_8 = Py_TYPE(__pyx_t_6)->tp_iternext; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 859, __pyx_L1_error)
+    __pyx_t_8 = Py_TYPE(__pyx_t_6)->tp_iternext; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 861, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   for (;;) {
@@ -18833,17 +18853,17 @@ static PyObject *__pyx_pf_7cplayer_10MCTSPlayer_2thinking(struct __pyx_obj_7cpla
       if (likely(PyList_CheckExact(__pyx_t_6))) {
         if (__pyx_t_7 >= PyList_GET_SIZE(__pyx_t_6)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_3 = PyList_GET_ITEM(__pyx_t_6, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 859, __pyx_L1_error)
+        __pyx_t_3 = PyList_GET_ITEM(__pyx_t_6, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 861, __pyx_L1_error)
         #else
-        __pyx_t_3 = PySequence_ITEM(__pyx_t_6, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 859, __pyx_L1_error)
+        __pyx_t_3 = PySequence_ITEM(__pyx_t_6, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 861, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         #endif
       } else {
         if (__pyx_t_7 >= PyTuple_GET_SIZE(__pyx_t_6)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_6, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 859, __pyx_L1_error)
+        __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_6, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 861, __pyx_L1_error)
         #else
-        __pyx_t_3 = PySequence_ITEM(__pyx_t_6, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 859, __pyx_L1_error)
+        __pyx_t_3 = PySequence_ITEM(__pyx_t_6, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 861, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         #endif
       }
@@ -18853,7 +18873,7 @@ static PyObject *__pyx_pf_7cplayer_10MCTSPlayer_2thinking(struct __pyx_obj_7cpla
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 859, __pyx_L1_error)
+          else __PYX_ERR(0, 861, __pyx_L1_error)
         }
         break;
       }
@@ -18861,30 +18881,30 @@ static PyObject *__pyx_pf_7cplayer_10MCTSPlayer_2thinking(struct __pyx_obj_7cpla
     }
     __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_3);
     __pyx_t_3 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ROW_CELLS); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 859, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ROW_CELLS); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 861, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyInt_AddObjC(__pyx_t_3, __pyx_int_2, 2, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 859, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyInt_AddObjC(__pyx_t_3, __pyx_int_2, 2, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 861, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = PyList_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 859, __pyx_L1_error)
+    __pyx_t_3 = PyList_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 861, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_INCREF(__pyx_int_0);
     __Pyx_GIVEREF(__pyx_int_0);
     PyList_SET_ITEM(__pyx_t_3, 0, __pyx_int_0);
-    { PyObject* __pyx_temp = PyNumber_InPlaceMultiply(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_temp)) __PYX_ERR(0, 859, __pyx_L1_error)
+    { PyObject* __pyx_temp = PyNumber_InPlaceMultiply(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_temp)) __PYX_ERR(0, 861, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_temp);
       __Pyx_DECREF(__pyx_t_3);
       __pyx_t_3 = __pyx_temp;
     }
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(__Pyx_ListComp_Append(__pyx_t_1, (PyObject*)__pyx_t_3))) __PYX_ERR(0, 859, __pyx_L1_error)
+    if (unlikely(__Pyx_ListComp_Append(__pyx_t_1, (PyObject*)__pyx_t_3))) __PYX_ERR(0, 861, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __pyx_v__board = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "cplayer.pyx":860
+  /* "cplayer.pyx":862
  *         super().thinking(board, turn)
  *         _board = [[0] * (ROW_CELLS + 2) for i in range(ROW_CELLS + 2)]
  *         for i in range(1, 9):             # <<<<<<<<<<<<<<
@@ -18892,12 +18912,12 @@ static PyObject *__pyx_pf_7cplayer_10MCTSPlayer_2thinking(struct __pyx_obj_7cpla
  *                 _board[i][j] = board[i - 1][j - 1]
  */
   for (__pyx_t_9 = 1; __pyx_t_9 < 9; __pyx_t_9+=1) {
-    __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 860, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 862, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "cplayer.pyx":861
+    /* "cplayer.pyx":863
  *         _board = [[0] * (ROW_CELLS + 2) for i in range(ROW_CELLS + 2)]
  *         for i in range(1, 9):
  *             for j in range(1, 9):             # <<<<<<<<<<<<<<
@@ -18905,12 +18925,12 @@ static PyObject *__pyx_pf_7cplayer_10MCTSPlayer_2thinking(struct __pyx_obj_7cpla
  * 
  */
     for (__pyx_t_10 = 1; __pyx_t_10 < 9; __pyx_t_10+=1) {
-      __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 861, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 863, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_XDECREF_SET(__pyx_v_j, __pyx_t_1);
       __pyx_t_1 = 0;
 
-      /* "cplayer.pyx":862
+      /* "cplayer.pyx":864
  *         for i in range(1, 9):
  *             for j in range(1, 9):
  *                 _board[i][j] = board[i - 1][j - 1]             # <<<<<<<<<<<<<<
@@ -18919,35 +18939,35 @@ static PyObject *__pyx_pf_7cplayer_10MCTSPlayer_2thinking(struct __pyx_obj_7cpla
  */
       if (unlikely(__pyx_v_board == Py_None)) {
         PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-        __PYX_ERR(0, 862, __pyx_L1_error)
+        __PYX_ERR(0, 864, __pyx_L1_error)
       }
-      __pyx_t_1 = __Pyx_PyInt_SubtractObjC(__pyx_v_i, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 862, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyInt_SubtractObjC(__pyx_v_i, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 864, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_6 = __Pyx_PyObject_GetItem(__pyx_v_board, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 862, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyObject_GetItem(__pyx_v_board, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 864, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_1 = __Pyx_PyInt_SubtractObjC(__pyx_v_j, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 862, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyInt_SubtractObjC(__pyx_v_j, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 864, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_t_6, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 862, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_t_6, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 864, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_1 = __Pyx_PyObject_GetItem(__pyx_v__board, __pyx_v_i); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 862, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetItem(__pyx_v__board, __pyx_v_i); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 864, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (unlikely(PyObject_SetItem(__pyx_t_1, __pyx_v_j, __pyx_t_3) < 0)) __PYX_ERR(0, 862, __pyx_L1_error)
+      if (unlikely(PyObject_SetItem(__pyx_t_1, __pyx_v_j, __pyx_t_3) < 0)) __PYX_ERR(0, 864, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     }
   }
 
-  /* "cplayer.pyx":864
+  /* "cplayer.pyx":866
  *                 _board[i][j] = board[i - 1][j - 1]
  * 
  *         cdef node montecarlo_tree = node(_board, None)             # <<<<<<<<<<<<<<
  *         y, x = self.MCTS(turn, montecarlo_tree)
  *         print(time.time() - start)
  */
-  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 864, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 866, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(__pyx_v__board);
   __Pyx_GIVEREF(__pyx_v__board);
@@ -18955,20 +18975,20 @@ static PyObject *__pyx_pf_7cplayer_10MCTSPlayer_2thinking(struct __pyx_obj_7cpla
   __Pyx_INCREF(Py_None);
   __Pyx_GIVEREF(Py_None);
   PyTuple_SET_ITEM(__pyx_t_3, 1, Py_None);
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7cplayer_node), __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 864, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7cplayer_node), __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 866, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_montecarlo_tree = ((struct __pyx_obj_7cplayer_node *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "cplayer.pyx":865
+  /* "cplayer.pyx":867
  * 
  *         cdef node montecarlo_tree = node(_board, None)
  *         y, x = self.MCTS(turn, montecarlo_tree)             # <<<<<<<<<<<<<<
  *         print(time.time() - start)
  * 
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_7cplayer_MCTSPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->MCTS(__pyx_v_self, __pyx_v_turn, __pyx_v_montecarlo_tree); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 865, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_7cplayer_MCTSPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->MCTS(__pyx_v_self, __pyx_v_turn, __pyx_v_montecarlo_tree); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 867, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (likely(__pyx_t_1 != Py_None)) {
     PyObject* sequence = __pyx_t_1;
@@ -18976,7 +18996,7 @@ static PyObject *__pyx_pf_7cplayer_10MCTSPlayer_2thinking(struct __pyx_obj_7cpla
     if (unlikely(size != 2)) {
       if (size > 2) __Pyx_RaiseTooManyValuesError(2);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 865, __pyx_L1_error)
+      __PYX_ERR(0, 867, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     __pyx_t_3 = PyTuple_GET_ITEM(sequence, 0); 
@@ -18984,32 +19004,32 @@ static PyObject *__pyx_pf_7cplayer_10MCTSPlayer_2thinking(struct __pyx_obj_7cpla
     __Pyx_INCREF(__pyx_t_3);
     __Pyx_INCREF(__pyx_t_6);
     #else
-    __pyx_t_3 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 865, __pyx_L1_error)
+    __pyx_t_3 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 867, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_6 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 865, __pyx_L1_error)
+    __pyx_t_6 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 867, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     #endif
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   } else {
-    __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 865, __pyx_L1_error)
+    __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 867, __pyx_L1_error)
   }
-  __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 865, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 867, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_11 = __Pyx_PyInt_As_int(__pyx_t_6); if (unlikely((__pyx_t_11 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 865, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_PyInt_As_int(__pyx_t_6); if (unlikely((__pyx_t_11 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 867, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __pyx_v_y = __pyx_t_5;
   __pyx_v_x = __pyx_t_11;
 
-  /* "cplayer.pyx":866
+  /* "cplayer.pyx":868
  *         cdef node montecarlo_tree = node(_board, None)
  *         y, x = self.MCTS(turn, montecarlo_tree)
  *         print(time.time() - start)             # <<<<<<<<<<<<<<
  * 
  *         return y, x
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_time); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 866, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_time); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 868, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_time); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 866, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_time); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 868, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __pyx_t_6 = NULL;
@@ -19024,16 +19044,16 @@ static PyObject *__pyx_pf_7cplayer_10MCTSPlayer_2thinking(struct __pyx_obj_7cpla
   }
   __pyx_t_1 = (__pyx_t_6) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_6) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 866, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 868, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_Subtract(__pyx_t_1, __pyx_v_start); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 866, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_Subtract(__pyx_t_1, __pyx_v_start); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 868, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (__Pyx_PrintOne(0, __pyx_t_3) < 0) __PYX_ERR(0, 866, __pyx_L1_error)
+  if (__Pyx_PrintOne(0, __pyx_t_3) < 0) __PYX_ERR(0, 868, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "cplayer.pyx":868
+  /* "cplayer.pyx":870
  *         print(time.time() - start)
  * 
  *         return y, x             # <<<<<<<<<<<<<<
@@ -19041,11 +19061,11 @@ static PyObject *__pyx_pf_7cplayer_10MCTSPlayer_2thinking(struct __pyx_obj_7cpla
  *     @cython.nonecheck(False)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_y); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 868, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_y); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 870, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_x); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 868, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_x); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 870, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 868, __pyx_L1_error)
+  __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 870, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_GIVEREF(__pyx_t_3);
   PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_3);
@@ -19057,7 +19077,7 @@ static PyObject *__pyx_pf_7cplayer_10MCTSPlayer_2thinking(struct __pyx_obj_7cpla
   __pyx_t_6 = 0;
   goto __pyx_L0;
 
-  /* "cplayer.pyx":854
+  /* "cplayer.pyx":856
  * 
  *     @cython.nonecheck(False)
  *     def thinking(self, list board, int turn):             # <<<<<<<<<<<<<<
@@ -19085,7 +19105,7 @@ static PyObject *__pyx_pf_7cplayer_10MCTSPlayer_2thinking(struct __pyx_obj_7cpla
   return __pyx_r;
 }
 
-/* "cplayer.pyx":871
+/* "cplayer.pyx":873
  * 
  *     @cython.nonecheck(False)
  *     cdef tuple MCTS(self, int turn, node tree):             # <<<<<<<<<<<<<<
@@ -19129,7 +19149,7 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
   int __pyx_t_20;
   __Pyx_RefNannySetupContext("MCTS", 0);
 
-  /* "cplayer.pyx":879
+  /* "cplayer.pyx":881
  *         #
  *         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(
  *             tree.board, turn)             # <<<<<<<<<<<<<<
@@ -19139,14 +19159,14 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
   __pyx_t_1 = __pyx_v_tree->board;
   __Pyx_INCREF(__pyx_t_1);
 
-  /* "cplayer.pyx":878
+  /* "cplayer.pyx":880
  * 
  *         #
  *         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(             # <<<<<<<<<<<<<<
  *             tree.board, turn)
  * 
  */
-  __pyx_t_2 = ((struct __pyx_vtabstruct_7cplayer_MCTSPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), ((PyObject*)__pyx_t_1), __pyx_v_turn); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 878, __pyx_L1_error)
+  __pyx_t_2 = ((struct __pyx_vtabstruct_7cplayer_MCTSPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), ((PyObject*)__pyx_t_1), __pyx_v_turn); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 880, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (likely(__pyx_t_2 != Py_None)) {
@@ -19155,7 +19175,7 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
     if (unlikely(size != 3)) {
       if (size > 3) __Pyx_RaiseTooManyValuesError(3);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 878, __pyx_L1_error)
+      __PYX_ERR(0, 880, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     __pyx_t_1 = PyTuple_GET_ITEM(sequence, 0); 
@@ -19165,28 +19185,28 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
     __Pyx_INCREF(__pyx_t_3);
     __Pyx_INCREF(__pyx_t_4);
     #else
-    __pyx_t_1 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 878, __pyx_L1_error)
+    __pyx_t_1 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 880, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 878, __pyx_L1_error)
+    __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 880, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 878, __pyx_L1_error)
+    __pyx_t_4 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 880, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     #endif
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   } else {
-    __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 878, __pyx_L1_error)
+    __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 880, __pyx_L1_error)
   }
-  if (!(likely(PyList_CheckExact(__pyx_t_1))||((__pyx_t_1) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_1)->tp_name), 0))) __PYX_ERR(0, 878, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 878, __pyx_L1_error)
+  if (!(likely(PyList_CheckExact(__pyx_t_1))||((__pyx_t_1) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_1)->tp_name), 0))) __PYX_ERR(0, 880, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 880, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 878, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 880, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_v_legal_move_count_list = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
   __pyx_v_black_stones = __pyx_t_5;
   __pyx_v_white_stones = __pyx_t_6;
 
-  /* "cplayer.pyx":882
+  /* "cplayer.pyx":884
  * 
  *         #
  *         cdef int legal_move_count_list_len = len(legal_move_count_list)             # <<<<<<<<<<<<<<
@@ -19195,12 +19215,12 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
  */
   if (unlikely(__pyx_v_legal_move_count_list == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 882, __pyx_L1_error)
+    __PYX_ERR(0, 884, __pyx_L1_error)
   }
-  __pyx_t_7 = PyList_GET_SIZE(__pyx_v_legal_move_count_list); if (unlikely(__pyx_t_7 == ((Py_ssize_t)-1))) __PYX_ERR(0, 882, __pyx_L1_error)
+  __pyx_t_7 = PyList_GET_SIZE(__pyx_v_legal_move_count_list); if (unlikely(__pyx_t_7 == ((Py_ssize_t)-1))) __PYX_ERR(0, 884, __pyx_L1_error)
   __pyx_v_legal_move_count_list_len = __pyx_t_7;
 
-  /* "cplayer.pyx":883
+  /* "cplayer.pyx":885
  *         #
  *         cdef int legal_move_count_list_len = len(legal_move_count_list)
  *         for i in range(legal_move_count_list_len):             # <<<<<<<<<<<<<<
@@ -19212,16 +19232,16 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
   for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_5; __pyx_t_8+=1) {
     __pyx_v_i = __pyx_t_8;
 
-    /* "cplayer.pyx":884
+    /* "cplayer.pyx":886
  *         cdef int legal_move_count_list_len = len(legal_move_count_list)
  *         for i in range(legal_move_count_list_len):
  *             copy_board = copy.deepcopy(tree.board)             # <<<<<<<<<<<<<<
  *             self.put_stone(copy_board, legal_move_count_list[i][0], legal_move_count_list[i][1], turn)
  *             tree.child.append(node(copy_board, (legal_move_count_list[i][0], legal_move_count_list[i][1])))
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_copy); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 884, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_copy); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 886, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_deepcopy); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 884, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_deepcopy); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 886, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_4 = NULL;
@@ -19236,45 +19256,45 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
     }
     __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_v_tree->board) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_tree->board);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 884, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 886, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_XDECREF_SET(__pyx_v_copy_board, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "cplayer.pyx":885
+    /* "cplayer.pyx":887
  *         for i in range(legal_move_count_list_len):
  *             copy_board = copy.deepcopy(tree.board)
  *             self.put_stone(copy_board, legal_move_count_list[i][0], legal_move_count_list[i][1], turn)             # <<<<<<<<<<<<<<
  *             tree.child.append(node(copy_board, (legal_move_count_list[i][0], legal_move_count_list[i][1])))
  * 
  */
-    if (!(likely(PyList_CheckExact(__pyx_v_copy_board))||((__pyx_v_copy_board) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_v_copy_board)->tp_name), 0))) __PYX_ERR(0, 885, __pyx_L1_error)
+    if (!(likely(PyList_CheckExact(__pyx_v_copy_board))||((__pyx_v_copy_board) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_v_copy_board)->tp_name), 0))) __PYX_ERR(0, 887, __pyx_L1_error)
     if (unlikely(__pyx_v_legal_move_count_list == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 885, __pyx_L1_error)
+      __PYX_ERR(0, 887, __pyx_L1_error)
     }
-    __pyx_t_2 = __Pyx_GetItemInt_List(__pyx_v_legal_move_count_list, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 885, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt_List(__pyx_v_legal_move_count_list, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 887, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_2, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 885, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_2, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 887, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_9 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_9 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 885, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_9 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 887, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (unlikely(__pyx_v_legal_move_count_list == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 885, __pyx_L1_error)
+      __PYX_ERR(0, 887, __pyx_L1_error)
     }
-    __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_legal_move_count_list, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 885, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_legal_move_count_list, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 887, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_3, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 885, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_3, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 887, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_10 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_10 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 885, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_10 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 887, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     ((struct __pyx_vtabstruct_7cplayer_MCTSPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.put_stone(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), ((PyObject*)__pyx_v_copy_board), __pyx_t_9, __pyx_t_10, __pyx_v_turn);
 
-    /* "cplayer.pyx":886
+    /* "cplayer.pyx":888
  *             copy_board = copy.deepcopy(tree.board)
  *             self.put_stone(copy_board, legal_move_count_list[i][0], legal_move_count_list[i][1], turn)
  *             tree.child.append(node(copy_board, (legal_move_count_list[i][0], legal_move_count_list[i][1])))             # <<<<<<<<<<<<<<
@@ -19283,27 +19303,27 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
  */
     if (unlikely(__pyx_v_tree->child == Py_None)) {
       PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "append");
-      __PYX_ERR(0, 886, __pyx_L1_error)
+      __PYX_ERR(0, 888, __pyx_L1_error)
     }
     if (unlikely(__pyx_v_legal_move_count_list == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 886, __pyx_L1_error)
+      __PYX_ERR(0, 888, __pyx_L1_error)
     }
-    __pyx_t_2 = __Pyx_GetItemInt_List(__pyx_v_legal_move_count_list, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 886, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt_List(__pyx_v_legal_move_count_list, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 888, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_2, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 886, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_2, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 888, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (unlikely(__pyx_v_legal_move_count_list == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 886, __pyx_L1_error)
+      __PYX_ERR(0, 888, __pyx_L1_error)
     }
-    __pyx_t_2 = __Pyx_GetItemInt_List(__pyx_v_legal_move_count_list, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 886, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt_List(__pyx_v_legal_move_count_list, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 888, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_2, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 886, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_2, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 888, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 886, __pyx_L1_error)
+    __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 888, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_GIVEREF(__pyx_t_3);
     PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_3);
@@ -19311,7 +19331,7 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
     PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_4);
     __pyx_t_3 = 0;
     __pyx_t_4 = 0;
-    __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 886, __pyx_L1_error)
+    __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 888, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_INCREF(__pyx_v_copy_board);
     __Pyx_GIVEREF(__pyx_v_copy_board);
@@ -19319,14 +19339,14 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
     __Pyx_GIVEREF(__pyx_t_2);
     PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_2);
     __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7cplayer_node), __pyx_t_4, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 886, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7cplayer_node), __pyx_t_4, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 888, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_11 = __Pyx_PyList_Append(__pyx_v_tree->child, __pyx_t_2); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 886, __pyx_L1_error)
+    __pyx_t_11 = __Pyx_PyList_Append(__pyx_v_tree->child, __pyx_t_2); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 888, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
 
-  /* "cplayer.pyx":888
+  /* "cplayer.pyx":890
  *             tree.child.append(node(copy_board, (legal_move_count_list[i][0], legal_move_count_list[i][1])))
  * 
  *         for i in range(self.playout_num):             # <<<<<<<<<<<<<<
@@ -19338,7 +19358,7 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
   for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_5; __pyx_t_8+=1) {
     __pyx_v_i = __pyx_t_8;
 
-    /* "cplayer.pyx":889
+    /* "cplayer.pyx":891
  * 
  *         for i in range(self.playout_num):
  *             self.selection(turn, tree)             # <<<<<<<<<<<<<<
@@ -19348,16 +19368,16 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
     (void)(((struct __pyx_vtabstruct_7cplayer_MCTSPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->selection(__pyx_v_self, __pyx_v_turn, __pyx_v_tree));
   }
 
-  /* "cplayer.pyx":891
+  /* "cplayer.pyx":893
  *             self.selection(turn, tree)
  * 
  *         print("a", tree.visit_count)             # <<<<<<<<<<<<<<
  *         for child in tree.child:
  *             print(child.visit_count, child.wins, child.te)
  */
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_tree->visit_count); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 891, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_tree->visit_count); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 893, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 891, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 893, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(__pyx_n_s_a);
   __Pyx_GIVEREF(__pyx_n_s_a);
@@ -19365,10 +19385,10 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_2);
   __pyx_t_2 = 0;
-  if (__Pyx_PrintOne(0, __pyx_t_4) < 0) __PYX_ERR(0, 891, __pyx_L1_error)
+  if (__Pyx_PrintOne(0, __pyx_t_4) < 0) __PYX_ERR(0, 893, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cplayer.pyx":892
+  /* "cplayer.pyx":894
  * 
  *         print("a", tree.visit_count)
  *         for child in tree.child:             # <<<<<<<<<<<<<<
@@ -19377,34 +19397,34 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
  */
   if (unlikely(__pyx_v_tree->child == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-    __PYX_ERR(0, 892, __pyx_L1_error)
+    __PYX_ERR(0, 894, __pyx_L1_error)
   }
   __pyx_t_4 = __pyx_v_tree->child; __Pyx_INCREF(__pyx_t_4); __pyx_t_7 = 0;
   for (;;) {
     if (__pyx_t_7 >= PyList_GET_SIZE(__pyx_t_4)) break;
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    __pyx_t_2 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_7); __Pyx_INCREF(__pyx_t_2); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 892, __pyx_L1_error)
+    __pyx_t_2 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_7); __Pyx_INCREF(__pyx_t_2); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 894, __pyx_L1_error)
     #else
-    __pyx_t_2 = PySequence_ITEM(__pyx_t_4, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 892, __pyx_L1_error)
+    __pyx_t_2 = PySequence_ITEM(__pyx_t_4, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 894, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     #endif
     __Pyx_XDECREF_SET(__pyx_v_child, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "cplayer.pyx":893
+    /* "cplayer.pyx":895
  *         print("a", tree.visit_count)
  *         for child in tree.child:
  *             print(child.visit_count, child.wins, child.te)             # <<<<<<<<<<<<<<
  *             for c in child.child:
  *                 print("    " + str(c.visit_count), c.wins)
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_visit_count); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 893, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_visit_count); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 895, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_wins); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 893, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_wins); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 895, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_te); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 893, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_te); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 895, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_12 = PyTuple_New(3); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 893, __pyx_L1_error)
+    __pyx_t_12 = PyTuple_New(3); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 895, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
     __Pyx_GIVEREF(__pyx_t_2);
     PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_2);
@@ -19415,25 +19435,25 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
     __pyx_t_2 = 0;
     __pyx_t_3 = 0;
     __pyx_t_1 = 0;
-    if (__Pyx_PrintOne(0, __pyx_t_12) < 0) __PYX_ERR(0, 893, __pyx_L1_error)
+    if (__Pyx_PrintOne(0, __pyx_t_12) < 0) __PYX_ERR(0, 895, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
 
-    /* "cplayer.pyx":894
+    /* "cplayer.pyx":896
  *         for child in tree.child:
  *             print(child.visit_count, child.wins, child.te)
  *             for c in child.child:             # <<<<<<<<<<<<<<
  *                 print("    " + str(c.visit_count), c.wins)
  *                 for d in c.child:
  */
-    __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_child); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 894, __pyx_L1_error)
+    __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_child); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 896, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
     if (likely(PyList_CheckExact(__pyx_t_12)) || PyTuple_CheckExact(__pyx_t_12)) {
       __pyx_t_1 = __pyx_t_12; __Pyx_INCREF(__pyx_t_1); __pyx_t_13 = 0;
       __pyx_t_14 = NULL;
     } else {
-      __pyx_t_13 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_t_12); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 894, __pyx_L1_error)
+      __pyx_t_13 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_t_12); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 896, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_14 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 894, __pyx_L1_error)
+      __pyx_t_14 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 896, __pyx_L1_error)
     }
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
     for (;;) {
@@ -19441,17 +19461,17 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
         if (likely(PyList_CheckExact(__pyx_t_1))) {
           if (__pyx_t_13 >= PyList_GET_SIZE(__pyx_t_1)) break;
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_12 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_13); __Pyx_INCREF(__pyx_t_12); __pyx_t_13++; if (unlikely(0 < 0)) __PYX_ERR(0, 894, __pyx_L1_error)
+          __pyx_t_12 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_13); __Pyx_INCREF(__pyx_t_12); __pyx_t_13++; if (unlikely(0 < 0)) __PYX_ERR(0, 896, __pyx_L1_error)
           #else
-          __pyx_t_12 = PySequence_ITEM(__pyx_t_1, __pyx_t_13); __pyx_t_13++; if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 894, __pyx_L1_error)
+          __pyx_t_12 = PySequence_ITEM(__pyx_t_1, __pyx_t_13); __pyx_t_13++; if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 896, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_12);
           #endif
         } else {
           if (__pyx_t_13 >= PyTuple_GET_SIZE(__pyx_t_1)) break;
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_12 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_13); __Pyx_INCREF(__pyx_t_12); __pyx_t_13++; if (unlikely(0 < 0)) __PYX_ERR(0, 894, __pyx_L1_error)
+          __pyx_t_12 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_13); __Pyx_INCREF(__pyx_t_12); __pyx_t_13++; if (unlikely(0 < 0)) __PYX_ERR(0, 896, __pyx_L1_error)
           #else
-          __pyx_t_12 = PySequence_ITEM(__pyx_t_1, __pyx_t_13); __pyx_t_13++; if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 894, __pyx_L1_error)
+          __pyx_t_12 = PySequence_ITEM(__pyx_t_1, __pyx_t_13); __pyx_t_13++; if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 896, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_12);
           #endif
         }
@@ -19461,7 +19481,7 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else __PYX_ERR(0, 894, __pyx_L1_error)
+            else __PYX_ERR(0, 896, __pyx_L1_error)
           }
           break;
         }
@@ -19470,24 +19490,24 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
       __Pyx_XDECREF_SET(__pyx_v_c, __pyx_t_12);
       __pyx_t_12 = 0;
 
-      /* "cplayer.pyx":895
+      /* "cplayer.pyx":897
  *             print(child.visit_count, child.wins, child.te)
  *             for c in child.child:
  *                 print("    " + str(c.visit_count), c.wins)             # <<<<<<<<<<<<<<
  *                 for d in c.child:
  *                     print("        " + str(d.visit_count), d.wins)
  */
-      __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_v_c, __pyx_n_s_visit_count); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 895, __pyx_L1_error)
+      __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_v_c, __pyx_n_s_visit_count); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 897, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
-      __pyx_t_3 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_t_12); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 895, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_t_12); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 897, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-      __pyx_t_12 = PyNumber_Add(__pyx_kp_s__15, __pyx_t_3); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 895, __pyx_L1_error)
+      __pyx_t_12 = PyNumber_Add(__pyx_kp_s__15, __pyx_t_3); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 897, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_c, __pyx_n_s_wins); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 895, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_c, __pyx_n_s_wins); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 897, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 895, __pyx_L1_error)
+      __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 897, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_GIVEREF(__pyx_t_12);
       PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_12);
@@ -19495,25 +19515,25 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
       PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_3);
       __pyx_t_12 = 0;
       __pyx_t_3 = 0;
-      if (__Pyx_PrintOne(0, __pyx_t_2) < 0) __PYX_ERR(0, 895, __pyx_L1_error)
+      if (__Pyx_PrintOne(0, __pyx_t_2) < 0) __PYX_ERR(0, 897, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-      /* "cplayer.pyx":896
+      /* "cplayer.pyx":898
  *             for c in child.child:
  *                 print("    " + str(c.visit_count), c.wins)
  *                 for d in c.child:             # <<<<<<<<<<<<<<
  *                     print("        " + str(d.visit_count), d.wins)
  * 
  */
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_c, __pyx_n_s_child); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 896, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_c, __pyx_n_s_child); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 898, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       if (likely(PyList_CheckExact(__pyx_t_2)) || PyTuple_CheckExact(__pyx_t_2)) {
         __pyx_t_3 = __pyx_t_2; __Pyx_INCREF(__pyx_t_3); __pyx_t_15 = 0;
         __pyx_t_16 = NULL;
       } else {
-        __pyx_t_15 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 896, __pyx_L1_error)
+        __pyx_t_15 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 898, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_16 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 896, __pyx_L1_error)
+        __pyx_t_16 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 898, __pyx_L1_error)
       }
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       for (;;) {
@@ -19521,17 +19541,17 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
           if (likely(PyList_CheckExact(__pyx_t_3))) {
             if (__pyx_t_15 >= PyList_GET_SIZE(__pyx_t_3)) break;
             #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-            __pyx_t_2 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_15); __Pyx_INCREF(__pyx_t_2); __pyx_t_15++; if (unlikely(0 < 0)) __PYX_ERR(0, 896, __pyx_L1_error)
+            __pyx_t_2 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_15); __Pyx_INCREF(__pyx_t_2); __pyx_t_15++; if (unlikely(0 < 0)) __PYX_ERR(0, 898, __pyx_L1_error)
             #else
-            __pyx_t_2 = PySequence_ITEM(__pyx_t_3, __pyx_t_15); __pyx_t_15++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 896, __pyx_L1_error)
+            __pyx_t_2 = PySequence_ITEM(__pyx_t_3, __pyx_t_15); __pyx_t_15++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 898, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_2);
             #endif
           } else {
             if (__pyx_t_15 >= PyTuple_GET_SIZE(__pyx_t_3)) break;
             #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-            __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_15); __Pyx_INCREF(__pyx_t_2); __pyx_t_15++; if (unlikely(0 < 0)) __PYX_ERR(0, 896, __pyx_L1_error)
+            __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_15); __Pyx_INCREF(__pyx_t_2); __pyx_t_15++; if (unlikely(0 < 0)) __PYX_ERR(0, 898, __pyx_L1_error)
             #else
-            __pyx_t_2 = PySequence_ITEM(__pyx_t_3, __pyx_t_15); __pyx_t_15++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 896, __pyx_L1_error)
+            __pyx_t_2 = PySequence_ITEM(__pyx_t_3, __pyx_t_15); __pyx_t_15++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 898, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_2);
             #endif
           }
@@ -19541,7 +19561,7 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
             PyObject* exc_type = PyErr_Occurred();
             if (exc_type) {
               if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-              else __PYX_ERR(0, 896, __pyx_L1_error)
+              else __PYX_ERR(0, 898, __pyx_L1_error)
             }
             break;
           }
@@ -19550,24 +19570,24 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
         __Pyx_XDECREF_SET(__pyx_v_d, __pyx_t_2);
         __pyx_t_2 = 0;
 
-        /* "cplayer.pyx":897
+        /* "cplayer.pyx":899
  *                 print("    " + str(c.visit_count), c.wins)
  *                 for d in c.child:
  *                     print("        " + str(d.visit_count), d.wins)             # <<<<<<<<<<<<<<
  * 
  *         e = 0  #
  */
-        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_d, __pyx_n_s_visit_count); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 897, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_d, __pyx_n_s_visit_count); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 899, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_12 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_t_2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 897, __pyx_L1_error)
+        __pyx_t_12 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_t_2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 899, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-        __pyx_t_2 = PyNumber_Add(__pyx_kp_s__16, __pyx_t_12); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 897, __pyx_L1_error)
+        __pyx_t_2 = PyNumber_Add(__pyx_kp_s__16, __pyx_t_12); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 899, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-        __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_v_d, __pyx_n_s_wins); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 897, __pyx_L1_error)
+        __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_v_d, __pyx_n_s_wins); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 899, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
-        __pyx_t_17 = PyTuple_New(2); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 897, __pyx_L1_error)
+        __pyx_t_17 = PyTuple_New(2); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 899, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_17);
         __Pyx_GIVEREF(__pyx_t_2);
         PyTuple_SET_ITEM(__pyx_t_17, 0, __pyx_t_2);
@@ -19575,10 +19595,10 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
         PyTuple_SET_ITEM(__pyx_t_17, 1, __pyx_t_12);
         __pyx_t_2 = 0;
         __pyx_t_12 = 0;
-        if (__Pyx_PrintOne(0, __pyx_t_17) < 0) __PYX_ERR(0, 897, __pyx_L1_error)
+        if (__Pyx_PrintOne(0, __pyx_t_17) < 0) __PYX_ERR(0, 899, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
 
-        /* "cplayer.pyx":896
+        /* "cplayer.pyx":898
  *             for c in child.child:
  *                 print("    " + str(c.visit_count), c.wins)
  *                 for d in c.child:             # <<<<<<<<<<<<<<
@@ -19588,7 +19608,7 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
       }
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "cplayer.pyx":894
+      /* "cplayer.pyx":896
  *         for child in tree.child:
  *             print(child.visit_count, child.wins, child.te)
  *             for c in child.child:             # <<<<<<<<<<<<<<
@@ -19598,7 +19618,7 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "cplayer.pyx":892
+    /* "cplayer.pyx":894
  * 
  *         print("a", tree.visit_count)
  *         for child in tree.child:             # <<<<<<<<<<<<<<
@@ -19608,7 +19628,7 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
   }
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cplayer.pyx":899
+  /* "cplayer.pyx":901
  *                     print("        " + str(d.visit_count), d.wins)
  * 
  *         e = 0  #             # <<<<<<<<<<<<<<
@@ -19618,7 +19638,7 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
   __Pyx_INCREF(__pyx_int_0);
   __pyx_v_e = __pyx_int_0;
 
-  /* "cplayer.pyx":900
+  /* "cplayer.pyx":902
  * 
  *         e = 0  #
  *         vest_point = ()             # <<<<<<<<<<<<<<
@@ -19628,7 +19648,7 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
   __Pyx_INCREF(__pyx_empty_tuple);
   __pyx_v_vest_point = __pyx_empty_tuple;
 
-  /* "cplayer.pyx":901
+  /* "cplayer.pyx":903
  *         e = 0  #
  *         vest_point = ()
  *         for child in tree.child:             # <<<<<<<<<<<<<<
@@ -19637,28 +19657,28 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
  */
   if (unlikely(__pyx_v_tree->child == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-    __PYX_ERR(0, 901, __pyx_L1_error)
+    __PYX_ERR(0, 903, __pyx_L1_error)
   }
   __pyx_t_4 = __pyx_v_tree->child; __Pyx_INCREF(__pyx_t_4); __pyx_t_7 = 0;
   for (;;) {
     if (__pyx_t_7 >= PyList_GET_SIZE(__pyx_t_4)) break;
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    __pyx_t_1 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_7); __Pyx_INCREF(__pyx_t_1); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 901, __pyx_L1_error)
+    __pyx_t_1 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_7); __Pyx_INCREF(__pyx_t_1); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 903, __pyx_L1_error)
     #else
-    __pyx_t_1 = PySequence_ITEM(__pyx_t_4, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 901, __pyx_L1_error)
+    __pyx_t_1 = PySequence_ITEM(__pyx_t_4, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 903, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     #endif
     __Pyx_XDECREF_SET(__pyx_v_child, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "cplayer.pyx":903
+    /* "cplayer.pyx":905
  *         for child in tree.child:
  *             # 0
  *             if child.visit_count is not 0 and child.wins / child.visit_count > e:             # <<<<<<<<<<<<<<
  *                 e = child.wins / child.visit_count
  *                 vest_point = child.te
  */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_visit_count); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 903, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_visit_count); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 905, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_t_19 = (__pyx_t_1 != __pyx_int_0);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -19668,53 +19688,53 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
       __pyx_t_18 = __pyx_t_20;
       goto __pyx_L16_bool_binop_done;
     }
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_wins); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 903, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_wins); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 905, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_visit_count); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 903, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_visit_count); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 905, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_17 = __Pyx_PyNumber_Divide(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 903, __pyx_L1_error)
+    __pyx_t_17 = __Pyx_PyNumber_Divide(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 905, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_17);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = PyObject_RichCompare(__pyx_t_17, __pyx_v_e, Py_GT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 903, __pyx_L1_error)
+    __pyx_t_3 = PyObject_RichCompare(__pyx_t_17, __pyx_v_e, Py_GT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 905, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
-    __pyx_t_20 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_20 < 0)) __PYX_ERR(0, 903, __pyx_L1_error)
+    __pyx_t_20 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_20 < 0)) __PYX_ERR(0, 905, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_18 = __pyx_t_20;
     __pyx_L16_bool_binop_done:;
     if (__pyx_t_18) {
 
-      /* "cplayer.pyx":904
+      /* "cplayer.pyx":906
  *             # 0
  *             if child.visit_count is not 0 and child.wins / child.visit_count > e:
  *                 e = child.wins / child.visit_count             # <<<<<<<<<<<<<<
  *                 vest_point = child.te
  * 
  */
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_wins); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 904, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_wins); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 906, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_17 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_visit_count); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 904, __pyx_L1_error)
+      __pyx_t_17 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_visit_count); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 906, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_17);
-      __pyx_t_1 = __Pyx_PyNumber_Divide(__pyx_t_3, __pyx_t_17); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 904, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyNumber_Divide(__pyx_t_3, __pyx_t_17); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 906, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
       __Pyx_DECREF_SET(__pyx_v_e, __pyx_t_1);
       __pyx_t_1 = 0;
 
-      /* "cplayer.pyx":905
+      /* "cplayer.pyx":907
  *             if child.visit_count is not 0 and child.wins / child.visit_count > e:
  *                 e = child.wins / child.visit_count
  *                 vest_point = child.te             # <<<<<<<<<<<<<<
  * 
  *         if not vest_point:  #
  */
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_te); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 905, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_child, __pyx_n_s_te); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 907, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF_SET(__pyx_v_vest_point, __pyx_t_1);
       __pyx_t_1 = 0;
 
-      /* "cplayer.pyx":903
+      /* "cplayer.pyx":905
  *         for child in tree.child:
  *             # 0
  *             if child.visit_count is not 0 and child.wins / child.visit_count > e:             # <<<<<<<<<<<<<<
@@ -19723,7 +19743,7 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
  */
     }
 
-    /* "cplayer.pyx":901
+    /* "cplayer.pyx":903
  *         e = 0  #
  *         vest_point = ()
  *         for child in tree.child:             # <<<<<<<<<<<<<<
@@ -19733,18 +19753,18 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
   }
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cplayer.pyx":907
+  /* "cplayer.pyx":909
  *                 vest_point = child.te
  * 
  *         if not vest_point:  #             # <<<<<<<<<<<<<<
  *             #
  *             legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(
  */
-  __pyx_t_18 = __Pyx_PyObject_IsTrue(__pyx_v_vest_point); if (unlikely(__pyx_t_18 < 0)) __PYX_ERR(0, 907, __pyx_L1_error)
+  __pyx_t_18 = __Pyx_PyObject_IsTrue(__pyx_v_vest_point); if (unlikely(__pyx_t_18 < 0)) __PYX_ERR(0, 909, __pyx_L1_error)
   __pyx_t_20 = ((!__pyx_t_18) != 0);
   if (__pyx_t_20) {
 
-    /* "cplayer.pyx":910
+    /* "cplayer.pyx":912
  *             #
  *             legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(
  *                 tree.board, turn)             # <<<<<<<<<<<<<<
@@ -19754,14 +19774,14 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
     __pyx_t_4 = __pyx_v_tree->board;
     __Pyx_INCREF(__pyx_t_4);
 
-    /* "cplayer.pyx":909
+    /* "cplayer.pyx":911
  *         if not vest_point:  #
  *             #
  *             legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(             # <<<<<<<<<<<<<<
  *                 tree.board, turn)
  *             vest_point = random.choice(legal_move_count_list)[:2]
  */
-    __pyx_t_1 = ((struct __pyx_vtabstruct_7cplayer_MCTSPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), ((PyObject*)__pyx_t_4), __pyx_v_turn); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 909, __pyx_L1_error)
+    __pyx_t_1 = ((struct __pyx_vtabstruct_7cplayer_MCTSPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), ((PyObject*)__pyx_t_4), __pyx_v_turn); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 911, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     if (likely(__pyx_t_1 != Py_None)) {
@@ -19770,7 +19790,7 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
       if (unlikely(size != 3)) {
         if (size > 3) __Pyx_RaiseTooManyValuesError(3);
         else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        __PYX_ERR(0, 909, __pyx_L1_error)
+        __PYX_ERR(0, 911, __pyx_L1_error)
       }
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
       __pyx_t_4 = PyTuple_GET_ITEM(sequence, 0); 
@@ -19780,37 +19800,37 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
       __Pyx_INCREF(__pyx_t_17);
       __Pyx_INCREF(__pyx_t_3);
       #else
-      __pyx_t_4 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 909, __pyx_L1_error)
+      __pyx_t_4 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 911, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_17 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 909, __pyx_L1_error)
+      __pyx_t_17 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 911, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_17);
-      __pyx_t_3 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 909, __pyx_L1_error)
+      __pyx_t_3 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 911, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       #endif
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     } else {
-      __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 909, __pyx_L1_error)
+      __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 911, __pyx_L1_error)
     }
-    if (!(likely(PyList_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_4)->tp_name), 0))) __PYX_ERR(0, 909, __pyx_L1_error)
-    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_17); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 909, __pyx_L1_error)
+    if (!(likely(PyList_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_4)->tp_name), 0))) __PYX_ERR(0, 911, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_17); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 911, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
-    __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 909, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 911, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF_SET(__pyx_v_legal_move_count_list, ((PyObject*)__pyx_t_4));
     __pyx_t_4 = 0;
     __pyx_v_black_stones = __pyx_t_6;
     __pyx_v_white_stones = __pyx_t_5;
 
-    /* "cplayer.pyx":911
+    /* "cplayer.pyx":913
  *             legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(
  *                 tree.board, turn)
  *             vest_point = random.choice(legal_move_count_list)[:2]             # <<<<<<<<<<<<<<
  *         return vest_point
  * 
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_random); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 911, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_random); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 913, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_17 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_choice); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 911, __pyx_L1_error)
+    __pyx_t_17 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_choice); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 913, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_17);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_3 = NULL;
@@ -19825,16 +19845,16 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
     }
     __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_17, __pyx_t_3, __pyx_v_legal_move_count_list) : __Pyx_PyObject_CallOneArg(__pyx_t_17, __pyx_v_legal_move_count_list);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 911, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 913, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
-    __pyx_t_17 = __Pyx_PyObject_GetSlice(__pyx_t_1, 0, 2, NULL, NULL, &__pyx_slice__17, 0, 1, 1); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 911, __pyx_L1_error)
+    __pyx_t_17 = __Pyx_PyObject_GetSlice(__pyx_t_1, 0, 2, NULL, NULL, &__pyx_slice__17, 0, 1, 1); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 913, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_17);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF_SET(__pyx_v_vest_point, __pyx_t_17);
     __pyx_t_17 = 0;
 
-    /* "cplayer.pyx":907
+    /* "cplayer.pyx":909
  *                 vest_point = child.te
  * 
  *         if not vest_point:  #             # <<<<<<<<<<<<<<
@@ -19843,7 +19863,7 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
  */
   }
 
-  /* "cplayer.pyx":912
+  /* "cplayer.pyx":914
  *                 tree.board, turn)
  *             vest_point = random.choice(legal_move_count_list)[:2]
  *         return vest_point             # <<<<<<<<<<<<<<
@@ -19851,12 +19871,12 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
  *     @cython.nonecheck(False)
  */
   __Pyx_XDECREF(__pyx_r);
-  if (!(likely(PyTuple_CheckExact(__pyx_v_vest_point))||((__pyx_v_vest_point) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "tuple", Py_TYPE(__pyx_v_vest_point)->tp_name), 0))) __PYX_ERR(0, 912, __pyx_L1_error)
+  if (!(likely(PyTuple_CheckExact(__pyx_v_vest_point))||((__pyx_v_vest_point) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "tuple", Py_TYPE(__pyx_v_vest_point)->tp_name), 0))) __PYX_ERR(0, 914, __pyx_L1_error)
   __Pyx_INCREF(__pyx_v_vest_point);
   __pyx_r = ((PyObject*)__pyx_v_vest_point);
   goto __pyx_L0;
 
-  /* "cplayer.pyx":871
+  /* "cplayer.pyx":873
  * 
  *     @cython.nonecheck(False)
  *     cdef tuple MCTS(self, int turn, node tree):             # <<<<<<<<<<<<<<
@@ -19887,7 +19907,7 @@ static PyObject *__pyx_f_7cplayer_10MCTSPlayer_MCTS(struct __pyx_obj_7cplayer_MC
   return __pyx_r;
 }
 
-/* "cplayer.pyx":915
+/* "cplayer.pyx":917
  * 
  *     @cython.nonecheck(False)
  *     cdef int selection(self, int player, node tree):             # <<<<<<<<<<<<<<
@@ -19927,7 +19947,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
   int __pyx_t_14;
   __Pyx_RefNannySetupContext("selection", 0);
 
-  /* "cplayer.pyx":927
+  /* "cplayer.pyx":929
  *         cdef node selected_child
  * 
  *         tree.visit_count += 1             # <<<<<<<<<<<<<<
@@ -19936,38 +19956,38 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
  */
   __pyx_v_tree->visit_count = (__pyx_v_tree->visit_count + 1);
 
-  /* "cplayer.pyx":929
+  /* "cplayer.pyx":931
  *         tree.visit_count += 1
  * 
  *         opponent = Turn.BLACK if player == Turn.WHITE else Turn.WHITE             # <<<<<<<<<<<<<<
  * 
  *         #
  */
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_player); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 929, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_player); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 931, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 929, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 931, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyObject_RichCompare(__pyx_t_2, __pyx_t_3, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 929, __pyx_L1_error)
+  __pyx_t_4 = PyObject_RichCompare(__pyx_t_2, __pyx_t_3, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 931, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 929, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 931, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (__pyx_t_5) {
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_BLACK); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 929, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_BLACK); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 931, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 929, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 931, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_1 = __pyx_t_6;
   } else {
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 929, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 931, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 929, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 931, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_1 = __pyx_t_6;
   }
   __pyx_v_opponent = __pyx_t_1;
 
-  /* "cplayer.pyx":933
+  /* "cplayer.pyx":935
  *         #
  *         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(
  *             tree.board, player)             # <<<<<<<<<<<<<<
@@ -19977,14 +19997,14 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
   __pyx_t_4 = __pyx_v_tree->board;
   __Pyx_INCREF(__pyx_t_4);
 
-  /* "cplayer.pyx":932
+  /* "cplayer.pyx":934
  * 
  *         #
  *         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(             # <<<<<<<<<<<<<<
  *             tree.board, player)
  * 
  */
-  __pyx_t_3 = ((struct __pyx_vtabstruct_7cplayer_MCTSPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), ((PyObject*)__pyx_t_4), __pyx_v_player); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 932, __pyx_L1_error)
+  __pyx_t_3 = ((struct __pyx_vtabstruct_7cplayer_MCTSPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), ((PyObject*)__pyx_t_4), __pyx_v_player); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 934, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (likely(__pyx_t_3 != Py_None)) {
@@ -19993,7 +20013,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
     if (unlikely(size != 3)) {
       if (size > 3) __Pyx_RaiseTooManyValuesError(3);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 932, __pyx_L1_error)
+      __PYX_ERR(0, 934, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     __pyx_t_4 = PyTuple_GET_ITEM(sequence, 0); 
@@ -20003,28 +20023,28 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
     __Pyx_INCREF(__pyx_t_2);
     __Pyx_INCREF(__pyx_t_7);
     #else
-    __pyx_t_4 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 932, __pyx_L1_error)
+    __pyx_t_4 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 934, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 932, __pyx_L1_error)
+    __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 934, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_7 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 932, __pyx_L1_error)
+    __pyx_t_7 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 934, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     #endif
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else {
-    __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 932, __pyx_L1_error)
+    __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 934, __pyx_L1_error)
   }
-  if (!(likely(PyList_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_4)->tp_name), 0))) __PYX_ERR(0, 932, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 932, __pyx_L1_error)
+  if (!(likely(PyList_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_4)->tp_name), 0))) __PYX_ERR(0, 934, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 934, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_7); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 932, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_7); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 934, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_v_legal_move_count_list = ((PyObject*)__pyx_t_4);
   __pyx_t_4 = 0;
   __pyx_v_black_stones = __pyx_t_1;
   __pyx_v_white_stones = __pyx_t_6;
 
-  /* "cplayer.pyx":935
+  /* "cplayer.pyx":937
  *             tree.board, player)
  * 
  *         if len(legal_move_count_list) == 0:             # <<<<<<<<<<<<<<
@@ -20033,13 +20053,13 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
  */
   if (unlikely(__pyx_v_legal_move_count_list == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 935, __pyx_L1_error)
+    __PYX_ERR(0, 937, __pyx_L1_error)
   }
-  __pyx_t_8 = PyList_GET_SIZE(__pyx_v_legal_move_count_list); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 935, __pyx_L1_error)
+  __pyx_t_8 = PyList_GET_SIZE(__pyx_v_legal_move_count_list); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 937, __pyx_L1_error)
   __pyx_t_5 = ((__pyx_t_8 == 0) != 0);
   if (__pyx_t_5) {
 
-    /* "cplayer.pyx":938
+    /* "cplayer.pyx":940
  *             #
  *             _legal_move_count_list, black_stones, white_stones = \
  *                 self.exist_legal_move_and_count_stones(tree.board, opponent)             # <<<<<<<<<<<<<<
@@ -20048,7 +20068,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
  */
     __pyx_t_3 = __pyx_v_tree->board;
     __Pyx_INCREF(__pyx_t_3);
-    __pyx_t_7 = ((struct __pyx_vtabstruct_7cplayer_MCTSPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), ((PyObject*)__pyx_t_3), __pyx_v_opponent); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 938, __pyx_L1_error)
+    __pyx_t_7 = ((struct __pyx_vtabstruct_7cplayer_MCTSPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), ((PyObject*)__pyx_t_3), __pyx_v_opponent); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 940, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (likely(__pyx_t_7 != Py_None)) {
@@ -20057,7 +20077,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
       if (unlikely(size != 3)) {
         if (size > 3) __Pyx_RaiseTooManyValuesError(3);
         else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        __PYX_ERR(0, 937, __pyx_L1_error)
+        __PYX_ERR(0, 939, __pyx_L1_error)
       }
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
       __pyx_t_3 = PyTuple_GET_ITEM(sequence, 0); 
@@ -20067,48 +20087,48 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
       __Pyx_INCREF(__pyx_t_2);
       __Pyx_INCREF(__pyx_t_4);
       #else
-      __pyx_t_3 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 937, __pyx_L1_error)
+      __pyx_t_3 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 939, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 937, __pyx_L1_error)
+      __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 939, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_4 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 937, __pyx_L1_error)
+      __pyx_t_4 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 939, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       #endif
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     } else {
-      __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 937, __pyx_L1_error)
+      __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 939, __pyx_L1_error)
     }
 
-    /* "cplayer.pyx":937
+    /* "cplayer.pyx":939
  *         if len(legal_move_count_list) == 0:
  *             #
  *             _legal_move_count_list, black_stones, white_stones = \             # <<<<<<<<<<<<<<
  *                 self.exist_legal_move_and_count_stones(tree.board, opponent)
  *             legal_move_list = []
  */
-    if (!(likely(PyList_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 937, __pyx_L1_error)
-    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 937, __pyx_L1_error)
+    if (!(likely(PyList_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 939, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 939, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 937, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 939, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_v__legal_move_count_list = ((PyObject*)__pyx_t_3);
     __pyx_t_3 = 0;
     __pyx_v_black_stones = __pyx_t_6;
     __pyx_v_white_stones = __pyx_t_1;
 
-    /* "cplayer.pyx":939
+    /* "cplayer.pyx":941
  *             _legal_move_count_list, black_stones, white_stones = \
  *                 self.exist_legal_move_and_count_stones(tree.board, opponent)
  *             legal_move_list = []             # <<<<<<<<<<<<<<
  *             for i in _legal_move_count_list:
  *                 legal_move_list.append((i[0:2]))
  */
-    __pyx_t_7 = PyList_New(0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 939, __pyx_L1_error)
+    __pyx_t_7 = PyList_New(0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 941, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __pyx_v_legal_move_list = ((PyObject*)__pyx_t_7);
     __pyx_t_7 = 0;
 
-    /* "cplayer.pyx":940
+    /* "cplayer.pyx":942
  *                 self.exist_legal_move_and_count_stones(tree.board, opponent)
  *             legal_move_list = []
  *             for i in _legal_move_count_list:             # <<<<<<<<<<<<<<
@@ -20117,33 +20137,33 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
  */
     if (unlikely(__pyx_v__legal_move_count_list == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-      __PYX_ERR(0, 940, __pyx_L1_error)
+      __PYX_ERR(0, 942, __pyx_L1_error)
     }
     __pyx_t_7 = __pyx_v__legal_move_count_list; __Pyx_INCREF(__pyx_t_7); __pyx_t_8 = 0;
     for (;;) {
       if (__pyx_t_8 >= PyList_GET_SIZE(__pyx_t_7)) break;
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-      __pyx_t_4 = PyList_GET_ITEM(__pyx_t_7, __pyx_t_8); __Pyx_INCREF(__pyx_t_4); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 940, __pyx_L1_error)
+      __pyx_t_4 = PyList_GET_ITEM(__pyx_t_7, __pyx_t_8); __Pyx_INCREF(__pyx_t_4); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 942, __pyx_L1_error)
       #else
-      __pyx_t_4 = PySequence_ITEM(__pyx_t_7, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 940, __pyx_L1_error)
+      __pyx_t_4 = PySequence_ITEM(__pyx_t_7, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 942, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       #endif
       __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "cplayer.pyx":941
+      /* "cplayer.pyx":943
  *             legal_move_list = []
  *             for i in _legal_move_count_list:
  *                 legal_move_list.append((i[0:2]))             # <<<<<<<<<<<<<<
  *             # ()
  *             # :
  */
-      __pyx_t_4 = __Pyx_PyObject_GetSlice(__pyx_v_i, 0, 2, NULL, NULL, &__pyx_slice_, 1, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 941, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetSlice(__pyx_v_i, 0, 2, NULL, NULL, &__pyx_slice_, 1, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 943, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_9 = __Pyx_PyList_Append(__pyx_v_legal_move_list, __pyx_t_4); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 941, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyList_Append(__pyx_v_legal_move_list, __pyx_t_4); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 943, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "cplayer.pyx":940
+      /* "cplayer.pyx":942
  *                 self.exist_legal_move_and_count_stones(tree.board, opponent)
  *             legal_move_list = []
  *             for i in _legal_move_count_list:             # <<<<<<<<<<<<<<
@@ -20153,36 +20173,36 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
     }
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-    /* "cplayer.pyx":946
+    /* "cplayer.pyx":948
  *             # :
  *             # :
  *             if len(legal_move_list) == 0:             # <<<<<<<<<<<<<<
  *                 #
  *                 if self.player == Turn.BLACK:
  */
-    __pyx_t_8 = PyList_GET_SIZE(__pyx_v_legal_move_list); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 946, __pyx_L1_error)
+    __pyx_t_8 = PyList_GET_SIZE(__pyx_v_legal_move_list); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 948, __pyx_L1_error)
     __pyx_t_5 = ((__pyx_t_8 == 0) != 0);
     if (__pyx_t_5) {
 
-      /* "cplayer.pyx":948
+      /* "cplayer.pyx":950
  *             if len(legal_move_list) == 0:
  *                 #
  *                 if self.player == Turn.BLACK:             # <<<<<<<<<<<<<<
  *                     if black_stones > white_stones:
  *                         return 1
  */
-      __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_self->__pyx_base.player); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 948, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_self->__pyx_base.player); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 950, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_BLACK); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 948, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_BLACK); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 950, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_2 = PyObject_RichCompare(__pyx_t_7, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 948, __pyx_L1_error)
+      __pyx_t_2 = PyObject_RichCompare(__pyx_t_7, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 950, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 948, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 950, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       if (__pyx_t_5) {
 
-        /* "cplayer.pyx":949
+        /* "cplayer.pyx":951
  *                 #
  *                 if self.player == Turn.BLACK:
  *                     if black_stones > white_stones:             # <<<<<<<<<<<<<<
@@ -20192,7 +20212,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
         __pyx_t_5 = ((__pyx_v_black_stones > __pyx_v_white_stones) != 0);
         if (__pyx_t_5) {
 
-          /* "cplayer.pyx":950
+          /* "cplayer.pyx":952
  *                 if self.player == Turn.BLACK:
  *                     if black_stones > white_stones:
  *                         return 1             # <<<<<<<<<<<<<<
@@ -20202,7 +20222,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
           __pyx_r = 1;
           goto __pyx_L0;
 
-          /* "cplayer.pyx":949
+          /* "cplayer.pyx":951
  *                 #
  *                 if self.player == Turn.BLACK:
  *                     if black_stones > white_stones:             # <<<<<<<<<<<<<<
@@ -20211,7 +20231,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
  */
         }
 
-        /* "cplayer.pyx":952
+        /* "cplayer.pyx":954
  *                         return 1
  *                     else:
  *                         return 0             # <<<<<<<<<<<<<<
@@ -20223,7 +20243,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
           goto __pyx_L0;
         }
 
-        /* "cplayer.pyx":948
+        /* "cplayer.pyx":950
  *             if len(legal_move_list) == 0:
  *                 #
  *                 if self.player == Turn.BLACK:             # <<<<<<<<<<<<<<
@@ -20232,7 +20252,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
  */
       }
 
-      /* "cplayer.pyx":954
+      /* "cplayer.pyx":956
  *                         return 0
  *                 else:
  *                     if white_stones > black_stones:             # <<<<<<<<<<<<<<
@@ -20243,7 +20263,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
         __pyx_t_5 = ((__pyx_v_white_stones > __pyx_v_black_stones) != 0);
         if (__pyx_t_5) {
 
-          /* "cplayer.pyx":955
+          /* "cplayer.pyx":957
  *                 else:
  *                     if white_stones > black_stones:
  *                         return 1             # <<<<<<<<<<<<<<
@@ -20253,7 +20273,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
           __pyx_r = 1;
           goto __pyx_L0;
 
-          /* "cplayer.pyx":954
+          /* "cplayer.pyx":956
  *                         return 0
  *                 else:
  *                     if white_stones > black_stones:             # <<<<<<<<<<<<<<
@@ -20262,7 +20282,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
  */
         }
 
-        /* "cplayer.pyx":957
+        /* "cplayer.pyx":959
  *                         return 1
  *                     else:
  *                         return 0             # <<<<<<<<<<<<<<
@@ -20275,7 +20295,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
         }
       }
 
-      /* "cplayer.pyx":946
+      /* "cplayer.pyx":948
  *             # :
  *             # :
  *             if len(legal_move_list) == 0:             # <<<<<<<<<<<<<<
@@ -20284,7 +20304,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
  */
     }
 
-    /* "cplayer.pyx":935
+    /* "cplayer.pyx":937
  *             tree.board, player)
  * 
  *         if len(legal_move_count_list) == 0:             # <<<<<<<<<<<<<<
@@ -20293,7 +20313,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
  */
   }
 
-  /* "cplayer.pyx":959
+  /* "cplayer.pyx":961
  *                         return 0
  * 
  *         if not tree.child:  #             # <<<<<<<<<<<<<<
@@ -20304,7 +20324,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
   __pyx_t_10 = ((!__pyx_t_5) != 0);
   if (__pyx_t_10) {
 
-    /* "cplayer.pyx":960
+    /* "cplayer.pyx":962
  * 
  *         if not tree.child:  #
  *             if self.visit_threshold < tree.visit_count:  #             # <<<<<<<<<<<<<<
@@ -20314,7 +20334,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
     __pyx_t_10 = ((__pyx_v_self->visit_threshold < __pyx_v_tree->visit_count) != 0);
     if (__pyx_t_10) {
 
-      /* "cplayer.pyx":962
+      /* "cplayer.pyx":964
  *             if self.visit_threshold < tree.visit_count:  #
  *                 #
  *                 for y, x, count in legal_move_count_list:             # <<<<<<<<<<<<<<
@@ -20323,15 +20343,15 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
  */
       if (unlikely(__pyx_v_legal_move_count_list == Py_None)) {
         PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-        __PYX_ERR(0, 962, __pyx_L1_error)
+        __PYX_ERR(0, 964, __pyx_L1_error)
       }
       __pyx_t_2 = __pyx_v_legal_move_count_list; __Pyx_INCREF(__pyx_t_2); __pyx_t_8 = 0;
       for (;;) {
         if (__pyx_t_8 >= PyList_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_4 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_8); __Pyx_INCREF(__pyx_t_4); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 962, __pyx_L1_error)
+        __pyx_t_4 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_8); __Pyx_INCREF(__pyx_t_4); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 964, __pyx_L1_error)
         #else
-        __pyx_t_4 = PySequence_ITEM(__pyx_t_2, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 962, __pyx_L1_error)
+        __pyx_t_4 = PySequence_ITEM(__pyx_t_2, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 964, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         #endif
         if ((likely(PyTuple_CheckExact(__pyx_t_4))) || (PyList_CheckExact(__pyx_t_4))) {
@@ -20340,7 +20360,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
           if (unlikely(size != 3)) {
             if (size > 3) __Pyx_RaiseTooManyValuesError(3);
             else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-            __PYX_ERR(0, 962, __pyx_L1_error)
+            __PYX_ERR(0, 964, __pyx_L1_error)
           }
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
           if (likely(PyTuple_CheckExact(sequence))) {
@@ -20356,17 +20376,17 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
           __Pyx_INCREF(__pyx_t_3);
           __Pyx_INCREF(__pyx_t_11);
           #else
-          __pyx_t_7 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 962, __pyx_L1_error)
+          __pyx_t_7 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 964, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_7);
-          __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 962, __pyx_L1_error)
+          __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 964, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
-          __pyx_t_11 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 962, __pyx_L1_error)
+          __pyx_t_11 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 964, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_11);
           #endif
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         } else {
           Py_ssize_t index = -1;
-          __pyx_t_12 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 962, __pyx_L1_error)
+          __pyx_t_12 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 964, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_12);
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
           __pyx_t_13 = Py_TYPE(__pyx_t_12)->tp_iternext;
@@ -20376,7 +20396,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
           __Pyx_GOTREF(__pyx_t_3);
           index = 2; __pyx_t_11 = __pyx_t_13(__pyx_t_12); if (unlikely(!__pyx_t_11)) goto __pyx_L14_unpacking_failed;
           __Pyx_GOTREF(__pyx_t_11);
-          if (__Pyx_IternextUnpackEndCheck(__pyx_t_13(__pyx_t_12), 3) < 0) __PYX_ERR(0, 962, __pyx_L1_error)
+          if (__Pyx_IternextUnpackEndCheck(__pyx_t_13(__pyx_t_12), 3) < 0) __PYX_ERR(0, 964, __pyx_L1_error)
           __pyx_t_13 = NULL;
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
           goto __pyx_L15_unpacking_done;
@@ -20384,29 +20404,29 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
           __pyx_t_13 = NULL;
           if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-          __PYX_ERR(0, 962, __pyx_L1_error)
+          __PYX_ERR(0, 964, __pyx_L1_error)
           __pyx_L15_unpacking_done:;
         }
-        __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_t_7); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 962, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_t_7); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 964, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 962, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 964, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_14 = __Pyx_PyInt_As_int(__pyx_t_11); if (unlikely((__pyx_t_14 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 962, __pyx_L1_error)
+        __pyx_t_14 = __Pyx_PyInt_As_int(__pyx_t_11); if (unlikely((__pyx_t_14 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 964, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
         __pyx_v_y = __pyx_t_1;
         __pyx_v_x = __pyx_t_6;
         __pyx_v_count = __pyx_t_14;
 
-        /* "cplayer.pyx":963
+        /* "cplayer.pyx":965
  *                 #
  *                 for y, x, count in legal_move_count_list:
  *                     copy_board = copy.deepcopy(tree.board)             # <<<<<<<<<<<<<<
  *                     self.put_stone(copy_board, y, x, player)
  *                     tree.child.append(node(copy_board, (y, x)))
  */
-        __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_n_s_copy); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 963, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_n_s_copy); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 965, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_11);
-        __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_n_s_deepcopy); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 963, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_n_s_deepcopy); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 965, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
         __pyx_t_11 = NULL;
@@ -20421,14 +20441,14 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
         }
         __pyx_t_4 = (__pyx_t_11) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_11, __pyx_v_tree->board) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_tree->board);
         __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
-        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 963, __pyx_L1_error)
+        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 965, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        if (!(likely(PyList_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_4)->tp_name), 0))) __PYX_ERR(0, 963, __pyx_L1_error)
+        if (!(likely(PyList_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_4)->tp_name), 0))) __PYX_ERR(0, 965, __pyx_L1_error)
         __Pyx_XDECREF_SET(__pyx_v_copy_board, ((PyObject*)__pyx_t_4));
         __pyx_t_4 = 0;
 
-        /* "cplayer.pyx":964
+        /* "cplayer.pyx":966
  *                 for y, x, count in legal_move_count_list:
  *                     copy_board = copy.deepcopy(tree.board)
  *                     self.put_stone(copy_board, y, x, player)             # <<<<<<<<<<<<<<
@@ -20437,7 +20457,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
  */
         ((struct __pyx_vtabstruct_7cplayer_MCTSPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.put_stone(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v_copy_board, __pyx_v_y, __pyx_v_x, __pyx_v_player);
 
-        /* "cplayer.pyx":965
+        /* "cplayer.pyx":967
  *                     copy_board = copy.deepcopy(tree.board)
  *                     self.put_stone(copy_board, y, x, player)
  *                     tree.child.append(node(copy_board, (y, x)))             # <<<<<<<<<<<<<<
@@ -20446,13 +20466,13 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
  */
         if (unlikely(__pyx_v_tree->child == Py_None)) {
           PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "append");
-          __PYX_ERR(0, 965, __pyx_L1_error)
+          __PYX_ERR(0, 967, __pyx_L1_error)
         }
-        __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_y); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 965, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_y); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 967, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_x); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 965, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_x); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 967, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_11 = PyTuple_New(2); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 965, __pyx_L1_error)
+        __pyx_t_11 = PyTuple_New(2); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 967, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_11);
         __Pyx_GIVEREF(__pyx_t_4);
         PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_4);
@@ -20460,7 +20480,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
         PyTuple_SET_ITEM(__pyx_t_11, 1, __pyx_t_3);
         __pyx_t_4 = 0;
         __pyx_t_3 = 0;
-        __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 965, __pyx_L1_error)
+        __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 967, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_INCREF(__pyx_v_copy_board);
         __Pyx_GIVEREF(__pyx_v_copy_board);
@@ -20468,13 +20488,13 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
         __Pyx_GIVEREF(__pyx_t_11);
         PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_11);
         __pyx_t_11 = 0;
-        __pyx_t_11 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7cplayer_node), __pyx_t_3, NULL); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 965, __pyx_L1_error)
+        __pyx_t_11 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7cplayer_node), __pyx_t_3, NULL); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 967, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_11);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_9 = __Pyx_PyList_Append(__pyx_v_tree->child, __pyx_t_11); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 965, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyList_Append(__pyx_v_tree->child, __pyx_t_11); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 967, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-        /* "cplayer.pyx":962
+        /* "cplayer.pyx":964
  *             if self.visit_threshold < tree.visit_count:  #
  *                 #
  *                 for y, x, count in legal_move_count_list:             # <<<<<<<<<<<<<<
@@ -20484,7 +20504,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
       }
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-      /* "cplayer.pyx":967
+      /* "cplayer.pyx":969
  *                     tree.child.append(node(copy_board, (y, x)))
  * 
  *                 if not tree.child:             # <<<<<<<<<<<<<<
@@ -20495,7 +20515,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
       __pyx_t_5 = ((!__pyx_t_10) != 0);
       if (__pyx_t_5) {
 
-        /* "cplayer.pyx":968
+        /* "cplayer.pyx":970
  * 
  *                 if not tree.child:
  *                     result = self.playout(tree.board, player)  #             # <<<<<<<<<<<<<<
@@ -20507,7 +20527,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
         __pyx_v_result = ((struct __pyx_vtabstruct_7cplayer_MCTSPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->playout(__pyx_v_self, ((PyObject*)__pyx_t_2), __pyx_v_player);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-        /* "cplayer.pyx":969
+        /* "cplayer.pyx":971
  *                 if not tree.child:
  *                     result = self.playout(tree.board, player)  #
  *                     if result == 1:             # <<<<<<<<<<<<<<
@@ -20517,7 +20537,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
         __pyx_t_5 = ((__pyx_v_result == 1) != 0);
         if (__pyx_t_5) {
 
-          /* "cplayer.pyx":970
+          /* "cplayer.pyx":972
  *                     result = self.playout(tree.board, player)  #
  *                     if result == 1:
  *                         return 1             # <<<<<<<<<<<<<<
@@ -20527,7 +20547,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
           __pyx_r = 1;
           goto __pyx_L0;
 
-          /* "cplayer.pyx":969
+          /* "cplayer.pyx":971
  *                 if not tree.child:
  *                     result = self.playout(tree.board, player)  #
  *                     if result == 1:             # <<<<<<<<<<<<<<
@@ -20536,7 +20556,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
  */
         }
 
-        /* "cplayer.pyx":972
+        /* "cplayer.pyx":974
  *                         return 1
  *                     else:
  *                         return 0             # <<<<<<<<<<<<<<
@@ -20548,7 +20568,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
           goto __pyx_L0;
         }
 
-        /* "cplayer.pyx":967
+        /* "cplayer.pyx":969
  *                     tree.child.append(node(copy_board, (y, x)))
  * 
  *                 if not tree.child:             # <<<<<<<<<<<<<<
@@ -20557,19 +20577,19 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
  */
       }
 
-      /* "cplayer.pyx":974
+      /* "cplayer.pyx":976
  *                         return 0
  * 
  *                 selected_child = self.get_max_ubc1(tree)             # <<<<<<<<<<<<<<
  *                 selected_child.visit_count += 1
  *                 result = self.playout(selected_child.board, opponent)
  */
-      __pyx_t_2 = ((PyObject *)((struct __pyx_vtabstruct_7cplayer_MCTSPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->get_max_ubc1(__pyx_v_self, __pyx_v_tree)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 974, __pyx_L1_error)
+      __pyx_t_2 = ((PyObject *)((struct __pyx_vtabstruct_7cplayer_MCTSPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->get_max_ubc1(__pyx_v_self, __pyx_v_tree)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 976, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __pyx_v_selected_child = ((struct __pyx_obj_7cplayer_node *)__pyx_t_2);
       __pyx_t_2 = 0;
 
-      /* "cplayer.pyx":975
+      /* "cplayer.pyx":977
  * 
  *                 selected_child = self.get_max_ubc1(tree)
  *                 selected_child.visit_count += 1             # <<<<<<<<<<<<<<
@@ -20578,7 +20598,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
  */
       __pyx_v_selected_child->visit_count = (__pyx_v_selected_child->visit_count + 1);
 
-      /* "cplayer.pyx":976
+      /* "cplayer.pyx":978
  *                 selected_child = self.get_max_ubc1(tree)
  *                 selected_child.visit_count += 1
  *                 result = self.playout(selected_child.board, opponent)             # <<<<<<<<<<<<<<
@@ -20590,7 +20610,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
       __pyx_v_result = ((struct __pyx_vtabstruct_7cplayer_MCTSPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->playout(__pyx_v_self, ((PyObject*)__pyx_t_2), __pyx_v_opponent);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-      /* "cplayer.pyx":977
+      /* "cplayer.pyx":979
  *                 selected_child.visit_count += 1
  *                 result = self.playout(selected_child.board, opponent)
  *                 if result == 1:             # <<<<<<<<<<<<<<
@@ -20600,7 +20620,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
       __pyx_t_5 = ((__pyx_v_result == 1) != 0);
       if (__pyx_t_5) {
 
-        /* "cplayer.pyx":978
+        /* "cplayer.pyx":980
  *                 result = self.playout(selected_child.board, opponent)
  *                 if result == 1:
  *                     selected_child.wins += 1             # <<<<<<<<<<<<<<
@@ -20609,7 +20629,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
  */
         __pyx_v_selected_child->wins = (__pyx_v_selected_child->wins + 1);
 
-        /* "cplayer.pyx":979
+        /* "cplayer.pyx":981
  *                 if result == 1:
  *                     selected_child.wins += 1
  *                     return 1             # <<<<<<<<<<<<<<
@@ -20619,7 +20639,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
         __pyx_r = 1;
         goto __pyx_L0;
 
-        /* "cplayer.pyx":977
+        /* "cplayer.pyx":979
  *                 selected_child.visit_count += 1
  *                 result = self.playout(selected_child.board, opponent)
  *                 if result == 1:             # <<<<<<<<<<<<<<
@@ -20628,7 +20648,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
  */
       }
 
-      /* "cplayer.pyx":981
+      /* "cplayer.pyx":983
  *                     return 1
  *                 else:
  *                     return 0             # <<<<<<<<<<<<<<
@@ -20640,7 +20660,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
         goto __pyx_L0;
       }
 
-      /* "cplayer.pyx":960
+      /* "cplayer.pyx":962
  * 
  *         if not tree.child:  #
  *             if self.visit_threshold < tree.visit_count:  #             # <<<<<<<<<<<<<<
@@ -20649,7 +20669,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
  */
     }
 
-    /* "cplayer.pyx":983
+    /* "cplayer.pyx":985
  *                     return 0
  * 
  *             result = self.playout(tree.board, player)  #             # <<<<<<<<<<<<<<
@@ -20661,7 +20681,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
     __pyx_v_result = ((struct __pyx_vtabstruct_7cplayer_MCTSPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->playout(__pyx_v_self, ((PyObject*)__pyx_t_2), __pyx_v_player);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "cplayer.pyx":984
+    /* "cplayer.pyx":986
  * 
  *             result = self.playout(tree.board, player)  #
  *             if result == 1:             # <<<<<<<<<<<<<<
@@ -20671,7 +20691,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
     __pyx_t_5 = ((__pyx_v_result == 1) != 0);
     if (__pyx_t_5) {
 
-      /* "cplayer.pyx":985
+      /* "cplayer.pyx":987
  *             result = self.playout(tree.board, player)  #
  *             if result == 1:
  *                 return 1             # <<<<<<<<<<<<<<
@@ -20681,7 +20701,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
       __pyx_r = 1;
       goto __pyx_L0;
 
-      /* "cplayer.pyx":984
+      /* "cplayer.pyx":986
  * 
  *             result = self.playout(tree.board, player)  #
  *             if result == 1:             # <<<<<<<<<<<<<<
@@ -20690,7 +20710,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
  */
     }
 
-    /* "cplayer.pyx":987
+    /* "cplayer.pyx":989
  *                 return 1
  *             else:
  *                 return 0             # <<<<<<<<<<<<<<
@@ -20702,7 +20722,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
       goto __pyx_L0;
     }
 
-    /* "cplayer.pyx":959
+    /* "cplayer.pyx":961
  *                         return 0
  * 
  *         if not tree.child:  #             # <<<<<<<<<<<<<<
@@ -20711,7 +20731,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
  */
   }
 
-  /* "cplayer.pyx":990
+  /* "cplayer.pyx":992
  * 
  *         else:
  *             selected_child = self.get_max_ubc1(tree)  # ubc1             # <<<<<<<<<<<<<<
@@ -20719,12 +20739,12 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
  *             if result == 1:
  */
   /*else*/ {
-    __pyx_t_2 = ((PyObject *)((struct __pyx_vtabstruct_7cplayer_MCTSPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->get_max_ubc1(__pyx_v_self, __pyx_v_tree)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 990, __pyx_L1_error)
+    __pyx_t_2 = ((PyObject *)((struct __pyx_vtabstruct_7cplayer_MCTSPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->get_max_ubc1(__pyx_v_self, __pyx_v_tree)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 992, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_v_selected_child = ((struct __pyx_obj_7cplayer_node *)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "cplayer.pyx":991
+    /* "cplayer.pyx":993
  *         else:
  *             selected_child = self.get_max_ubc1(tree)  # ubc1
  *             result = self.selection(opponent, selected_child)  #             # <<<<<<<<<<<<<<
@@ -20733,7 +20753,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
  */
     __pyx_v_result = ((struct __pyx_vtabstruct_7cplayer_MCTSPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->selection(__pyx_v_self, __pyx_v_opponent, __pyx_v_selected_child);
 
-    /* "cplayer.pyx":992
+    /* "cplayer.pyx":994
  *             selected_child = self.get_max_ubc1(tree)  # ubc1
  *             result = self.selection(opponent, selected_child)  #
  *             if result == 1:             # <<<<<<<<<<<<<<
@@ -20743,7 +20763,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
     __pyx_t_5 = ((__pyx_v_result == 1) != 0);
     if (__pyx_t_5) {
 
-      /* "cplayer.pyx":993
+      /* "cplayer.pyx":995
  *             result = self.selection(opponent, selected_child)  #
  *             if result == 1:
  *                 selected_child.wins += 1             # <<<<<<<<<<<<<<
@@ -20752,7 +20772,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
  */
       __pyx_v_selected_child->wins = (__pyx_v_selected_child->wins + 1);
 
-      /* "cplayer.pyx":994
+      /* "cplayer.pyx":996
  *             if result == 1:
  *                 selected_child.wins += 1
  *                 return 1             # <<<<<<<<<<<<<<
@@ -20762,7 +20782,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
       __pyx_r = 1;
       goto __pyx_L0;
 
-      /* "cplayer.pyx":992
+      /* "cplayer.pyx":994
  *             selected_child = self.get_max_ubc1(tree)  # ubc1
  *             result = self.selection(opponent, selected_child)  #
  *             if result == 1:             # <<<<<<<<<<<<<<
@@ -20771,7 +20791,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
  */
     }
 
-    /* "cplayer.pyx":996
+    /* "cplayer.pyx":998
  *                 return 1
  *             else:
  *                 return 0             # <<<<<<<<<<<<<<
@@ -20784,7 +20804,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
     }
   }
 
-  /* "cplayer.pyx":915
+  /* "cplayer.pyx":917
  * 
  *     @cython.nonecheck(False)
  *     cdef int selection(self, int player, node tree):             # <<<<<<<<<<<<<<
@@ -20813,7 +20833,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_selection(struct __pyx_obj_7cplayer_MCT
   return __pyx_r;
 }
 
-/* "cplayer.pyx":999
+/* "cplayer.pyx":1001
  * 
  *     @cython.nonecheck(False)
  *     cdef int playout(self, list board, int player):             # <<<<<<<<<<<<<<
@@ -20849,45 +20869,45 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
   int __pyx_t_12;
   __Pyx_RefNannySetupContext("playout", 0);
 
-  /* "cplayer.pyx":1001
+  /* "cplayer.pyx":1003
  *     cdef int playout(self, list board, int player):
  * 
  *         cdef int opponent = Turn.BLACK if player == Turn.WHITE else Turn.WHITE             # <<<<<<<<<<<<<<
  *         #
  *         cdef list legal_move_count_list, _legal_move_count_list
  */
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_player); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1001, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_player); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1003, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1001, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1003, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyObject_RichCompare(__pyx_t_2, __pyx_t_3, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1001, __pyx_L1_error)
+  __pyx_t_4 = PyObject_RichCompare(__pyx_t_2, __pyx_t_3, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1003, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 1001, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 1003, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (__pyx_t_5) {
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_BLACK); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1001, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_BLACK); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1003, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1001, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1003, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_1 = __pyx_t_6;
   } else {
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1001, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_WHITE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1003, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1001, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1003, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_1 = __pyx_t_6;
   }
   __pyx_v_opponent = __pyx_t_1;
 
-  /* "cplayer.pyx":1009
+  /* "cplayer.pyx":1011
  *         cdef int y, x, count
  * 
  *         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(             # <<<<<<<<<<<<<<
  *         board, player)
  * 
  */
-  __pyx_t_4 = ((struct __pyx_vtabstruct_7cplayer_MCTSPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v_board, __pyx_v_player); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1009, __pyx_L1_error)
+  __pyx_t_4 = ((struct __pyx_vtabstruct_7cplayer_MCTSPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v_board, __pyx_v_player); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1011, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   if (likely(__pyx_t_4 != Py_None)) {
     PyObject* sequence = __pyx_t_4;
@@ -20895,7 +20915,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
     if (unlikely(size != 3)) {
       if (size > 3) __Pyx_RaiseTooManyValuesError(3);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 1009, __pyx_L1_error)
+      __PYX_ERR(0, 1011, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     __pyx_t_3 = PyTuple_GET_ITEM(sequence, 0); 
@@ -20905,28 +20925,28 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
     __Pyx_INCREF(__pyx_t_2);
     __Pyx_INCREF(__pyx_t_7);
     #else
-    __pyx_t_3 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1009, __pyx_L1_error)
+    __pyx_t_3 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1011, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1009, __pyx_L1_error)
+    __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1011, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_7 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1009, __pyx_L1_error)
+    __pyx_t_7 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1011, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     #endif
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   } else {
-    __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 1009, __pyx_L1_error)
+    __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 1011, __pyx_L1_error)
   }
-  if (!(likely(PyList_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 1009, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1009, __pyx_L1_error)
+  if (!(likely(PyList_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 1011, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1011, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_7); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1009, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_7); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1011, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_v_legal_move_count_list = ((PyObject*)__pyx_t_3);
   __pyx_t_3 = 0;
   __pyx_v_black_stones = __pyx_t_1;
   __pyx_v_white_stones = __pyx_t_6;
 
-  /* "cplayer.pyx":1012
+  /* "cplayer.pyx":1014
  *         board, player)
  * 
  *         if len(legal_move_count_list) == 0:             # <<<<<<<<<<<<<<
@@ -20935,20 +20955,20 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
  */
   if (unlikely(__pyx_v_legal_move_count_list == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 1012, __pyx_L1_error)
+    __PYX_ERR(0, 1014, __pyx_L1_error)
   }
-  __pyx_t_8 = PyList_GET_SIZE(__pyx_v_legal_move_count_list); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1012, __pyx_L1_error)
+  __pyx_t_8 = PyList_GET_SIZE(__pyx_v_legal_move_count_list); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1014, __pyx_L1_error)
   __pyx_t_5 = ((__pyx_t_8 == 0) != 0);
   if (__pyx_t_5) {
 
-    /* "cplayer.pyx":1015
+    /* "cplayer.pyx":1017
  *             #
  *             _legal_move_count_list, black_stones, white_stones = \
  *                 self.exist_legal_move_and_count_stones(board, opponent)             # <<<<<<<<<<<<<<
  *             legal_move_list = []
  *             for i in _legal_move_count_list:
  */
-    __pyx_t_4 = ((struct __pyx_vtabstruct_7cplayer_MCTSPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v_board, __pyx_v_opponent); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1015, __pyx_L1_error)
+    __pyx_t_4 = ((struct __pyx_vtabstruct_7cplayer_MCTSPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.exist_legal_move_and_count_stones(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v_board, __pyx_v_opponent); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1017, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     if (likely(__pyx_t_4 != Py_None)) {
       PyObject* sequence = __pyx_t_4;
@@ -20956,7 +20976,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
       if (unlikely(size != 3)) {
         if (size > 3) __Pyx_RaiseTooManyValuesError(3);
         else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        __PYX_ERR(0, 1014, __pyx_L1_error)
+        __PYX_ERR(0, 1016, __pyx_L1_error)
       }
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
       __pyx_t_7 = PyTuple_GET_ITEM(sequence, 0); 
@@ -20966,48 +20986,48 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
       __Pyx_INCREF(__pyx_t_2);
       __Pyx_INCREF(__pyx_t_3);
       #else
-      __pyx_t_7 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1014, __pyx_L1_error)
+      __pyx_t_7 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1016, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1014, __pyx_L1_error)
+      __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1016, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_3 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1014, __pyx_L1_error)
+      __pyx_t_3 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1016, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       #endif
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     } else {
-      __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 1014, __pyx_L1_error)
+      __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 1016, __pyx_L1_error)
     }
 
-    /* "cplayer.pyx":1014
+    /* "cplayer.pyx":1016
  *         if len(legal_move_count_list) == 0:
  *             #
  *             _legal_move_count_list, black_stones, white_stones = \             # <<<<<<<<<<<<<<
  *                 self.exist_legal_move_and_count_stones(board, opponent)
  *             legal_move_list = []
  */
-    if (!(likely(PyList_CheckExact(__pyx_t_7))||((__pyx_t_7) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_7)->tp_name), 0))) __PYX_ERR(0, 1014, __pyx_L1_error)
-    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1014, __pyx_L1_error)
+    if (!(likely(PyList_CheckExact(__pyx_t_7))||((__pyx_t_7) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_7)->tp_name), 0))) __PYX_ERR(0, 1016, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1016, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1014, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1016, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_v__legal_move_count_list = ((PyObject*)__pyx_t_7);
     __pyx_t_7 = 0;
     __pyx_v_black_stones = __pyx_t_6;
     __pyx_v_white_stones = __pyx_t_1;
 
-    /* "cplayer.pyx":1016
+    /* "cplayer.pyx":1018
  *             _legal_move_count_list, black_stones, white_stones = \
  *                 self.exist_legal_move_and_count_stones(board, opponent)
  *             legal_move_list = []             # <<<<<<<<<<<<<<
  *             for i in _legal_move_count_list:
  *                 legal_move_list.append((i[0:2]))
  */
-    __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1016, __pyx_L1_error)
+    __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1018, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_v_legal_move_list = ((PyObject*)__pyx_t_4);
     __pyx_t_4 = 0;
 
-    /* "cplayer.pyx":1017
+    /* "cplayer.pyx":1019
  *                 self.exist_legal_move_and_count_stones(board, opponent)
  *             legal_move_list = []
  *             for i in _legal_move_count_list:             # <<<<<<<<<<<<<<
@@ -21016,33 +21036,33 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
  */
     if (unlikely(__pyx_v__legal_move_count_list == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-      __PYX_ERR(0, 1017, __pyx_L1_error)
+      __PYX_ERR(0, 1019, __pyx_L1_error)
     }
     __pyx_t_4 = __pyx_v__legal_move_count_list; __Pyx_INCREF(__pyx_t_4); __pyx_t_8 = 0;
     for (;;) {
       if (__pyx_t_8 >= PyList_GET_SIZE(__pyx_t_4)) break;
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-      __pyx_t_3 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_8); __Pyx_INCREF(__pyx_t_3); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 1017, __pyx_L1_error)
+      __pyx_t_3 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_8); __Pyx_INCREF(__pyx_t_3); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 1019, __pyx_L1_error)
       #else
-      __pyx_t_3 = PySequence_ITEM(__pyx_t_4, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1017, __pyx_L1_error)
+      __pyx_t_3 = PySequence_ITEM(__pyx_t_4, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1019, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       #endif
       __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_3);
       __pyx_t_3 = 0;
 
-      /* "cplayer.pyx":1018
+      /* "cplayer.pyx":1020
  *             legal_move_list = []
  *             for i in _legal_move_count_list:
  *                 legal_move_list.append((i[0:2]))             # <<<<<<<<<<<<<<
  *              # ()
  *              # :
  */
-      __pyx_t_3 = __Pyx_PyObject_GetSlice(__pyx_v_i, 0, 2, NULL, NULL, &__pyx_slice_, 1, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1018, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetSlice(__pyx_v_i, 0, 2, NULL, NULL, &__pyx_slice_, 1, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1020, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_9 = __Pyx_PyList_Append(__pyx_v_legal_move_list, __pyx_t_3); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 1018, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyList_Append(__pyx_v_legal_move_list, __pyx_t_3); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 1020, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "cplayer.pyx":1017
+      /* "cplayer.pyx":1019
  *                 self.exist_legal_move_and_count_stones(board, opponent)
  *             legal_move_list = []
  *             for i in _legal_move_count_list:             # <<<<<<<<<<<<<<
@@ -21052,36 +21072,36 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
     }
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "cplayer.pyx":1023
+    /* "cplayer.pyx":1025
  *              # :
  *              # :
  *             if len(legal_move_list) == 0:             # <<<<<<<<<<<<<<
  *                 #
  *                 if self.player == Turn.BLACK:
  */
-    __pyx_t_8 = PyList_GET_SIZE(__pyx_v_legal_move_list); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1023, __pyx_L1_error)
+    __pyx_t_8 = PyList_GET_SIZE(__pyx_v_legal_move_list); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1025, __pyx_L1_error)
     __pyx_t_5 = ((__pyx_t_8 == 0) != 0);
     if (__pyx_t_5) {
 
-      /* "cplayer.pyx":1025
+      /* "cplayer.pyx":1027
  *             if len(legal_move_list) == 0:
  *                 #
  *                 if self.player == Turn.BLACK:             # <<<<<<<<<<<<<<
  *                     if black_stones > white_stones:
  *                         return 1
  */
-      __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_self->__pyx_base.player); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1025, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_self->__pyx_base.player); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1027, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_BLACK); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1025, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_Turn), __pyx_n_s_BLACK); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1027, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_2 = PyObject_RichCompare(__pyx_t_4, __pyx_t_3, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1025, __pyx_L1_error)
+      __pyx_t_2 = PyObject_RichCompare(__pyx_t_4, __pyx_t_3, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1027, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 1025, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 1027, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       if (__pyx_t_5) {
 
-        /* "cplayer.pyx":1026
+        /* "cplayer.pyx":1028
  *                 #
  *                 if self.player == Turn.BLACK:
  *                     if black_stones > white_stones:             # <<<<<<<<<<<<<<
@@ -21091,7 +21111,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
         __pyx_t_5 = ((__pyx_v_black_stones > __pyx_v_white_stones) != 0);
         if (__pyx_t_5) {
 
-          /* "cplayer.pyx":1027
+          /* "cplayer.pyx":1029
  *                 if self.player == Turn.BLACK:
  *                     if black_stones > white_stones:
  *                         return 1             # <<<<<<<<<<<<<<
@@ -21101,7 +21121,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
           __pyx_r = 1;
           goto __pyx_L0;
 
-          /* "cplayer.pyx":1026
+          /* "cplayer.pyx":1028
  *                 #
  *                 if self.player == Turn.BLACK:
  *                     if black_stones > white_stones:             # <<<<<<<<<<<<<<
@@ -21110,7 +21130,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
  */
         }
 
-        /* "cplayer.pyx":1029
+        /* "cplayer.pyx":1031
  *                         return 1
  *                     else:
  *                         return 0             # <<<<<<<<<<<<<<
@@ -21122,7 +21142,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
           goto __pyx_L0;
         }
 
-        /* "cplayer.pyx":1025
+        /* "cplayer.pyx":1027
  *             if len(legal_move_list) == 0:
  *                 #
  *                 if self.player == Turn.BLACK:             # <<<<<<<<<<<<<<
@@ -21131,7 +21151,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
  */
       }
 
-      /* "cplayer.pyx":1031
+      /* "cplayer.pyx":1033
  *                         return 0
  *                 else:
  *                     if white_stones > black_stones:             # <<<<<<<<<<<<<<
@@ -21142,7 +21162,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
         __pyx_t_5 = ((__pyx_v_white_stones > __pyx_v_black_stones) != 0);
         if (__pyx_t_5) {
 
-          /* "cplayer.pyx":1032
+          /* "cplayer.pyx":1034
  *                 else:
  *                     if white_stones > black_stones:
  *                         return 1             # <<<<<<<<<<<<<<
@@ -21152,7 +21172,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
           __pyx_r = 1;
           goto __pyx_L0;
 
-          /* "cplayer.pyx":1031
+          /* "cplayer.pyx":1033
  *                         return 0
  *                 else:
  *                     if white_stones > black_stones:             # <<<<<<<<<<<<<<
@@ -21161,7 +21181,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
  */
         }
 
-        /* "cplayer.pyx":1034
+        /* "cplayer.pyx":1036
  *                         return 1
  *                     else:
  *                         return 0             # <<<<<<<<<<<<<<
@@ -21174,7 +21194,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
         }
       }
 
-      /* "cplayer.pyx":1023
+      /* "cplayer.pyx":1025
  *              # :
  *              # :
  *             if len(legal_move_list) == 0:             # <<<<<<<<<<<<<<
@@ -21183,7 +21203,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
  */
     }
 
-    /* "cplayer.pyx":1036
+    /* "cplayer.pyx":1038
  *                         return 0
  *             else:
  *                 y, x, count = random.choice(_legal_move_count_list)             # <<<<<<<<<<<<<<
@@ -21191,9 +21211,9 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
  *                 self.put_stone(copy_board, y, x, opponent)
  */
     /*else*/ {
-      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_random); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1036, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_random); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1038, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_choice); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1036, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_choice); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1038, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __pyx_t_3 = NULL;
@@ -21208,7 +21228,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
       }
       __pyx_t_2 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_3, __pyx_v__legal_move_count_list) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v__legal_move_count_list);
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1036, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1038, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       if ((likely(PyTuple_CheckExact(__pyx_t_2))) || (PyList_CheckExact(__pyx_t_2))) {
@@ -21217,7 +21237,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
         if (unlikely(size != 3)) {
           if (size > 3) __Pyx_RaiseTooManyValuesError(3);
           else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-          __PYX_ERR(0, 1036, __pyx_L1_error)
+          __PYX_ERR(0, 1038, __pyx_L1_error)
         }
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
         if (likely(PyTuple_CheckExact(sequence))) {
@@ -21233,17 +21253,17 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
         __Pyx_INCREF(__pyx_t_3);
         __Pyx_INCREF(__pyx_t_7);
         #else
-        __pyx_t_4 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1036, __pyx_L1_error)
+        __pyx_t_4 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1038, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1036, __pyx_L1_error)
+        __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1038, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_7 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1036, __pyx_L1_error)
+        __pyx_t_7 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1038, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
         #endif
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       } else {
         Py_ssize_t index = -1;
-        __pyx_t_10 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1036, __pyx_L1_error)
+        __pyx_t_10 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1038, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_t_11 = Py_TYPE(__pyx_t_10)->tp_iternext;
@@ -21253,7 +21273,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
         __Pyx_GOTREF(__pyx_t_3);
         index = 2; __pyx_t_7 = __pyx_t_11(__pyx_t_10); if (unlikely(!__pyx_t_7)) goto __pyx_L10_unpacking_failed;
         __Pyx_GOTREF(__pyx_t_7);
-        if (__Pyx_IternextUnpackEndCheck(__pyx_t_11(__pyx_t_10), 3) < 0) __PYX_ERR(0, 1036, __pyx_L1_error)
+        if (__Pyx_IternextUnpackEndCheck(__pyx_t_11(__pyx_t_10), 3) < 0) __PYX_ERR(0, 1038, __pyx_L1_error)
         __pyx_t_11 = NULL;
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         goto __pyx_L11_unpacking_done;
@@ -21261,29 +21281,29 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         __pyx_t_11 = NULL;
         if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-        __PYX_ERR(0, 1036, __pyx_L1_error)
+        __PYX_ERR(0, 1038, __pyx_L1_error)
         __pyx_L11_unpacking_done:;
       }
-      __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1036, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1038, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1036, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1038, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_12 = __Pyx_PyInt_As_int(__pyx_t_7); if (unlikely((__pyx_t_12 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1036, __pyx_L1_error)
+      __pyx_t_12 = __Pyx_PyInt_As_int(__pyx_t_7); if (unlikely((__pyx_t_12 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1038, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __pyx_v_y = __pyx_t_1;
       __pyx_v_x = __pyx_t_6;
       __pyx_v_count = __pyx_t_12;
 
-      /* "cplayer.pyx":1037
+      /* "cplayer.pyx":1039
  *             else:
  *                 y, x, count = random.choice(_legal_move_count_list)
  *                 copy_board = copy.deepcopy(board)             # <<<<<<<<<<<<<<
  *                 self.put_stone(copy_board, y, x, opponent)
  *                 if self.playout(copy_board, opponent) == 1:
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_copy); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1037, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_copy); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1039, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_deepcopy); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1037, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_deepcopy); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1039, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __pyx_t_7 = NULL;
@@ -21298,14 +21318,14 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
       }
       __pyx_t_2 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_7, __pyx_v_board) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_board);
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1037, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1039, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (!(likely(PyList_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_2)->tp_name), 0))) __PYX_ERR(0, 1037, __pyx_L1_error)
+      if (!(likely(PyList_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_2)->tp_name), 0))) __PYX_ERR(0, 1039, __pyx_L1_error)
       __pyx_v_copy_board = ((PyObject*)__pyx_t_2);
       __pyx_t_2 = 0;
 
-      /* "cplayer.pyx":1038
+      /* "cplayer.pyx":1040
  *                 y, x, count = random.choice(_legal_move_count_list)
  *                 copy_board = copy.deepcopy(board)
  *                 self.put_stone(copy_board, y, x, opponent)             # <<<<<<<<<<<<<<
@@ -21314,7 +21334,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
  */
       ((struct __pyx_vtabstruct_7cplayer_MCTSPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.put_stone(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v_copy_board, __pyx_v_y, __pyx_v_x, __pyx_v_opponent);
 
-      /* "cplayer.pyx":1039
+      /* "cplayer.pyx":1041
  *                 copy_board = copy.deepcopy(board)
  *                 self.put_stone(copy_board, y, x, opponent)
  *                 if self.playout(copy_board, opponent) == 1:             # <<<<<<<<<<<<<<
@@ -21324,7 +21344,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
       __pyx_t_5 = ((((struct __pyx_vtabstruct_7cplayer_MCTSPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->playout(__pyx_v_self, __pyx_v_copy_board, __pyx_v_opponent) == 1) != 0);
       if (__pyx_t_5) {
 
-        /* "cplayer.pyx":1040
+        /* "cplayer.pyx":1042
  *                 self.put_stone(copy_board, y, x, opponent)
  *                 if self.playout(copy_board, opponent) == 1:
  *                     return 1             # <<<<<<<<<<<<<<
@@ -21334,7 +21354,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
         __pyx_r = 1;
         goto __pyx_L0;
 
-        /* "cplayer.pyx":1039
+        /* "cplayer.pyx":1041
  *                 copy_board = copy.deepcopy(board)
  *                 self.put_stone(copy_board, y, x, opponent)
  *                 if self.playout(copy_board, opponent) == 1:             # <<<<<<<<<<<<<<
@@ -21343,7 +21363,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
  */
       }
 
-      /* "cplayer.pyx":1042
+      /* "cplayer.pyx":1044
  *                     return 1
  *                 else:
  *                     return 0             # <<<<<<<<<<<<<<
@@ -21356,7 +21376,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
       }
     }
 
-    /* "cplayer.pyx":1012
+    /* "cplayer.pyx":1014
  *         board, player)
  * 
  *         if len(legal_move_count_list) == 0:             # <<<<<<<<<<<<<<
@@ -21365,16 +21385,16 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
  */
   }
 
-  /* "cplayer.pyx":1044
+  /* "cplayer.pyx":1046
  *                     return 0
  * 
  *         y, x, count = random.choice(legal_move_count_list)             # <<<<<<<<<<<<<<
  *         copy_board = copy.deepcopy(board)
  *         self.put_stone(copy_board, y, x, player)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_random); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1044, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_random); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1046, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_choice); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1044, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_choice); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1046, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -21389,7 +21409,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
   }
   __pyx_t_2 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_7, __pyx_t_3, __pyx_v_legal_move_count_list) : __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_v_legal_move_count_list);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1044, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1046, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   if ((likely(PyTuple_CheckExact(__pyx_t_2))) || (PyList_CheckExact(__pyx_t_2))) {
@@ -21398,7 +21418,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
     if (unlikely(size != 3)) {
       if (size > 3) __Pyx_RaiseTooManyValuesError(3);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 1044, __pyx_L1_error)
+      __PYX_ERR(0, 1046, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     if (likely(PyTuple_CheckExact(sequence))) {
@@ -21414,17 +21434,17 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
     __Pyx_INCREF(__pyx_t_3);
     __Pyx_INCREF(__pyx_t_4);
     #else
-    __pyx_t_7 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1044, __pyx_L1_error)
+    __pyx_t_7 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1046, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1044, __pyx_L1_error)
+    __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1046, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1044, __pyx_L1_error)
+    __pyx_t_4 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1046, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     #endif
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   } else {
     Py_ssize_t index = -1;
-    __pyx_t_10 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1044, __pyx_L1_error)
+    __pyx_t_10 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1046, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_11 = Py_TYPE(__pyx_t_10)->tp_iternext;
@@ -21434,7 +21454,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
     __Pyx_GOTREF(__pyx_t_3);
     index = 2; __pyx_t_4 = __pyx_t_11(__pyx_t_10); if (unlikely(!__pyx_t_4)) goto __pyx_L13_unpacking_failed;
     __Pyx_GOTREF(__pyx_t_4);
-    if (__Pyx_IternextUnpackEndCheck(__pyx_t_11(__pyx_t_10), 3) < 0) __PYX_ERR(0, 1044, __pyx_L1_error)
+    if (__Pyx_IternextUnpackEndCheck(__pyx_t_11(__pyx_t_10), 3) < 0) __PYX_ERR(0, 1046, __pyx_L1_error)
     __pyx_t_11 = NULL;
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     goto __pyx_L14_unpacking_done;
@@ -21442,29 +21462,29 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     __pyx_t_11 = NULL;
     if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-    __PYX_ERR(0, 1044, __pyx_L1_error)
+    __PYX_ERR(0, 1046, __pyx_L1_error)
     __pyx_L14_unpacking_done:;
   }
-  __pyx_t_12 = __Pyx_PyInt_As_int(__pyx_t_7); if (unlikely((__pyx_t_12 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1044, __pyx_L1_error)
+  __pyx_t_12 = __Pyx_PyInt_As_int(__pyx_t_7); if (unlikely((__pyx_t_12 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1046, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1044, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1046, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1044, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1046, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_v_y = __pyx_t_12;
   __pyx_v_x = __pyx_t_6;
   __pyx_v_count = __pyx_t_1;
 
-  /* "cplayer.pyx":1045
+  /* "cplayer.pyx":1047
  * 
  *         y, x, count = random.choice(legal_move_count_list)
  *         copy_board = copy.deepcopy(board)             # <<<<<<<<<<<<<<
  *         self.put_stone(copy_board, y, x, player)
  *         if self.playout(copy_board, opponent) == 1:
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_copy); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1045, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_copy); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1047, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_deepcopy); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1045, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_deepcopy); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1047, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_4 = NULL;
@@ -21479,14 +21499,14 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
   }
   __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_v_board) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_board);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1045, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1047, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (!(likely(PyList_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_2)->tp_name), 0))) __PYX_ERR(0, 1045, __pyx_L1_error)
+  if (!(likely(PyList_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_2)->tp_name), 0))) __PYX_ERR(0, 1047, __pyx_L1_error)
   __pyx_v_copy_board = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "cplayer.pyx":1046
+  /* "cplayer.pyx":1048
  *         y, x, count = random.choice(legal_move_count_list)
  *         copy_board = copy.deepcopy(board)
  *         self.put_stone(copy_board, y, x, player)             # <<<<<<<<<<<<<<
@@ -21495,7 +21515,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
  */
   ((struct __pyx_vtabstruct_7cplayer_MCTSPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.put_stone(((struct __pyx_obj_7cplayer_Player *)__pyx_v_self), __pyx_v_copy_board, __pyx_v_y, __pyx_v_x, __pyx_v_player);
 
-  /* "cplayer.pyx":1047
+  /* "cplayer.pyx":1049
  *         copy_board = copy.deepcopy(board)
  *         self.put_stone(copy_board, y, x, player)
  *         if self.playout(copy_board, opponent) == 1:             # <<<<<<<<<<<<<<
@@ -21505,7 +21525,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
   __pyx_t_5 = ((((struct __pyx_vtabstruct_7cplayer_MCTSPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->playout(__pyx_v_self, __pyx_v_copy_board, __pyx_v_opponent) == 1) != 0);
   if (__pyx_t_5) {
 
-    /* "cplayer.pyx":1048
+    /* "cplayer.pyx":1050
  *         self.put_stone(copy_board, y, x, player)
  *         if self.playout(copy_board, opponent) == 1:
  *             return 1             # <<<<<<<<<<<<<<
@@ -21515,7 +21535,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
     __pyx_r = 1;
     goto __pyx_L0;
 
-    /* "cplayer.pyx":1047
+    /* "cplayer.pyx":1049
  *         copy_board = copy.deepcopy(board)
  *         self.put_stone(copy_board, y, x, player)
  *         if self.playout(copy_board, opponent) == 1:             # <<<<<<<<<<<<<<
@@ -21524,7 +21544,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
  */
   }
 
-  /* "cplayer.pyx":1050
+  /* "cplayer.pyx":1052
  *             return 1
  *         else:
  *             return 0             # <<<<<<<<<<<<<<
@@ -21536,7 +21556,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
     goto __pyx_L0;
   }
 
-  /* "cplayer.pyx":999
+  /* "cplayer.pyx":1001
  * 
  *     @cython.nonecheck(False)
  *     cdef int playout(self, list board, int player):             # <<<<<<<<<<<<<<
@@ -21563,7 +21583,7 @@ static int __pyx_f_7cplayer_10MCTSPlayer_playout(struct __pyx_obj_7cplayer_MCTSP
   return __pyx_r;
 }
 
-/* "cplayer.pyx":1053
+/* "cplayer.pyx":1055
  * 
  *     @cython.nonecheck(False)
  *     cdef node get_max_ubc1(self, node tree):             # <<<<<<<<<<<<<<
@@ -21585,7 +21605,7 @@ static struct __pyx_obj_7cplayer_node *__pyx_f_7cplayer_10MCTSPlayer_get_max_ubc
   int __pyx_t_5;
   __Pyx_RefNannySetupContext("get_max_ubc1", 0);
 
-  /* "cplayer.pyx":1054
+  /* "cplayer.pyx":1056
  *     @cython.nonecheck(False)
  *     cdef node get_max_ubc1(self, node tree):
  *         max_ucb1 = 0             # <<<<<<<<<<<<<<
@@ -21594,7 +21614,7 @@ static struct __pyx_obj_7cplayer_node *__pyx_f_7cplayer_10MCTSPlayer_get_max_ubc
  */
   __pyx_v_max_ucb1 = 0.0;
 
-  /* "cplayer.pyx":1055
+  /* "cplayer.pyx":1057
  *     cdef node get_max_ubc1(self, node tree):
  *         max_ucb1 = 0
  *         max_ucb_idx = None             # <<<<<<<<<<<<<<
@@ -21604,7 +21624,7 @@ static struct __pyx_obj_7cplayer_node *__pyx_f_7cplayer_10MCTSPlayer_get_max_ubc
   __Pyx_INCREF(Py_None);
   __pyx_v_max_ucb_idx = Py_None;
 
-  /* "cplayer.pyx":1056
+  /* "cplayer.pyx":1058
  *         max_ucb1 = 0
  *         max_ucb_idx = None
  *         for idx in range(len(tree.child)):             # <<<<<<<<<<<<<<
@@ -21615,15 +21635,15 @@ static struct __pyx_obj_7cplayer_node *__pyx_f_7cplayer_10MCTSPlayer_get_max_ubc
   __Pyx_INCREF(__pyx_t_1);
   if (unlikely(__pyx_t_1 == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 1056, __pyx_L1_error)
+    __PYX_ERR(0, 1058, __pyx_L1_error)
   }
-  __pyx_t_2 = PyList_GET_SIZE(__pyx_t_1); if (unlikely(__pyx_t_2 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1056, __pyx_L1_error)
+  __pyx_t_2 = PyList_GET_SIZE(__pyx_t_1); if (unlikely(__pyx_t_2 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1058, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_3 = __pyx_t_2;
   for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
     __pyx_v_idx = __pyx_t_4;
 
-    /* "cplayer.pyx":1057
+    /* "cplayer.pyx":1059
  *         max_ucb_idx = None
  *         for idx in range(len(tree.child)):
  *             ubc1_value = self.ucb1(tree, tree.child[idx])             # <<<<<<<<<<<<<<
@@ -21632,15 +21652,15 @@ static struct __pyx_obj_7cplayer_node *__pyx_f_7cplayer_10MCTSPlayer_get_max_ubc
  */
     if (unlikely(__pyx_v_tree->child == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 1057, __pyx_L1_error)
+      __PYX_ERR(0, 1059, __pyx_L1_error)
     }
-    __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_tree->child, __pyx_v_idx, Py_ssize_t, 1, PyInt_FromSsize_t, 1, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1057, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_tree->child, __pyx_v_idx, Py_ssize_t, 1, PyInt_FromSsize_t, 1, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1059, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_7cplayer_node))))) __PYX_ERR(0, 1057, __pyx_L1_error)
+    if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_7cplayer_node))))) __PYX_ERR(0, 1059, __pyx_L1_error)
     __pyx_v_ubc1_value = ((struct __pyx_vtabstruct_7cplayer_MCTSPlayer *)__pyx_v_self->__pyx_base.__pyx_vtab)->ucb1(__pyx_v_self, __pyx_v_tree, ((struct __pyx_obj_7cplayer_node *)__pyx_t_1));
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "cplayer.pyx":1058
+    /* "cplayer.pyx":1060
  *         for idx in range(len(tree.child)):
  *             ubc1_value = self.ucb1(tree, tree.child[idx])
  *             if ubc1_value > max_ucb1:             # <<<<<<<<<<<<<<
@@ -21650,7 +21670,7 @@ static struct __pyx_obj_7cplayer_node *__pyx_f_7cplayer_10MCTSPlayer_get_max_ubc
     __pyx_t_5 = ((__pyx_v_ubc1_value > __pyx_v_max_ucb1) != 0);
     if (__pyx_t_5) {
 
-      /* "cplayer.pyx":1059
+      /* "cplayer.pyx":1061
  *             ubc1_value = self.ucb1(tree, tree.child[idx])
  *             if ubc1_value > max_ucb1:
  *                 max_ucb1 = ubc1_value             # <<<<<<<<<<<<<<
@@ -21659,19 +21679,19 @@ static struct __pyx_obj_7cplayer_node *__pyx_f_7cplayer_10MCTSPlayer_get_max_ubc
  */
       __pyx_v_max_ucb1 = __pyx_v_ubc1_value;
 
-      /* "cplayer.pyx":1060
+      /* "cplayer.pyx":1062
  *             if ubc1_value > max_ucb1:
  *                 max_ucb1 = ubc1_value
  *                 max_ucb_idx = idx             # <<<<<<<<<<<<<<
  * 
  *         return tree.child[max_ucb_idx]
  */
-      __pyx_t_1 = PyInt_FromSsize_t(__pyx_v_idx); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1060, __pyx_L1_error)
+      __pyx_t_1 = PyInt_FromSsize_t(__pyx_v_idx); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1062, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF_SET(__pyx_v_max_ucb_idx, __pyx_t_1);
       __pyx_t_1 = 0;
 
-      /* "cplayer.pyx":1058
+      /* "cplayer.pyx":1060
  *         for idx in range(len(tree.child)):
  *             ubc1_value = self.ucb1(tree, tree.child[idx])
  *             if ubc1_value > max_ucb1:             # <<<<<<<<<<<<<<
@@ -21681,7 +21701,7 @@ static struct __pyx_obj_7cplayer_node *__pyx_f_7cplayer_10MCTSPlayer_get_max_ubc
     }
   }
 
-  /* "cplayer.pyx":1062
+  /* "cplayer.pyx":1064
  *                 max_ucb_idx = idx
  * 
  *         return tree.child[max_ucb_idx]             # <<<<<<<<<<<<<<
@@ -21691,16 +21711,16 @@ static struct __pyx_obj_7cplayer_node *__pyx_f_7cplayer_10MCTSPlayer_get_max_ubc
   __Pyx_XDECREF(((PyObject *)__pyx_r));
   if (unlikely(__pyx_v_tree->child == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 1062, __pyx_L1_error)
+    __PYX_ERR(0, 1064, __pyx_L1_error)
   }
-  __pyx_t_1 = __Pyx_PyObject_GetItem(__pyx_v_tree->child, __pyx_v_max_ucb_idx); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1062, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetItem(__pyx_v_tree->child, __pyx_v_max_ucb_idx); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1064, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_7cplayer_node))))) __PYX_ERR(0, 1062, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_7cplayer_node))))) __PYX_ERR(0, 1064, __pyx_L1_error)
   __pyx_r = ((struct __pyx_obj_7cplayer_node *)__pyx_t_1);
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "cplayer.pyx":1053
+  /* "cplayer.pyx":1055
  * 
  *     @cython.nonecheck(False)
  *     cdef node get_max_ubc1(self, node tree):             # <<<<<<<<<<<<<<
@@ -21720,7 +21740,7 @@ static struct __pyx_obj_7cplayer_node *__pyx_f_7cplayer_10MCTSPlayer_get_max_ubc
   return __pyx_r;
 }
 
-/* "cplayer.pyx":1065
+/* "cplayer.pyx":1067
  * 
  *     @cython.nonecheck(False)
  *     cdef double ucb1(self, node tree, node child):             # <<<<<<<<<<<<<<
@@ -21743,7 +21763,7 @@ static double __pyx_f_7cplayer_10MCTSPlayer_ucb1(CYTHON_UNUSED struct __pyx_obj_
   PyObject *__pyx_t_9 = NULL;
   __Pyx_RefNannySetupContext("ucb1", 0);
 
-  /* "cplayer.pyx":1066
+  /* "cplayer.pyx":1068
  *     @cython.nonecheck(False)
  *     cdef double ucb1(self, node tree, node child):
  *         if child.visit_count == 0:             # <<<<<<<<<<<<<<
@@ -21753,24 +21773,24 @@ static double __pyx_f_7cplayer_10MCTSPlayer_ucb1(CYTHON_UNUSED struct __pyx_obj_
   __pyx_t_1 = ((__pyx_v_child->visit_count == 0) != 0);
   if (__pyx_t_1) {
 
-    /* "cplayer.pyx":1067
+    /* "cplayer.pyx":1069
  *     cdef double ucb1(self, node tree, node child):
  *         if child.visit_count == 0:
  *             return math.inf             # <<<<<<<<<<<<<<
  *         value = (float(child.wins) / float(child.visit_count)) + math.sqrt((2 * math.log(tree.visit_count)) / child.visit_count)
  * 
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_math); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1067, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_math); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1069, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_inf); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1067, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_inf); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1069, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_t_3); if (unlikely((__pyx_t_4 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 1067, __pyx_L1_error)
+    __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_t_3); if (unlikely((__pyx_t_4 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 1069, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_r = __pyx_t_4;
     goto __pyx_L0;
 
-    /* "cplayer.pyx":1066
+    /* "cplayer.pyx":1068
  *     @cython.nonecheck(False)
  *     cdef double ucb1(self, node tree, node child):
  *         if child.visit_count == 0:             # <<<<<<<<<<<<<<
@@ -21779,7 +21799,7 @@ static double __pyx_f_7cplayer_10MCTSPlayer_ucb1(CYTHON_UNUSED struct __pyx_obj_
  */
   }
 
-  /* "cplayer.pyx":1068
+  /* "cplayer.pyx":1070
  *         if child.visit_count == 0:
  *             return math.inf
  *         value = (float(child.wins) / float(child.visit_count)) + math.sqrt((2 * math.log(tree.visit_count)) / child.visit_count)             # <<<<<<<<<<<<<<
@@ -21788,21 +21808,21 @@ static double __pyx_f_7cplayer_10MCTSPlayer_ucb1(CYTHON_UNUSED struct __pyx_obj_
  */
   if (unlikely(((double)__pyx_v_child->visit_count) == 0)) {
     PyErr_SetString(PyExc_ZeroDivisionError, "float division");
-    __PYX_ERR(0, 1068, __pyx_L1_error)
+    __PYX_ERR(0, 1070, __pyx_L1_error)
   }
-  __pyx_t_3 = PyFloat_FromDouble((((double)__pyx_v_child->wins) / ((double)__pyx_v_child->visit_count))); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1068, __pyx_L1_error)
+  __pyx_t_3 = PyFloat_FromDouble((((double)__pyx_v_child->wins) / ((double)__pyx_v_child->visit_count))); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1070, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_math); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1068, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_math); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1070, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_sqrt); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1068, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_sqrt); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1070, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_math); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1068, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_math); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1070, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_log); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1068, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_log); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1070, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_tree->visit_count); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1068, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_tree->visit_count); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1070, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __pyx_t_9 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_8))) {
@@ -21817,15 +21837,15 @@ static double __pyx_f_7cplayer_10MCTSPlayer_ucb1(CYTHON_UNUSED struct __pyx_obj_
   __pyx_t_5 = (__pyx_t_9) ? __Pyx_PyObject_Call2Args(__pyx_t_8, __pyx_t_9, __pyx_t_7) : __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_t_7);
   __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1068, __pyx_L1_error)
+  if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1070, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  __pyx_t_8 = PyNumber_Multiply(__pyx_int_2, __pyx_t_5); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1068, __pyx_L1_error)
+  __pyx_t_8 = PyNumber_Multiply(__pyx_int_2, __pyx_t_5); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1070, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_child->visit_count); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1068, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_child->visit_count); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1070, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_7 = __Pyx_PyNumber_Divide(__pyx_t_8, __pyx_t_5); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1068, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyNumber_Divide(__pyx_t_8, __pyx_t_5); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1070, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -21842,26 +21862,26 @@ static double __pyx_f_7cplayer_10MCTSPlayer_ucb1(CYTHON_UNUSED struct __pyx_obj_
   __pyx_t_2 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_6, __pyx_t_5, __pyx_t_7) : __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_7);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1068, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1070, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = PyNumber_Add(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1068, __pyx_L1_error)
+  __pyx_t_6 = PyNumber_Add(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1070, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_value = __pyx_t_6;
   __pyx_t_6 = 0;
 
-  /* "cplayer.pyx":1070
+  /* "cplayer.pyx":1072
  *         value = (float(child.wins) / float(child.visit_count)) + math.sqrt((2 * math.log(tree.visit_count)) / child.visit_count)
  * 
  *         return value             # <<<<<<<<<<<<<<
  */
-  __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_v_value); if (unlikely((__pyx_t_4 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 1070, __pyx_L1_error)
+  __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_v_value); if (unlikely((__pyx_t_4 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 1072, __pyx_L1_error)
   __pyx_r = __pyx_t_4;
   goto __pyx_L0;
 
-  /* "cplayer.pyx":1065
+  /* "cplayer.pyx":1067
  * 
  *     @cython.nonecheck(False)
  *     cdef double ucb1(self, node tree, node child):             # <<<<<<<<<<<<<<
@@ -24515,21 +24535,21 @@ static PyObject *__pyx_f_7cplayer___pyx_unpickle_AlphaBetaAI__set_state(struct _
 }
 
 /* "(tree fragment)":1
- * def __pyx_unpickle_AlphaBetaSecondAI(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
+ * def __pyx_unpickle_SwitchTacticsAlphaBetaAI(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_7cplayer_13__pyx_unpickle_AlphaBetaSecondAI(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_7cplayer_13__pyx_unpickle_AlphaBetaSecondAI = {"__pyx_unpickle_AlphaBetaSecondAI", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_7cplayer_13__pyx_unpickle_AlphaBetaSecondAI, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_7cplayer_13__pyx_unpickle_AlphaBetaSecondAI(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_7cplayer_13__pyx_unpickle_SwitchTacticsAlphaBetaAI(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_7cplayer_13__pyx_unpickle_SwitchTacticsAlphaBetaAI = {"__pyx_unpickle_SwitchTacticsAlphaBetaAI", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_7cplayer_13__pyx_unpickle_SwitchTacticsAlphaBetaAI, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_7cplayer_13__pyx_unpickle_SwitchTacticsAlphaBetaAI(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v___pyx_type = 0;
   long __pyx_v___pyx_checksum;
   PyObject *__pyx_v___pyx_state = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__pyx_unpickle_AlphaBetaSecondAI (wrapper)", 0);
+  __Pyx_RefNannySetupContext("__pyx_unpickle_SwitchTacticsAlphaBetaAI (wrapper)", 0);
   {
     static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_pyx_type,&__pyx_n_s_pyx_checksum,&__pyx_n_s_pyx_state,0};
     PyObject* values[3] = {0,0,0};
@@ -24555,17 +24575,17 @@ static PyObject *__pyx_pw_7cplayer_13__pyx_unpickle_AlphaBetaSecondAI(PyObject *
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_pyx_checksum)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_AlphaBetaSecondAI", 1, 3, 3, 1); __PYX_ERR(1, 1, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_SwitchTacticsAlphaBetaAI", 1, 3, 3, 1); __PYX_ERR(1, 1, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_pyx_state)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_AlphaBetaSecondAI", 1, 3, 3, 2); __PYX_ERR(1, 1, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_SwitchTacticsAlphaBetaAI", 1, 3, 3, 2); __PYX_ERR(1, 1, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__pyx_unpickle_AlphaBetaSecondAI") < 0)) __PYX_ERR(1, 1, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__pyx_unpickle_SwitchTacticsAlphaBetaAI") < 0)) __PYX_ERR(1, 1, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -24580,20 +24600,20 @@ static PyObject *__pyx_pw_7cplayer_13__pyx_unpickle_AlphaBetaSecondAI(PyObject *
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_AlphaBetaSecondAI", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 1, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_SwitchTacticsAlphaBetaAI", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 1, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("cplayer.__pyx_unpickle_AlphaBetaSecondAI", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cplayer.__pyx_unpickle_SwitchTacticsAlphaBetaAI", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_7cplayer_12__pyx_unpickle_AlphaBetaSecondAI(__pyx_self, __pyx_v___pyx_type, __pyx_v___pyx_checksum, __pyx_v___pyx_state);
+  __pyx_r = __pyx_pf_7cplayer_12__pyx_unpickle_SwitchTacticsAlphaBetaAI(__pyx_self, __pyx_v___pyx_type, __pyx_v___pyx_checksum, __pyx_v___pyx_state);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_7cplayer_12__pyx_unpickle_AlphaBetaSecondAI(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_7cplayer_12__pyx_unpickle_SwitchTacticsAlphaBetaAI(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_v___pyx_PickleError = 0;
   PyObject *__pyx_v___pyx_result = 0;
   PyObject *__pyx_r = NULL;
@@ -24604,24 +24624,24 @@ static PyObject *__pyx_pf_7cplayer_12__pyx_unpickle_AlphaBetaSecondAI(CYTHON_UNU
   PyObject *__pyx_t_4 = NULL;
   PyObject *__pyx_t_5 = NULL;
   int __pyx_t_6;
-  __Pyx_RefNannySetupContext("__pyx_unpickle_AlphaBetaSecondAI", 0);
+  __Pyx_RefNannySetupContext("__pyx_unpickle_SwitchTacticsAlphaBetaAI", 0);
 
   /* "(tree fragment)":4
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
- *     if __pyx_checksum != 0xa30b71b:             # <<<<<<<<<<<<<<
+ *     if __pyx_checksum != 0xa5d0ddf:             # <<<<<<<<<<<<<<
  *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xa30b71b = (board_gain, depth, player))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xa5d0ddf = (board_gain, depth, player, switch_threshold))" % __pyx_checksum)
  */
-  __pyx_t_1 = ((__pyx_v___pyx_checksum != 0xa30b71b) != 0);
+  __pyx_t_1 = ((__pyx_v___pyx_checksum != 0xa5d0ddf) != 0);
   if (__pyx_t_1) {
 
     /* "(tree fragment)":5
  *     cdef object __pyx_result
- *     if __pyx_checksum != 0xa30b71b:
+ *     if __pyx_checksum != 0xa5d0ddf:
  *         from pickle import PickleError as __pyx_PickleError             # <<<<<<<<<<<<<<
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xa30b71b = (board_gain, depth, player))" % __pyx_checksum)
- *     __pyx_result = AlphaBetaSecondAI.__new__(__pyx_type)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xa5d0ddf = (board_gain, depth, player, switch_threshold))" % __pyx_checksum)
+ *     __pyx_result = SwitchTacticsAlphaBetaAI.__new__(__pyx_type)
  */
     __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 5, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
@@ -24639,15 +24659,15 @@ static PyObject *__pyx_pf_7cplayer_12__pyx_unpickle_AlphaBetaSecondAI(CYTHON_UNU
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
     /* "(tree fragment)":6
- *     if __pyx_checksum != 0xa30b71b:
+ *     if __pyx_checksum != 0xa5d0ddf:
  *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xa30b71b = (board_gain, depth, player))" % __pyx_checksum)             # <<<<<<<<<<<<<<
- *     __pyx_result = AlphaBetaSecondAI.__new__(__pyx_type)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xa5d0ddf = (board_gain, depth, player, switch_threshold))" % __pyx_checksum)             # <<<<<<<<<<<<<<
+ *     __pyx_result = SwitchTacticsAlphaBetaAI.__new__(__pyx_type)
  *     if __pyx_state is not None:
  */
     __pyx_t_2 = __Pyx_PyInt_From_long(__pyx_v___pyx_checksum); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 6, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = __Pyx_PyString_Format(__pyx_kp_s_Incompatible_checksums_s_vs_0xa3, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 6, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyString_Format(__pyx_kp_s_Incompatible_checksums_s_vs_0xa5, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 6, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_INCREF(__pyx_v___pyx_PickleError);
@@ -24674,20 +24694,20 @@ static PyObject *__pyx_pf_7cplayer_12__pyx_unpickle_AlphaBetaSecondAI(CYTHON_UNU
     /* "(tree fragment)":4
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
- *     if __pyx_checksum != 0xa30b71b:             # <<<<<<<<<<<<<<
+ *     if __pyx_checksum != 0xa5d0ddf:             # <<<<<<<<<<<<<<
  *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xa30b71b = (board_gain, depth, player))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xa5d0ddf = (board_gain, depth, player, switch_threshold))" % __pyx_checksum)
  */
   }
 
   /* "(tree fragment)":7
  *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xa30b71b = (board_gain, depth, player))" % __pyx_checksum)
- *     __pyx_result = AlphaBetaSecondAI.__new__(__pyx_type)             # <<<<<<<<<<<<<<
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xa5d0ddf = (board_gain, depth, player, switch_threshold))" % __pyx_checksum)
+ *     __pyx_result = SwitchTacticsAlphaBetaAI.__new__(__pyx_type)             # <<<<<<<<<<<<<<
  *     if __pyx_state is not None:
- *         __pyx_unpickle_AlphaBetaSecondAI__set_state(<AlphaBetaSecondAI> __pyx_result, __pyx_state)
+ *         __pyx_unpickle_SwitchTacticsAlphaBetaAI__set_state(<SwitchTacticsAlphaBetaAI> __pyx_result, __pyx_state)
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_AlphaBetaSecondAI), __pyx_n_s_new); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 7, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_SwitchTacticsAlphaBetaAI), __pyx_n_s_new); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_4 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -24708,10 +24728,10 @@ static PyObject *__pyx_pf_7cplayer_12__pyx_unpickle_AlphaBetaSecondAI(CYTHON_UNU
   __pyx_t_3 = 0;
 
   /* "(tree fragment)":8
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xa30b71b = (board_gain, depth, player))" % __pyx_checksum)
- *     __pyx_result = AlphaBetaSecondAI.__new__(__pyx_type)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xa5d0ddf = (board_gain, depth, player, switch_threshold))" % __pyx_checksum)
+ *     __pyx_result = SwitchTacticsAlphaBetaAI.__new__(__pyx_type)
  *     if __pyx_state is not None:             # <<<<<<<<<<<<<<
- *         __pyx_unpickle_AlphaBetaSecondAI__set_state(<AlphaBetaSecondAI> __pyx_result, __pyx_state)
+ *         __pyx_unpickle_SwitchTacticsAlphaBetaAI__set_state(<SwitchTacticsAlphaBetaAI> __pyx_result, __pyx_state)
  *     return __pyx_result
  */
   __pyx_t_1 = (__pyx_v___pyx_state != Py_None);
@@ -24719,32 +24739,32 @@ static PyObject *__pyx_pf_7cplayer_12__pyx_unpickle_AlphaBetaSecondAI(CYTHON_UNU
   if (__pyx_t_6) {
 
     /* "(tree fragment)":9
- *     __pyx_result = AlphaBetaSecondAI.__new__(__pyx_type)
+ *     __pyx_result = SwitchTacticsAlphaBetaAI.__new__(__pyx_type)
  *     if __pyx_state is not None:
- *         __pyx_unpickle_AlphaBetaSecondAI__set_state(<AlphaBetaSecondAI> __pyx_result, __pyx_state)             # <<<<<<<<<<<<<<
+ *         __pyx_unpickle_SwitchTacticsAlphaBetaAI__set_state(<SwitchTacticsAlphaBetaAI> __pyx_result, __pyx_state)             # <<<<<<<<<<<<<<
  *     return __pyx_result
- * cdef __pyx_unpickle_AlphaBetaSecondAI__set_state(AlphaBetaSecondAI __pyx_result, tuple __pyx_state):
+ * cdef __pyx_unpickle_SwitchTacticsAlphaBetaAI__set_state(SwitchTacticsAlphaBetaAI __pyx_result, tuple __pyx_state):
  */
     if (!(likely(PyTuple_CheckExact(__pyx_v___pyx_state))||((__pyx_v___pyx_state) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "tuple", Py_TYPE(__pyx_v___pyx_state)->tp_name), 0))) __PYX_ERR(1, 9, __pyx_L1_error)
-    __pyx_t_3 = __pyx_f_7cplayer___pyx_unpickle_AlphaBetaSecondAI__set_state(((struct __pyx_obj_7cplayer_AlphaBetaSecondAI *)__pyx_v___pyx_result), ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 9, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_7cplayer___pyx_unpickle_SwitchTacticsAlphaBetaAI__set_state(((struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *)__pyx_v___pyx_result), ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 9, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
     /* "(tree fragment)":8
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xa30b71b = (board_gain, depth, player))" % __pyx_checksum)
- *     __pyx_result = AlphaBetaSecondAI.__new__(__pyx_type)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xa5d0ddf = (board_gain, depth, player, switch_threshold))" % __pyx_checksum)
+ *     __pyx_result = SwitchTacticsAlphaBetaAI.__new__(__pyx_type)
  *     if __pyx_state is not None:             # <<<<<<<<<<<<<<
- *         __pyx_unpickle_AlphaBetaSecondAI__set_state(<AlphaBetaSecondAI> __pyx_result, __pyx_state)
+ *         __pyx_unpickle_SwitchTacticsAlphaBetaAI__set_state(<SwitchTacticsAlphaBetaAI> __pyx_result, __pyx_state)
  *     return __pyx_result
  */
   }
 
   /* "(tree fragment)":10
  *     if __pyx_state is not None:
- *         __pyx_unpickle_AlphaBetaSecondAI__set_state(<AlphaBetaSecondAI> __pyx_result, __pyx_state)
+ *         __pyx_unpickle_SwitchTacticsAlphaBetaAI__set_state(<SwitchTacticsAlphaBetaAI> __pyx_result, __pyx_state)
  *     return __pyx_result             # <<<<<<<<<<<<<<
- * cdef __pyx_unpickle_AlphaBetaSecondAI__set_state(AlphaBetaSecondAI __pyx_result, tuple __pyx_state):
- *     __pyx_result.board_gain = __pyx_state[0]; __pyx_result.depth = __pyx_state[1]; __pyx_result.player = __pyx_state[2]
+ * cdef __pyx_unpickle_SwitchTacticsAlphaBetaAI__set_state(SwitchTacticsAlphaBetaAI __pyx_result, tuple __pyx_state):
+ *     __pyx_result.board_gain = __pyx_state[0]; __pyx_result.depth = __pyx_state[1]; __pyx_result.player = __pyx_state[2]; __pyx_result.switch_threshold = __pyx_state[3]
  */
   __Pyx_XDECREF(__pyx_r);
   __Pyx_INCREF(__pyx_v___pyx_result);
@@ -24752,7 +24772,7 @@ static PyObject *__pyx_pf_7cplayer_12__pyx_unpickle_AlphaBetaSecondAI(CYTHON_UNU
   goto __pyx_L0;
 
   /* "(tree fragment)":1
- * def __pyx_unpickle_AlphaBetaSecondAI(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
+ * def __pyx_unpickle_SwitchTacticsAlphaBetaAI(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
@@ -24763,7 +24783,7 @@ static PyObject *__pyx_pf_7cplayer_12__pyx_unpickle_AlphaBetaSecondAI(CYTHON_UNU
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("cplayer.__pyx_unpickle_AlphaBetaSecondAI", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cplayer.__pyx_unpickle_SwitchTacticsAlphaBetaAI", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v___pyx_PickleError);
@@ -24774,14 +24794,14 @@ static PyObject *__pyx_pf_7cplayer_12__pyx_unpickle_AlphaBetaSecondAI(CYTHON_UNU
 }
 
 /* "(tree fragment)":11
- *         __pyx_unpickle_AlphaBetaSecondAI__set_state(<AlphaBetaSecondAI> __pyx_result, __pyx_state)
+ *         __pyx_unpickle_SwitchTacticsAlphaBetaAI__set_state(<SwitchTacticsAlphaBetaAI> __pyx_result, __pyx_state)
  *     return __pyx_result
- * cdef __pyx_unpickle_AlphaBetaSecondAI__set_state(AlphaBetaSecondAI __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_result.board_gain = __pyx_state[0]; __pyx_result.depth = __pyx_state[1]; __pyx_result.player = __pyx_state[2]
- *     if len(__pyx_state) > 3 and hasattr(__pyx_result, '__dict__'):
+ * cdef __pyx_unpickle_SwitchTacticsAlphaBetaAI__set_state(SwitchTacticsAlphaBetaAI __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
+ *     __pyx_result.board_gain = __pyx_state[0]; __pyx_result.depth = __pyx_state[1]; __pyx_result.player = __pyx_state[2]; __pyx_result.switch_threshold = __pyx_state[3]
+ *     if len(__pyx_state) > 4 and hasattr(__pyx_result, '__dict__'):
  */
 
-static PyObject *__pyx_f_7cplayer___pyx_unpickle_AlphaBetaSecondAI__set_state(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *__pyx_v___pyx_result, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_f_7cplayer___pyx_unpickle_SwitchTacticsAlphaBetaAI__set_state(struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *__pyx_v___pyx_result, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -24793,14 +24813,14 @@ static PyObject *__pyx_f_7cplayer___pyx_unpickle_AlphaBetaSecondAI__set_state(st
   PyObject *__pyx_t_7 = NULL;
   PyObject *__pyx_t_8 = NULL;
   PyObject *__pyx_t_9 = NULL;
-  __Pyx_RefNannySetupContext("__pyx_unpickle_AlphaBetaSecondAI__set_state", 0);
+  __Pyx_RefNannySetupContext("__pyx_unpickle_SwitchTacticsAlphaBetaAI__set_state", 0);
 
   /* "(tree fragment)":12
  *     return __pyx_result
- * cdef __pyx_unpickle_AlphaBetaSecondAI__set_state(AlphaBetaSecondAI __pyx_result, tuple __pyx_state):
- *     __pyx_result.board_gain = __pyx_state[0]; __pyx_result.depth = __pyx_state[1]; __pyx_result.player = __pyx_state[2]             # <<<<<<<<<<<<<<
- *     if len(__pyx_state) > 3 and hasattr(__pyx_result, '__dict__'):
- *         __pyx_result.__dict__.update(__pyx_state[3])
+ * cdef __pyx_unpickle_SwitchTacticsAlphaBetaAI__set_state(SwitchTacticsAlphaBetaAI __pyx_result, tuple __pyx_state):
+ *     __pyx_result.board_gain = __pyx_state[0]; __pyx_result.depth = __pyx_state[1]; __pyx_result.player = __pyx_state[2]; __pyx_result.switch_threshold = __pyx_state[3]             # <<<<<<<<<<<<<<
+ *     if len(__pyx_state) > 4 and hasattr(__pyx_result, '__dict__'):
+ *         __pyx_result.__dict__.update(__pyx_state[4])
  */
   if (unlikely(__pyx_v___pyx_state == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
@@ -24832,19 +24852,28 @@ static PyObject *__pyx_f_7cplayer___pyx_unpickle_AlphaBetaSecondAI__set_state(st
   __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 12, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v___pyx_result->__pyx_base.player = __pyx_t_2;
+  if (unlikely(__pyx_v___pyx_state == Py_None)) {
+    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
+    __PYX_ERR(1, 12, __pyx_L1_error)
+  }
+  __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 3, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 12, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 12, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_v___pyx_result->switch_threshold = __pyx_t_2;
 
   /* "(tree fragment)":13
- * cdef __pyx_unpickle_AlphaBetaSecondAI__set_state(AlphaBetaSecondAI __pyx_result, tuple __pyx_state):
- *     __pyx_result.board_gain = __pyx_state[0]; __pyx_result.depth = __pyx_state[1]; __pyx_result.player = __pyx_state[2]
- *     if len(__pyx_state) > 3 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
- *         __pyx_result.__dict__.update(__pyx_state[3])
+ * cdef __pyx_unpickle_SwitchTacticsAlphaBetaAI__set_state(SwitchTacticsAlphaBetaAI __pyx_result, tuple __pyx_state):
+ *     __pyx_result.board_gain = __pyx_state[0]; __pyx_result.depth = __pyx_state[1]; __pyx_result.player = __pyx_state[2]; __pyx_result.switch_threshold = __pyx_state[3]
+ *     if len(__pyx_state) > 4 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
+ *         __pyx_result.__dict__.update(__pyx_state[4])
  */
   if (unlikely(__pyx_v___pyx_state == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
     __PYX_ERR(1, 13, __pyx_L1_error)
   }
   __pyx_t_4 = PyTuple_GET_SIZE(__pyx_v___pyx_state); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(1, 13, __pyx_L1_error)
-  __pyx_t_5 = ((__pyx_t_4 > 3) != 0);
+  __pyx_t_5 = ((__pyx_t_4 > 4) != 0);
   if (__pyx_t_5) {
   } else {
     __pyx_t_3 = __pyx_t_5;
@@ -24857,9 +24886,9 @@ static PyObject *__pyx_f_7cplayer___pyx_unpickle_AlphaBetaSecondAI__set_state(st
   if (__pyx_t_3) {
 
     /* "(tree fragment)":14
- *     __pyx_result.board_gain = __pyx_state[0]; __pyx_result.depth = __pyx_state[1]; __pyx_result.player = __pyx_state[2]
- *     if len(__pyx_state) > 3 and hasattr(__pyx_result, '__dict__'):
- *         __pyx_result.__dict__.update(__pyx_state[3])             # <<<<<<<<<<<<<<
+ *     __pyx_result.board_gain = __pyx_state[0]; __pyx_result.depth = __pyx_state[1]; __pyx_result.player = __pyx_state[2]; __pyx_result.switch_threshold = __pyx_state[3]
+ *     if len(__pyx_state) > 4 and hasattr(__pyx_result, '__dict__'):
+ *         __pyx_result.__dict__.update(__pyx_state[4])             # <<<<<<<<<<<<<<
  */
     __pyx_t_7 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v___pyx_result), __pyx_n_s_dict); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 14, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
@@ -24870,7 +24899,7 @@ static PyObject *__pyx_f_7cplayer___pyx_unpickle_AlphaBetaSecondAI__set_state(st
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
       __PYX_ERR(1, 14, __pyx_L1_error)
     }
-    __pyx_t_7 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 3, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 14, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 4, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 14, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __pyx_t_9 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_8))) {
@@ -24891,19 +24920,19 @@ static PyObject *__pyx_f_7cplayer___pyx_unpickle_AlphaBetaSecondAI__set_state(st
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
     /* "(tree fragment)":13
- * cdef __pyx_unpickle_AlphaBetaSecondAI__set_state(AlphaBetaSecondAI __pyx_result, tuple __pyx_state):
- *     __pyx_result.board_gain = __pyx_state[0]; __pyx_result.depth = __pyx_state[1]; __pyx_result.player = __pyx_state[2]
- *     if len(__pyx_state) > 3 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
- *         __pyx_result.__dict__.update(__pyx_state[3])
+ * cdef __pyx_unpickle_SwitchTacticsAlphaBetaAI__set_state(SwitchTacticsAlphaBetaAI __pyx_result, tuple __pyx_state):
+ *     __pyx_result.board_gain = __pyx_state[0]; __pyx_result.depth = __pyx_state[1]; __pyx_result.player = __pyx_state[2]; __pyx_result.switch_threshold = __pyx_state[3]
+ *     if len(__pyx_state) > 4 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
+ *         __pyx_result.__dict__.update(__pyx_state[4])
  */
   }
 
   /* "(tree fragment)":11
- *         __pyx_unpickle_AlphaBetaSecondAI__set_state(<AlphaBetaSecondAI> __pyx_result, __pyx_state)
+ *         __pyx_unpickle_SwitchTacticsAlphaBetaAI__set_state(<SwitchTacticsAlphaBetaAI> __pyx_result, __pyx_state)
  *     return __pyx_result
- * cdef __pyx_unpickle_AlphaBetaSecondAI__set_state(AlphaBetaSecondAI __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_result.board_gain = __pyx_state[0]; __pyx_result.depth = __pyx_state[1]; __pyx_result.player = __pyx_state[2]
- *     if len(__pyx_state) > 3 and hasattr(__pyx_result, '__dict__'):
+ * cdef __pyx_unpickle_SwitchTacticsAlphaBetaAI__set_state(SwitchTacticsAlphaBetaAI __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
+ *     __pyx_result.board_gain = __pyx_state[0]; __pyx_result.depth = __pyx_state[1]; __pyx_result.player = __pyx_state[2]; __pyx_result.switch_threshold = __pyx_state[3]
+ *     if len(__pyx_state) > 4 and hasattr(__pyx_result, '__dict__'):
  */
 
   /* function exit code */
@@ -24914,7 +24943,7 @@ static PyObject *__pyx_f_7cplayer___pyx_unpickle_AlphaBetaSecondAI__set_state(st
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_8);
   __Pyx_XDECREF(__pyx_t_9);
-  __Pyx_AddTraceback("cplayer.__pyx_unpickle_AlphaBetaSecondAI__set_state", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cplayer.__pyx_unpickle_SwitchTacticsAlphaBetaAI__set_state", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -24923,21 +24952,21 @@ static PyObject *__pyx_f_7cplayer___pyx_unpickle_AlphaBetaSecondAI__set_state(st
 }
 
 /* "(tree fragment)":1
- * def __pyx_unpickle_AlphaBetaThirdAI(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
+ * def __pyx_unpickle_CountMovesAlphaBetaAI(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_7cplayer_15__pyx_unpickle_AlphaBetaThirdAI(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_7cplayer_15__pyx_unpickle_AlphaBetaThirdAI = {"__pyx_unpickle_AlphaBetaThirdAI", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_7cplayer_15__pyx_unpickle_AlphaBetaThirdAI, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_7cplayer_15__pyx_unpickle_AlphaBetaThirdAI(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_7cplayer_15__pyx_unpickle_CountMovesAlphaBetaAI(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_7cplayer_15__pyx_unpickle_CountMovesAlphaBetaAI = {"__pyx_unpickle_CountMovesAlphaBetaAI", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_7cplayer_15__pyx_unpickle_CountMovesAlphaBetaAI, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_7cplayer_15__pyx_unpickle_CountMovesAlphaBetaAI(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v___pyx_type = 0;
   long __pyx_v___pyx_checksum;
   PyObject *__pyx_v___pyx_state = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__pyx_unpickle_AlphaBetaThirdAI (wrapper)", 0);
+  __Pyx_RefNannySetupContext("__pyx_unpickle_CountMovesAlphaBetaAI (wrapper)", 0);
   {
     static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_pyx_type,&__pyx_n_s_pyx_checksum,&__pyx_n_s_pyx_state,0};
     PyObject* values[3] = {0,0,0};
@@ -24963,17 +24992,17 @@ static PyObject *__pyx_pw_7cplayer_15__pyx_unpickle_AlphaBetaThirdAI(PyObject *_
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_pyx_checksum)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_AlphaBetaThirdAI", 1, 3, 3, 1); __PYX_ERR(1, 1, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_CountMovesAlphaBetaAI", 1, 3, 3, 1); __PYX_ERR(1, 1, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_pyx_state)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_AlphaBetaThirdAI", 1, 3, 3, 2); __PYX_ERR(1, 1, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_CountMovesAlphaBetaAI", 1, 3, 3, 2); __PYX_ERR(1, 1, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__pyx_unpickle_AlphaBetaThirdAI") < 0)) __PYX_ERR(1, 1, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__pyx_unpickle_CountMovesAlphaBetaAI") < 0)) __PYX_ERR(1, 1, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -24988,20 +25017,20 @@ static PyObject *__pyx_pw_7cplayer_15__pyx_unpickle_AlphaBetaThirdAI(PyObject *_
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_AlphaBetaThirdAI", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 1, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_CountMovesAlphaBetaAI", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 1, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("cplayer.__pyx_unpickle_AlphaBetaThirdAI", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cplayer.__pyx_unpickle_CountMovesAlphaBetaAI", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_7cplayer_14__pyx_unpickle_AlphaBetaThirdAI(__pyx_self, __pyx_v___pyx_type, __pyx_v___pyx_checksum, __pyx_v___pyx_state);
+  __pyx_r = __pyx_pf_7cplayer_14__pyx_unpickle_CountMovesAlphaBetaAI(__pyx_self, __pyx_v___pyx_type, __pyx_v___pyx_checksum, __pyx_v___pyx_state);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_7cplayer_14__pyx_unpickle_AlphaBetaThirdAI(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_7cplayer_14__pyx_unpickle_CountMovesAlphaBetaAI(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_v___pyx_PickleError = 0;
   PyObject *__pyx_v___pyx_result = 0;
   PyObject *__pyx_r = NULL;
@@ -25012,7 +25041,7 @@ static PyObject *__pyx_pf_7cplayer_14__pyx_unpickle_AlphaBetaThirdAI(CYTHON_UNUS
   PyObject *__pyx_t_4 = NULL;
   PyObject *__pyx_t_5 = NULL;
   int __pyx_t_6;
-  __Pyx_RefNannySetupContext("__pyx_unpickle_AlphaBetaThirdAI", 0);
+  __Pyx_RefNannySetupContext("__pyx_unpickle_CountMovesAlphaBetaAI", 0);
 
   /* "(tree fragment)":4
  *     cdef object __pyx_PickleError
@@ -25029,7 +25058,7 @@ static PyObject *__pyx_pf_7cplayer_14__pyx_unpickle_AlphaBetaThirdAI(CYTHON_UNUS
  *     if __pyx_checksum != 0x32c9b52:
  *         from pickle import PickleError as __pyx_PickleError             # <<<<<<<<<<<<<<
  *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x32c9b52 = (depth, player))" % __pyx_checksum)
- *     __pyx_result = AlphaBetaThirdAI.__new__(__pyx_type)
+ *     __pyx_result = CountMovesAlphaBetaAI.__new__(__pyx_type)
  */
     __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 5, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
@@ -25050,7 +25079,7 @@ static PyObject *__pyx_pf_7cplayer_14__pyx_unpickle_AlphaBetaThirdAI(CYTHON_UNUS
  *     if __pyx_checksum != 0x32c9b52:
  *         from pickle import PickleError as __pyx_PickleError
  *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x32c9b52 = (depth, player))" % __pyx_checksum)             # <<<<<<<<<<<<<<
- *     __pyx_result = AlphaBetaThirdAI.__new__(__pyx_type)
+ *     __pyx_result = CountMovesAlphaBetaAI.__new__(__pyx_type)
  *     if __pyx_state is not None:
  */
     __pyx_t_2 = __Pyx_PyInt_From_long(__pyx_v___pyx_checksum); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 6, __pyx_L1_error)
@@ -25091,11 +25120,11 @@ static PyObject *__pyx_pf_7cplayer_14__pyx_unpickle_AlphaBetaThirdAI(CYTHON_UNUS
   /* "(tree fragment)":7
  *         from pickle import PickleError as __pyx_PickleError
  *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x32c9b52 = (depth, player))" % __pyx_checksum)
- *     __pyx_result = AlphaBetaThirdAI.__new__(__pyx_type)             # <<<<<<<<<<<<<<
+ *     __pyx_result = CountMovesAlphaBetaAI.__new__(__pyx_type)             # <<<<<<<<<<<<<<
  *     if __pyx_state is not None:
- *         __pyx_unpickle_AlphaBetaThirdAI__set_state(<AlphaBetaThirdAI> __pyx_result, __pyx_state)
+ *         __pyx_unpickle_CountMovesAlphaBetaAI__set_state(<CountMovesAlphaBetaAI> __pyx_result, __pyx_state)
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_AlphaBetaThirdAI), __pyx_n_s_new); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 7, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_7cplayer_CountMovesAlphaBetaAI), __pyx_n_s_new); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_4 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -25117,9 +25146,9 @@ static PyObject *__pyx_pf_7cplayer_14__pyx_unpickle_AlphaBetaThirdAI(CYTHON_UNUS
 
   /* "(tree fragment)":8
  *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x32c9b52 = (depth, player))" % __pyx_checksum)
- *     __pyx_result = AlphaBetaThirdAI.__new__(__pyx_type)
+ *     __pyx_result = CountMovesAlphaBetaAI.__new__(__pyx_type)
  *     if __pyx_state is not None:             # <<<<<<<<<<<<<<
- *         __pyx_unpickle_AlphaBetaThirdAI__set_state(<AlphaBetaThirdAI> __pyx_result, __pyx_state)
+ *         __pyx_unpickle_CountMovesAlphaBetaAI__set_state(<CountMovesAlphaBetaAI> __pyx_result, __pyx_state)
  *     return __pyx_result
  */
   __pyx_t_1 = (__pyx_v___pyx_state != Py_None);
@@ -25127,31 +25156,31 @@ static PyObject *__pyx_pf_7cplayer_14__pyx_unpickle_AlphaBetaThirdAI(CYTHON_UNUS
   if (__pyx_t_6) {
 
     /* "(tree fragment)":9
- *     __pyx_result = AlphaBetaThirdAI.__new__(__pyx_type)
+ *     __pyx_result = CountMovesAlphaBetaAI.__new__(__pyx_type)
  *     if __pyx_state is not None:
- *         __pyx_unpickle_AlphaBetaThirdAI__set_state(<AlphaBetaThirdAI> __pyx_result, __pyx_state)             # <<<<<<<<<<<<<<
+ *         __pyx_unpickle_CountMovesAlphaBetaAI__set_state(<CountMovesAlphaBetaAI> __pyx_result, __pyx_state)             # <<<<<<<<<<<<<<
  *     return __pyx_result
- * cdef __pyx_unpickle_AlphaBetaThirdAI__set_state(AlphaBetaThirdAI __pyx_result, tuple __pyx_state):
+ * cdef __pyx_unpickle_CountMovesAlphaBetaAI__set_state(CountMovesAlphaBetaAI __pyx_result, tuple __pyx_state):
  */
     if (!(likely(PyTuple_CheckExact(__pyx_v___pyx_state))||((__pyx_v___pyx_state) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "tuple", Py_TYPE(__pyx_v___pyx_state)->tp_name), 0))) __PYX_ERR(1, 9, __pyx_L1_error)
-    __pyx_t_3 = __pyx_f_7cplayer___pyx_unpickle_AlphaBetaThirdAI__set_state(((struct __pyx_obj_7cplayer_AlphaBetaThirdAI *)__pyx_v___pyx_result), ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 9, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_7cplayer___pyx_unpickle_CountMovesAlphaBetaAI__set_state(((struct __pyx_obj_7cplayer_CountMovesAlphaBetaAI *)__pyx_v___pyx_result), ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 9, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
     /* "(tree fragment)":8
  *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x32c9b52 = (depth, player))" % __pyx_checksum)
- *     __pyx_result = AlphaBetaThirdAI.__new__(__pyx_type)
+ *     __pyx_result = CountMovesAlphaBetaAI.__new__(__pyx_type)
  *     if __pyx_state is not None:             # <<<<<<<<<<<<<<
- *         __pyx_unpickle_AlphaBetaThirdAI__set_state(<AlphaBetaThirdAI> __pyx_result, __pyx_state)
+ *         __pyx_unpickle_CountMovesAlphaBetaAI__set_state(<CountMovesAlphaBetaAI> __pyx_result, __pyx_state)
  *     return __pyx_result
  */
   }
 
   /* "(tree fragment)":10
  *     if __pyx_state is not None:
- *         __pyx_unpickle_AlphaBetaThirdAI__set_state(<AlphaBetaThirdAI> __pyx_result, __pyx_state)
+ *         __pyx_unpickle_CountMovesAlphaBetaAI__set_state(<CountMovesAlphaBetaAI> __pyx_result, __pyx_state)
  *     return __pyx_result             # <<<<<<<<<<<<<<
- * cdef __pyx_unpickle_AlphaBetaThirdAI__set_state(AlphaBetaThirdAI __pyx_result, tuple __pyx_state):
+ * cdef __pyx_unpickle_CountMovesAlphaBetaAI__set_state(CountMovesAlphaBetaAI __pyx_result, tuple __pyx_state):
  *     __pyx_result.depth = __pyx_state[0]; __pyx_result.player = __pyx_state[1]
  */
   __Pyx_XDECREF(__pyx_r);
@@ -25160,7 +25189,7 @@ static PyObject *__pyx_pf_7cplayer_14__pyx_unpickle_AlphaBetaThirdAI(CYTHON_UNUS
   goto __pyx_L0;
 
   /* "(tree fragment)":1
- * def __pyx_unpickle_AlphaBetaThirdAI(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
+ * def __pyx_unpickle_CountMovesAlphaBetaAI(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
@@ -25171,7 +25200,7 @@ static PyObject *__pyx_pf_7cplayer_14__pyx_unpickle_AlphaBetaThirdAI(CYTHON_UNUS
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("cplayer.__pyx_unpickle_AlphaBetaThirdAI", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cplayer.__pyx_unpickle_CountMovesAlphaBetaAI", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v___pyx_PickleError);
@@ -25182,14 +25211,14 @@ static PyObject *__pyx_pf_7cplayer_14__pyx_unpickle_AlphaBetaThirdAI(CYTHON_UNUS
 }
 
 /* "(tree fragment)":11
- *         __pyx_unpickle_AlphaBetaThirdAI__set_state(<AlphaBetaThirdAI> __pyx_result, __pyx_state)
+ *         __pyx_unpickle_CountMovesAlphaBetaAI__set_state(<CountMovesAlphaBetaAI> __pyx_result, __pyx_state)
  *     return __pyx_result
- * cdef __pyx_unpickle_AlphaBetaThirdAI__set_state(AlphaBetaThirdAI __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
+ * cdef __pyx_unpickle_CountMovesAlphaBetaAI__set_state(CountMovesAlphaBetaAI __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_result.depth = __pyx_state[0]; __pyx_result.player = __pyx_state[1]
  *     if len(__pyx_state) > 2 and hasattr(__pyx_result, '__dict__'):
  */
 
-static PyObject *__pyx_f_7cplayer___pyx_unpickle_AlphaBetaThirdAI__set_state(struct __pyx_obj_7cplayer_AlphaBetaThirdAI *__pyx_v___pyx_result, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_f_7cplayer___pyx_unpickle_CountMovesAlphaBetaAI__set_state(struct __pyx_obj_7cplayer_CountMovesAlphaBetaAI *__pyx_v___pyx_result, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -25201,11 +25230,11 @@ static PyObject *__pyx_f_7cplayer___pyx_unpickle_AlphaBetaThirdAI__set_state(str
   PyObject *__pyx_t_7 = NULL;
   PyObject *__pyx_t_8 = NULL;
   PyObject *__pyx_t_9 = NULL;
-  __Pyx_RefNannySetupContext("__pyx_unpickle_AlphaBetaThirdAI__set_state", 0);
+  __Pyx_RefNannySetupContext("__pyx_unpickle_CountMovesAlphaBetaAI__set_state", 0);
 
   /* "(tree fragment)":12
  *     return __pyx_result
- * cdef __pyx_unpickle_AlphaBetaThirdAI__set_state(AlphaBetaThirdAI __pyx_result, tuple __pyx_state):
+ * cdef __pyx_unpickle_CountMovesAlphaBetaAI__set_state(CountMovesAlphaBetaAI __pyx_result, tuple __pyx_state):
  *     __pyx_result.depth = __pyx_state[0]; __pyx_result.player = __pyx_state[1]             # <<<<<<<<<<<<<<
  *     if len(__pyx_state) > 2 and hasattr(__pyx_result, '__dict__'):
  *         __pyx_result.__dict__.update(__pyx_state[2])
@@ -25230,7 +25259,7 @@ static PyObject *__pyx_f_7cplayer___pyx_unpickle_AlphaBetaThirdAI__set_state(str
   __pyx_v___pyx_result->__pyx_base.player = __pyx_t_2;
 
   /* "(tree fragment)":13
- * cdef __pyx_unpickle_AlphaBetaThirdAI__set_state(AlphaBetaThirdAI __pyx_result, tuple __pyx_state):
+ * cdef __pyx_unpickle_CountMovesAlphaBetaAI__set_state(CountMovesAlphaBetaAI __pyx_result, tuple __pyx_state):
  *     __pyx_result.depth = __pyx_state[0]; __pyx_result.player = __pyx_state[1]
  *     if len(__pyx_state) > 2 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
  *         __pyx_result.__dict__.update(__pyx_state[2])
@@ -25287,7 +25316,7 @@ static PyObject *__pyx_f_7cplayer___pyx_unpickle_AlphaBetaThirdAI__set_state(str
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
     /* "(tree fragment)":13
- * cdef __pyx_unpickle_AlphaBetaThirdAI__set_state(AlphaBetaThirdAI __pyx_result, tuple __pyx_state):
+ * cdef __pyx_unpickle_CountMovesAlphaBetaAI__set_state(CountMovesAlphaBetaAI __pyx_result, tuple __pyx_state):
  *     __pyx_result.depth = __pyx_state[0]; __pyx_result.player = __pyx_state[1]
  *     if len(__pyx_state) > 2 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
  *         __pyx_result.__dict__.update(__pyx_state[2])
@@ -25295,9 +25324,9 @@ static PyObject *__pyx_f_7cplayer___pyx_unpickle_AlphaBetaThirdAI__set_state(str
   }
 
   /* "(tree fragment)":11
- *         __pyx_unpickle_AlphaBetaThirdAI__set_state(<AlphaBetaThirdAI> __pyx_result, __pyx_state)
+ *         __pyx_unpickle_CountMovesAlphaBetaAI__set_state(<CountMovesAlphaBetaAI> __pyx_result, __pyx_state)
  *     return __pyx_result
- * cdef __pyx_unpickle_AlphaBetaThirdAI__set_state(AlphaBetaThirdAI __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
+ * cdef __pyx_unpickle_CountMovesAlphaBetaAI__set_state(CountMovesAlphaBetaAI __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_result.depth = __pyx_state[0]; __pyx_result.player = __pyx_state[1]
  *     if len(__pyx_state) > 2 and hasattr(__pyx_result, '__dict__'):
  */
@@ -25310,7 +25339,7 @@ static PyObject *__pyx_f_7cplayer___pyx_unpickle_AlphaBetaThirdAI__set_state(str
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_8);
   __Pyx_XDECREF(__pyx_t_9);
-  __Pyx_AddTraceback("cplayer.__pyx_unpickle_AlphaBetaThirdAI__set_state", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cplayer.__pyx_unpickle_CountMovesAlphaBetaAI__set_state", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -27106,20 +27135,20 @@ static PyTypeObject __pyx_type_7cplayer_AlphaBetaAI = {
   0, /*tp_finalize*/
   #endif
 };
-static struct __pyx_vtabstruct_7cplayer_AlphaBetaSecondAI __pyx_vtable_7cplayer_AlphaBetaSecondAI;
+static struct __pyx_vtabstruct_7cplayer_SwitchTacticsAlphaBetaAI __pyx_vtable_7cplayer_SwitchTacticsAlphaBetaAI;
 
-static PyObject *__pyx_tp_new_7cplayer_AlphaBetaSecondAI(PyTypeObject *t, PyObject *a, PyObject *k) {
-  struct __pyx_obj_7cplayer_AlphaBetaSecondAI *p;
+static PyObject *__pyx_tp_new_7cplayer_SwitchTacticsAlphaBetaAI(PyTypeObject *t, PyObject *a, PyObject *k) {
+  struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *p;
   PyObject *o = __pyx_tp_new_7cplayer_Player(t, a, k);
   if (unlikely(!o)) return 0;
-  p = ((struct __pyx_obj_7cplayer_AlphaBetaSecondAI *)o);
-  p->__pyx_base.__pyx_vtab = (struct __pyx_vtabstruct_7cplayer_Player*)__pyx_vtabptr_7cplayer_AlphaBetaSecondAI;
+  p = ((struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *)o);
+  p->__pyx_base.__pyx_vtab = (struct __pyx_vtabstruct_7cplayer_Player*)__pyx_vtabptr_7cplayer_SwitchTacticsAlphaBetaAI;
   p->board_gain = ((PyObject*)Py_None); Py_INCREF(Py_None);
   return o;
 }
 
-static void __pyx_tp_dealloc_7cplayer_AlphaBetaSecondAI(PyObject *o) {
-  struct __pyx_obj_7cplayer_AlphaBetaSecondAI *p = (struct __pyx_obj_7cplayer_AlphaBetaSecondAI *)o;
+static void __pyx_tp_dealloc_7cplayer_SwitchTacticsAlphaBetaAI(PyObject *o) {
+  struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *p = (struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *)o;
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely(PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE) && Py_TYPE(o)->tp_finalize) && !_PyGC_FINALIZED(o)) {
     if (PyObject_CallFinalizerFromDealloc(o)) return;
@@ -27134,39 +27163,39 @@ static void __pyx_tp_dealloc_7cplayer_AlphaBetaSecondAI(PyObject *o) {
   __pyx_tp_dealloc_7cplayer_Player(o);
 }
 
-static int __pyx_tp_traverse_7cplayer_AlphaBetaSecondAI(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_7cplayer_SwitchTacticsAlphaBetaAI(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_7cplayer_AlphaBetaSecondAI *p = (struct __pyx_obj_7cplayer_AlphaBetaSecondAI *)o;
-  e = ((likely(__pyx_ptype_7cplayer_Player)) ? ((__pyx_ptype_7cplayer_Player->tp_traverse) ? __pyx_ptype_7cplayer_Player->tp_traverse(o, v, a) : 0) : __Pyx_call_next_tp_traverse(o, v, a, __pyx_tp_traverse_7cplayer_AlphaBetaSecondAI)); if (e) return e;
+  struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *p = (struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *)o;
+  e = ((likely(__pyx_ptype_7cplayer_Player)) ? ((__pyx_ptype_7cplayer_Player->tp_traverse) ? __pyx_ptype_7cplayer_Player->tp_traverse(o, v, a) : 0) : __Pyx_call_next_tp_traverse(o, v, a, __pyx_tp_traverse_7cplayer_SwitchTacticsAlphaBetaAI)); if (e) return e;
   if (p->board_gain) {
     e = (*v)(p->board_gain, a); if (e) return e;
   }
   return 0;
 }
 
-static int __pyx_tp_clear_7cplayer_AlphaBetaSecondAI(PyObject *o) {
+static int __pyx_tp_clear_7cplayer_SwitchTacticsAlphaBetaAI(PyObject *o) {
   PyObject* tmp;
-  struct __pyx_obj_7cplayer_AlphaBetaSecondAI *p = (struct __pyx_obj_7cplayer_AlphaBetaSecondAI *)o;
-  if (likely(__pyx_ptype_7cplayer_Player)) { if (__pyx_ptype_7cplayer_Player->tp_clear) __pyx_ptype_7cplayer_Player->tp_clear(o); } else __Pyx_call_next_tp_clear(o, __pyx_tp_clear_7cplayer_AlphaBetaSecondAI);
+  struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *p = (struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *)o;
+  if (likely(__pyx_ptype_7cplayer_Player)) { if (__pyx_ptype_7cplayer_Player->tp_clear) __pyx_ptype_7cplayer_Player->tp_clear(o); } else __Pyx_call_next_tp_clear(o, __pyx_tp_clear_7cplayer_SwitchTacticsAlphaBetaAI);
   tmp = ((PyObject*)p->board_gain);
   p->board_gain = ((PyObject*)Py_None); Py_INCREF(Py_None);
   Py_XDECREF(tmp);
   return 0;
 }
 
-static PyMethodDef __pyx_methods_7cplayer_AlphaBetaSecondAI[] = {
-  {"thinking", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_7cplayer_17AlphaBetaSecondAI_3thinking, METH_VARARGS|METH_KEYWORDS, 0},
-  {"__reduce_cython__", (PyCFunction)__pyx_pw_7cplayer_17AlphaBetaSecondAI_5__reduce_cython__, METH_NOARGS, 0},
-  {"__setstate_cython__", (PyCFunction)__pyx_pw_7cplayer_17AlphaBetaSecondAI_7__setstate_cython__, METH_O, 0},
+static PyMethodDef __pyx_methods_7cplayer_SwitchTacticsAlphaBetaAI[] = {
+  {"thinking", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_7cplayer_24SwitchTacticsAlphaBetaAI_3thinking, METH_VARARGS|METH_KEYWORDS, 0},
+  {"__reduce_cython__", (PyCFunction)__pyx_pw_7cplayer_24SwitchTacticsAlphaBetaAI_5__reduce_cython__, METH_NOARGS, 0},
+  {"__setstate_cython__", (PyCFunction)__pyx_pw_7cplayer_24SwitchTacticsAlphaBetaAI_7__setstate_cython__, METH_O, 0},
   {0, 0, 0, 0}
 };
 
-static PyTypeObject __pyx_type_7cplayer_AlphaBetaSecondAI = {
+static PyTypeObject __pyx_type_7cplayer_SwitchTacticsAlphaBetaAI = {
   PyVarObject_HEAD_INIT(0, 0)
-  "cplayer.AlphaBetaSecondAI", /*tp_name*/
-  sizeof(struct __pyx_obj_7cplayer_AlphaBetaSecondAI), /*tp_basicsize*/
+  "cplayer.SwitchTacticsAlphaBetaAI", /*tp_name*/
+  sizeof(struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_7cplayer_AlphaBetaSecondAI, /*tp_dealloc*/
+  __pyx_tp_dealloc_7cplayer_SwitchTacticsAlphaBetaAI, /*tp_dealloc*/
   0, /*tp_print*/
   0, /*tp_getattr*/
   0, /*tp_setattr*/
@@ -27188,13 +27217,13 @@ static PyTypeObject __pyx_type_7cplayer_AlphaBetaSecondAI = {
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
   0, /*tp_doc*/
-  __pyx_tp_traverse_7cplayer_AlphaBetaSecondAI, /*tp_traverse*/
-  __pyx_tp_clear_7cplayer_AlphaBetaSecondAI, /*tp_clear*/
+  __pyx_tp_traverse_7cplayer_SwitchTacticsAlphaBetaAI, /*tp_traverse*/
+  __pyx_tp_clear_7cplayer_SwitchTacticsAlphaBetaAI, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
   0, /*tp_iternext*/
-  __pyx_methods_7cplayer_AlphaBetaSecondAI, /*tp_methods*/
+  __pyx_methods_7cplayer_SwitchTacticsAlphaBetaAI, /*tp_methods*/
   0, /*tp_members*/
   0, /*tp_getset*/
   0, /*tp_base*/
@@ -27202,9 +27231,9 @@ static PyTypeObject __pyx_type_7cplayer_AlphaBetaSecondAI = {
   0, /*tp_descr_get*/
   0, /*tp_descr_set*/
   0, /*tp_dictoffset*/
-  __pyx_pw_7cplayer_17AlphaBetaSecondAI_1__init__, /*tp_init*/
+  __pyx_pw_7cplayer_24SwitchTacticsAlphaBetaAI_1__init__, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_7cplayer_AlphaBetaSecondAI, /*tp_new*/
+  __pyx_tp_new_7cplayer_SwitchTacticsAlphaBetaAI, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -27218,28 +27247,28 @@ static PyTypeObject __pyx_type_7cplayer_AlphaBetaSecondAI = {
   0, /*tp_finalize*/
   #endif
 };
-static struct __pyx_vtabstruct_7cplayer_AlphaBetaThirdAI __pyx_vtable_7cplayer_AlphaBetaThirdAI;
+static struct __pyx_vtabstruct_7cplayer_CountMovesAlphaBetaAI __pyx_vtable_7cplayer_CountMovesAlphaBetaAI;
 
-static PyObject *__pyx_tp_new_7cplayer_AlphaBetaThirdAI(PyTypeObject *t, PyObject *a, PyObject *k) {
-  struct __pyx_obj_7cplayer_AlphaBetaThirdAI *p;
+static PyObject *__pyx_tp_new_7cplayer_CountMovesAlphaBetaAI(PyTypeObject *t, PyObject *a, PyObject *k) {
+  struct __pyx_obj_7cplayer_CountMovesAlphaBetaAI *p;
   PyObject *o = __pyx_tp_new_7cplayer_Player(t, a, k);
   if (unlikely(!o)) return 0;
-  p = ((struct __pyx_obj_7cplayer_AlphaBetaThirdAI *)o);
-  p->__pyx_base.__pyx_vtab = (struct __pyx_vtabstruct_7cplayer_Player*)__pyx_vtabptr_7cplayer_AlphaBetaThirdAI;
+  p = ((struct __pyx_obj_7cplayer_CountMovesAlphaBetaAI *)o);
+  p->__pyx_base.__pyx_vtab = (struct __pyx_vtabstruct_7cplayer_Player*)__pyx_vtabptr_7cplayer_CountMovesAlphaBetaAI;
   return o;
 }
 
-static PyMethodDef __pyx_methods_7cplayer_AlphaBetaThirdAI[] = {
-  {"thinking", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_7cplayer_16AlphaBetaThirdAI_3thinking, METH_VARARGS|METH_KEYWORDS, 0},
-  {"__reduce_cython__", (PyCFunction)__pyx_pw_7cplayer_16AlphaBetaThirdAI_5__reduce_cython__, METH_NOARGS, 0},
-  {"__setstate_cython__", (PyCFunction)__pyx_pw_7cplayer_16AlphaBetaThirdAI_7__setstate_cython__, METH_O, 0},
+static PyMethodDef __pyx_methods_7cplayer_CountMovesAlphaBetaAI[] = {
+  {"thinking", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_7cplayer_21CountMovesAlphaBetaAI_3thinking, METH_VARARGS|METH_KEYWORDS, 0},
+  {"__reduce_cython__", (PyCFunction)__pyx_pw_7cplayer_21CountMovesAlphaBetaAI_5__reduce_cython__, METH_NOARGS, 0},
+  {"__setstate_cython__", (PyCFunction)__pyx_pw_7cplayer_21CountMovesAlphaBetaAI_7__setstate_cython__, METH_O, 0},
   {0, 0, 0, 0}
 };
 
-static PyTypeObject __pyx_type_7cplayer_AlphaBetaThirdAI = {
+static PyTypeObject __pyx_type_7cplayer_CountMovesAlphaBetaAI = {
   PyVarObject_HEAD_INIT(0, 0)
-  "cplayer.AlphaBetaThirdAI", /*tp_name*/
-  sizeof(struct __pyx_obj_7cplayer_AlphaBetaThirdAI), /*tp_basicsize*/
+  "cplayer.CountMovesAlphaBetaAI", /*tp_name*/
+  sizeof(struct __pyx_obj_7cplayer_CountMovesAlphaBetaAI), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc_7cplayer_Player, /*tp_dealloc*/
   0, /*tp_print*/
@@ -27269,7 +27298,7 @@ static PyTypeObject __pyx_type_7cplayer_AlphaBetaThirdAI = {
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
   0, /*tp_iternext*/
-  __pyx_methods_7cplayer_AlphaBetaThirdAI, /*tp_methods*/
+  __pyx_methods_7cplayer_CountMovesAlphaBetaAI, /*tp_methods*/
   0, /*tp_members*/
   0, /*tp_getset*/
   0, /*tp_base*/
@@ -27277,9 +27306,9 @@ static PyTypeObject __pyx_type_7cplayer_AlphaBetaThirdAI = {
   0, /*tp_descr_get*/
   0, /*tp_descr_set*/
   0, /*tp_dictoffset*/
-  __pyx_pw_7cplayer_16AlphaBetaThirdAI_1__init__, /*tp_init*/
+  __pyx_pw_7cplayer_21CountMovesAlphaBetaAI_1__init__, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_7cplayer_AlphaBetaThirdAI, /*tp_new*/
+  __pyx_tp_new_7cplayer_CountMovesAlphaBetaAI, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -27691,13 +27720,13 @@ static struct PyModuleDef __pyx_moduledef = {
 
 static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_AlphaBetaAI, __pyx_k_AlphaBetaAI, sizeof(__pyx_k_AlphaBetaAI), 0, 0, 1, 1},
-  {&__pyx_n_s_AlphaBetaSecondAI, __pyx_k_AlphaBetaSecondAI, sizeof(__pyx_k_AlphaBetaSecondAI), 0, 0, 1, 1},
-  {&__pyx_n_s_AlphaBetaThirdAI, __pyx_k_AlphaBetaThirdAI, sizeof(__pyx_k_AlphaBetaThirdAI), 0, 0, 1, 1},
   {&__pyx_n_s_BLACK, __pyx_k_BLACK, sizeof(__pyx_k_BLACK), 0, 0, 1, 1},
+  {&__pyx_n_s_CountMovesAlphaBetaAI, __pyx_k_CountMovesAlphaBetaAI, sizeof(__pyx_k_CountMovesAlphaBetaAI), 0, 0, 1, 1},
   {&__pyx_kp_s_Incompatible_checksums_s_vs_0x0f, __pyx_k_Incompatible_checksums_s_vs_0x0f, sizeof(__pyx_k_Incompatible_checksums_s_vs_0x0f), 0, 0, 1, 0},
   {&__pyx_kp_s_Incompatible_checksums_s_vs_0x32, __pyx_k_Incompatible_checksums_s_vs_0x32, sizeof(__pyx_k_Incompatible_checksums_s_vs_0x32), 0, 0, 1, 0},
   {&__pyx_kp_s_Incompatible_checksums_s_vs_0x91, __pyx_k_Incompatible_checksums_s_vs_0x91, sizeof(__pyx_k_Incompatible_checksums_s_vs_0x91), 0, 0, 1, 0},
   {&__pyx_kp_s_Incompatible_checksums_s_vs_0xa3, __pyx_k_Incompatible_checksums_s_vs_0xa3, sizeof(__pyx_k_Incompatible_checksums_s_vs_0xa3), 0, 0, 1, 0},
+  {&__pyx_kp_s_Incompatible_checksums_s_vs_0xa5, __pyx_k_Incompatible_checksums_s_vs_0xa5, sizeof(__pyx_k_Incompatible_checksums_s_vs_0xa5), 0, 0, 1, 0},
   {&__pyx_kp_s_Incompatible_checksums_s_vs_0xab, __pyx_k_Incompatible_checksums_s_vs_0xab, sizeof(__pyx_k_Incompatible_checksums_s_vs_0xab), 0, 0, 1, 0},
   {&__pyx_kp_s_Incompatible_checksums_s_vs_0xb4, __pyx_k_Incompatible_checksums_s_vs_0xb4, sizeof(__pyx_k_Incompatible_checksums_s_vs_0xb4), 0, 0, 1, 0},
   {&__pyx_kp_s_Incompatible_checksums_s_vs_0xd4, __pyx_k_Incompatible_checksums_s_vs_0xd4, sizeof(__pyx_k_Incompatible_checksums_s_vs_0xd4), 0, 0, 1, 0},
@@ -27710,6 +27739,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_ROW_CELLS, __pyx_k_ROW_CELLS, sizeof(__pyx_k_ROW_CELLS), 0, 0, 1, 1},
   {&__pyx_n_s_RandomChoiceAI, __pyx_k_RandomChoiceAI, sizeof(__pyx_k_RandomChoiceAI), 0, 0, 1, 1},
   {&__pyx_n_s_Stone, __pyx_k_Stone, sizeof(__pyx_k_Stone), 0, 0, 1, 1},
+  {&__pyx_n_s_SwitchTacticsAlphaBetaAI, __pyx_k_SwitchTacticsAlphaBetaAI, sizeof(__pyx_k_SwitchTacticsAlphaBetaAI), 0, 0, 1, 1},
   {&__pyx_n_s_Turn, __pyx_k_Turn, sizeof(__pyx_k_Turn), 0, 0, 1, 1},
   {&__pyx_n_s_UNDEFINED, __pyx_k_UNDEFINED, sizeof(__pyx_k_UNDEFINED), 0, 0, 1, 1},
   {&__pyx_n_s_WHITE, __pyx_k_WHITE, sizeof(__pyx_k_WHITE), 0, 0, 1, 1},
@@ -27747,14 +27777,14 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_pyx_state, __pyx_k_pyx_state, sizeof(__pyx_k_pyx_state), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_type, __pyx_k_pyx_type, sizeof(__pyx_k_pyx_type), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_unpickle_AlphaBetaAI, __pyx_k_pyx_unpickle_AlphaBetaAI, sizeof(__pyx_k_pyx_unpickle_AlphaBetaAI), 0, 0, 1, 1},
-  {&__pyx_n_s_pyx_unpickle_AlphaBetaSecondAI, __pyx_k_pyx_unpickle_AlphaBetaSecondAI, sizeof(__pyx_k_pyx_unpickle_AlphaBetaSecondAI), 0, 0, 1, 1},
-  {&__pyx_n_s_pyx_unpickle_AlphaBetaThirdAI, __pyx_k_pyx_unpickle_AlphaBetaThirdAI, sizeof(__pyx_k_pyx_unpickle_AlphaBetaThirdAI), 0, 0, 1, 1},
+  {&__pyx_n_s_pyx_unpickle_CountMovesAlphaBe, __pyx_k_pyx_unpickle_CountMovesAlphaBe, sizeof(__pyx_k_pyx_unpickle_CountMovesAlphaBe), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_unpickle_MCTSPlayer, __pyx_k_pyx_unpickle_MCTSPlayer, sizeof(__pyx_k_pyx_unpickle_MCTSPlayer), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_unpickle_MinMaxAI, __pyx_k_pyx_unpickle_MinMaxAI, sizeof(__pyx_k_pyx_unpickle_MinMaxAI), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_unpickle_Player, __pyx_k_pyx_unpickle_Player, sizeof(__pyx_k_pyx_unpickle_Player), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_unpickle_PrimitiveMonteCar, __pyx_k_pyx_unpickle_PrimitiveMonteCar, sizeof(__pyx_k_pyx_unpickle_PrimitiveMonteCar), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_unpickle_RandomChoiceAI, __pyx_k_pyx_unpickle_RandomChoiceAI, sizeof(__pyx_k_pyx_unpickle_RandomChoiceAI), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_unpickle_Stone, __pyx_k_pyx_unpickle_Stone, sizeof(__pyx_k_pyx_unpickle_Stone), 0, 0, 1, 1},
+  {&__pyx_n_s_pyx_unpickle_SwitchTacticsAlph, __pyx_k_pyx_unpickle_SwitchTacticsAlph, sizeof(__pyx_k_pyx_unpickle_SwitchTacticsAlph), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_unpickle_Turn, __pyx_k_pyx_unpickle_Turn, sizeof(__pyx_k_pyx_unpickle_Turn), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_unpickle_node, __pyx_k_pyx_unpickle_node, sizeof(__pyx_k_pyx_unpickle_node), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_vtable, __pyx_k_pyx_vtable, sizeof(__pyx_k_pyx_vtable), 0, 0, 1, 1},
@@ -27859,14 +27889,14 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__6);
   __Pyx_GIVEREF(__pyx_tuple__6);
 
-  /* "cplayer.pyx":730
+  /* "cplayer.pyx":732
  *             legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(
  *                 tree.board, turn)
  *             vest_point = random.choice(legal_move_count_list)[:2]             # <<<<<<<<<<<<<<
  *         return vest_point
  * 
  */
-  __pyx_slice__17 = PySlice_New(Py_None, __pyx_int_2, Py_None); if (unlikely(!__pyx_slice__17)) __PYX_ERR(0, 730, __pyx_L1_error)
+  __pyx_slice__17 = PySlice_New(Py_None, __pyx_int_2, Py_None); if (unlikely(!__pyx_slice__17)) __PYX_ERR(0, 732, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_slice__17);
   __Pyx_GIVEREF(__pyx_slice__17);
 
@@ -27902,11 +27932,11 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__30 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__30)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__30);
   __Pyx_GIVEREF(__pyx_tuple__30);
-  __pyx_codeobj__31 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__30, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_AlphaBetaSecondAI, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__31)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_codeobj__31 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__30, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_SwitchTacticsAlph, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__31)) __PYX_ERR(1, 1, __pyx_L1_error)
   __pyx_tuple__32 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__32)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__32);
   __Pyx_GIVEREF(__pyx_tuple__32);
-  __pyx_codeobj__33 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__32, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_AlphaBetaThirdAI, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__33)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_codeobj__33 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__32, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_CountMovesAlphaBe, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__33)) __PYX_ERR(1, 1, __pyx_L1_error)
   __pyx_tuple__34 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__34)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__34);
   __Pyx_GIVEREF(__pyx_tuple__34);
@@ -27940,6 +27970,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitGlobals(void) {
   __pyx_int_53254994 = PyInt_FromLong(53254994L); if (unlikely(!__pyx_int_53254994)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_152219405 = PyInt_FromLong(152219405L); if (unlikely(!__pyx_int_152219405)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_170964763 = PyInt_FromLong(170964763L); if (unlikely(!__pyx_int_170964763)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_173870559 = PyInt_FromLong(173870559L); if (unlikely(!__pyx_int_173870559)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_180275863 = PyInt_FromLong(180275863L); if (unlikely(!__pyx_int_180275863)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_189787582 = PyInt_FromLong(189787582L); if (unlikely(!__pyx_int_189787582)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_222419149 = PyInt_FromLong(222419149L); if (unlikely(!__pyx_int_222419149)) __PYX_ERR(0, 1, __pyx_L1_error)
@@ -28058,43 +28089,43 @@ static int __Pyx_modinit_type_init_code(void) {
   if (PyObject_SetAttr(__pyx_m, __pyx_n_s_AlphaBetaAI, (PyObject *)&__pyx_type_7cplayer_AlphaBetaAI) < 0) __PYX_ERR(0, 236, __pyx_L1_error)
   if (__Pyx_setup_reduce((PyObject*)&__pyx_type_7cplayer_AlphaBetaAI) < 0) __PYX_ERR(0, 236, __pyx_L1_error)
   __pyx_ptype_7cplayer_AlphaBetaAI = &__pyx_type_7cplayer_AlphaBetaAI;
-  __pyx_vtabptr_7cplayer_AlphaBetaSecondAI = &__pyx_vtable_7cplayer_AlphaBetaSecondAI;
-  __pyx_vtable_7cplayer_AlphaBetaSecondAI.__pyx_base = *__pyx_vtabptr_7cplayer_Player;
-  __pyx_vtable_7cplayer_AlphaBetaSecondAI.alpha_beta = (PyObject *(*)(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *, PyObject *, int, int, struct __pyx_opt_args_7cplayer_17AlphaBetaSecondAI_alpha_beta *__pyx_optional_args))__pyx_f_7cplayer_17AlphaBetaSecondAI_alpha_beta;
-  __pyx_vtable_7cplayer_AlphaBetaSecondAI.final_stage_alpha_beta = (PyObject *(*)(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *, PyObject *, int, int, struct __pyx_opt_args_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta *__pyx_optional_args))__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_alpha_beta;
-  __pyx_vtable_7cplayer_AlphaBetaSecondAI.evaluation_function = (int (*)(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *, PyObject *, int))__pyx_f_7cplayer_17AlphaBetaSecondAI_evaluation_function;
-  __pyx_vtable_7cplayer_AlphaBetaSecondAI.final_stage_evaluation_function = (int (*)(struct __pyx_obj_7cplayer_AlphaBetaSecondAI *, PyObject *, int))__pyx_f_7cplayer_17AlphaBetaSecondAI_final_stage_evaluation_function;
-  __pyx_type_7cplayer_AlphaBetaSecondAI.tp_base = __pyx_ptype_7cplayer_Player;
-  if (PyType_Ready(&__pyx_type_7cplayer_AlphaBetaSecondAI) < 0) __PYX_ERR(0, 344, __pyx_L1_error)
-  __pyx_type_7cplayer_AlphaBetaSecondAI.tp_print = 0;
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_7cplayer_AlphaBetaSecondAI.tp_dictoffset && __pyx_type_7cplayer_AlphaBetaSecondAI.tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_type_7cplayer_AlphaBetaSecondAI.tp_getattro = __Pyx_PyObject_GenericGetAttr;
+  __pyx_vtabptr_7cplayer_SwitchTacticsAlphaBetaAI = &__pyx_vtable_7cplayer_SwitchTacticsAlphaBetaAI;
+  __pyx_vtable_7cplayer_SwitchTacticsAlphaBetaAI.__pyx_base = *__pyx_vtabptr_7cplayer_Player;
+  __pyx_vtable_7cplayer_SwitchTacticsAlphaBetaAI.alpha_beta = (PyObject *(*)(struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *, PyObject *, int, int, struct __pyx_opt_args_7cplayer_24SwitchTacticsAlphaBetaAI_alpha_beta *__pyx_optional_args))__pyx_f_7cplayer_24SwitchTacticsAlphaBetaAI_alpha_beta;
+  __pyx_vtable_7cplayer_SwitchTacticsAlphaBetaAI.final_stage_alpha_beta = (PyObject *(*)(struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *, PyObject *, int, int, struct __pyx_opt_args_7cplayer_24SwitchTacticsAlphaBetaAI_final_stage_alpha_beta *__pyx_optional_args))__pyx_f_7cplayer_24SwitchTacticsAlphaBetaAI_final_stage_alpha_beta;
+  __pyx_vtable_7cplayer_SwitchTacticsAlphaBetaAI.evaluation_function = (int (*)(struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *, PyObject *, int))__pyx_f_7cplayer_24SwitchTacticsAlphaBetaAI_evaluation_function;
+  __pyx_vtable_7cplayer_SwitchTacticsAlphaBetaAI.final_stage_evaluation_function = (int (*)(struct __pyx_obj_7cplayer_SwitchTacticsAlphaBetaAI *, PyObject *, int))__pyx_f_7cplayer_24SwitchTacticsAlphaBetaAI_final_stage_evaluation_function;
+  __pyx_type_7cplayer_SwitchTacticsAlphaBetaAI.tp_base = __pyx_ptype_7cplayer_Player;
+  if (PyType_Ready(&__pyx_type_7cplayer_SwitchTacticsAlphaBetaAI) < 0) __PYX_ERR(0, 344, __pyx_L1_error)
+  __pyx_type_7cplayer_SwitchTacticsAlphaBetaAI.tp_print = 0;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_7cplayer_SwitchTacticsAlphaBetaAI.tp_dictoffset && __pyx_type_7cplayer_SwitchTacticsAlphaBetaAI.tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_type_7cplayer_SwitchTacticsAlphaBetaAI.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_7cplayer_AlphaBetaSecondAI.tp_dict, __pyx_vtabptr_7cplayer_AlphaBetaSecondAI) < 0) __PYX_ERR(0, 344, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_AlphaBetaSecondAI, (PyObject *)&__pyx_type_7cplayer_AlphaBetaSecondAI) < 0) __PYX_ERR(0, 344, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_7cplayer_AlphaBetaSecondAI) < 0) __PYX_ERR(0, 344, __pyx_L1_error)
-  __pyx_ptype_7cplayer_AlphaBetaSecondAI = &__pyx_type_7cplayer_AlphaBetaSecondAI;
-  __pyx_vtabptr_7cplayer_AlphaBetaThirdAI = &__pyx_vtable_7cplayer_AlphaBetaThirdAI;
-  __pyx_vtable_7cplayer_AlphaBetaThirdAI.__pyx_base = *__pyx_vtabptr_7cplayer_Player;
-  __pyx_vtable_7cplayer_AlphaBetaThirdAI.alpha_beta = (PyObject *(*)(struct __pyx_obj_7cplayer_AlphaBetaThirdAI *, PyObject *, int, int, struct __pyx_opt_args_7cplayer_16AlphaBetaThirdAI_alpha_beta *__pyx_optional_args))__pyx_f_7cplayer_16AlphaBetaThirdAI_alpha_beta;
-  __pyx_vtable_7cplayer_AlphaBetaThirdAI.evaluation_function = (int (*)(struct __pyx_obj_7cplayer_AlphaBetaThirdAI *, PyObject *, int))__pyx_f_7cplayer_16AlphaBetaThirdAI_evaluation_function;
-  __pyx_type_7cplayer_AlphaBetaThirdAI.tp_base = __pyx_ptype_7cplayer_Player;
-  if (PyType_Ready(&__pyx_type_7cplayer_AlphaBetaThirdAI) < 0) __PYX_ERR(0, 540, __pyx_L1_error)
-  __pyx_type_7cplayer_AlphaBetaThirdAI.tp_print = 0;
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_7cplayer_AlphaBetaThirdAI.tp_dictoffset && __pyx_type_7cplayer_AlphaBetaThirdAI.tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_type_7cplayer_AlphaBetaThirdAI.tp_getattro = __Pyx_PyObject_GenericGetAttr;
+  if (__Pyx_SetVtable(__pyx_type_7cplayer_SwitchTacticsAlphaBetaAI.tp_dict, __pyx_vtabptr_7cplayer_SwitchTacticsAlphaBetaAI) < 0) __PYX_ERR(0, 344, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_SwitchTacticsAlphaBetaAI, (PyObject *)&__pyx_type_7cplayer_SwitchTacticsAlphaBetaAI) < 0) __PYX_ERR(0, 344, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_7cplayer_SwitchTacticsAlphaBetaAI) < 0) __PYX_ERR(0, 344, __pyx_L1_error)
+  __pyx_ptype_7cplayer_SwitchTacticsAlphaBetaAI = &__pyx_type_7cplayer_SwitchTacticsAlphaBetaAI;
+  __pyx_vtabptr_7cplayer_CountMovesAlphaBetaAI = &__pyx_vtable_7cplayer_CountMovesAlphaBetaAI;
+  __pyx_vtable_7cplayer_CountMovesAlphaBetaAI.__pyx_base = *__pyx_vtabptr_7cplayer_Player;
+  __pyx_vtable_7cplayer_CountMovesAlphaBetaAI.alpha_beta = (PyObject *(*)(struct __pyx_obj_7cplayer_CountMovesAlphaBetaAI *, PyObject *, int, int, struct __pyx_opt_args_7cplayer_21CountMovesAlphaBetaAI_alpha_beta *__pyx_optional_args))__pyx_f_7cplayer_21CountMovesAlphaBetaAI_alpha_beta;
+  __pyx_vtable_7cplayer_CountMovesAlphaBetaAI.evaluation_function = (int (*)(struct __pyx_obj_7cplayer_CountMovesAlphaBetaAI *, PyObject *, int))__pyx_f_7cplayer_21CountMovesAlphaBetaAI_evaluation_function;
+  __pyx_type_7cplayer_CountMovesAlphaBetaAI.tp_base = __pyx_ptype_7cplayer_Player;
+  if (PyType_Ready(&__pyx_type_7cplayer_CountMovesAlphaBetaAI) < 0) __PYX_ERR(0, 542, __pyx_L1_error)
+  __pyx_type_7cplayer_CountMovesAlphaBetaAI.tp_print = 0;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_7cplayer_CountMovesAlphaBetaAI.tp_dictoffset && __pyx_type_7cplayer_CountMovesAlphaBetaAI.tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_type_7cplayer_CountMovesAlphaBetaAI.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_7cplayer_AlphaBetaThirdAI.tp_dict, __pyx_vtabptr_7cplayer_AlphaBetaThirdAI) < 0) __PYX_ERR(0, 540, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_AlphaBetaThirdAI, (PyObject *)&__pyx_type_7cplayer_AlphaBetaThirdAI) < 0) __PYX_ERR(0, 540, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_7cplayer_AlphaBetaThirdAI) < 0) __PYX_ERR(0, 540, __pyx_L1_error)
-  __pyx_ptype_7cplayer_AlphaBetaThirdAI = &__pyx_type_7cplayer_AlphaBetaThirdAI;
-  if (PyType_Ready(&__pyx_type_7cplayer_node) < 0) __PYX_ERR(0, 648, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_7cplayer_CountMovesAlphaBetaAI.tp_dict, __pyx_vtabptr_7cplayer_CountMovesAlphaBetaAI) < 0) __PYX_ERR(0, 542, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_CountMovesAlphaBetaAI, (PyObject *)&__pyx_type_7cplayer_CountMovesAlphaBetaAI) < 0) __PYX_ERR(0, 542, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_7cplayer_CountMovesAlphaBetaAI) < 0) __PYX_ERR(0, 542, __pyx_L1_error)
+  __pyx_ptype_7cplayer_CountMovesAlphaBetaAI = &__pyx_type_7cplayer_CountMovesAlphaBetaAI;
+  if (PyType_Ready(&__pyx_type_7cplayer_node) < 0) __PYX_ERR(0, 650, __pyx_L1_error)
   __pyx_type_7cplayer_node.tp_print = 0;
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_7cplayer_node.tp_dictoffset && __pyx_type_7cplayer_node.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_7cplayer_node.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_node, (PyObject *)&__pyx_type_7cplayer_node) < 0) __PYX_ERR(0, 648, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_7cplayer_node) < 0) __PYX_ERR(0, 648, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_node, (PyObject *)&__pyx_type_7cplayer_node) < 0) __PYX_ERR(0, 650, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_7cplayer_node) < 0) __PYX_ERR(0, 650, __pyx_L1_error)
   __pyx_ptype_7cplayer_node = &__pyx_type_7cplayer_node;
   __pyx_vtabptr_7cplayer_PrimitiveMonteCarloPlayer = &__pyx_vtable_7cplayer_PrimitiveMonteCarloPlayer;
   __pyx_vtable_7cplayer_PrimitiveMonteCarloPlayer.__pyx_base = *__pyx_vtabptr_7cplayer_Player;
@@ -28102,14 +28133,14 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_vtable_7cplayer_PrimitiveMonteCarloPlayer.playout = (int (*)(struct __pyx_obj_7cplayer_PrimitiveMonteCarloPlayer *, PyObject *, int))__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_playout;
   __pyx_vtable_7cplayer_PrimitiveMonteCarloPlayer.selection = (int (*)(struct __pyx_obj_7cplayer_PrimitiveMonteCarloPlayer *, int, struct __pyx_obj_7cplayer_node *))__pyx_f_7cplayer_25PrimitiveMonteCarloPlayer_selection;
   __pyx_type_7cplayer_PrimitiveMonteCarloPlayer.tp_base = __pyx_ptype_7cplayer_Player;
-  if (PyType_Ready(&__pyx_type_7cplayer_PrimitiveMonteCarloPlayer) < 0) __PYX_ERR(0, 662, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_7cplayer_PrimitiveMonteCarloPlayer) < 0) __PYX_ERR(0, 664, __pyx_L1_error)
   __pyx_type_7cplayer_PrimitiveMonteCarloPlayer.tp_print = 0;
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_7cplayer_PrimitiveMonteCarloPlayer.tp_dictoffset && __pyx_type_7cplayer_PrimitiveMonteCarloPlayer.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_7cplayer_PrimitiveMonteCarloPlayer.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_7cplayer_PrimitiveMonteCarloPlayer.tp_dict, __pyx_vtabptr_7cplayer_PrimitiveMonteCarloPlayer) < 0) __PYX_ERR(0, 662, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_PrimitiveMonteCarloPlayer, (PyObject *)&__pyx_type_7cplayer_PrimitiveMonteCarloPlayer) < 0) __PYX_ERR(0, 662, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_7cplayer_PrimitiveMonteCarloPlayer) < 0) __PYX_ERR(0, 662, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_7cplayer_PrimitiveMonteCarloPlayer.tp_dict, __pyx_vtabptr_7cplayer_PrimitiveMonteCarloPlayer) < 0) __PYX_ERR(0, 664, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_PrimitiveMonteCarloPlayer, (PyObject *)&__pyx_type_7cplayer_PrimitiveMonteCarloPlayer) < 0) __PYX_ERR(0, 664, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_7cplayer_PrimitiveMonteCarloPlayer) < 0) __PYX_ERR(0, 664, __pyx_L1_error)
   __pyx_ptype_7cplayer_PrimitiveMonteCarloPlayer = &__pyx_type_7cplayer_PrimitiveMonteCarloPlayer;
   __pyx_vtabptr_7cplayer_MCTSPlayer = &__pyx_vtable_7cplayer_MCTSPlayer;
   __pyx_vtable_7cplayer_MCTSPlayer.__pyx_base = *__pyx_vtabptr_7cplayer_Player;
@@ -28119,14 +28150,14 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_vtable_7cplayer_MCTSPlayer.get_max_ubc1 = (struct __pyx_obj_7cplayer_node *(*)(struct __pyx_obj_7cplayer_MCTSPlayer *, struct __pyx_obj_7cplayer_node *))__pyx_f_7cplayer_10MCTSPlayer_get_max_ubc1;
   __pyx_vtable_7cplayer_MCTSPlayer.ucb1 = (double (*)(struct __pyx_obj_7cplayer_MCTSPlayer *, struct __pyx_obj_7cplayer_node *, struct __pyx_obj_7cplayer_node *))__pyx_f_7cplayer_10MCTSPlayer_ucb1;
   __pyx_type_7cplayer_MCTSPlayer.tp_base = __pyx_ptype_7cplayer_Player;
-  if (PyType_Ready(&__pyx_type_7cplayer_MCTSPlayer) < 0) __PYX_ERR(0, 840, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_7cplayer_MCTSPlayer) < 0) __PYX_ERR(0, 842, __pyx_L1_error)
   __pyx_type_7cplayer_MCTSPlayer.tp_print = 0;
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_7cplayer_MCTSPlayer.tp_dictoffset && __pyx_type_7cplayer_MCTSPlayer.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_7cplayer_MCTSPlayer.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_7cplayer_MCTSPlayer.tp_dict, __pyx_vtabptr_7cplayer_MCTSPlayer) < 0) __PYX_ERR(0, 840, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_MCTSPlayer, (PyObject *)&__pyx_type_7cplayer_MCTSPlayer) < 0) __PYX_ERR(0, 840, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_7cplayer_MCTSPlayer) < 0) __PYX_ERR(0, 840, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_7cplayer_MCTSPlayer.tp_dict, __pyx_vtabptr_7cplayer_MCTSPlayer) < 0) __PYX_ERR(0, 842, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_MCTSPlayer, (PyObject *)&__pyx_type_7cplayer_MCTSPlayer) < 0) __PYX_ERR(0, 842, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_7cplayer_MCTSPlayer) < 0) __PYX_ERR(0, 842, __pyx_L1_error)
   __pyx_ptype_7cplayer_MCTSPlayer = &__pyx_type_7cplayer_MCTSPlayer;
   __Pyx_RefNannyFinishContext();
   return 0;
@@ -28499,81 +28530,81 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "cplayer.pyx":384
+  /* "cplayer.pyx":386
  * 
  *     @cython.nonecheck(False)
  *     cdef alpha_beta(self, list board, int player, int depth, alpha=-math.inf, beta=math.inf):             # <<<<<<<<<<<<<<
  *         cdef list legal_move_count_list
  *         cdef int black_stones
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_math); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 384, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_math); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 386, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_inf); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 384, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_inf); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 386, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyNumber_Negative(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 384, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Negative(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 386, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_k__9 = __pyx_t_2;
   __Pyx_GIVEREF(__pyx_t_2);
   __pyx_t_2 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_math); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 384, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_math); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 386, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_inf); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 384, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_inf); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 386, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_k__10 = __pyx_t_1;
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "cplayer.pyx":452
+  /* "cplayer.pyx":454
  * 
  *     @cython.nonecheck(False)
  *     cdef final_stage_alpha_beta(self, list board, int player, int depth, alpha=-math.inf, beta=math.inf):             # <<<<<<<<<<<<<<
  *         cdef list legal_move_count_list
  *         cdef int black_stones
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_math); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 452, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_math); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 454, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_inf); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 452, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_inf); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 454, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyNumber_Negative(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 452, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Negative(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 454, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_k__11 = __pyx_t_1;
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_t_1 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_math); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 452, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_math); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 454, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_inf); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 452, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_inf); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 454, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_k__12 = __pyx_t_2;
   __Pyx_GIVEREF(__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "cplayer.pyx":562
+  /* "cplayer.pyx":564
  * 
  *     @cython.nonecheck(False)
  *     cdef alpha_beta(self, list board, int player, int depth, alpha=-math.inf, beta=math.inf):             # <<<<<<<<<<<<<<
  *         cdef list legal_move_count_list
  *         cdef int black_stones
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_math); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 562, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_math); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 564, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_inf); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 562, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_inf); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 564, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyNumber_Negative(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 562, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Negative(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 564, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_k__13 = __pyx_t_2;
   __Pyx_GIVEREF(__pyx_t_2);
   __pyx_t_2 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_math); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 562, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_math); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 564, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_inf); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 562, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_inf); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 564, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_k__14 = __pyx_t_1;
@@ -28647,25 +28678,25 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "(tree fragment)":1
- * def __pyx_unpickle_AlphaBetaSecondAI(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
+ * def __pyx_unpickle_SwitchTacticsAlphaBetaAI(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_7cplayer_13__pyx_unpickle_AlphaBetaSecondAI, NULL, __pyx_n_s_cplayer); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_7cplayer_13__pyx_unpickle_SwitchTacticsAlphaBetaAI, NULL, __pyx_n_s_cplayer); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_AlphaBetaSecondAI, __pyx_t_1) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_SwitchTacticsAlph, __pyx_t_1) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "(tree fragment)":11
- *         __pyx_unpickle_AlphaBetaSecondAI__set_state(<AlphaBetaSecondAI> __pyx_result, __pyx_state)
+ *         __pyx_unpickle_SwitchTacticsAlphaBetaAI__set_state(<SwitchTacticsAlphaBetaAI> __pyx_result, __pyx_state)
  *     return __pyx_result
- * cdef __pyx_unpickle_AlphaBetaSecondAI__set_state(AlphaBetaSecondAI __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_result.board_gain = __pyx_state[0]; __pyx_result.depth = __pyx_state[1]; __pyx_result.player = __pyx_state[2]
- *     if len(__pyx_state) > 3 and hasattr(__pyx_result, '__dict__'):
+ * cdef __pyx_unpickle_SwitchTacticsAlphaBetaAI__set_state(SwitchTacticsAlphaBetaAI __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
+ *     __pyx_result.board_gain = __pyx_state[0]; __pyx_result.depth = __pyx_state[1]; __pyx_result.player = __pyx_state[2]; __pyx_result.switch_threshold = __pyx_state[3]
+ *     if len(__pyx_state) > 4 and hasattr(__pyx_result, '__dict__'):
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_7cplayer_15__pyx_unpickle_AlphaBetaThirdAI, NULL, __pyx_n_s_cplayer); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_7cplayer_15__pyx_unpickle_CountMovesAlphaBetaAI, NULL, __pyx_n_s_cplayer); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_AlphaBetaThirdAI, __pyx_t_1) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_CountMovesAlphaBe, __pyx_t_1) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "(tree fragment)":1
