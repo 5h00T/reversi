@@ -5,6 +5,7 @@ import random
 import time
 import stone
 import turn
+import _pickle as cPickle
 
 
 ROW_CELLS = 8
@@ -199,7 +200,8 @@ class MinMaxAI(Player):
             best = -math.inf
             best_y = best_x = None
             for y, x, count in legal_move_count_list:
-                _board = copy.deepcopy(board)
+                _board = cPickle.loads(cPickle.dumps(board, -1))
+                # _board = copy.deepcopy(board)
                 self.put_stone(_board, y, x, player)
                 min_max_result = self.mini_max(_board, opponent, depth - 1)
                 if isinstance(min_max_result, int):
@@ -215,7 +217,8 @@ class MinMaxAI(Player):
             best = math.inf
             best_y = best_x = None
             for y, x, count in legal_move_count_list:
-                _board = copy.deepcopy(board)
+                _board = cPickle.loads(cPickle.dumps(board, -1))
+                # _board = copy.deepcopy(board)
                 self.put_stone(_board, y, x, player)
                 min_max_result = self.mini_max(_board, opponent, depth - 1)
                 if isinstance(min_max_result, int):
@@ -285,7 +288,8 @@ class AlphaBetaAI(Player):
             best = -math.inf
             best_y = best_x = None
             for y, x, count in legal_move_count_list:
-                _board = copy.deepcopy(board)
+                _board = cPickle.loads(cPickle.dumps(board, -1))
+                # _board = copy.deepcopy(board)
                 self.put_stone(_board, y, x, player)
                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)
                 if isinstance(min_max_result, int):
@@ -306,7 +310,8 @@ class AlphaBetaAI(Player):
             best = math.inf
             best_y = best_x = None
             for y, x, count in legal_move_count_list:
-                _board = copy.deepcopy(board)
+                _board = cPickle.loads(cPickle.dumps(board, -1))
+                # _board = copy.deepcopy(board)
                 self.put_stone(_board, y, x, player)
                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)
                 if isinstance(min_max_result, int):
@@ -390,7 +395,8 @@ class SwitchTacticsAlphaBetaAI(Player):
             best = -math.inf
             best_y = best_x = None
             for y, x, count in legal_move_count_list:
-                _board = copy.deepcopy(board)
+                _board = cPickle.loads(cPickle.dumps(board, -1))
+                # _board = copy.deepcopy(board)
                 self.put_stone(_board, y, x, player)
                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)
                 if isinstance(min_max_result, int):
@@ -411,7 +417,8 @@ class SwitchTacticsAlphaBetaAI(Player):
             best = math.inf
             best_y = best_x = None
             for y, x, count in legal_move_count_list:
-                _board = copy.deepcopy(board)
+                _board = cPickle.loads(cPickle.dumps(board, -1))
+                # _board = copy.deepcopy(board)
                 self.put_stone(_board, y, x, player)
                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)
                 if isinstance(min_max_result, int):
@@ -452,7 +459,8 @@ class SwitchTacticsAlphaBetaAI(Player):
             best = -math.inf
             best_y = best_x = None
             for y, x, count in legal_move_count_list:
-                _board = copy.deepcopy(board)
+                _board = cPickle.loads(cPickle.dumps(board, -1))
+                # _board = copy.deepcopy(board)
                 self.put_stone(_board, y, x, player)
                 min_max_result = self.final_stage_alpha_beta(_board, opponent, depth - 1, alpha, beta)
                 if isinstance(min_max_result, int):
@@ -473,7 +481,8 @@ class SwitchTacticsAlphaBetaAI(Player):
             best = math.inf
             best_y = best_x = None
             for y, x, count in legal_move_count_list:
-                _board = copy.deepcopy(board)
+                _board = cPickle.loads(cPickle.dumps(board, -1))
+                # _board = copy.deepcopy(board)
                 self.put_stone(_board, y, x, player)
                 min_max_result = self.final_stage_alpha_beta(_board, opponent, depth - 1, alpha, beta)
                 if isinstance(min_max_result, int):
@@ -548,7 +557,8 @@ class CountMovesAlphaBetaAI(Player):
             best = -math.inf
             best_y = best_x = None
             for y, x, count in legal_move_count_list:
-                _board = copy.deepcopy(board)
+                _board = cPickle.loads(cPickle.dumps(board, -1))
+                # _board = copy.deepcopy(board)
                 self.put_stone(_board, y, x, player)
                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)
                 if isinstance(min_max_result, int):
@@ -569,7 +579,8 @@ class CountMovesAlphaBetaAI(Player):
             best = math.inf
             best_y = best_x = None
             for y, x, count in legal_move_count_list:
-                _board = copy.deepcopy(board)
+                _board = cPickle.loads(cPickle.dumps(board, -1))
+                # _board = copy.deepcopy(board)
                 self.put_stone(_board, y, x, player)
                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)
                 if isinstance(min_max_result, int):
@@ -660,7 +671,8 @@ class MCTSPlayer(Player):
             tree.board, turn)
         # 展開
         for y, x, count in legal_move_count_list:
-            copy_board = copy.deepcopy(tree.board)
+            copy_board = cPickle.loads(cPickle.dumps(tree.board, -1))
+            # copy_board = copy.deepcopy(tree.board)
             self.put_stone(copy_board, y, x, turn)
             tree.child.append(node(copy_board, (y, x)))
 
@@ -724,7 +736,8 @@ class MCTSPlayer(Player):
             if self.visit_threshold < tree.visit_count:  # 閾値より大きいの場合
                 # 展開
                 for y, x, count in legal_move_count_list:
-                    copy_board = copy.deepcopy(tree.board)
+                    copy_board = cPickle.loads(cPickle.dumps(tree.board, -1))
+                    # copy_board = copy.deepcopy(tree.board)
                     self.put_stone(copy_board, y, x, player)
                     tree.child.append(node(copy_board, (y, x)))
 
@@ -789,7 +802,8 @@ class MCTSPlayer(Player):
                         return 0
             else:
                 y, x, count = random.choice(_legal_move_count_list)
-                copy_board = copy.deepcopy(board)
+                copy_board = cPickle.loads(cPickle.dumps(board, -1))
+                # copy_board = copy.deepcopy(board)
                 self.put_stone(copy_board, y, x, opponent)
                 if self.playout(copy_board, opponent) == 1:
                     return 1
@@ -797,7 +811,8 @@ class MCTSPlayer(Player):
                     return 0
 
         y, x, count = random.choice(legal_move_count_list)
-        copy_board = copy.deepcopy(board)
+        copy_board = cPickle.loads(cPickle.dumps(board, -1))
+        # copy_board = copy.deepcopy(board)
         self.put_stone(copy_board, y, x, player)
         if self.playout(copy_board, opponent) == 1:
             return 1
@@ -847,7 +862,8 @@ class PrimitiveMonteCarloPlayer(Player):
             tree.board, turn)
         # 展開
         for y, x, count in legal_move_count_list:
-            copy_board = copy.deepcopy(tree.board)
+            copy_board = cPickle.loads(cPickle.dumps(tree.board, -1))
+            # copy_board = copy.deepcopy(tree.board)
             self.put_stone(copy_board, y, x, turn)
             tree.child.append(node(copy_board, (y, x)))
 
@@ -909,7 +925,8 @@ class PrimitiveMonteCarloPlayer(Player):
                         return 0
             else:
                 y, x, count = random.choice(_legal_move_count_list)
-                copy_board = copy.deepcopy(board)
+                copy_board = cPickle.loads(cPickle.dumps(board, -1))
+                # copy_board = copy.deepcopy(board)
                 self.put_stone(copy_board, y, x, player)
                 if self.playout(copy_board, opponent) == 1:
                     return 1
@@ -917,7 +934,8 @@ class PrimitiveMonteCarloPlayer(Player):
                     return 0
 
         y, x, count = random.choice(legal_move_count_list)
-        copy_board = copy.deepcopy(board)
+        copy_board = cPickle.loads(cPickle.dumps(board, -1))
+        # copy_board = copy.deepcopy(board)
         self.put_stone(copy_board, y, x, player)
         if self.playout(copy_board, opponent) == 1:
             return 1

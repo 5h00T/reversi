@@ -2,23 +2,18 @@ import math
 import copy
 import random
 import time
-
+import cProfile
+import pstats
 import cython
+import _pickle as cPickle
 
 
-ROW_CELLS = 8
-
-
-cdef class Stone():
+cdef enum:
     UNDEFINED = 0  # 盤面外
     BLACK = 1
     WHITE = 2
     NONE = 3  # 何も置かれてないマス
-
-
-cdef class Turn():
-    BLACK = 1
-    WHITE = 2
+    ROW_CELLS = 8
 
 
 cdef class Player():
@@ -35,7 +30,7 @@ cdef class Player():
         """
         (y,x)の(i,j)方向の石をいくつひっくり返せるかを返す
         """
-        cdef int opponent = Turn.BLACK if player == Turn.WHITE else Turn.WHITE
+        cdef int opponent = BLACK if player == WHITE else WHITE
         cdef int k = 1
         while board[y + k * i][x + k * j] == opponent:
             k += 1
@@ -51,8 +46,9 @@ cdef class Player():
         (y,x)にplayerの石が置けるか調べておける場合にはひっくり返せる個数を返す
         """
         cdef int turn_over_count
+        cdef int i, j
 
-        if board[y][x] != Stone.NONE:
+        if board[y][x] != NONE:
             return False
 
         if x < 1 or x > 8 or y < 1 or y > 8:
@@ -74,11 +70,13 @@ cdef class Player():
         cdef list legal_move_list = []
         cdef int white_stones = 0
         cdef int black_stones = 0
+        cdef int i, j
+
         for i in range(1, 9):
             for j in range(1, 9):
-                if board[i][j] == Stone.WHITE:
+                if board[i][j] == WHITE:
                     white_stones += 1
-                elif board[i][j] == Stone.BLACK:
+                elif board[i][j] == BLACK:
                     black_stones += 1
 
                 turn_over_count = self.is_legal_move(board, player, i, j)
@@ -92,6 +90,8 @@ cdef class Player():
         """
         boardに石を置く
         """
+        cdef i, j, k
+
         for i in range(-1, 2, 1):
             for j in range(-1, 2, 1):
                 if i == j == 0:
@@ -111,6 +111,7 @@ cdef class RandomChoiceAI(Player):
     @cython.nonecheck(False)
     def thinking(self, list board, int turn):
         cdef int x, y
+        cdef int i, j
         cdef list _board = [[0] * (ROW_CELLS + 2) for i in range(ROW_CELLS + 2)]
         cdef list legal_move_count_list
         cdef int black_stones
@@ -123,8 +124,7 @@ cdef class RandomChoiceAI(Player):
 
         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(
             _board, turn)
-        legal_move_list = [tuple(i[0:2]) for i in legal_move_count_list]
-        x, y = random.choice(legal_move_list)
+        x, y = random.choice(legal_move_count_list)[0:2]
 
         return x, y
 
@@ -149,6 +149,7 @@ cdef class MinMaxAI(Player):
     @cython.nonecheck(False)
     def thinking(self, list board, int turn):
         cdef int x, y, val
+        cdef int i, j
 
         super().thinking(board, turn)
         cdef list _board = [[0] * (ROW_CELLS + 2) for i in range(ROW_CELLS + 2)]
@@ -177,7 +178,7 @@ cdef class MinMaxAI(Player):
             return val
 
         # 相手の色
-        cdef opponent = Turn.BLACK if player == Turn.WHITE else Turn.WHITE
+        cdef opponent = BLACK if player == WHITE else WHITE
 
         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(
             board, player)
@@ -208,7 +209,8 @@ cdef class MinMaxAI(Player):
             best = math.inf
             best_y = best_x = None
             for y, x, count in legal_move_count_list:
-                _board = copy.deepcopy(board)
+                _board = cPickle.loads(cPickle.dumps(board, -1))
+                # _board = copy.deepcopy(board)
                 self.put_stone(_board, y, x, player)
                 min_max_result = self.mini_max(_board, opponent, depth - 1)
                 if isinstance(min_max_result, int):
@@ -224,6 +226,8 @@ cdef class MinMaxAI(Player):
     @cython.nonecheck(False)
     cdef int evaluation_function(self, list board, int player):
         cdef int evaluation = 0
+        cdef x, y
+
         for y in range(1, 9):
             for x in range(1, 9):
                 if board[y][x] == player:
@@ -253,13 +257,20 @@ cdef class AlphaBetaAI(Player):
     @cython.nonecheck(False)
     def thinking(self, list board, int turn):
         cdef int x, y, val
+        cdef int i, j
+
         super().thinking(board, turn)
         _board = [[0] * (ROW_CELLS + 2) for i in range(ROW_CELLS + 2)]
         for i in range(1, 9):
             for j in range(1, 9):
                 _board[i][j] = board[i - 1][j - 1]
 
+        # prf = cProfile.Profile()
+        # prf.enable()
         val, y, x = self.alpha_beta(_board, turn, self.depth)
+        # prf.disable()
+        # prf.print_stats()
+
         return y, x
 
     @cython.nonecheck(False)
@@ -276,7 +287,7 @@ cdef class AlphaBetaAI(Player):
             return val
 
         # 相手の色
-        cdef int opponent = Turn.BLACK if player == Turn.WHITE else Turn.WHITE
+        cdef int opponent = BLACK if player == WHITE else WHITE
 
         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(
             board, player)
@@ -291,7 +302,8 @@ cdef class AlphaBetaAI(Player):
             best = -math.inf
             best_y = best_x = None
             for y, x, count in legal_move_count_list:
-                _board = copy.deepcopy(board)
+                _board = cPickle.loads(cPickle.dumps(board, -1))
+                # _board = copy.deepcopy(board)
                 self.put_stone(_board, y, x, player)
                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)
                 if isinstance(min_max_result, int):
@@ -312,7 +324,8 @@ cdef class AlphaBetaAI(Player):
             best = math.inf
             best_y = best_x = None
             for y, x, count in legal_move_count_list:
-                _board = copy.deepcopy(board)
+                _board = cPickle.loads(cPickle.dumps(board, -1))
+                # _board = copy.deepcopy(board)
                 self.put_stone(_board, y, x, player)
                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)
                 if isinstance(min_max_result, int):
@@ -333,6 +346,8 @@ cdef class AlphaBetaAI(Player):
     @cython.nonecheck(False)
     cdef int evaluation_function(self, list board, int player):
         cdef int evaluation = 0
+        cdef int x, y
+
         for y in range(1, 9):
             for x in range(1, 9):
                 if board[y][x] == player:
@@ -366,6 +381,7 @@ cdef class SwitchTacticsAlphaBetaAI(Player):
         cdef list legal_move_count_list
         cdef int black_stones
         cdef int white_stones
+        cdef int i, j
 
         super().thinking(board, turn)
         _board = [[0] * (ROW_CELLS + 2) for i in range(ROW_CELLS + 2)]
@@ -396,7 +412,7 @@ cdef class SwitchTacticsAlphaBetaAI(Player):
             return val
 
         # 相手の色
-        cdef int opponent = Turn.BLACK if player == Turn.WHITE else Turn.WHITE
+        cdef int opponent = BLACK if player == WHITE else WHITE
 
         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(
             board, player)
@@ -411,7 +427,8 @@ cdef class SwitchTacticsAlphaBetaAI(Player):
             best = -math.inf
             best_y = best_x = None
             for y, x, count in legal_move_count_list:
-                _board = copy.deepcopy(board)
+                _board = cPickle.loads(cPickle.dumps(board, -1))
+                # _board = copy.deepcopy(board)
                 self.put_stone(_board, y, x, player)
                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)
                 if isinstance(min_max_result, int):
@@ -432,7 +449,8 @@ cdef class SwitchTacticsAlphaBetaAI(Player):
             best = math.inf
             best_y = best_x = None
             for y, x, count in legal_move_count_list:
-                _board = copy.deepcopy(board)
+                _board = cPickle.loads(cPickle.dumps(board, -1))
+                # _board = copy.deepcopy(board)
                 self.put_stone(_board, y, x, player)
                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)
                 if isinstance(min_max_result, int):
@@ -464,7 +482,7 @@ cdef class SwitchTacticsAlphaBetaAI(Player):
             return val
 
         # 相手の色
-        cdef int opponent = Turn.BLACK if player == Turn.WHITE else Turn.WHITE
+        cdef int opponent = BLACK if player == WHITE else WHITE
 
         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(
             board, player)
@@ -479,7 +497,8 @@ cdef class SwitchTacticsAlphaBetaAI(Player):
             best = -math.inf
             best_y = best_x = None
             for y, x, count in legal_move_count_list:
-                _board = copy.deepcopy(board)
+                _board = cPickle.loads(cPickle.dumps(board, -1))
+                # _board = copy.deepcopy(board)
                 self.put_stone(_board, y, x, player)
                 min_max_result = self.final_stage_alpha_beta(_board, opponent, depth - 1, alpha, beta)
                 if isinstance(min_max_result, int):
@@ -500,7 +519,8 @@ cdef class SwitchTacticsAlphaBetaAI(Player):
             best = math.inf
             best_y = best_x = None
             for y, x, count in legal_move_count_list:
-                _board = copy.deepcopy(board)
+                _board = cPickle.loads(cPickle.dumps(board, -1))
+                # _board = copy.deepcopy(board)
                 self.put_stone(_board, y, x, player)
                 min_max_result = self.final_stage_alpha_beta(_board, opponent, depth - 1, alpha, beta)
                 if isinstance(min_max_result, int):
@@ -521,6 +541,8 @@ cdef class SwitchTacticsAlphaBetaAI(Player):
     @cython.nonecheck(False)
     cdef int evaluation_function(self, list board, int player):
         cdef int evaluation = 0
+        cdef int x, y
+
         for y in range(1, 9):
             for x in range(1, 9):
                 if board[y][x] == player:
@@ -531,6 +553,8 @@ cdef class SwitchTacticsAlphaBetaAI(Player):
     @cython.nonecheck(False)
     cdef int final_stage_evaluation_function(self, list board, int player):
         cdef int evaluation = 0
+        cdef int x, y
+
         for y in range(1, 9):
             for x in range(1, 9):
                 if board[y][x] == player:
@@ -551,6 +575,8 @@ cdef class CountMovesAlphaBetaAI(Player):
     @cython.nonecheck(False)
     def thinking(self, list board, int turn):
         cdef int x, y, val
+        cdef int i, j
+
         super().thinking(board, turn)
         _board = [[0] * (ROW_CELLS + 2) for i in range(ROW_CELLS + 2)]
         for i in range(1, 9):
@@ -574,7 +600,7 @@ cdef class CountMovesAlphaBetaAI(Player):
             return val
 
         # 相手の色
-        cdef int opponent = Turn.BLACK if player == Turn.WHITE else Turn.WHITE
+        cdef int opponent = BLACK if player == WHITE else WHITE
 
         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(
             board, player)
@@ -589,7 +615,8 @@ cdef class CountMovesAlphaBetaAI(Player):
             best = -math.inf
             best_y = best_x = None
             for y, x, count in legal_move_count_list:
-                _board = copy.deepcopy(board)
+                _board = cPickle.loads(cPickle.dumps(board, -1))
+                # _board = copy.deepcopy(board)
                 self.put_stone(_board, y, x, player)
                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)
                 if isinstance(min_max_result, int):
@@ -610,7 +637,8 @@ cdef class CountMovesAlphaBetaAI(Player):
             best = math.inf
             best_y = best_x = None
             for y, x, count in legal_move_count_list:
-                _board = copy.deepcopy(board)
+                _board = cPickle.loads(cPickle.dumps(board, -1))
+                # _board = copy.deepcopy(board)
                 self.put_stone(_board, y, x, player)
                 min_max_result = self.alpha_beta(_board, opponent, depth - 1, alpha, beta)
                 if isinstance(min_max_result, int):
@@ -633,7 +661,7 @@ cdef class CountMovesAlphaBetaAI(Player):
         """
         自分の打てる手の数 - 相手の打てる手の数
         """
-        cdef int opponent = Turn.BLACK if player == Turn.WHITE else Turn.WHITE
+        cdef int opponent = BLACK if player == WHITE else WHITE
         cdef list self_legal_move_count_list
         cdef list opponent_legal_move_count_list
         cdef int evaluation
@@ -676,6 +704,8 @@ cdef class PrimitiveMonteCarloPlayer(Player):
         start = time.time()
         cdef list _board
         cdef int x, y
+        cdef int i, j
+
         super().thinking(board, turn)
         _board = [[0] * (ROW_CELLS + 2) for i in range(ROW_CELLS + 2)]
         for i in range(1, 9):
@@ -693,7 +723,8 @@ cdef class PrimitiveMonteCarloPlayer(Player):
         cdef list legal_move_count_list
         cdef int black_stones
         cdef int white_stones
-        cdef copy_board
+        cdef list copy_board
+        cdef int i
 
         # 打てる手を全て探し出し
         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(
@@ -702,7 +733,8 @@ cdef class PrimitiveMonteCarloPlayer(Player):
         # 現在の盤面を展開
         cdef int legal_move_count_list_len = len(legal_move_count_list)
         for i in range(legal_move_count_list_len):
-            copy_board = copy.deepcopy(tree.board)
+            copy_board = cPickle.loads(cPickle.dumps(tree.board, -1))
+            # copy_board = copy.deepcopy(tree.board)
             self.put_stone(copy_board, legal_move_count_list[i][0], legal_move_count_list[i][1], turn)
             tree.child.append(node(copy_board, (legal_move_count_list[i][0], legal_move_count_list[i][1])))
 
@@ -734,8 +766,7 @@ cdef class PrimitiveMonteCarloPlayer(Player):
 
     @cython.nonecheck(False)
     cdef int playout(self, list board, int player):
-        cdef int opponent = Turn.BLACK if player == Turn.WHITE else Turn.WHITE
-        # 打てる手を全て探し出し
+        cdef int opponent = BLACK if player == WHITE else WHITE
         cdef list legal_move_count_list, _legal_move_count_list
         cdef int black_stones
         cdef int white_stones
@@ -747,7 +778,7 @@ cdef class PrimitiveMonteCarloPlayer(Player):
 
         if len(legal_move_count_list) == 0:
             # ターンを渡す
-            opponent = Turn.BLACK if player == Turn.WHITE else Turn.WHITE
+            opponent = BLACK if player == WHITE else WHITE
             _legal_move_count_list, black_stones, white_stones = \
                 self.exist_legal_move_and_count_stones(board, opponent)
             legal_move_list = []
@@ -759,7 +790,7 @@ cdef class PrimitiveMonteCarloPlayer(Player):
              # :両者置く場所がない
             if len(legal_move_list) == 0:
                 # ゲーム終了
-                if self.player == Turn.BLACK:
+                if self.player == BLACK:
                     if black_stones > white_stones:
                         return 1
                     else:
@@ -771,7 +802,8 @@ cdef class PrimitiveMonteCarloPlayer(Player):
                         return 0
             else:
                 y, x, count = random.choice(_legal_move_count_list)
-                copy_board = copy.deepcopy(board)
+                copy_board = cPickle.loads(cPickle.dumps(board, -1))
+                # copy_board = copy.deepcopy(board)
                 self.put_stone(copy_board, y, x, player)
                 if self.playout(copy_board, opponent) == 1:
                     return 1
@@ -779,7 +811,8 @@ cdef class PrimitiveMonteCarloPlayer(Player):
                     return 0
 
         y, x, count = random.choice(legal_move_count_list)
-        copy_board = copy.deepcopy(board)
+        copy_board = cPickle.loads(cPickle.dumps(board, -1))
+        # copy_board = copy.deepcopy(board)
         self.put_stone(copy_board, y, x, player)
         if self.playout(copy_board, opponent) == 1:
             return 1
@@ -806,7 +839,7 @@ cdef class PrimitiveMonteCarloPlayer(Player):
 
         if len(legal_move_count_list) == 0:
             # ターンを渡す
-            opponent = Turn.BLACK if player == Turn.WHITE else Turn.WHITE
+            opponent = BLACK if player == WHITE else WHITE
             _legal_move_count_list, black_stones, white_stones = \
                 self.exist_legal_move_and_count_stones(tree.board, opponent)
             legal_move_list = []
@@ -818,7 +851,7 @@ cdef class PrimitiveMonteCarloPlayer(Player):
             # :両者置く場所がない
             if len(legal_move_list) == 0:
                 # ゲーム終了
-                if self.player == Turn.BLACK:
+                if self.player == BLACK:
                     if black_stones > white_stones:
                         return 1
                     else:
@@ -854,9 +887,11 @@ cdef class MCTSPlayer(Player):
 
     @cython.nonecheck(False)
     def thinking(self, list board, int turn):
-        start = time.time()  # thinking関数の時間を計測
+        # start = time.time()
         cdef list _board
         cdef int x, y
+        cdef int i, j
+
         super().thinking(board, turn)
         _board = [[0] * (ROW_CELLS + 2) for i in range(ROW_CELLS + 2)]
         for i in range(1, 9):
@@ -864,8 +899,15 @@ cdef class MCTSPlayer(Player):
                 _board[i][j] = board[i - 1][j - 1]
 
         cdef node montecarlo_tree = node(_board, None)
+        # prf = cProfile.Profile()
+        # prf.enable()
         y, x = self.MCTS(turn, montecarlo_tree)
-        print(time.time() - start)
+        # prf.disable()
+        # prf.print_stats()
+        # stats = pstats.Stats(prf)
+        # stats.sort_stats("time")
+        # stats.print_stats()
+        # print(time.time() - start)
 
         return y, x
 
@@ -874,7 +916,10 @@ cdef class MCTSPlayer(Player):
         cdef list legal_move_count_list
         cdef int black_stones
         cdef int white_stones
-        cdef copy_board
+        cdef list copy_board
+        cdef int i
+        cdef double e = 0  # 期待値
+        cdef tuple vest_point = ()
 
         # 打てる手を全て探し出し
         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(
@@ -883,7 +928,8 @@ cdef class MCTSPlayer(Player):
         # 現在の盤面を展開
         cdef int legal_move_count_list_len = len(legal_move_count_list)
         for i in range(legal_move_count_list_len):
-            copy_board = copy.deepcopy(tree.board)
+            copy_board = cPickle.loads(cPickle.dumps(tree.board, -1))
+            # copy_board = copy.deepcopy(tree.board)
             self.put_stone(copy_board, legal_move_count_list[i][0], legal_move_count_list[i][1], turn)
             tree.child.append(node(copy_board, (legal_move_count_list[i][0], legal_move_count_list[i][1])))
 
@@ -898,8 +944,6 @@ cdef class MCTSPlayer(Player):
                 for d in c.child:
                     print("        " + str(d.visit_count), d.wins)
 
-        e = 0  # 期待値
-        vest_point = ()
         for child in tree.child:
             # 0除算回避
             if child.visit_count is not 0 and child.wins / child.visit_count > e:
@@ -928,7 +972,7 @@ cdef class MCTSPlayer(Player):
 
         tree.visit_count += 1
 
-        opponent = Turn.BLACK if player == Turn.WHITE else Turn.WHITE
+        opponent = BLACK if player == WHITE else WHITE
 
         # 打てる手を全て探し出し
         legal_move_count_list, black_stones, white_stones = self.exist_legal_move_and_count_stones(
@@ -947,7 +991,7 @@ cdef class MCTSPlayer(Player):
             # :両者置く場所がない
             if len(legal_move_list) == 0:
                 # ゲーム終了
-                if self.player == Turn.BLACK:
+                if self.player == BLACK:
                     if black_stones > white_stones:
                         return 1
                     else:
@@ -962,7 +1006,8 @@ cdef class MCTSPlayer(Player):
             if self.visit_threshold < tree.visit_count:  # 閾値より大きい場合
                 # 展開
                 for y, x, count in legal_move_count_list:
-                    copy_board = copy.deepcopy(tree.board)
+                    copy_board = cPickle.loads(cPickle.dumps(tree.board, -1))
+                    # copy_board = copy.deepcopy(tree.board)
                     self.put_stone(copy_board, y, x, player)
                     tree.child.append(node(copy_board, (y, x)))
 
@@ -1000,7 +1045,7 @@ cdef class MCTSPlayer(Player):
     @cython.nonecheck(False)
     cdef int playout(self, list board, int player):
 
-        cdef int opponent = Turn.BLACK if player == Turn.WHITE else Turn.WHITE
+        cdef int opponent = BLACK if player == WHITE else WHITE
         # 打てる手を全て探し出し
         cdef list legal_move_count_list, _legal_move_count_list
         cdef int black_stones
@@ -1024,7 +1069,7 @@ cdef class MCTSPlayer(Player):
              # :両者置く場所がない
             if len(legal_move_list) == 0:
                 # ゲーム終了
-                if self.player == Turn.BLACK:
+                if self.player == BLACK:
                     if black_stones > white_stones:
                         return 1
                     else:
@@ -1036,7 +1081,8 @@ cdef class MCTSPlayer(Player):
                         return 0
             else:
                 y, x, count = random.choice(_legal_move_count_list)
-                copy_board = copy.deepcopy(board)
+                copy_board = cPickle.loads(cPickle.dumps(board, -1))
+                # copy_board = copy.deepcopy(board)
                 self.put_stone(copy_board, y, x, opponent)
                 if self.playout(copy_board, opponent) == 1:
                     return 1
@@ -1044,7 +1090,8 @@ cdef class MCTSPlayer(Player):
                     return 0
 
         y, x, count = random.choice(legal_move_count_list)
-        copy_board = copy.deepcopy(board)
+        copy_board = cPickle.loads(cPickle.dumps(board, -1))
+        # copy_board = copy.deepcopy(board)
         self.put_stone(copy_board, y, x, player)
         if self.playout(copy_board, opponent) == 1:
             return 1
@@ -1053,6 +1100,8 @@ cdef class MCTSPlayer(Player):
 
     @cython.nonecheck(False)
     cdef node get_max_ubc1(self, node tree):
+        cdef int idx
+
         max_ucb1 = 0
         max_ucb_idx = None
         for idx in range(len(tree.child)):
@@ -1067,6 +1116,6 @@ cdef class MCTSPlayer(Player):
     cdef double ucb1(self, node tree, node child):
         if child.visit_count == 0:
             return math.inf
-        value = (float(child.wins) / float(child.visit_count)) + math.sqrt((2 * math.log(tree.visit_count)) / child.visit_count)
+        value = (child.wins / <double>child.visit_count) + ((2 * math.log(tree.visit_count)) / child.visit_count) ** (1 / 2)
 
         return value

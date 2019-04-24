@@ -1,7 +1,4 @@
-import enum
-
-
-class Stone(enum.IntEnum):
+class Stone():
     UNDEFINED = 0  # 盤面外
     BLACK = 1
     WHITE = 2

@@ -4,7 +4,7 @@ import player
 import cplayer
 
 
-AI_TYPE = player.RandomChoiceAI()
+AI_TYPE = cplayer.MCTSPlayer(600, 3)
 
 
 class GameSettings():
