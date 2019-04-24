@@ -1,6 +1,3 @@
-import enum
-
-
-class Turn(enum.IntEnum):
+class Turn():
     BLACK = 1
     WHITE = 2
