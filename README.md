@@ -5,3 +5,10 @@
 
 ## Description
 Pyxelを使用した作ったリバーシ
+
+## Requirement
+- Pyxel
+- Cython
+
+## Usage
+`python main.py`
