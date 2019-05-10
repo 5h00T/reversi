@@ -4,7 +4,7 @@ import player
 import cplayer
 
 
-AI_TYPE = cplayer.MCTSPlayer(600, 3)
+AI_TYPE = cplayer.MCTSPlayer(2000, 5)
 
 
 class GameSettings():

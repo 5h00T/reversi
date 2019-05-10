@@ -19,8 +19,8 @@ class Reversi():
         self.win_player = None
         self.now_turn = turn.Turn.BLACK  # 最初は黒のターン
         self.legal_move_count_list = None
-        self.black_player = player.PrimitiveMonteCarloPlayer(200)
-        self.white_player = cplayer.PrimitiveMonteCarloPlayer(200)
+        self.black_player = black_player
+        self.white_player = white_player
 
         self.executor = concurrent.futures.ProcessPoolExecutor(max_workers=1)
         self.black_player_think_result = None

@@ -6,6 +6,7 @@ import time
 import stone
 import turn
 import _pickle as cPickle
+import cProfile
 
 
 ROW_CELLS = 8
@@ -661,7 +662,11 @@ class MCTSPlayer(Player):
                 _board[i][j] = board[i - 1][j - 1]
 
         montecarlo_tree = node(_board, None)
+        # prf = cProfile.Profile()
+        # prf.enable()
         y, x = self.MCTS(_board, turn, montecarlo_tree)
+        # prf.disable()
+        # prf.print_stats()
 
         return y, x
 
@@ -679,6 +684,7 @@ class MCTSPlayer(Player):
         for i in range(self.playout_num):
             self.selection(turn, tree)
 
+        """
         print("a", tree.visit_count)
         for child in tree.child:
             print(child.visit_count, child.wins, child.te)
@@ -686,6 +692,7 @@ class MCTSPlayer(Player):
                 print("    " + str(c.visit_count), c.wins)
                 for d in c.child:
                     print("        " + str(d.visit_count), d.wins)
+        """
 
         s = 0
         t = ()
@@ -852,7 +859,7 @@ class PrimitiveMonteCarloPlayer(Player):
 
         self.montecarlo_tree = node(_board, None)
         y, x = self.primitive_montecarlo(turn, self.montecarlo_tree)
-        print(time.time() - start)
+        # print(time.time() - start)
 
         return y, x
 
@@ -870,6 +877,7 @@ class PrimitiveMonteCarloPlayer(Player):
         for i in range(self.playout_num):
             self.selection(turn, tree)
 
+        """
         print("a", tree.visit_count)
         for child in tree.child:
             print(child.visit_count, child.wins, child.te)
@@ -877,6 +885,7 @@ class PrimitiveMonteCarloPlayer(Player):
                 print("    " + str(c.visit_count), c.wins)
                 for d in c.child:
                     print("        " + str(d.visit_count), d.wins)
+        """
 
         s = 0
         t = ()

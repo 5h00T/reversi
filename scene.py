@@ -1,4 +1,7 @@
-class Scene():
+import enum
+
+
+class Scene(enum.IntEnum):
     NO_SCENE_CHANGE = 0
     MENU = 1
     GAME = 2

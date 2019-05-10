@@ -158,7 +158,7 @@ cdef class MinMaxAI(Player):
                 _board[i][j] = board[i - 1][j - 1]
 
         val, y, x = self.mini_max(_board, turn, self.depth)
-        print("min_max", val)
+        # print("min_max", val)
 
         return y, x
 
@@ -174,7 +174,7 @@ cdef class MinMaxAI(Player):
         # 葉の場合、評価値を返す
         if depth == 0:
             val = self.evaluation_function(board, self.player)
-            print(player, "val", val)
+            # print(player, "val", val)
             return val
 
         # 相手の色
@@ -231,7 +231,7 @@ cdef class MinMaxAI(Player):
         for y in range(1, 9):
             for x in range(1, 9):
                 if board[y][x] == player:
-                    print(y, x, self.board_gain[y - 1][x - 1])
+                    # print(y, x, self.board_gain[y - 1][x - 1])
                     evaluation += self.board_gain[y - 1][x - 1]
 
         return evaluation
@@ -701,7 +701,7 @@ cdef class PrimitiveMonteCarloPlayer(Player):
 
     @cython.nonecheck(False)
     def thinking(self, list board, int turn):
-        start = time.time()
+        # start = time.time()
         cdef list _board
         cdef int x, y
         cdef int i, j
@@ -714,7 +714,7 @@ cdef class PrimitiveMonteCarloPlayer(Player):
 
         cdef node montecarlo_tree = node(_board, None)
         y, x = self.primitive_montecarlo(turn, montecarlo_tree)
-        print(time.time() - start)
+        # print(time.time() - start)
 
         return y, x
 
@@ -741,6 +741,7 @@ cdef class PrimitiveMonteCarloPlayer(Player):
         for i in range(self.playout_num):
             self.selection(turn, tree)
 
+        """
         print("a", tree.visit_count)
         for child in tree.child:
             print(child.visit_count, child.wins, child.te)
@@ -748,6 +749,7 @@ cdef class PrimitiveMonteCarloPlayer(Player):
                 print("    " + str(c.visit_count), c.wins)
                 for d in c.child:
                     print("        " + str(d.visit_count), d.wins)
+        """
 
         e = 0  # 期待値
         vest_point = ()
@@ -936,6 +938,7 @@ cdef class MCTSPlayer(Player):
         for i in range(self.playout_num):
             self.selection(turn, tree)
 
+        """
         print("a", tree.visit_count)
         for child in tree.child:
             print(child.visit_count, child.wins, child.te)
@@ -943,6 +946,7 @@ cdef class MCTSPlayer(Player):
                 print("    " + str(c.visit_count), c.wins)
                 for d in c.child:
                     print("        " + str(d.visit_count), d.wins)
+        """
 
         for child in tree.child:
             # 0除算回避
