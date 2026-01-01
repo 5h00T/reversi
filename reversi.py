@@ -1,7 +1,6 @@
 import pyxel
 
 import player
-import cplayer
 from scene import Scene
 import concurrent.futures
 import stone
@@ -11,7 +10,7 @@ import turn
 ROW_CELLS = 8
 
 
-class Reversi():
+class Reversi:
     def __init__(self, black_player, white_player):
         self.row_cells = ROW_CELLS
 
@@ -27,7 +26,11 @@ class Reversi():
         self.white_player_think_result = None
         self.black_player_name = None
         self.white_player_name = None
-        self.legal_move_count_list, self.black_stones, self.white_stones = None, None, None
+        self.legal_move_count_list, self.black_stones, self.white_stones = (
+            None,
+            None,
+            None,
+        )
 
         self.init_game()
 
@@ -46,10 +49,13 @@ class Reversi():
         print(self.black_player_name, self.white_player_name)
         # 黒のターンを開始
         _board = [board_1d[1:9] for board_1d in self.board[1:9]]
-        self.black_player_think_result = self.executor.submit(self.black_player.thinking, _board, self.now_turn)
+        self.black_player_think_result = self.executor.submit(
+            self.black_player.thinking, _board, self.now_turn
+        )
         self.white_player_think_result = None
-        self.legal_move_count_list, self.black_stones, self.white_stones = self.exist_legal_move_and_count_stones(
-            self.now_turn)
+        self.legal_move_count_list, self.black_stones, self.white_stones = (
+            self.exist_legal_move_and_count_stones(self.now_turn)
+        )
 
     def update(self):
 
@@ -58,40 +64,70 @@ class Reversi():
             if self.now_turn == turn.Turn.BLACK:
                 if self.black_player_name == "Human":
                     _board = [board_1d[1:9] for board_1d in self.board[1:9]]
-                    result_y, result_x = self.black_player.thinking(_board, self.now_turn)
-                elif self.black_player_think_result is not None \
-                        and self.black_player_think_result.done():
+                    result_y, result_x = self.black_player.thinking(
+                        _board, self.now_turn
+                    )
+                elif (
+                    self.black_player_think_result is not None
+                    and self.black_player_think_result.done()
+                ):
                     result_y, result_x = self.black_player_think_result.result()
                     self.black_player_think_result = None
             elif self.now_turn == turn.Turn.WHITE:
                 if self.white_player_name == "Human":
                     _board = [board_1d[1:9] for board_1d in self.board[1:9]]
-                    result_y, result_x = self.white_player.thinking(_board, self.now_turn)
-                elif self.white_player_think_result is not None \
-                        and self.white_player_think_result.done():
+                    result_y, result_x = self.white_player.thinking(
+                        _board, self.now_turn
+                    )
+                elif (
+                    self.white_player_think_result is not None
+                    and self.white_player_think_result.done()
+                ):
                     result_y, result_x = self.white_player_think_result.result()
                     self.white_player_think_result = None
 
             if not (result_x == result_y is None):
                 legal_move_list = [tuple(i[0:2]) for i in self.legal_move_count_list]
-                if result_x is not None and result_x < 9 and result_y < 9 \
-                        and (result_y, result_x) in legal_move_list \
-                        and self.board[result_y][result_x] is not stone.Stone.UNDEFINED:
+                if (
+                    result_x is not None
+                    and result_x < 9
+                    and result_y < 9
+                    and (result_y, result_x) in legal_move_list
+                    and self.board[result_y][result_x] is not stone.Stone.UNDEFINED
+                ):
                     if self.put_stone(result_y, result_x, self.now_turn):
                         # ターン変更
-                        self.now_turn = turn.Turn.BLACK if self.now_turn == turn.Turn.WHITE else turn.Turn.WHITE
-                        self.legal_move_count_list, self.black_stones, self.white_stones = \
-                            self.exist_legal_move_and_count_stones(self.now_turn)
-                        legal_move_list = [tuple(i[0:2]) for i in self.legal_move_count_list]
+                        self.now_turn = (
+                            turn.Turn.BLACK
+                            if self.now_turn == turn.Turn.WHITE
+                            else turn.Turn.WHITE
+                        )
+                        (
+                            self.legal_move_count_list,
+                            self.black_stones,
+                            self.white_stones,
+                        ) = self.exist_legal_move_and_count_stones(self.now_turn)
+                        legal_move_list = [
+                            tuple(i[0:2]) for i in self.legal_move_count_list
+                        ]
 
                         # 打つ手がない場合
                         if len(legal_move_list) == 0:
                             # print("cannot put, pass", self.now_turn, "turn")
                             # ターンを渡す
-                            self.now_turn = turn.Turn.BLACK if self.now_turn == turn.Turn.WHITE else turn.Turn.WHITE
-                            self.legal_move_count_list, self.black_stones, self.white_stones = \
-                                self.exist_legal_move_and_count_stones(self.now_turn)
-                            legal_move_list = [tuple(i[0:2]) for i in self.legal_move_count_list]
+                            self.now_turn = (
+                                turn.Turn.BLACK
+                                if self.now_turn == turn.Turn.WHITE
+                                else turn.Turn.WHITE
+                            )
+                            (
+                                self.legal_move_count_list,
+                                self.black_stones,
+                                self.white_stones,
+                            ) = self.exist_legal_move_and_count_stones(self.now_turn)
+                            legal_move_list = [
+                                tuple(i[0:2]) for i in self.legal_move_count_list
+                            ]
                             # 渡されても打つ手がない場合(両者打つ手がない)
                             # :盤面がすべて埋まる
                             # :どちらかが全滅する
@@ -108,14 +144,26 @@ class Reversi():
                                 # print("cannot continue game\n{} win".format(self.win_player))
                                 return Scene.NO_SCENE_CHANGE
                         _board = [board_1d[1:9] for board_1d in self.board[1:9]]
-                        if self.now_turn == turn.Turn.BLACK and not self.black_player_name == "Human":
-                            self.executor = concurrent.futures.ProcessPoolExecutor(max_workers=1)
-                            self.black_player_think_result = self.executor.submit(self.black_player.thinking, _board,
-                                                                                  self.now_turn)
-                        elif self.now_turn == turn.Turn.WHITE and not self.white_player_name == "Human":
-                            self.executor = concurrent.futures.ProcessPoolExecutor(max_workers=1)
-                            self.white_player_think_result = self.executor.submit(self.white_player.thinking, _board,
-                                                                                  self.now_turn)
+                        if (
+                            self.now_turn == turn.Turn.BLACK
+                            and not self.black_player_name == "Human"
+                        ):
+                            self.executor = concurrent.futures.ProcessPoolExecutor(
+                                max_workers=1
+                            )
+                            self.black_player_think_result = self.executor.submit(
+                                self.black_player.thinking, _board, self.now_turn
+                            )
+                        elif (
+                            self.now_turn == turn.Turn.WHITE
+                            and not self.white_player_name == "Human"
+                        ):
+                            self.executor = concurrent.futures.ProcessPoolExecutor(
+                                max_workers=1
+                            )
+                            self.white_player_think_result = self.executor.submit(
+                                self.white_player.thinking, _board, self.now_turn
+                            )
         else:
             if pyxel.btnp(pyxel.KEY_R, 60, 60):
                 self.init_game()

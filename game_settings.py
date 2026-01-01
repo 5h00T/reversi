@@ -3,19 +3,27 @@ from scene import Scene
 import player
 import cplayer
 
+# AI_TYPE = player.MCTSPlayer(2000, 5)
+# AI_TYPE = cplayer.MinMaxAI(5)
+AI_TYPE = player.MinMaxAI(5)
 
-AI_TYPE = cplayer.MCTSPlayer(2000, 5)
 
-
-class GameSettings():
+class GameSettings:
 
     def __init__(self, cursor_position):
         self.cursor = cursor_position
-        self.match_player_text = ["human vs human", "human vs COM", "COM vs human",  "COM vs COM"]
-        self.match_player = [(player.Human(), player.Human()),
-                             (player.Human(), AI_TYPE),
-                             (AI_TYPE, player.Human()),
-                             (AI_TYPE, AI_TYPE)]
+        self.match_player_text = [
+            "human vs human",
+            "human vs COM",
+            "COM vs human",
+            "COM vs COM",
+        ]
+        self.match_player = [
+            (player.Human(), player.Human()),
+            (player.Human(), AI_TYPE),
+            (AI_TYPE, player.Human()),
+            (AI_TYPE, AI_TYPE),
+        ]
         self.is_active = True
 
     def update(self):
@@ -23,7 +31,7 @@ class GameSettings():
         if pyxel.btnp(pyxel.KEY_UP, 30, 20):
             self.cursor = max(0, self.cursor - 1)
         elif pyxel.btnp(pyxel.KEY_DOWN, 30, 20):
-            self.cursor = min(len(self.match_player)-1, self.cursor + 1)
+            self.cursor = min(len(self.match_player) - 1, self.cursor + 1)
 
         if pyxel.btnp(pyxel.KEY_Z, 10, 10):
             for idx in range(len(self.match_player)):
