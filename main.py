@@ -7,8 +7,8 @@ import scene_manager
 class App:
     def __init__(self):
         self.scene_manager = scene_manager.SceneManager()
+        pyxel.init(72, 82, title="reversi", fps=30)
         pyxel.mouse(True)
-        pyxel.init(72, 82, caption="othello", fps=30)
         pyxel.run(self.update, self.draw)
 
     def update(self):

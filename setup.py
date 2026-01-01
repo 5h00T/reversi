@@ -1,6 +1,9 @@
-from distutils.core import setup
+from setuptools import setup
 from Cython.Build import cythonize
 
 setup(
-    ext_modules=cythonize("cplayer.pyx")
+    name="cplayer",
+    ext_modules=cythonize("cplayer.pyx"),
+    py_modules=[],
+    packages=[],
 )
